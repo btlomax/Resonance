@@ -21,11 +21,13 @@ public class PlayerMovement : MonoBehaviour
         _characterController = GetComponent<CharacterController>();
         _controls = new PlayerControls();
 
-        _controls.Gameplay.Movement.performed += ctx => _moveInput = ctx.ReadValue<Vector2>();
-        _controls.Gameplay.Movement.canceled += ctx => _moveInput = Vector2.zero;
+        _controls.MouseKeyboard.Movement.performed += ctx => _moveInput = ctx.ReadValue<Vector2>();
+        _controls.MouseKeyboard.Movement.canceled += ctx => _moveInput = Vector2.zero;
 
-       // _controls.Gameplay.Look.performed += ctx => lookInput = ctx.ReadValue<Vector2>();
-       // _controls.Gameplay.Look.canceled += ctx => lookInput = Vector2.zero;
+        _controls.Controller.Movement.performed += ctx => _moveInput = ctx.ReadValue<Vector2>();
+
+        // _controls.Gameplay.Look.performed += ctx => lookInput = ctx.ReadValue<Vector2>();
+        // _controls.Gameplay.Look.canceled += ctx => lookInput = Vector2.zero;
     }
 
     private void OnEnable() => _controls.Enable();
@@ -42,6 +44,7 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         HandleMovement();
+        Raycast();
     }
 
     private void HandleMovement()
@@ -62,6 +65,18 @@ public class PlayerMovement : MonoBehaviour
             transform.forward = Vector3.Slerp(transform.forward, move, lookSpeed * Time.deltaTime);
         }
 
-        _characterController.Move(move * moveSpeed * Time.deltaTime);
+           _characterController.Move(move * moveSpeed * Time.deltaTime);
+    }
+
+    private void Raycast()
+    {
+        Ray ray = new Ray(transform.position + new Vector3(0, 0, 2), transform.forward);
+
+        Debug.DrawRay(ray.origin, ray.direction * 100f, Color.red);
+
+        if (Physics.Raycast(ray, out RaycastHit hitInfo))
+        {
+            Debug.Log("Hit: " + hitInfo.collider.gameObject.name);
+        }
     }
 }

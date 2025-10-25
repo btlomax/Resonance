@@ -2,8 +2,12 @@ using UnityEngine;
 
 public class PlayerCameraSetup : MonoBehaviour
 {
+    public Transform followTarget;
     public float Yaw { get; private set; } = 0f;
     public float Pitch { get; private set; } = 0f;
+
+    public Vector3 offset = new Vector3(0f, 8f, -8f);
+    public bool useFixedRotation = true;
 
     [SerializeField]
     private InputHandler _inputHandler; // assign your InputHandler
@@ -16,13 +20,14 @@ public class PlayerCameraSetup : MonoBehaviour
 
     private void LateUpdate()
     {
-        Vector2 look = _inputHandler.LookInput;
+        if(!followTarget) return;
 
-        Yaw += look.x * _rotationSpeed * Time.deltaTime;
-        Pitch -= look.y * _rotationSpeed * Time.deltaTime;
+        Vector3 nextPosition = followTarget.position + offset;
+        transform.position = Vector3.Lerp(transform.position, nextPosition, Time.deltaTime * 5f);
 
-        Pitch = Mathf.Clamp(Pitch, pitchMinAngle, pitchMaxAngle); // limit vertical look angle
+        if (useFixedRotation)
+            transform.rotation = Quaternion.Euler(45f, 0f, 0f);
+        else { } // Add rotation here later 
 
-        transform.Rotate(look.y * _rotationSpeed * Time.deltaTime, look.x * _rotationSpeed * Time.deltaTime, 0);
     }
 }

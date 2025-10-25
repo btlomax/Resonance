@@ -478,7 +478,7 @@ GameObject:
   - component: {fileID: 1119756055}
   - component: {fileID: 1119756053}
   m_Layer: 0
-  m_Name: CM_3rdPerson
+  m_Name: Camera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -511,11 +511,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d00c87d7aab47f4468ac5447fd65493a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ThirdPersonCameraOrbit
-  target: {fileID: 1350070061}
-  offset: {x: 0, y: 15, z: -10}
-  rotationSpeed: 100
-  followSpeed: 5
-  inputHandler: {fileID: 1517332154}
+  _inputHandler: {fileID: 1517332154}
 --- !u!114 &1119756054
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -788,7 +784,7 @@ MonoBehaviour:
   moveSpeed: 5
   rotationSpeed: 20
   cameraTransform: {fileID: 1350070061}
-  inputHandler: {fileID: 1517332154}
+  _inputHandler: {fileID: 1517332154}
 --- !u!143 &1517332150
 CharacterController:
   m_ObjectHideFlags: 0

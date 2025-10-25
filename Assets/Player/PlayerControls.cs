@@ -168,9 +168,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": ""Look"",
-                    ""id"": ""8b1b2f5d-7c95-4077-b9f7-755fc5b69773"",
-                    ""path"": ""2DVector"",
+                    ""name"": ""2D Vector"",
+                    ""id"": ""32f222f6-4c41-45f6-b724-1673083714c6"",
+                    ""path"": ""2DVector(mode=2)"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -179,9 +179,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": ""Up"",
-                    ""id"": ""70086caa-b042-4fc0-84db-c64e023933b4"",
-                    ""path"": ""<Mouse>/position/y"",
+                    ""name"": ""up"",
+                    ""id"": ""7db97f3e-19d0-405c-8e91-04f8f7014c32"",
+                    ""path"": ""<Mouse>/scroll/up"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -190,9 +190,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": ""Down"",
-                    ""id"": ""06720969-98a5-4efb-b282-17d289b9dd40"",
-                    ""path"": ""<Mouse>/position/y"",
+                    ""name"": ""down"",
+                    ""id"": ""0aa9ced5-9be7-4981-9102-bc41e83a8963"",
+                    ""path"": ""<Mouse>/scroll/down"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -201,9 +201,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": ""Left"",
-                    ""id"": ""d60a6a29-d640-48ee-9754-bcfba50daadc"",
-                    ""path"": ""<Gamepad>/rightStick/left"",
+                    ""name"": ""left"",
+                    ""id"": ""6a355fba-53ed-47d3-b52f-097be230e7b1"",
+                    ""path"": ""<Mouse>/scroll/left"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -212,9 +212,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": ""Right"",
-                    ""id"": ""fc8856de-6dc2-4338-9e9f-491c00a12681"",
-                    ""path"": ""<Gamepad>/rightStick/right"",
+                    ""name"": ""right"",
+                    ""id"": ""887f915b-57c7-4a00-a0a2-efb2ce09d94f"",
+                    ""path"": ""<Mouse>/scroll/right"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -305,8 +305,8 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""2D Vector"",
-                    ""id"": ""b06e66e4-b92c-499c-acd5-c8b252239cd8"",
-                    ""path"": ""2DVector"",
+                    ""id"": ""38105abe-74a9-4d35-8fb6-18539d542e59"",
+                    ""path"": ""2DVector(mode=2)"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -316,7 +316,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""up"",
-                    ""id"": ""ea2eb40b-31e0-4f1c-b9d4-94176aba67e9"",
+                    ""id"": ""46680478-a618-4d0f-aac1-a59a374fa071"",
                     ""path"": ""<Gamepad>/rightStick/up"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -327,8 +327,30 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""down"",
-                    ""id"": ""f05a0558-b1f1-4cea-9992-62df6ba0ed22"",
+                    ""id"": ""709291f8-3b57-4eea-9d75-84c9e88d72e5"",
                     ""path"": ""<Gamepad>/rightStick/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Look"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""f522f3e3-756d-47a5-8cbb-40a25a9fb980"",
+                    ""path"": ""<Gamepad>/rightStick/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Look"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""e532a072-b249-4e8a-a4bc-992d8840bce9"",
+                    ""path"": ""<Gamepad>/rightStick/right"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",

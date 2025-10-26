@@ -22,7 +22,7 @@ public class PlayerCameraSetup : MonoBehaviour
     {
         if(!followTarget) return;
 
-        Vector3 nextPosition = followTarget.position + offset;
+        Vector3 nextPosition = followTarget.position;
         transform.position = Vector3.Lerp(transform.position, nextPosition, Time.deltaTime * 5f);
 
         if (useFixedRotation)

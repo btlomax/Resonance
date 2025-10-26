@@ -26,38 +26,14 @@ public class PlayerMovement : MonoBehaviour
     {
         Vector2 moveInput = _inputHandler != null ? _inputHandler.MoveInput : Vector2.zero;
 
-        // Early out if no input (optional: still apply gravity if you use it)
         if (moveInput.sqrMagnitude < _inputDeadzone * _inputDeadzone)
             return;
 
-        // Build camera-relative axes and flatten them to XZ plane
-        Vector3 camForward = cameraTransform.forward;
-        camForward.y = 0f;
-        camForward.Normalize();
+        Vector3 movement = new Vector3(moveInput.x, 0f, moveInput.y);
 
-        Vector3 camRight = Vector3.Cross(Vector3.up, camForward).normalized;
-        camRight.y = 0f;
-        camRight.Normalize();
-
-        Vector3 moveDirection = new Vector3(_inputHandler.MoveInput.x, 0, _inputHandler.MoveInput.y);
-        moveDirection = cameraTransform.TransformDirection(moveDirection);
-        moveDirection.y = 0; // keep movement horizontal
-        moveDirection.Normalize();
-
-        // If move is effectively zero after all that (shouldn't be), bail
-        if (moveDirection.sqrMagnitude < 0.0001f)
-            return;
-
-        // Normalize to avoid faster diagonal movement
-        Vector3 moveDir = moveDirection.normalized;
-
-        // Move using CharacterController
-        _charController.Move(moveDir * moveSpeed * Time.deltaTime);
-
-        // Smooth rotate the player to face movement direction
-        //Quaternion targetRot = Quaternion.LookRotation(moveDir, Vector3.up);
-        //Quaternion targetRot = Quaternion.LookRotation(moveDir, Vector3.up);
-       // transform.rotation = Quaternion.Slerp(transform.rotation, targetRot, rotationSpeed * Time.deltaTime);
+        transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(movement), 0.1f);
+        transform.TransformDirection(movement * moveSpeed * Time.deltaTime);
+        transform.Translate(movement * moveSpeed * Time.deltaTime, Space.World);
     }
 
     private void Raycast()

@@ -11,12 +11,15 @@ public class PlayerCameraSetup : MonoBehaviour
 
     [SerializeField]
     private InputHandler _inputHandler; // assign your InputHandler
+
+    /*
     [SerializeField]
     private float _rotationSpeed = 100f;
     [SerializeField]
     private float pitchMaxAngle = 0f;
     [SerializeField]
     private float pitchMinAngle = 0f;
+    */
 
     private void LateUpdate()
     {

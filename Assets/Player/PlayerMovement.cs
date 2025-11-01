@@ -14,9 +14,13 @@ public class PlayerMovement : MonoBehaviour
     public Transform cameraTransform; // assign CameraTarget or camera
 
     [SerializeField]
+    private Interactable _currentFocus;
+    [SerializeField]
     private InputHandler _inputHandler;
+
     private const float _inputDeadzone = 0.01f;
     private CharacterController _charController;
+    private Ray _ray;
 
     private void Awake()
     {
@@ -26,6 +30,8 @@ public class PlayerMovement : MonoBehaviour
     private void Update()
     {
         HandleMovement();
+
+        HandleFocus();
 
         if(_inputHandler.InteractInput)
         {
@@ -51,20 +57,42 @@ public class PlayerMovement : MonoBehaviour
 
     private void TryInteract()
     {
-        Ray ray = new Ray(transform.position, transform.forward);
+       if (_currentFocus != null)
+       {
+           _currentFocus.Interact(gameObject);
+       }
+    }
 
-        Debug.DrawRay(ray.origin, ray.direction * rayLength, Color.red);
+    private void HandleFocus()
+    {
+        _ray.origin = transform.position;
+        _ray.direction = transform.forward;
 
-        if (Physics.Raycast(ray, out RaycastHit hitInfo))
+        Debug.DrawRay(_ray.origin, _ray.direction * rayLength, Color.red);
+
+        if (Physics.Raycast(_ray, out RaycastHit hitInfo))
         {
             if (hitInfo.transform.TryGetComponent(out IObjectInteraction objectInteraction))
             {
-                objectInteraction.Interact(gameObject);
+                if (objectInteraction is Interactable interactable)
+                {
+                    if (_currentFocus != interactable)
+                    {
+                        _currentFocus?.OnFocusExit();
+                        _currentFocus = interactable;
+                        _currentFocus.OnFocusEnter();
+                    }
+                }
+                return;
             }
         }
-    }
 
-    
+        if (_currentFocus != null)
+        {
+            _currentFocus.OnFocusExit();
+            _currentFocus = null;
+        }
+    }
 }
 
 

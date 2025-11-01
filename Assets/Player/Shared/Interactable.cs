@@ -1,4 +1,5 @@
 using Assets.Player.Contracts;
+using UnityEditor;
 using UnityEngine;
 
 public abstract class Interactable : MonoBehaviour, IObjectInteraction
@@ -7,12 +8,24 @@ public abstract class Interactable : MonoBehaviour, IObjectInteraction
     public string displayName = "Interactable";
     public bool showHighlight = true;
 
+    public GameObject Highlighter;
+
+    void Awake()
+    {
+        Highlighter = transform.Find("Highlighter")?.gameObject;
+    }
+
     // Called by PlayerInteraction when the player presses interact.
     public abstract void Interact(GameObject interactor);
 
     // Optional: Called when player looks at object.
-    public virtual void OnFocusEnter() { }
+    public virtual void OnFocusEnter()
+    {
+        Highlighter.SetActive(true);
+    }
 
-    // Optional: Called when player looks away.
-    public virtual void OnFocusExit() { }
+    public virtual void OnFocusExit()
+    {
+       Highlighter.SetActive(false);
+    }
 }

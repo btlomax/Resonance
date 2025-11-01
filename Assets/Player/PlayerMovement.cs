@@ -1,3 +1,4 @@
+using Assets.Player.Contracts;
 using UnityEngine;
 
 [RequireComponent(typeof(CharacterController))]
@@ -26,7 +27,10 @@ public class PlayerMovement : MonoBehaviour
     {
         HandleMovement();
 
-        Raycast();
+        if(_inputHandler.InteractInput)
+        {
+            TryInteract();
+        }
     }
 
     private void HandleMovement()
@@ -45,7 +49,7 @@ public class PlayerMovement : MonoBehaviour
         _charController.Move(movement * moveSpeed * Time.deltaTime);
     }
 
-    private void Raycast()
+    private void TryInteract()
     {
         Ray ray = new Ray(transform.position, transform.forward);
 
@@ -53,9 +57,14 @@ public class PlayerMovement : MonoBehaviour
 
         if (Physics.Raycast(ray, out RaycastHit hitInfo))
         {
-            Debug.Log("Hit: " + hitInfo.collider.gameObject.name);
+            if (hitInfo.transform.TryGetComponent(out IObjectInteraction objectInteraction))
+            {
+                objectInteraction.Interact(gameObject);
+            }
         }
     }
+
+    
 }
 
 

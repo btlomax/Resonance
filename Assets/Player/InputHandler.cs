@@ -8,6 +8,8 @@ public class InputHandler : MonoBehaviour
     public Vector2 MoveInput { get; private set; }
     public Vector2 LookInput { get; private set; }
 
+    public bool InteractInput { get; private set; }
+
     private void Awake()
     {
         _controls = new PlayerControls();
@@ -25,6 +27,10 @@ public class InputHandler : MonoBehaviour
 
         _controls.Controller.Look.performed += ctx => LookInput = ctx.ReadValue<Vector2>();
         _controls.Controller.Look.canceled += _ => LookInput = Vector2.zero;
+
+        // Interact
+        _controls.Controller.Interact.performed += ctx => InteractInput = true;
+        _controls.Controller.Interact.canceled += _ => InteractInput = false;
     }
 
     private void OnEnable() => _controls.Enable();

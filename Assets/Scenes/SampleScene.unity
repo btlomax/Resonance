@@ -900,6 +900,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86979b47ab07faf499fee281691c4ad1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
+  rayLength: 2.5
   moveSpeed: 5
   rotationSpeed: 20
   cameraTransform: {fileID: 1350070061}

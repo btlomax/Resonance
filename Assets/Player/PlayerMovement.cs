@@ -3,6 +3,11 @@ using UnityEngine;
 [RequireComponent(typeof(CharacterController))]
 public class PlayerMovement : MonoBehaviour
 {
+    [Header("Ray Settings")]
+    [Tooltip("How far the raycast checks forward.")]
+    [Range(0f, 20f)]
+    public float rayLength = 5f;
+
     public float moveSpeed = 5f;
     public float rotationSpeed = 10f;
     public Transform cameraTransform; // assign CameraTarget or camera
@@ -20,6 +25,8 @@ public class PlayerMovement : MonoBehaviour
     private void Update()
     {
         HandleMovement();
+
+        Raycast();
     }
 
     private void HandleMovement()
@@ -33,14 +40,16 @@ public class PlayerMovement : MonoBehaviour
 
         transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(movement), 0.1f);
         transform.TransformDirection(movement * moveSpeed * Time.deltaTime);
-        transform.Translate(movement * moveSpeed * Time.deltaTime, Space.World);
+        // transform.Translate(movement * moveSpeed * Time.deltaTime, Space.World);
+
+        _charController.Move(movement * moveSpeed * Time.deltaTime);
     }
 
     private void Raycast()
     {
-        Ray ray = new Ray(transform.position + new Vector3(0, 0, 2), transform.forward);
+        Ray ray = new Ray(transform.position, transform.forward);
 
-        Debug.DrawRay(ray.origin, ray.direction * 100f, Color.red);
+        Debug.DrawRay(ray.origin, ray.direction * rayLength, Color.red);
 
         if (Physics.Raycast(ray, out RaycastHit hitInfo))
         {

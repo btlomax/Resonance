@@ -31,6 +31,9 @@ public class InputHandler : MonoBehaviour
         // Interact
         _controls.Controller.Interact.performed += ctx => InteractInput = true;
         _controls.Controller.Interact.canceled += _ => InteractInput = false;
+
+        _controls.MouseKeyboard.Interact.performed += ctx => InteractInput = true;
+        _controls.MouseKeyboard.Interact.canceled += _ => InteractInput = false;
     }
 
     private void OnEnable() => _controls.Enable();

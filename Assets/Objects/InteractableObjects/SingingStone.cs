@@ -7,16 +7,17 @@ public class SingingStone : Interactable
     [Header("Singing Stone Settings")]
     public NoteScriptObj note;
     public BasePuzzleManager PuzzleManager;
+    public float noteLength = 0.4f;
 
-    private AudioSource audioSource;
+    private AudioSource _audioSource;
 
     private void Awake()
     {
-        audioSource = GetComponent<AudioSource>() ?? gameObject.AddComponent<AudioSource>();
+        _audioSource = GetComponent<AudioSource>() ?? gameObject.AddComponent<AudioSource>();
 
-        audioSource.playOnAwake = false;
+        _audioSource.playOnAwake = false;
 
-        audioSource.clip = ToneGenerator.CreateSineWave(note.noteFrequency, note.noteLength);
+        _audioSource.clip = ToneGenerator.CreateSineWave(note.noteFrequency, noteLength);
     }
 
     // Update is called once per frame
@@ -34,10 +35,10 @@ public class SingingStone : Interactable
 
     public void PlayNote()
     {
-        if (!audioSource.isPlaying)
+        if (!_audioSource.isPlaying)
         {
             OnFocusEnter();
-            audioSource.Play();
+            _audioSource.Play();
             OnFocusExit();
         }
     }

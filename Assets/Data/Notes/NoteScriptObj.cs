@@ -5,5 +5,4 @@ public class NoteScriptObj : ScriptableObject
 {
     public string noteTitle;
     public float noteFrequency;
-    public float noteLength;
 }

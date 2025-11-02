@@ -251,7 +251,7 @@ MonoBehaviour:
   showHighlight: 1
   Highlighter: {fileID: 1653140006}
   singingStones: []
-  delayBetweenNotes: 0.1
+  delayBetweenNotes: 0.7
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0
@@ -612,7 +612,11 @@ PrefabInstance:
     - target: {fileID: 2659640477273932044, guid: da988fed2a560194480e113cd72ffe43, type: 3}
       propertyPath: note
       value: 
-      objectReference: {fileID: 11400000, guid: 73dbfee8d390b824f86625fa4507a983, type: 2}
+      objectReference: {fileID: 11400000, guid: bd51991a690a1354fad3852898d147ca, type: 2}
+    - target: {fileID: 2659640477273932044, guid: da988fed2a560194480e113cd72ffe43, type: 3}
+      propertyPath: noteLength
+      value: 0.3
+      objectReference: {fileID: 0}
     - target: {fileID: 2659640477273932044, guid: da988fed2a560194480e113cd72ffe43, type: 3}
       propertyPath: PuzzleManager
       value: 
@@ -963,7 +967,11 @@ PrefabInstance:
     - target: {fileID: 2659640477273932044, guid: da988fed2a560194480e113cd72ffe43, type: 3}
       propertyPath: note
       value: 
-      objectReference: {fileID: 11400000, guid: b9bc5d35cb9907444b1996bc31d76bfe, type: 2}
+      objectReference: {fileID: 11400000, guid: 34fe43778326f894bbcb2e21843704bb, type: 2}
+    - target: {fileID: 2659640477273932044, guid: da988fed2a560194480e113cd72ffe43, type: 3}
+      propertyPath: noteLength
+      value: 0.6
+      objectReference: {fileID: 0}
     - target: {fileID: 2659640477273932044, guid: da988fed2a560194480e113cd72ffe43, type: 3}
       propertyPath: PuzzleManager
       value: 
@@ -1509,6 +1517,14 @@ PrefabInstance:
     - target: {fileID: 473567210160048325, guid: da988fed2a560194480e113cd72ffe43, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2659640477273932044, guid: da988fed2a560194480e113cd72ffe43, type: 3}
+      propertyPath: note
+      value: 
+      objectReference: {fileID: 11400000, guid: a4f25df3d64a026458cd163109cdfbc9, type: 2}
+    - target: {fileID: 2659640477273932044, guid: da988fed2a560194480e113cd72ffe43, type: 3}
+      propertyPath: noteLength
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 2659640477273932044, guid: da988fed2a560194480e113cd72ffe43, type: 3}
       propertyPath: PuzzleManager

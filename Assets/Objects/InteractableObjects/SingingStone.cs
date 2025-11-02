@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using UnityEngine;
 
 [RequireComponent(typeof(AudioSource))]
@@ -5,6 +6,7 @@ public class SingingStone : Interactable
 {
     [Header("Singing Stone Settings")]
     public NoteScriptObj note;
+    public BasePuzzleManager PuzzleManager;
 
     private AudioSource audioSource;
 
@@ -27,9 +29,16 @@ public class SingingStone : Interactable
     {
         Debug.Log($"The Singing Stone hums a melodious tune as {interactor.name} interacts with it.");
 
-        if(!audioSource.isPlaying)
+        PlayNote();
+    }
+
+    public void PlayNote()
+    {
+        if (!audioSource.isPlaying)
         {
+            OnFocusEnter();
             audioSource.Play();
+            OnFocusExit();
         }
     }
 }

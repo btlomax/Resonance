@@ -126,7 +126,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4176175928065386274
 Transform:
   m_ObjectHideFlags: 0
@@ -172,7 +172,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4754923191311978804}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 8.159189, y: 1.74, z: -0.21746}
   m_LocalScale: {x: 1, y: 3.012, z: 2.1744}
   m_ConstrainProportionsScale: 0
@@ -271,8 +271,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SingingStone
   displayName: SingingStone_1
   showHighlight: 1
-  Highlighter: {fileID: 0}
-  frequency: 440
+  Highlighter: {fileID: 3348898872267924514}
+  note: {fileID: 11400000, guid: 1565dcd6a3d9b624eb220e7764a11d0f, type: 2}
+  PuzzleManager: {fileID: 0}
 --- !u!82 &1044180663624038585
 AudioSource:
   m_ObjectHideFlags: 0

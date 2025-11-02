@@ -188,6 +188,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "NoteWheel",
+                    "type": "Button",
+                    "id": "62d85def-c1e5-4fc3-8eda-9b9b67707924",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -309,6 +318,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Interact",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e3afc105-b625-479d-91fb-df2cc723bb23",
+                    "path": "<Gamepad>/leftTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "NoteWheel",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

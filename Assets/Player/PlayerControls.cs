@@ -274,6 +274,15 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""NoteWheel"",
+                    ""type"": ""Button"",
+                    ""id"": ""62d85def-c1e5-4fc3-8eda-9b9b67707924"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -397,6 +406,17 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""action"": ""Interact"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e3afc105-b625-479d-91fb-df2cc723bb23"",
+                    ""path"": ""<Gamepad>/leftTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""NoteWheel"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -413,6 +433,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         m_Controller_Movement = m_Controller.FindAction("Movement", throwIfNotFound: true);
         m_Controller_Look = m_Controller.FindAction("Look", throwIfNotFound: true);
         m_Controller_Interact = m_Controller.FindAction("Interact", throwIfNotFound: true);
+        m_Controller_NoteWheel = m_Controller.FindAction("NoteWheel", throwIfNotFound: true);
     }
 
     ~@PlayerControls()
@@ -615,6 +636,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Controller_Movement;
     private readonly InputAction m_Controller_Look;
     private readonly InputAction m_Controller_Interact;
+    private readonly InputAction m_Controller_NoteWheel;
     /// <summary>
     /// Provides access to input actions defined in input action map "Controller".
     /// </summary>
@@ -638,6 +660,10 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Controller/Interact".
         /// </summary>
         public InputAction @Interact => m_Wrapper.m_Controller_Interact;
+        /// <summary>
+        /// Provides access to the underlying input action "Controller/NoteWheel".
+        /// </summary>
+        public InputAction @NoteWheel => m_Wrapper.m_Controller_NoteWheel;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -673,6 +699,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Interact.started += instance.OnInteract;
             @Interact.performed += instance.OnInteract;
             @Interact.canceled += instance.OnInteract;
+            @NoteWheel.started += instance.OnNoteWheel;
+            @NoteWheel.performed += instance.OnNoteWheel;
+            @NoteWheel.canceled += instance.OnNoteWheel;
         }
 
         /// <summary>
@@ -693,6 +722,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Interact.started -= instance.OnInteract;
             @Interact.performed -= instance.OnInteract;
             @Interact.canceled -= instance.OnInteract;
+            @NoteWheel.started -= instance.OnNoteWheel;
+            @NoteWheel.performed -= instance.OnNoteWheel;
+            @NoteWheel.canceled -= instance.OnNoteWheel;
         }
 
         /// <summary>
@@ -783,5 +815,12 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnInteract(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "NoteWheel" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnNoteWheel(InputAction.CallbackContext context);
     }
 }

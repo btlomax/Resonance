@@ -10,6 +10,8 @@ public class InputHandler : MonoBehaviour
 
     public bool InteractInput { get; private set; }
 
+    public bool RadialMenuInput { get; private set; }
+
     private void Awake()
     {
         _controls = new PlayerControls();
@@ -34,6 +36,10 @@ public class InputHandler : MonoBehaviour
 
         _controls.MouseKeyboard.Interact.performed += ctx => InteractInput = true;
         _controls.MouseKeyboard.Interact.canceled += _ => InteractInput = false;
+
+        //Open radia menu
+        _controls.Controller.NoteWheel.performed += ctx => RadialMenuInput = true;
+        _controls.Controller.NoteWheel.canceled += _ => RadialMenuInput = false;
     }
 
     private void OnEnable() => _controls.Enable();

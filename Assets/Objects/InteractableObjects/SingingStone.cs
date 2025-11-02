@@ -4,7 +4,7 @@ using UnityEngine;
 public class SingingStone : Interactable
 {
     [Header("Singing Stone Settings")]
-    public float frequency = 440f; // Frequency in Hz (A4 note)
+    public NoteScriptObj note;
 
     private AudioSource audioSource;
 
@@ -14,7 +14,7 @@ public class SingingStone : Interactable
 
         audioSource.playOnAwake = false;
 
-        audioSource.clip = ToneGenerator.CreateSineWave(frequency);
+        audioSource.clip = ToneGenerator.CreateSineWave(note.noteFrequency, note.noteLength);
     }
 
     // Update is called once per frame

@@ -2,7 +2,7 @@ using UnityEngine;
 
 public static class ToneGenerator
 {
-    public static AudioClip CreateSineWave(float frequency, float duration = 0.4f, int sampleRate = 44100)
+    public static AudioClip CreateSineWave(float frequency, float duration, int sampleRate = 44100)
     {
         int sampleCount = (int)(sampleRate * duration);
         float[] samples = new float[sampleCount];

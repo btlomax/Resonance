@@ -1,8 +1,11 @@
 using Assets.Player.Contracts;
 using UnityEngine;
 
+/// <summary>
+/// Need to think about breaking this into smaller components later
+/// </summary>
 [RequireComponent(typeof(CharacterController))]
-public class PlayerMovement : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
     [Header("Ray Settings")]
     [Tooltip("How far the raycast checks forward.")]

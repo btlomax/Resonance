@@ -8,7 +8,7 @@ public abstract class BasePuzzleManager : Interactable
 
     protected void MarkSolved()
     {
-         IsSolved = true;
+        IsSolved = true;
         Debug.Log("Puzzle Solved!");
 
         // Trigger logic for when the puzzle is solved

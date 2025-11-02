@@ -27,12 +27,6 @@ public class CopyNotePuzzleManager : BasePuzzleManager
 
     public override void OnPuzzleActivated()
     {
-        PlayArpeggio();
-    }
-
-    private void PlayArpeggio()
-    {
-        Debug.Log("Playing arpeggio sequence of singing stones.");
         StartCoroutine(ArpeggioRoutine(delayBetweenNotes));
     }
 

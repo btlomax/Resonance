@@ -22,12 +22,6 @@ public class SingingStone : Interactable
         _audioSource.clip = ToneGenerator.CreateSineWave(note.noteFrequency, noteLength);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public override void Interact(GameObject interactor)
     {
         Debug.Log($"The Singing Stone hums a melodious tune as {interactor.name} interacts with it.");

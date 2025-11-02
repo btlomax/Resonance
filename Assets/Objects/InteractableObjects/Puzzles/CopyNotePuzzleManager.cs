@@ -3,6 +3,10 @@ using NUnit.Framework;
 using System.Collections;
 using UnityEngine;
 
+/// <summary>
+/// Need to look at how best to make sequences easier. Need to be able to specify delays between notes being played sequentially
+/// </summary>
+
 public class CopyNotePuzzleManager : BasePuzzleManager
 {
     [Header("Copy Note Puzzle Settings")]

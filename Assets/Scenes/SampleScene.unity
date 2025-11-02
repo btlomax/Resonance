@@ -1529,7 +1529,7 @@ PrefabInstance:
     - target: {fileID: 2659640477273932044, guid: da988fed2a560194480e113cd72ffe43, type: 3}
       propertyPath: PuzzleManager
       value: 
-      objectReference: {fileID: 5838377}
+      objectReference: {fileID: 0}
     - target: {fileID: 4754923191311978804, guid: da988fed2a560194480e113cd72ffe43, type: 3}
       propertyPath: m_Name
       value: SingingStone

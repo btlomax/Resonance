@@ -6,14 +6,16 @@ public class SingingStone : Interactable
 {
     [Header("Singing Stone Settings")]
     public NoteScriptObj note;
-    public BasePuzzleManager PuzzleManager;
     public float noteLength = 0.4f;
 
     private AudioSource _audioSource;
+    private BasePuzzleManager _puzzleManager;
 
     private void Awake()
     {
         _audioSource = GetComponent<AudioSource>() ?? gameObject.AddComponent<AudioSource>();
+
+        _puzzleManager = GetComponentInParent<BasePuzzleManager>();
 
         _audioSource.playOnAwake = false;
 

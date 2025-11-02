@@ -20,8 +20,6 @@ public class CopyNotePuzzleManager : BasePuzzleManager
 
     public override void Interact(GameObject interactor)
     {
-        Debug.Log($"{interactor.name} has activated the Copy Note Puzzle Manager.");
-
         OnPuzzleActivated();
     }
 
@@ -35,7 +33,6 @@ public class CopyNotePuzzleManager : BasePuzzleManager
         foreach (var stone in singingStones)
         {
             stone.PlayNote();
-            Debug.Log("Note played");
             yield return new WaitForSeconds(delay);
         }
     }

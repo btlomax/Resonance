@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     public float moveSpeed = 5f;
     public float rotationSpeed = 10f;
     public Transform cameraTransform; // assign CameraTarget or camera
+    public VoidEventChannel openRadialMenuEvent;
 
     [SerializeField]
     private Interactable _currentFocus;
@@ -32,14 +33,28 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        HandleMovement();
-
-        HandleFocus();
-
-        if(_inputHandler.InteractInput)
+        if (_inputHandler.RadialMenuInput)
         {
-            TryInteract();
+            OpenMenu();
         }
+        else
+        {
+            HandleMovement();
+
+            HandleFocus();
+
+            if (_inputHandler.InteractInput)
+            {
+                TryInteract();
+            }
+        }
+    }
+
+    public void OpenMenu()
+    {
+        Debug.Log("Opening Radial Menu");
+        openRadialMenuEvent.RaiseEvent();
+
     }
 
     private void HandleMovement()

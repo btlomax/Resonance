@@ -7,6 +7,7 @@ public class RadialMenuGenerator : MonoBehaviour
     public Image slicePrefab;
     public NoteScriptObj[] allNotes;
     public RectTransform radialMenuParent;
+    public VoidEventChannel openRadialMenuEvent;
 
     private Image[] _activeSlices;
 
@@ -14,6 +15,25 @@ public class RadialMenuGenerator : MonoBehaviour
     {
         RebuildMenu();
     }
+
+    private void OnEnable()
+    {
+        openRadialMenuEvent.OnEventRaised += ShowMenu;
+        Debug.Log("Subscribed to OpenRadialMenuEvent");
+    }
+
+    private void OnDisable()
+    {
+        openRadialMenuEvent.OnEventRaised -= ShowMenu;
+        Debug.Log("Unsubscribed from OpenRadialMenuEvent");
+    }
+
+    private void ShowMenu()
+    {
+        Debug.Log("Toggling Radial Menu");
+        radialMenuParent.gameObject.SetActive(!radialMenuParent.gameObject.activeSelf);
+    }
+
     public void RebuildMenu()
     {
         foreach (Transform child in radialMenuParent)

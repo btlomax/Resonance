@@ -355,6 +355,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: a4f25df3d64a026458cd163109cdfbc9, type: 2}
   - {fileID: 11400000, guid: 23fb7b02fdeabeb4681db14bd67370a2, type: 2}
   radialMenuParent: {fileID: 116778375}
+  openRadialMenuEvent: {fileID: 11400000, guid: 11f05b8d7d368a44f8e4bc39e84d8efc, type: 2}
 --- !u!1 &219626145
 GameObject:
   m_ObjectHideFlags: 0
@@ -372,7 +373,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &219626146
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1467,6 +1468,7 @@ GameObject:
   - component: {fileID: 1517332153}
   - component: {fileID: 1517332152}
   - component: {fileID: 1517332154}
+  - component: {fileID: 1517332155}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1490,6 +1492,7 @@ MonoBehaviour:
   moveSpeed: 5
   rotationSpeed: 20
   cameraTransform: {fileID: 1350070061}
+  openRadialMenuEvent: {fileID: 11400000, guid: 11f05b8d7d368a44f8e4bc39e84d8efc, type: 2}
   _currentFocus: {fileID: 0}
   _inputHandler: {fileID: 1517332154}
 --- !u!143 &1517332150
@@ -1603,6 +1606,76 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68db24bd3eea0d143b1c76c7d715435b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InputHandler
+--- !u!114 &1517332155
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1517332148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.InputSystem::UnityEngine.InputSystem.PlayerInput
+  m_Actions: {fileID: -944628639613478452, guid: fca166139b7d05d4d87431cc8771dc32, type: 3}
+  m_NotificationBehavior: 2
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 78071b61-262a-4ec8-bafe-ed5504c84601
+    m_ActionName: 'Mouse/Keyboard/Movement[/Keyboard/upArrow,/Keyboard/downArrow,/Keyboard/leftArrow,/Keyboard/rightArrow]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: ee724cb6-ed50-4466-8ba3-58e2a6b02f21
+    m_ActionName: 'Mouse/Keyboard/Look[/Mouse/scroll/up,/Mouse/scroll/down,/Mouse/scroll/left,/Mouse/scroll/right]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: f8a67ad1-d0c5-4e63-97f5-6a620cdb70a7
+    m_ActionName: 'Mouse/Keyboard/Interact[/Keyboard/e]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: e04571a7-94a8-49c3-827b-1eea6db4d23d
+    m_ActionName: 'Controller/Movement[/XInputControllerWindows/leftStick/up,/XInputControllerWindows/leftStick/down,/XInputControllerWindows/leftStick/left,/XInputControllerWindows/leftStick/right]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 067ddfa8-c1bb-43a6-9619-270d153388a8
+    m_ActionName: 'Controller/Look[/XInputControllerWindows/rightStick/up,/XInputControllerWindows/rightStick/down,/XInputControllerWindows/rightStick/left,/XInputControllerWindows/rightStick/right]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 2d677c1b-5ac9-4d19-a773-339fa130694a
+    m_ActionName: 'Controller/Interact[/XInputControllerWindows/buttonSouth]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1517332149}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: OpenMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 62d85def-c1e5-4fc3-8eda-9b9b67707924
+    m_ActionName: 'Controller/NoteWheel[/XInputControllerWindows/leftTrigger]'
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Mouse/Keyboard
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
 --- !u!1 &1653140006
 GameObject:
   m_ObjectHideFlags: 0

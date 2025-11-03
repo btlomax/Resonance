@@ -10,7 +10,10 @@ public class InputHandler : MonoBehaviour
 
     public bool InteractInput { get; private set; }
 
-    public bool RadialMenuInput { get; private set; }
+    public VoidEventChannel openRadialMenuEvent;
+    public VoidEventChannel closeRadialMenuEvent;
+    public VoidEventChannel toggleRadialMenuEvent;
+    public InputSettings inputSettings;
 
     private void Awake()
     {
@@ -37,11 +40,31 @@ public class InputHandler : MonoBehaviour
         _controls.MouseKeyboard.Interact.performed += ctx => InteractInput = true;
         _controls.MouseKeyboard.Interact.canceled += _ => InteractInput = false;
 
-        //Open radia menu
-        _controls.Controller.NoteWheel.performed += ctx => RadialMenuInput = true;
-        _controls.Controller.NoteWheel.canceled += _ => RadialMenuInput = false;
+        //Radial menu
+        _controls.Controller.NoteWheel.performed += ctx => OnNoteWheelPerformed();
+        _controls.Controller.NoteWheel.canceled += _ => OnNoteWheelCanceled();
     }
 
     private void OnEnable() => _controls.Enable();
     private void OnDisable() => _controls.Disable();
+
+    private void OnNoteWheelPerformed()
+    {
+        if(inputSettings.radialMenuHoldToOpen)
+        {
+            openRadialMenuEvent.RaiseEvent();
+        }
+        else
+        {
+            toggleRadialMenuEvent.RaiseEvent();
+        }
+    }
+
+    private void OnNoteWheelCanceled()
+    {
+        if(inputSettings.radialMenuHoldToOpen)
+        {
+            closeRadialMenuEvent.RaiseEvent();
+        }
+    }
 }

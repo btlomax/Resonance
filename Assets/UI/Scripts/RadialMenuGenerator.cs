@@ -6,8 +6,10 @@ public class RadialMenuGenerator : MonoBehaviour
 {
     public Image slicePrefab;
     public NoteScriptObj[] allNotes;
-    public RectTransform radialMenuParent;
+    public RectTransform radialMenu;
     public VoidEventChannel openRadialMenuEvent;
+    public VoidEventChannel closeRadialMenuEvent;
+    public VoidEventChannel toggleRadialMenuEvent;
 
     private Image[] _activeSlices;
 
@@ -19,24 +21,36 @@ public class RadialMenuGenerator : MonoBehaviour
     private void OnEnable()
     {
         openRadialMenuEvent.OnEventRaised += ShowMenu;
-        Debug.Log("Subscribed to OpenRadialMenuEvent");
+        closeRadialMenuEvent.OnEventRaised += HideMenu;
+        toggleRadialMenuEvent.OnEventRaised += ToggleMenu;
+        Debug.Log("Subscribed to menu events");
     }
 
     private void OnDisable()
     {
         openRadialMenuEvent.OnEventRaised -= ShowMenu;
-        Debug.Log("Unsubscribed from OpenRadialMenuEvent");
+        closeRadialMenuEvent.OnEventRaised -= HideMenu;
+        toggleRadialMenuEvent.OnEventRaised -= ToggleMenu;
+        Debug.Log("Unsubscribed from menu events");
     }
 
     private void ShowMenu()
     {
-        Debug.Log("Toggling Radial Menu");
-        radialMenuParent.gameObject.SetActive(!radialMenuParent.gameObject.activeSelf);
+        radialMenu.gameObject.SetActive(true);
     }
 
+    private void HideMenu()
+    {
+        radialMenu.gameObject.SetActive(false);
+    }
+
+    private void ToggleMenu()
+    {
+        radialMenu.gameObject.SetActive(!radialMenu.gameObject.activeSelf);
+    }
     public void RebuildMenu()
     {
-        foreach (Transform child in radialMenuParent)
+        foreach (Transform child in radialMenu)
         {
             Destroy(child.gameObject);
         }
@@ -52,7 +66,7 @@ public class RadialMenuGenerator : MonoBehaviour
 
         for (int i = 0; i < sliceCount; i++)
         {
-            Image newSlice = Instantiate(slicePrefab, radialMenuParent);
+            Image newSlice = Instantiate(slicePrefab, radialMenu);
             newSlice.type = Image.Type.Filled;
             newSlice.fillMethod = Image.FillMethod.Radial360;
             newSlice.fillAmount = 1f / sliceCount;

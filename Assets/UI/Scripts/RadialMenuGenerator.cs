@@ -4,6 +4,9 @@ using UnityEngine.UI;
 
 public class RadialMenuGenerator : MonoBehaviour
 {
+    [Header("Radial Menu Settings")]
+    public float radius = 0f;
+
     public Image slicePrefab;
     public NoteScriptObj[] allNotes;
     public RectTransform radialMenu;
@@ -58,9 +61,10 @@ public class RadialMenuGenerator : MonoBehaviour
         var unlockedNotes = allNotes.Where(n => n.unlocked).ToArray();
         int sliceCount = unlockedNotes.Length;
 
-        if(sliceCount == 0) return;
+        if (sliceCount == 0) return;
 
         float sliceAngle = 360f / sliceCount;
+        float fillAmount = 1f / sliceCount;
 
         _activeSlices = new Image[sliceCount];
 
@@ -69,12 +73,15 @@ public class RadialMenuGenerator : MonoBehaviour
             Image newSlice = Instantiate(slicePrefab, radialMenu);
             newSlice.type = Image.Type.Filled;
             newSlice.fillMethod = Image.FillMethod.Radial360;
-            newSlice.fillAmount = 1f / sliceCount;
+            newSlice.fillAmount = fillAmount;
 
-            newSlice.transform.localRotation = Quaternion.Euler(0, 0, -sliceAngle * i);
+            // Rotate the slice
+            float rotationZ = -sliceAngle * i;
+            newSlice.transform.localRotation = Quaternion.Euler(0, 0, rotationZ);
 
             _activeSlices[i] = newSlice;
             _activeSlices[i].gameObject.SetActive(true);
+            _activeSlices[i].name = $"{unlockedNotes[i].noteTitle} slice";
         }
     }
 }

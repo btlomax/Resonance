@@ -1098,6 +1098,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 800e39e91e5fe344094ae8530cd18208, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RadialMenuGenerator
+  radius: 15
   slicePrefab: {fileID: 219626147}
   allNotes:
   - {fileID: 11400000, guid: 1565dcd6a3d9b624eb220e7764a11d0f, type: 2}

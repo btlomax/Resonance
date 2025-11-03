@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class InputHandler : MonoBehaviour
 {
@@ -26,13 +25,6 @@ public class InputHandler : MonoBehaviour
         _controls.Controller.Movement.performed += ctx => MoveInput = ctx.ReadValue<Vector2>();
         _controls.Controller.Movement.canceled += _ => MoveInput = Vector2.zero;
 
-        // Look
-        _controls.MouseKeyboard.Look.performed += ctx => LookInput = ctx.ReadValue<Vector2>();
-        _controls.MouseKeyboard.Look.canceled += _ => LookInput = Vector2.zero;
-
-        _controls.Controller.Look.performed += ctx => LookInput = ctx.ReadValue<Vector2>();
-        _controls.Controller.Look.canceled += _ => LookInput = Vector2.zero;
-
         // Interact
         _controls.Controller.Interact.performed += ctx => InteractInput = true;
         _controls.Controller.Interact.canceled += _ => InteractInput = false;
@@ -43,6 +35,9 @@ public class InputHandler : MonoBehaviour
         //Radial menu
         _controls.Controller.NoteWheel.performed += ctx => OnNoteWheelPerformed();
         _controls.Controller.NoteWheel.canceled += _ => OnNoteWheelCanceled();
+
+        _controls.MouseKeyboard.NoteWheel.performed += ctx => OnNoteWheelPerformed();
+        _controls.MouseKeyboard.NoteWheel.canceled += _ => OnNoteWheelCanceled();
     }
 
     private void OnEnable() => _controls.Enable();

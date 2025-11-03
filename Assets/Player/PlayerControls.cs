@@ -208,7 +208,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""name"": ""Movement"",
                     ""type"": ""Value"",
                     ""id"": ""e04571a7-94a8-49c3-827b-1eea6db4d23d"",
-                    ""expectedControlType"": """",
+                    ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
@@ -230,6 +230,15 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""NoteWheelSelection"",
+                    ""type"": ""Value"",
+                    ""id"": ""452d0fed-aaf0-40a9-9e9d-fcea65baa8e1"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -309,6 +318,61 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""action"": ""NoteWheel"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""Select"",
+                    ""id"": ""2707f712-0928-478b-b613-fab897a17336"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""NoteWheelSelection"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""ed3a5ff4-2300-413e-9853-f7f10c23c4af"",
+                    ""path"": ""<Gamepad>/rightStick/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""NoteWheelSelection"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""1aec226d-672e-4a54-913a-a1130d992511"",
+                    ""path"": ""<Gamepad>/rightStick/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""NoteWheelSelection"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""fc12c1fe-3682-4e73-9b1a-ba406ed8d6de"",
+                    ""path"": ""<Gamepad>/rightStick/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""NoteWheelSelection"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""f8061047-7f96-49c4-8044-431a65227893"",
+                    ""path"": ""<Gamepad>/rightStick/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""NoteWheelSelection"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 }
             ]
         }
@@ -325,6 +389,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         m_Controller_Movement = m_Controller.FindAction("Movement", throwIfNotFound: true);
         m_Controller_Interact = m_Controller.FindAction("Interact", throwIfNotFound: true);
         m_Controller_NoteWheel = m_Controller.FindAction("NoteWheel", throwIfNotFound: true);
+        m_Controller_NoteWheelSelection = m_Controller.FindAction("NoteWheelSelection", throwIfNotFound: true);
     }
 
     ~@PlayerControls()
@@ -527,6 +592,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Controller_Movement;
     private readonly InputAction m_Controller_Interact;
     private readonly InputAction m_Controller_NoteWheel;
+    private readonly InputAction m_Controller_NoteWheelSelection;
     /// <summary>
     /// Provides access to input actions defined in input action map "Controller".
     /// </summary>
@@ -550,6 +616,10 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Controller/NoteWheel".
         /// </summary>
         public InputAction @NoteWheel => m_Wrapper.m_Controller_NoteWheel;
+        /// <summary>
+        /// Provides access to the underlying input action "Controller/NoteWheelSelection".
+        /// </summary>
+        public InputAction @NoteWheelSelection => m_Wrapper.m_Controller_NoteWheelSelection;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -585,6 +655,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @NoteWheel.started += instance.OnNoteWheel;
             @NoteWheel.performed += instance.OnNoteWheel;
             @NoteWheel.canceled += instance.OnNoteWheel;
+            @NoteWheelSelection.started += instance.OnNoteWheelSelection;
+            @NoteWheelSelection.performed += instance.OnNoteWheelSelection;
+            @NoteWheelSelection.canceled += instance.OnNoteWheelSelection;
         }
 
         /// <summary>
@@ -605,6 +678,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @NoteWheel.started -= instance.OnNoteWheel;
             @NoteWheel.performed -= instance.OnNoteWheel;
             @NoteWheel.canceled -= instance.OnNoteWheel;
+            @NoteWheelSelection.started -= instance.OnNoteWheelSelection;
+            @NoteWheelSelection.performed -= instance.OnNoteWheelSelection;
+            @NoteWheelSelection.canceled -= instance.OnNoteWheelSelection;
         }
 
         /// <summary>
@@ -695,5 +771,12 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnNoteWheel(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "NoteWheelSelection" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnNoteWheelSelection(InputAction.CallbackContext context);
     }
 }

@@ -5,7 +5,7 @@ public class InputHandler : MonoBehaviour
     private PlayerControls _controls;
 
     public Vector2 MoveInput { get; private set; }
-    public Vector2 LookInput { get; private set; }
+    public Vector2 MenuSelectInput { get; private set; }
 
     public bool InteractInput { get; private set; }
 
@@ -38,6 +38,10 @@ public class InputHandler : MonoBehaviour
 
         _controls.MouseKeyboard.NoteWheel.performed += ctx => OnNoteWheelPerformed();
         _controls.MouseKeyboard.NoteWheel.canceled += _ => OnNoteWheelCanceled();
+
+        //Radial menu selection
+        _controls.Controller.NoteWheelSelection.performed += ctx => MenuSelectInput = ctx.ReadValue<Vector2>();
+        _controls.Controller.NoteWheelSelection.canceled += _ => MenuSelectInput = Vector2.zero;
     }
 
     private void OnEnable() => _controls.Enable();

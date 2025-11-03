@@ -1117,6 +1117,7 @@ MonoBehaviour:
   openRadialMenuEvent: {fileID: 11400000, guid: 11f05b8d7d368a44f8e4bc39e84d8efc, type: 2}
   closeRadialMenuEvent: {fileID: 11400000, guid: 8d766bd75f3a88a4c8338e4bd2e645be, type: 2}
   toggleRadialMenuEvent: {fileID: 11400000, guid: cbe8533b8958bc94ba25deaddf4ebbbf, type: 2}
+  _inputHandler: {fileID: 1451038216}
 --- !u!1 &1119756045
 GameObject:
   m_ObjectHideFlags: 0
@@ -1166,7 +1167,7 @@ MonoBehaviour:
   followTarget: {fileID: 1350070061}
   offset: {x: 0, y: 0, z: 0}
   useFixedRotation: 1
-  _inputHandler: {fileID: 1517332154}
+  _inputHandler: {fileID: 0}
 --- !u!114 &1119756054
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1382,6 +1383,54 @@ Transform:
   - {fileID: 330585546}
   m_Father: {fileID: 1517332151}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1451038215
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1451038217}
+  - component: {fileID: 1451038216}
+  m_Layer: 0
+  m_Name: InputHandler
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1451038216
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1451038215}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68db24bd3eea0d143b1c76c7d715435b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InputHandler
+  openRadialMenuEvent: {fileID: 11400000, guid: 11f05b8d7d368a44f8e4bc39e84d8efc, type: 2}
+  closeRadialMenuEvent: {fileID: 11400000, guid: 8d766bd75f3a88a4c8338e4bd2e645be, type: 2}
+  toggleRadialMenuEvent: {fileID: 11400000, guid: cbe8533b8958bc94ba25deaddf4ebbbf, type: 2}
+  inputSettings: {fileID: 11400000, guid: 6f911136b6764834a992309a288ee838, type: 2}
+--- !u!4 &1451038217
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1451038215}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -3.95127, y: 0.216, z: 11.23272}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1451417235
 GameObject:
   m_ObjectHideFlags: 0
@@ -1506,7 +1555,6 @@ GameObject:
   - component: {fileID: 1517332149}
   - component: {fileID: 1517332153}
   - component: {fileID: 1517332152}
-  - component: {fileID: 1517332154}
   - component: {fileID: 1517332155}
   m_Layer: 0
   m_Name: Player
@@ -1532,7 +1580,7 @@ MonoBehaviour:
   rotationSpeed: 20
   cameraTransform: {fileID: 1350070061}
   _currentFocus: {fileID: 0}
-  _inputHandler: {fileID: 1517332154}
+  _inputHandler: {fileID: 1451038216}
 --- !u!143 &1517332150
 CharacterController:
   m_ObjectHideFlags: 0
@@ -1632,22 +1680,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1517332148}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &1517332154
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1517332148}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 68db24bd3eea0d143b1c76c7d715435b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::InputHandler
-  openRadialMenuEvent: {fileID: 11400000, guid: 11f05b8d7d368a44f8e4bc39e84d8efc, type: 2}
-  closeRadialMenuEvent: {fileID: 11400000, guid: 8d766bd75f3a88a4c8338e4bd2e645be, type: 2}
-  toggleRadialMenuEvent: {fileID: 11400000, guid: cbe8533b8958bc94ba25deaddf4ebbbf, type: 2}
-  inputSettings: {fileID: 11400000, guid: 6f911136b6764834a992309a288ee838, type: 2}
 --- !u!114 &1517332155
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1655,7 +1687,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1517332148}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
   m_Name: 
@@ -1679,10 +1711,6 @@ MonoBehaviour:
     m_ActionName: 'Mouse/Keyboard/Movement[/Keyboard/upArrow,/Keyboard/downArrow,/Keyboard/leftArrow,/Keyboard/rightArrow]'
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: ee724cb6-ed50-4466-8ba3-58e2a6b02f21
-    m_ActionName: 'Mouse/Keyboard/Look[/Mouse/scroll/up,/Mouse/scroll/down,/Mouse/scroll/left,/Mouse/scroll/right]'
-  - m_PersistentCalls:
-      m_Calls: []
     m_ActionId: f8a67ad1-d0c5-4e63-97f5-6a620cdb70a7
     m_ActionName: 'Mouse/Keyboard/Interact[/Keyboard/e]'
   - m_PersistentCalls:
@@ -1691,28 +1719,20 @@ MonoBehaviour:
     m_ActionName: 'Controller/Movement[/XInputControllerWindows/leftStick/up,/XInputControllerWindows/leftStick/down,/XInputControllerWindows/leftStick/left,/XInputControllerWindows/leftStick/right]'
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: 067ddfa8-c1bb-43a6-9619-270d153388a8
-    m_ActionName: 'Controller/Look[/XInputControllerWindows/rightStick/up,/XInputControllerWindows/rightStick/down,/XInputControllerWindows/rightStick/left,/XInputControllerWindows/rightStick/right]'
-  - m_PersistentCalls:
-      m_Calls: []
     m_ActionId: 2d677c1b-5ac9-4d19-a773-339fa130694a
     m_ActionName: 'Controller/Interact[/XInputControllerWindows/buttonSouth]'
   - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1517332149}
-        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
-        m_MethodName: OpenMenu
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_ActionId: 62d85def-c1e5-4fc3-8eda-9b9b67707924
     m_ActionName: 'Controller/NoteWheel[/XInputControllerWindows/leftTrigger]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 8c3404e1-cd5e-4b42-8345-70b99c1837d7
+    m_ActionName: 'Mouse/Keyboard/NoteWheel[/Keyboard/leftShift]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 452d0fed-aaf0-40a9-9e9d-fcea65baa8e1
+    m_ActionName: 'Controller/NoteWheelSelection[/XInputControllerWindows/rightStick/up,/XInputControllerWindows/rightStick/down,/XInputControllerWindows/rightStick/left,/XInputControllerWindows/rightStick/right]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Mouse/Keyboard
@@ -2031,3 +2051,4 @@ SceneRoots:
   - {fileID: 5838376}
   - {fileID: 2103724332}
   - {fileID: 826626969}
+  - {fileID: 1451038217}

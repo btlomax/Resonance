@@ -391,7 +391,7 @@ MonoBehaviour:
   m_FillMethod: 4
   m_FillAmount: 0.12
   m_FillClockwise: 1
-  m_FillOrigin: 0
+  m_FillOrigin: 2
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
 --- !u!222 &219626148
@@ -861,7 +861,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
@@ -1118,6 +1118,7 @@ MonoBehaviour:
   closeRadialMenuEventListener: {fileID: 11400000, guid: 8d766bd75f3a88a4c8338e4bd2e645be, type: 2}
   toggleRadialMenuEventListener: {fileID: 11400000, guid: cbe8533b8958bc94ba25deaddf4ebbbf, type: 2}
   _inputHandler: {fileID: 1451038216}
+  _highlightedSlice: -1
 --- !u!1 &1119756045
 GameObject:
   m_ObjectHideFlags: 0

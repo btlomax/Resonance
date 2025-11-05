@@ -1,5 +1,6 @@
 using System;
 using System.Linq;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -19,6 +20,8 @@ public class RadialMenuGenerator : MonoBehaviour
 
     [SerializeField]
     private InputHandler _inputHandler;
+    [SerializeField]
+    private int _highlightedSlice = -1;
 
     private void Awake()
     {
@@ -90,7 +93,7 @@ public class RadialMenuGenerator : MonoBehaviour
             newSlice.fillAmount = fillAmount;
 
             // Rotate the slice
-            float rotationZ = -sliceAngle * i;
+            float rotationZ = -sliceAngle * i + (sliceAngle / 2f);
             newSlice.transform.localRotation = Quaternion.Euler(0, 0, rotationZ);
 
             _activeSlices[i] = newSlice;
@@ -102,7 +105,17 @@ public class RadialMenuGenerator : MonoBehaviour
     private void HandleRightStickInput()
     {
         if (_inputHandler.MenuSelectInput.sqrMagnitude < 0.1f)
+        {
+            // Remove highlight from currently selected slice
+            if (_highlightedSlice >= 0)
+            {
+                _activeSlices[_highlightedSlice].transform.localScale = Vector3.one;
+                _activeSlices[_highlightedSlice].color = Color.white;
+                _highlightedSlice = -1; // no selection
+            }
+
             return;
+        }
 
         float angle = Mathf.Atan2(_inputHandler.MenuSelectInput.y, _inputHandler.MenuSelectInput.x) * Mathf.Rad2Deg;
 
@@ -117,7 +130,21 @@ public class RadialMenuGenerator : MonoBehaviour
         int sliceIndex = Mathf.FloorToInt(angle / (360f / _activeSlices.Length));
         sliceIndex = Mathf.Clamp(sliceIndex, 0, _activeSlices.Length - 1);
 
-        _activeSlices[sliceIndex].gameObject.transform.localScale = Vector3.one * 1.2f;
+        if (sliceIndex != _highlightedSlice)
+        {
+            // Remove highlight from old slice
+            if (_highlightedSlice >= 0)
+            {
+                _activeSlices[_highlightedSlice].transform.localScale = Vector3.one;
+                _activeSlices[_highlightedSlice].color = Color.white;
+            }
+
+            // Apply highlight to new slice
+            _activeSlices[sliceIndex].transform.localScale = Vector3.one * 1.2f;
+            _activeSlices[sliceIndex].color = Color.yellow;
+
+            _highlightedSlice = sliceIndex;
+        }
 
         Debug.Log($"Selected slice: {_activeSlices[sliceIndex].name}");
     }

@@ -13,8 +13,7 @@ public class RadialMenuGenerator : MonoBehaviour
     public RectTransform radialMenu;
     public VoidEventChannel openRadialMenuEventListener;
     public VoidEventChannel closeRadialMenuEventListener;
-    public VoidEventChannel toggleRadialMenuEventListener
-        ;
+    public VoidEventChannel toggleRadialMenuEventListener;
 
     private Image[] _activeSlices;
 
@@ -23,20 +22,14 @@ public class RadialMenuGenerator : MonoBehaviour
 
     private void Awake()
     {
+        Debug.Log("RadialMenuGenerator Awake called");
         RebuildMenu();
     }
 
     private void Update()
     {
-      /*  if (!radialMenu.gameObject.activeSelf)
-        {
-            Console.WriteLine("Radial menu is not active; skipping input handling.");
-            return;
-        }
-
-        Console.WriteLine("Radial menu is active; handling right stick input.");*/
-      Console.WriteLine("Updating radial menu input handling.");
-        HandleRightStickInput();
+        if(radialMenu.gameObject.activeSelf)
+            HandleRightStickInput();
     }
 
     private void OnEnable()
@@ -55,6 +48,7 @@ public class RadialMenuGenerator : MonoBehaviour
         Debug.Log("Unsubscribed from menu events");
     }
 
+    #region Show/Hide/Toggle Menu Methods
     private void ShowMenu()
     {
         radialMenu.gameObject.SetActive(true);
@@ -69,6 +63,8 @@ public class RadialMenuGenerator : MonoBehaviour
     {
         radialMenu.gameObject.SetActive(!radialMenu.gameObject.activeSelf);
     }
+    #endregion
+
     public void RebuildMenu()
     {
         foreach (Transform child in radialMenu)
@@ -105,19 +101,24 @@ public class RadialMenuGenerator : MonoBehaviour
 
     private void HandleRightStickInput()
     {
-        Console.WriteLine($"Right stick input vector: {_inputHandler.MenuSelectInput}");
-
         if (_inputHandler.MenuSelectInput.sqrMagnitude < 0.1f)
             return;
 
-        Console.WriteLine($"Right stick input: {_inputHandler.MenuSelectInput}");
-
         float angle = Mathf.Atan2(_inputHandler.MenuSelectInput.y, _inputHandler.MenuSelectInput.x) * Mathf.Rad2Deg;
-        if (angle < 0) angle += 360f;
+
+        angle -= 90;
+
+        angle = 360f - angle;
+
+        angle %= 360f;
+
+        Debug.Log($"Raw angle from right stick: {angle}");
 
         int sliceIndex = Mathf.FloorToInt(angle / (360f / _activeSlices.Length));
         sliceIndex = Mathf.Clamp(sliceIndex, 0, _activeSlices.Length - 1);
 
-        Console.WriteLine($"Selected slice index: {sliceIndex}");
+        _activeSlices[sliceIndex].gameObject.transform.localScale = Vector3.one * 1.2f;
+
+        Debug.Log($"Selected slice: {_activeSlices[sliceIndex].name}");
     }
 }

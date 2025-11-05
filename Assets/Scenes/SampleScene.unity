@@ -1114,9 +1114,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: a4f25df3d64a026458cd163109cdfbc9, type: 2}
   - {fileID: 11400000, guid: 23fb7b02fdeabeb4681db14bd67370a2, type: 2}
   radialMenu: {fileID: 116778375}
-  openRadialMenuEvent: {fileID: 11400000, guid: 11f05b8d7d368a44f8e4bc39e84d8efc, type: 2}
-  closeRadialMenuEvent: {fileID: 11400000, guid: 8d766bd75f3a88a4c8338e4bd2e645be, type: 2}
-  toggleRadialMenuEvent: {fileID: 11400000, guid: cbe8533b8958bc94ba25deaddf4ebbbf, type: 2}
+  openRadialMenuEventListener: {fileID: 11400000, guid: 11f05b8d7d368a44f8e4bc39e84d8efc, type: 2}
+  closeRadialMenuEventListener: {fileID: 11400000, guid: 8d766bd75f3a88a4c8338e4bd2e645be, type: 2}
+  toggleRadialMenuEventListener: {fileID: 11400000, guid: cbe8533b8958bc94ba25deaddf4ebbbf, type: 2}
   _inputHandler: {fileID: 1451038216}
 --- !u!1 &1119756045
 GameObject:

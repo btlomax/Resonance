@@ -7,8 +7,6 @@ using UnityEngine.UI;
 public class RadialMenuGenerator : MonoBehaviour
 {
     [Header("Radial Menu Settings")]
-    public float radius = 0f;
-
     public Image slicePrefab;
     public NoteScriptObj[] allNotes;
     public RectTransform radialMenu;
@@ -22,6 +20,11 @@ public class RadialMenuGenerator : MonoBehaviour
     private InputHandler _inputHandler;
     [SerializeField]
     private int _highlightedSlice = -1;
+
+#if UNITY_EDITOR
+    [Header("Debug")]
+    public bool showDebugGizmos = true;
+#endif
 
     private void Awake()
     {
@@ -76,6 +79,8 @@ public class RadialMenuGenerator : MonoBehaviour
         }
 
         var unlockedNotes = allNotes.Where(n => n.unlocked).ToArray();
+        Debug.Log($"Rebuilding radial menu with {unlockedNotes.Length} unlocked notes.");
+
         int sliceCount = unlockedNotes.Length;
 
         if (sliceCount == 0) return;
@@ -92,6 +97,8 @@ public class RadialMenuGenerator : MonoBehaviour
             newSlice.fillMethod = Image.FillMethod.Radial360;
             newSlice.fillAmount = fillAmount;
 
+            Debug.Log($"Slice {i}: fillAmount={newSlice.fillAmount}, expected={fillAmount}");
+
             // Rotate the slice
             float rotationZ = -sliceAngle * i + (sliceAngle / 2f);
             newSlice.transform.localRotation = Quaternion.Euler(0, 0, rotationZ);
@@ -106,46 +113,85 @@ public class RadialMenuGenerator : MonoBehaviour
     {
         if (_inputHandler.MenuSelectInput.sqrMagnitude < 0.1f)
         {
-            // Remove highlight from currently selected slice
+            // Clear highlight
             if (_highlightedSlice >= 0)
             {
                 _activeSlices[_highlightedSlice].transform.localScale = Vector3.one;
                 _activeSlices[_highlightedSlice].color = Color.white;
-                _highlightedSlice = -1; // no selection
+                _highlightedSlice = -1;
             }
-
             return;
         }
 
+        float sliceAngle = 360f / _activeSlices.Length;
+
         float angle = Mathf.Atan2(_inputHandler.MenuSelectInput.y, _inputHandler.MenuSelectInput.x) * Mathf.Rad2Deg;
-
         angle -= 90;
+        angle = (360f - angle + sliceAngle / 2f) % 360f;
 
-        angle = 360f - angle;
-
-        angle %= 360f;
-
-        Debug.Log($"Raw angle from right stick: {angle}");
-
-        int sliceIndex = Mathf.FloorToInt(angle / (360f / _activeSlices.Length));
+        int sliceIndex = Mathf.FloorToInt(angle / sliceAngle);
         sliceIndex = Mathf.Clamp(sliceIndex, 0, _activeSlices.Length - 1);
 
         if (sliceIndex != _highlightedSlice)
         {
-            // Remove highlight from old slice
             if (_highlightedSlice >= 0)
             {
                 _activeSlices[_highlightedSlice].transform.localScale = Vector3.one;
                 _activeSlices[_highlightedSlice].color = Color.white;
             }
 
-            // Apply highlight to new slice
             _activeSlices[sliceIndex].transform.localScale = Vector3.one * 1.2f;
             _activeSlices[sliceIndex].color = Color.yellow;
 
             _highlightedSlice = sliceIndex;
         }
-
-        Debug.Log($"Selected slice: {_activeSlices[sliceIndex].name}");
     }
+
+#if UNITY_EDITOR
+    private void OnDrawGizmos()
+    {
+        if (!showDebugGizmos || _activeSlices == null || _activeSlices.Length == 0)
+            return;
+
+        // Gizmo setup
+        Vector3 center = radialMenu != null ? radialMenu.position : transform.position;
+        float radiusGizmo = 150f; // purely visual — not related to UI radius
+
+        float sliceAngle = 360f / _activeSlices.Length;
+
+        for (int i = 0; i < _activeSlices.Length; i++)
+        {
+            float startAngle = -90f - (i * sliceAngle); // -90 = top of circle
+            float endAngle = startAngle - sliceAngle;
+
+            // Convert to direction vectors
+            Vector3 startDir = new Vector3(Mathf.Cos(startAngle * Mathf.Deg2Rad), Mathf.Sin(startAngle * Mathf.Deg2Rad), 0);
+            Vector3 endDir = new Vector3(Mathf.Cos(endAngle * Mathf.Deg2Rad), Mathf.Sin(endAngle * Mathf.Deg2Rad), 0);
+
+            // Pick color
+            Gizmos.color = (i == _highlightedSlice) ? Color.yellow : new Color(0, 1, 1, 0.25f);
+
+            // Draw arc segment (approximate with two lines)
+            Vector3 outerStart = center + startDir * radiusGizmo;
+            Vector3 outerEnd = center + endDir * radiusGizmo;
+
+            Gizmos.DrawLine(center, outerStart);
+            Gizmos.DrawLine(center, outerEnd);
+            Gizmos.DrawLine(outerStart, outerEnd);
+
+            // Label the slice index
+#if UNITY_EDITOR
+            UnityEditor.Handles.color = Color.white;
+            Vector3 midDir = new Vector3(
+                Mathf.Cos((startAngle - sliceAngle / 2f) * Mathf.Deg2Rad),
+                Mathf.Sin((startAngle - sliceAngle / 2f) * Mathf.Deg2Rad),
+                0
+            );
+            Vector3 labelPos = center + midDir * (radiusGizmo * 1.1f);
+            UnityEditor.Handles.Label(labelPos, i.ToString());
+#endif
+        }
+    }
+#endif
+
 }

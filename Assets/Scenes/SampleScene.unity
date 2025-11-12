@@ -389,7 +389,7 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
-  m_FillAmount: 0.12
+  m_FillAmount: 0
   m_FillClockwise: 1
   m_FillOrigin: 2
   m_UseSpriteMesh: 0
@@ -1119,6 +1119,7 @@ MonoBehaviour:
   toggleRadialMenuEventListener: {fileID: 11400000, guid: cbe8533b8958bc94ba25deaddf4ebbbf, type: 2}
   _inputHandler: {fileID: 1451038216}
   _highlightedSlice: -1
+  showDebugGizmos: 1
 --- !u!1 &1119756045
 GameObject:
   m_ObjectHideFlags: 0

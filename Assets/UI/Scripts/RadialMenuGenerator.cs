@@ -20,6 +20,8 @@ public class RadialMenuGenerator : MonoBehaviour
     private InputHandler _inputHandler;
     [SerializeField]
     private int _highlightedSlice = -1;
+    [SerializeField]
+    private float _selectionAngle = -1f;
 
 #if UNITY_EDITOR
     [Header("Debug")]
@@ -28,22 +30,21 @@ public class RadialMenuGenerator : MonoBehaviour
 
     private void Awake()
     {
-        Debug.Log("RadialMenuGenerator Awake called");
         RebuildMenu();
+        Debug.Log($"{ _activeSlices.Length} slices created in radial menu.");
     }
 
     private void Update()
     {
-        if(radialMenu.gameObject.activeSelf)
-            HandleRightStickInput();
+        HandleRightStickInput();
     }
 
+   
     private void OnEnable()
     {
         openRadialMenuEventListener.OnEventRaised += ShowMenu;
         closeRadialMenuEventListener.OnEventRaised += HideMenu;
         toggleRadialMenuEventListener.OnEventRaised += ToggleMenu;
-        Debug.Log("Subscribed to menu events");
     }
 
     private void OnDisable()
@@ -51,7 +52,6 @@ public class RadialMenuGenerator : MonoBehaviour
         openRadialMenuEventListener.OnEventRaised -= ShowMenu;
         closeRadialMenuEventListener.OnEventRaised -= HideMenu;
         toggleRadialMenuEventListener.OnEventRaised -= ToggleMenu;
-        Debug.Log("Unsubscribed from menu events");
     }
 
     #region Show/Hide/Toggle Menu Methods
@@ -71,6 +71,9 @@ public class RadialMenuGenerator : MonoBehaviour
     }
     #endregion
 
+    /// <summary>
+    /// Generates the radial menu slices based on unlocked notes.
+    /// </summary>
     public void RebuildMenu()
     {
         foreach (Transform child in radialMenu)
@@ -111,6 +114,37 @@ public class RadialMenuGenerator : MonoBehaviour
 
     private void HandleRightStickInput()
     {
+       if(radialMenu.gameObject.activeSelf)
+       {
+           _selectionAngle = CalculateAngleFromStickInput( _inputHandler.MenuSelectInput);
+           Debug.Log($"Calculated selection angle: {_selectionAngle} degrees");
+
+           SelectNoteSlice(_activeSlices, _selectionAngle);
+        }
+    }
+
+    private float CalculateAngleFromStickInput(Vector2 stickInput)
+    {
+        float angle = Mathf.Atan2(stickInput.y, stickInput.x) * Mathf.Rad2Deg;
+
+        Debug.Log($"Raw angle from stick input: {angle} degrees");
+
+        angle -= 90;
+
+        angle = 360f - angle;
+
+        angle %= 360f;
+
+        return angle;
+    }
+
+    private void SelectNoteSlice(Image[] activeSlices, float angle)
+    {
+        float sliceAngle = 360f / activeSlices.Length;
+
+        int sliceIndex = Mathf.FloorToInt(angle / sliceAngle);
+        sliceIndex = Mathf.Clamp(sliceIndex, 0, _activeSlices.Length - 1);
+
         if (_inputHandler.MenuSelectInput.sqrMagnitude < 0.1f)
         {
             // Clear highlight
@@ -122,15 +156,6 @@ public class RadialMenuGenerator : MonoBehaviour
             }
             return;
         }
-
-        float sliceAngle = 360f / _activeSlices.Length;
-
-        float angle = Mathf.Atan2(_inputHandler.MenuSelectInput.y, _inputHandler.MenuSelectInput.x) * Mathf.Rad2Deg;
-        angle -= 90;
-        angle = (360f - angle + sliceAngle / 2f) % 360f;
-
-        int sliceIndex = Mathf.FloorToInt(angle / sliceAngle);
-        sliceIndex = Mathf.Clamp(sliceIndex, 0, _activeSlices.Length - 1);
 
         if (sliceIndex != _highlightedSlice)
         {
@@ -145,6 +170,8 @@ public class RadialMenuGenerator : MonoBehaviour
 
             _highlightedSlice = sliceIndex;
         }
+
+        Debug.Log($"Selected slice: {_activeSlices[sliceIndex].name}");
     }
 
 #if UNITY_EDITOR

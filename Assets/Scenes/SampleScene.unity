@@ -389,7 +389,7 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
-  m_FillAmount: 0
+  m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 2
   m_UseSpriteMesh: 0
@@ -1098,7 +1098,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 800e39e91e5fe344094ae8530cd18208, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RadialMenuGenerator
-  radius: 15
   slicePrefab: {fileID: 219626147}
   allNotes:
   - {fileID: 11400000, guid: 1565dcd6a3d9b624eb220e7764a11d0f, type: 2}
@@ -1119,6 +1118,7 @@ MonoBehaviour:
   toggleRadialMenuEventListener: {fileID: 11400000, guid: cbe8533b8958bc94ba25deaddf4ebbbf, type: 2}
   _inputHandler: {fileID: 1451038216}
   _highlightedSlice: -1
+  _selectionAngle: -1
   showDebugGizmos: 1
 --- !u!1 &1119756045
 GameObject:

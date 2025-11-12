@@ -112,6 +112,9 @@ public class RadialMenuGenerator : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Uses right stick input to determine which slice is selected.
+    /// </summary>
     private void HandleRightStickInput()
     {
        if(radialMenu.gameObject.activeSelf)
@@ -123,6 +126,11 @@ public class RadialMenuGenerator : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Calculates the angle in degrees from the right stick input vector.
+    /// </summary>
+    /// <param name="stickInput"></param>
+    /// <returns></returns>
     private float CalculateAngleFromStickInput(Vector2 stickInput)
     {
         float angle = Mathf.Atan2(stickInput.y, stickInput.x) * Mathf.Rad2Deg;
@@ -138,6 +146,11 @@ public class RadialMenuGenerator : MonoBehaviour
         return angle;
     }
 
+    /// <summary>
+    /// Selects the note slice based on the given angle.
+    /// </summary>
+    /// <param name="activeSlices"></param>
+    /// <param name="angle"></param>
     private void SelectNoteSlice(Image[] activeSlices, float angle)
     {
         float sliceAngle = 360f / activeSlices.Length;

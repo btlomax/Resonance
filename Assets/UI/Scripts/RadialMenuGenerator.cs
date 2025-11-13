@@ -15,6 +15,7 @@ public class RadialMenuGenerator : MonoBehaviour
     public VoidEventChannel toggleRadialMenuEventListener;
 
     private Image[] _activeSlices;
+    private AudioSource _audioSource;
 
     [SerializeField]
     private InputHandler _inputHandler;
@@ -31,7 +32,7 @@ public class RadialMenuGenerator : MonoBehaviour
     private void Awake()
     {
         RebuildMenu();
-        Debug.Log($"{ _activeSlices.Length} slices created in radial menu.");
+        _audioSource = GetComponent<AudioSource>() ?? gameObject.AddComponent<AudioSource>();
     }
 
     private void Update()
@@ -82,7 +83,6 @@ public class RadialMenuGenerator : MonoBehaviour
         }
 
         var unlockedNotes = allNotes.Where(n => n.unlocked).ToArray();
-        Debug.Log($"Rebuilding radial menu with {unlockedNotes.Length} unlocked notes.");
 
         int sliceCount = unlockedNotes.Length;
 
@@ -100,15 +100,13 @@ public class RadialMenuGenerator : MonoBehaviour
             newSlice.fillMethod = Image.FillMethod.Radial360;
             newSlice.fillAmount = fillAmount;
 
-            Debug.Log($"Slice {i}: fillAmount={newSlice.fillAmount}, expected={fillAmount}");
-
             // Rotate the slice
             float rotationZ = -sliceAngle * i + (sliceAngle / 2f);
             newSlice.transform.localRotation = Quaternion.Euler(0, 0, rotationZ);
 
             _activeSlices[i] = newSlice;
             _activeSlices[i].gameObject.SetActive(true);
-            _activeSlices[i].name = $"{unlockedNotes[i].noteTitle} slice";
+            _activeSlices[i].name = $"{unlockedNotes[i].noteTitle}";
         }
     }
 
@@ -120,7 +118,6 @@ public class RadialMenuGenerator : MonoBehaviour
        if(radialMenu.gameObject.activeSelf)
        {
            _selectionAngle = CalculateAngleFromStickInput( _inputHandler.MenuSelectInput);
-           Debug.Log($"Calculated selection angle: {_selectionAngle} degrees");
 
            SelectNoteSlice(_activeSlices, _selectionAngle);
         }
@@ -134,8 +131,6 @@ public class RadialMenuGenerator : MonoBehaviour
     private float CalculateAngleFromStickInput(Vector2 stickInput)
     {
         float angle = Mathf.Atan2(stickInput.y, stickInput.x) * Mathf.Rad2Deg;
-
-        Debug.Log($"Raw angle from stick input: {angle} degrees");
 
         angle -= 90;
 
@@ -158,7 +153,7 @@ public class RadialMenuGenerator : MonoBehaviour
         int sliceIndex = Mathf.FloorToInt(angle / sliceAngle);
         sliceIndex = Mathf.Clamp(sliceIndex, 0, _activeSlices.Length - 1);
 
-        if (_inputHandler.MenuSelectInput.sqrMagnitude < 0.1f)
+        if (_inputHandler.MenuSelectInput.sqrMagnitude < 0.05f)
         {
             // Clear highlight
             if (_highlightedSlice >= 0)
@@ -191,7 +186,17 @@ public class RadialMenuGenerator : MonoBehaviour
 
     private void PlayNote(string note)
     {
-        
+        Debug.Log($"Converting note {note} to frequency.");
+
+        float frequency = ToneGenerator.ConvertNoteToFrequency(note);
+
+       AudioClip clip = ToneGenerator.CreateSineWave(frequency, 0.5f);
+
+        if (!_audioSource.isPlaying)
+        {
+            _audioSource.clip = clip;
+            _audioSource.Play();
+        }
     }
 
 #if UNITY_EDITOR

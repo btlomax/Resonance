@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 260790f1ab500654d885e9990c919f76, type: 3}
   m_Name: D#4_Note
   m_EditorClassIdentifier: Assembly-CSharp::NoteScriptObj
-  noteTitle: D#
+  noteTitle: D#4
   noteFrequency: 311
   unlocked: 0

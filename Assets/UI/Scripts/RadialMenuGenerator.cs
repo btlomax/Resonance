@@ -185,6 +185,13 @@ public class RadialMenuGenerator : MonoBehaviour
         }
 
         Debug.Log($"Selected slice: {_activeSlices[sliceIndex].name}");
+
+        PlayNote(_activeSlices[sliceIndex].name);
+    }
+
+    private void PlayNote(string note)
+    {
+        
     }
 
 #if UNITY_EDITOR

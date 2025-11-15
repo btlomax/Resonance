@@ -29,13 +29,6 @@ public class SingingStone : Interactable
 
     public void PlayNote()
     {
-        _audioSource.clip = ToneGenerator.CreateSineWave(note.noteFrequency, noteLength);
-
-        if (!_audioSource.isPlaying)
-        {
-            OnFocusEnter();
-            _audioSource.Play();
-            OnFocusExit();
-        }
+        AudioManager.Instance.PlayNote(note.noteFrequency, noteLength);
     }
 }

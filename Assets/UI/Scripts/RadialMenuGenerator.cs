@@ -15,7 +15,6 @@ public class RadialMenuGenerator : MonoBehaviour
     public VoidEventChannel toggleRadialMenuEventListener;
 
     private Image[] _activeSlices;
-    private AudioSource _audioSource;
 
     [SerializeField]
     private InputHandler _inputHandler;
@@ -32,7 +31,6 @@ public class RadialMenuGenerator : MonoBehaviour
     private void Awake()
     {
         RebuildMenu();
-        _audioSource = GetComponent<AudioSource>() ?? gameObject.AddComponent<AudioSource>();
     }
 
     private void Update()
@@ -186,61 +184,7 @@ public class RadialMenuGenerator : MonoBehaviour
 
     private void PlayNote(string note)
     {
-        Debug.Log($"Converting note {note} to frequency.");
-
-        float frequency = ToneGenerator.ConvertNoteToFrequency(note);
-
-       AudioClip clip = ToneGenerator.CreateSineWave(frequency, 0.5f);
-
-       _audioSource.clip = clip;
-       _audioSource.PlayOneShot(clip);
+       AudioManager.Instance.PlayNote(ToneGenerator.ConvertNoteToFrequency(note), 0.5f);
     }
-
-#if UNITY_EDITOR
-    private void OnDrawGizmos()
-    {
-        if (!showDebugGizmos || _activeSlices == null || _activeSlices.Length == 0)
-            return;
-
-        // Gizmo setup
-        Vector3 center = radialMenu != null ? radialMenu.position : transform.position;
-        float radiusGizmo = 150f; // purely visual — not related to UI radius
-
-        float sliceAngle = 360f / _activeSlices.Length;
-
-        for (int i = 0; i < _activeSlices.Length; i++)
-        {
-            float startAngle = -90f - (i * sliceAngle); // -90 = top of circle
-            float endAngle = startAngle - sliceAngle;
-
-            // Convert to direction vectors
-            Vector3 startDir = new Vector3(Mathf.Cos(startAngle * Mathf.Deg2Rad), Mathf.Sin(startAngle * Mathf.Deg2Rad), 0);
-            Vector3 endDir = new Vector3(Mathf.Cos(endAngle * Mathf.Deg2Rad), Mathf.Sin(endAngle * Mathf.Deg2Rad), 0);
-
-            // Pick color
-            Gizmos.color = (i == _highlightedSlice) ? Color.yellow : new Color(0, 1, 1, 0.25f);
-
-            // Draw arc segment (approximate with two lines)
-            Vector3 outerStart = center + startDir * radiusGizmo;
-            Vector3 outerEnd = center + endDir * radiusGizmo;
-
-            Gizmos.DrawLine(center, outerStart);
-            Gizmos.DrawLine(center, outerEnd);
-            Gizmos.DrawLine(outerStart, outerEnd);
-
-            // Label the slice index
-#if UNITY_EDITOR
-            UnityEditor.Handles.color = Color.white;
-            Vector3 midDir = new Vector3(
-                Mathf.Cos((startAngle - sliceAngle / 2f) * Mathf.Deg2Rad),
-                Mathf.Sin((startAngle - sliceAngle / 2f) * Mathf.Deg2Rad),
-                0
-            );
-            Vector3 labelPos = center + midDir * (radiusGizmo * 1.1f);
-            UnityEditor.Handles.Label(labelPos, i.ToString());
-#endif
-        }
-    }
-#endif
 
 }

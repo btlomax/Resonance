@@ -11,6 +11,16 @@
 
 namespace AK
 {
+    namespace EVENTS
+    {
+        static const AkUniqueID EPLAY_NOTE_SINGLE = 2889586914U;
+    } // namespace EVENTS
+
+    namespace GAME_PARAMETERS
+    {
+        static const AkUniqueID NOTE_FREQUENCY = 1394442138U;
+    } // namespace GAME_PARAMETERS
+
     namespace BANKS
     {
         static const AkUniqueID INIT = 1355168291U;

@@ -667,7 +667,7 @@ MonoBehaviour:
   m_listeners:
     initialListenerList: []
     useDefaultListeners: 1
-  isEnvironmentAware: 0
+  isEnvironmentAware: 1
   isStaticObject: 0
   usePositionOffsetData: 0
   m_positionOffsetData:
@@ -863,6 +863,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -45
       objectReference: {fileID: 0}
+    - target: {fileID: 1044180663624038585, guid: da988fed2a560194480e113cd72ffe43, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2659640477273932044, guid: da988fed2a560194480e113cd72ffe43, type: 3}
       propertyPath: note
       value: 
@@ -888,6 +892,54 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: da988fed2a560194480e113cd72ffe43, type: 3}
+--- !u!1 &714333583
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 714333584}
+  - component: {fileID: 714333585}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &714333584
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 714333583}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &714333585
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 714333583}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 595d237e71dba7c45ac6b6dd6f1aa25a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AudioManager
+  playToneEvent:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 0530412b2b9461b42b215fa6bc1d64e0, type: 2}
 --- !u!1 &826626965
 GameObject:
   m_ObjectHideFlags: 0
@@ -1493,6 +1545,10 @@ PrefabInstance:
     - target: {fileID: 473567210160048325, guid: da988fed2a560194480e113cd72ffe43, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -45
+      objectReference: {fileID: 0}
+    - target: {fileID: 1044180663624038585, guid: da988fed2a560194480e113cd72ffe43, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2659640477273932044, guid: da988fed2a560194480e113cd72ffe43, type: 3}
       propertyPath: note
@@ -2178,18 +2234,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 5838376}
     m_Modifications:
     - target: {fileID: 473567210160048325, guid: da988fed2a560194480e113cd72ffe43, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 473567210160048325, guid: da988fed2a560194480e113cd72ffe43, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 473567210160048325, guid: da988fed2a560194480e113cd72ffe43, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 473567210160048325, guid: da988fed2a560194480e113cd72ffe43, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5
       objectReference: {fileID: 0}
@@ -2229,6 +2273,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1044180663624038585, guid: da988fed2a560194480e113cd72ffe43, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4754923191311978804, guid: da988fed2a560194480e113cd72ffe43, type: 3}
       propertyPath: m_Name
       value: SingingStone
@@ -2257,3 +2305,4 @@ SceneRoots:
   - {fileID: 826626969}
   - {fileID: 1451038217}
   - {fileID: 169616515}
+  - {fileID: 714333584}

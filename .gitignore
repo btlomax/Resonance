@@ -24,3 +24,12 @@ MemoryCaptures/
 # OS generated files
 .DS_Store
 Thumbs.db
+/Assets/Wwise/Assets/Wwise/ProjectDatabase
+/Assets/Wwise/Assets
+/Assets/Wwise/Resonance_WwiseProject
+/Assets/Wwise/Assets.meta
+/Assets/Wwise/Logs.meta
+/Assets/Wwise/Resonance_WwiseProject.meta
+/Assets/WwiseSettings.xml
+/Assets/Wwise/Editor/ProjectData/AkWwiseProjectData.asset
+/UserSettings/Layouts/default-6000.dwlt

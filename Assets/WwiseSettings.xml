@@ -1,9 +1,0 @@
-<?xml version='1.0'?>
-<WwiseSettings>
-    <WwiseProjectPath>../../Resonance_WwiseIntegrationTemp1/Resonance_WwiseProject/Resonance_WwiseProject.wproj</WwiseProjectPath>
-    <SoundbankPath>Audio/GeneratedSoundBanks</SoundbankPath>
-    <CreateWwiseGlobal>true</CreateWwiseGlobal>
-    <CreateWwiseListener>true</CreateWwiseListener>
-    <WwiseInstallationPathWindows>C:\Audiokinetic\Wwise2024.1.9.8920</WwiseInstallationPathWindows>
-    <WwiseInstallationPathMac></WwiseInstallationPathMac>
-</WwiseSettings>

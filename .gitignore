@@ -1,26 +1,49 @@
+# ===============================
 # Unity generated folders
+# ===============================
 [Ll]ibrary/
 [Tt]emp/
-[Oo]bj/
 [Bb]uild/
 [Bb]uilds/
 [Ll]ogs/
-MemoryCaptures/
-
-# Visual Studio / Rider files
+[Mm]emoryCaptures/
+obj/
 *.csproj
 *.unityproj
 *.sln
 *.suo
+*.tmp
 *.user
 *.userprefs
 *.pidb
 *.booproj
 *.svd
-*.pdb
-*.mdb
-.vs/
 
+# ===============================
+# Wwise 2024 specific
+# ===============================
+
+# ✅ Keep runtime API and deployment (commit these)
+# Assets/Wwise/API/**
+# Assets/Wwise/Deployment/**
+
+# 🚫 Ignore Editor integration, machine-specific data
+Assets/Wwise/Editor/
+Assets/.WwiseLauncher/
+
+# 🚫 Ignore metadata files
+Assets/Wwise/WwiseSettings.xml
+Assets/Wwise/WwiseProjectInfo.json
+
+# Optional: ignore temporary or generated files by Wwise
+Assets/Wwise/Temp/
+Assets/Wwise/Generated/
+
+# ===============================
 # OS generated files
+# ===============================
 .DS_Store
 Thumbs.db
+/Assets/Wwise/API/Editor
+/Assets/WwiseSettings.xml
+/Assets/WwiseSettings.xml.meta

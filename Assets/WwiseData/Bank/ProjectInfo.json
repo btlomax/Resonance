@@ -1,0 +1,36 @@
+{
+ "ProjectInfo": {
+  "Project": {
+   "Name": "Resonance_WwiseProject",
+   "GUID": "{62DB3156-AD72-4D43-836A-E7CB03D625BB}",
+   "Generator": "2024.1.9.8920"
+  },
+  "CacheRoot": "../../../../Resonance_WwiseIntegrationTemp1/Resonance_WwiseProject/.cache",
+  "Platforms": [
+   {
+    "Name": "Mac",
+    "GUID": "{F888C4BA-48FE-4645-89A7-8C905161BE68}",
+    "BasePlatform": "Mac",
+    "BasePlatformGUID": "{9C6217D5-DD11-4795-87C1-6CE02853C540}",
+    "Path": "Mac"
+   },
+   {
+    "Name": "Windows",
+    "GUID": "{D0DB5CF7-5BFA-456A-B2E4-9E1276AB7D08}",
+    "BasePlatform": "Windows",
+    "BasePlatformGUID": "{6E0CB257-C6C8-4C5C-8366-2740DFC441EB}",
+    "Path": "Windows"
+   }
+  ],
+  "Languages": [
+   {
+    "Name": "English(US)",
+    "Id": "684519430",
+    "GUID": "{E46F52F1-4786-471B-8243-184F5BD30423}",
+    "Default": "true",
+    "UseAsStandIn": "true"
+   }
+  ],
+  "FileHash": "{9AF9C9EB-BD67-681D-CA3F-B067F50689C2}"
+ }
+}

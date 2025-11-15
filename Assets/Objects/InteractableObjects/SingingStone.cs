@@ -18,8 +18,6 @@ public class SingingStone : Interactable
         _puzzleManager = GetComponentInParent<BasePuzzleManager>();
 
         _audioSource.playOnAwake = false;
-
-        _audioSource.clip = ToneGenerator.CreateSineWave(note.noteFrequency, noteLength);
     }
 
     public override void Interact(GameObject interactor)
@@ -31,6 +29,8 @@ public class SingingStone : Interactable
 
     public void PlayNote()
     {
+        _audioSource.clip = ToneGenerator.CreateSineWave(note.noteFrequency, noteLength);
+
         if (!_audioSource.isPlaying)
         {
             OnFocusEnter();

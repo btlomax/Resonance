@@ -192,11 +192,8 @@ public class RadialMenuGenerator : MonoBehaviour
 
        AudioClip clip = ToneGenerator.CreateSineWave(frequency, 0.5f);
 
-        if (!_audioSource.isPlaying)
-        {
-            _audioSource.clip = clip;
-            _audioSource.Play();
-        }
+       _audioSource.clip = clip;
+       _audioSource.PlayOneShot(clip);
     }
 
 #if UNITY_EDITOR

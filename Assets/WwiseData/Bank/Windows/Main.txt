@@ -1,9 +1,0 @@
-Event	ID	Name			Wwise Object Path	Notes
-	2889586914	EPlay_Note_Single			\Default Work Unit\SynthesisedNotes\EPlay_Note_Single	
-
-Game Parameter	ID	Name			Wwise Object Path	Notes
-	1394442138	Note_Frequency			\Default Work Unit\Note_Frequency	
-
-Source plug-ins	ID	Name	Type		Wwise Object Path	Notes
-	946457942	Tone Generator	Wwise Tone Generator		\Actor-Mixer Hierarchy\Default Work Unit\APlay_Note_Single\Tone Generator	
-

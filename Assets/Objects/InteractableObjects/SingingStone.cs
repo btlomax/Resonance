@@ -29,6 +29,6 @@ public class SingingStone : Interactable
 
     public void PlayNote()
     {
-        AudioManager.Instance.PlayNote(note.noteFrequency, noteLength);
+        AudioManager.Instance.PlayNote(note.noteFrequency);
     }
 }

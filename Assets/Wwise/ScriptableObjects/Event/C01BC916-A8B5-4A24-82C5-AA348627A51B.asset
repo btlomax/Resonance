@@ -15,5 +15,4 @@ MonoBehaviour:
   objectName: EPlay_Note_Single
   id: 2889586914
   guid: C01BC916-A8B5-4A24-82C5-AA348627A51B
-  AutoBank: {fileID: 0}
   IsInUserDefinedSoundBank: 1

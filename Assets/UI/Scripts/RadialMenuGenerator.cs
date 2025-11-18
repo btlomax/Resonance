@@ -151,6 +151,7 @@ public class RadialMenuGenerator : MonoBehaviour
         int sliceIndex = Mathf.FloorToInt(angle / sliceAngle);
         sliceIndex = Mathf.Clamp(sliceIndex, 0, _activeSlices.Length - 1);
 
+        // When stick is not being moved
         if (_inputHandler.MenuSelectInput.sqrMagnitude < 0.05f)
         {
             // Clear highlight
@@ -160,6 +161,8 @@ public class RadialMenuGenerator : MonoBehaviour
                 _activeSlices[_highlightedSlice].color = Color.white;
                 _highlightedSlice = -1;
             }
+
+            StopNote();
             return;
         }
 
@@ -175,17 +178,25 @@ public class RadialMenuGenerator : MonoBehaviour
             _activeSlices[sliceIndex].color = Color.yellow;
 
             _highlightedSlice = sliceIndex;
+
+            StopNote(); // important — ends old note
+            PlayNote(_activeSlices[sliceIndex].name);
         }
 
         Debug.Log($"Selected slice: {_activeSlices[sliceIndex].name}");
 
-        PlayNote(_activeSlices[sliceIndex].name);
+        return;
     }
 
     private void PlayNote(string note)
     {
        float frequency = ToneGenerator.ConvertNoteToFrequency(note);
        AudioManager.Instance.PlayNote(frequency);
+    }
+
+    private void StopNote()
+    {
+        AudioManager.Instance.StopNote();
     }
 
 }

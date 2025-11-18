@@ -11,6 +11,9 @@ public class AudioManager : MonoBehaviour, IPlayNote
     [SerializeField]
     private AK.Wwise.RTPC noteFrequencyRTPC = null;
 
+    private uint _currentNote = 0;
+
+
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -27,8 +30,17 @@ public class AudioManager : MonoBehaviour, IPlayNote
     public void PlayNote(float note)
     {
         Debug.Log($"Playing note with frequency: {note} Hz");
+       
+        if(_currentNote == 0)
+        {
+            AkUnitySoundEngine.SetRTPCValue("Note_Frequency", note);
+            _currentNote = playToneEvent.Post(gameObject);
+        }
+    }
 
-       AkUnitySoundEngine.SetRTPCValue("Note_Frequency", note);
-        playToneEvent.Post(gameObject);
+    public void StopNote()
+    {
+        playToneEvent.Stop(gameObject);
+        _currentNote = 0;
     }
 }

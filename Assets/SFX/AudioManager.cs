@@ -1,6 +1,12 @@
 using Assets.SFX;
 using UnityEngine;
 
+
+/// <summary>
+/// I need several "channels" to play different notes simultaneously. Each note played should be independent, allowing for overlapping sounds without cutting each other off.
+/// In WWise, I have several events set up to play tones, each with its own RTPC for frequency control. These are my channels.
+/// When an object needs to play a tone, it just calls the AudioManager and gives it the name of the event to post ie "Kick" "Bass" "Lead" etc.
+/// </summary>
 public class AudioManager : MonoBehaviour, IPlayNote
 {
     public static AudioManager Instance { get; private set; }

@@ -14,6 +14,7 @@ namespace AK
     namespace EVENTS
     {
         static const AkUniqueID EPLAY_NOTE_SINGLE = 2889586914U;
+        static const AkUniqueID ESYNTHONE = 625586556U;
     } // namespace EVENTS
 
     namespace GAME_PARAMETERS

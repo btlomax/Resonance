@@ -1,8 +1,8 @@
 using UnityEngine;
 
-public static class ToneGenerator
+public class ToneGenerator
 {
-    public static AudioClip CreateSineWave(float frequency, float duration, int sampleRate = 44100)
+    public AudioClip CreateSineWave(float frequency, float duration, int sampleRate = 44100)
     {
         int sampleCount = (int)(sampleRate * duration);
         float[] samples = new float[sampleCount];
@@ -15,7 +15,7 @@ public static class ToneGenerator
         return audioClip;
     }
 
-    public static float ConvertNoteToFrequency(string note)
+    public float ConvertNoteToFrequency(string note)
     {
 
         // Note format: "C4", "A#3", etc.

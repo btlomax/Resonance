@@ -190,13 +190,11 @@ public class RadialMenuGenerator : MonoBehaviour
 
     private void PlayNote(string note)
     {
-       float frequency = ToneGenerator.ConvertNoteToFrequency(note);
-       AudioManager.Instance.PlayNote(frequency);
+       AudioManager.Instance.PlayNote(note);
     }
 
     private void StopNote()
     {
         AudioManager.Instance.StopNote();
     }
-
 }

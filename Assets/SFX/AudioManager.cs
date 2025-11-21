@@ -12,7 +12,13 @@ public class AudioManager : MonoBehaviour, IPlayNote
     private AK.Wwise.RTPC noteFrequencyRTPC = null;
 
     private uint _currentNote = 0;
+    private ToneGenerator _toneGenerator;
 
+    public AudioManager()
+    {
+        _toneGenerator = new ToneGenerator();
+        Debug.Log("Tone generator created.");
+    }
 
     private void Awake()
     {
@@ -27,13 +33,14 @@ public class AudioManager : MonoBehaviour, IPlayNote
         Debug.Log("AudioManager initialized.");
     }
 
-    public void PlayNote(float note)
+    public void PlayNote(string note)
     {
+        float frequency = _toneGenerator.ConvertNoteToFrequency(note);
         Debug.Log($"Playing note with frequency: {note} Hz");
        
         if(_currentNote == 0)
         {
-            AkUnitySoundEngine.SetRTPCValue("Note_Frequency", note);
+            AkUnitySoundEngine.SetRTPCValue("Note_Frequency", frequency);
             _currentNote = playToneEvent.Post(gameObject);
         }
     }

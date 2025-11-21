@@ -926,7 +926,7 @@ MonoBehaviour:
   playToneEvent:
     idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: 0530412b2b9461b42b215fa6bc1d64e0, type: 2}
+    WwiseObjectReference: {fileID: 11400000, guid: c21308a28719d7e49bc42c6e61d9eccc, type: 2}
   noteFrequencyRTPC:
     idInternal: 0
     valueGuidInternal: 

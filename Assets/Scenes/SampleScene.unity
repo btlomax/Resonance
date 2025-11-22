@@ -251,6 +251,8 @@ MonoBehaviour:
   showHighlight: 1
   Highlighter: {fileID: 1653140006}
   singingStones: []
+  noteSequence:
+  - {fileID: 11400000, guid: 1565dcd6a3d9b624eb220e7764a11d0f, type: 2}
   delayBetweenNotes: 0.7
 --- !u!1 &116778374
 GameObject:
@@ -889,6 +891,7 @@ GameObject:
   - component: {fileID: 714333584}
   - component: {fileID: 714333585}
   - component: {fileID: 714333586}
+  - component: {fileID: 714333587}
   m_Layer: 0
   m_Name: AudioManager
   m_TagString: Untagged
@@ -956,6 +959,22 @@ MonoBehaviour:
   unloadTriggerList: 958ca0ea
   bankNameInternal: 
   valueGuidInternal: 
+--- !u!114 &714333587
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 714333583}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45842f39ee2119d40a56dd0f6aee24ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnvironmentMusicPlayer
+  playSequenceEvent:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: c21308a28719d7e49bc42c6e61d9eccc, type: 2}
 --- !u!1 &826626965
 GameObject:
   m_ObjectHideFlags: 0

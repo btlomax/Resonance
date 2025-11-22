@@ -11,6 +11,9 @@ public class CopyNotePuzzleManager : BasePuzzleManager
 {
     [Header("Copy Note Puzzle Settings")]
     public SingingStone[] singingStones;
+    public NoteScriptObj[] noteSequence;
+
+
     public float delayBetweenNotes = 0.5f;
 
     private void Awake()
@@ -34,7 +37,7 @@ public class CopyNotePuzzleManager : BasePuzzleManager
     /// notes. Ensure that the puzzle is in a valid state to be activated before calling this method.</remarks>
     public override void OnPuzzleActivated()
     {
-        StartCoroutine(ArpeggioRoutine(delayBetweenNotes));
+        AudioManager.Instance.PlayEnvironmentNoteSequence(noteSequence);
     }
 
     /// <summary>

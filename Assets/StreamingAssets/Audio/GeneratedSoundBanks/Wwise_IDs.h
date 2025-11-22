@@ -13,9 +13,26 @@ namespace AK
 {
     namespace EVENTS
     {
+        static const AkUniqueID ENVIRONMENTNOTE_PLAY = 2675223085U;
         static const AkUniqueID EPLAY_NOTE_SINGLE = 2889586914U;
-        static const AkUniqueID ESYNTHONE = 625586556U;
     } // namespace EVENTS
+
+    namespace SWITCHES
+    {
+        namespace SEQUENCEPLAYER
+        {
+            static const AkUniqueID GROUP = 3788318133U;
+
+            namespace SWITCH
+            {
+                static const AkUniqueID A4_NOTE = 2048425061U;
+                static const AkUniqueID B4_NOTE = 2876098650U;
+                static const AkUniqueID BB4_NOTE = 2488697938U;
+                static const AkUniqueID C4_NOTE = 3137378983U;
+            } // namespace SWITCH
+        } // namespace SEQUENCEPLAYER
+
+    } // namespace SWITCHES
 
     namespace GAME_PARAMETERS
     {

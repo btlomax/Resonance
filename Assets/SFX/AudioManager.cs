@@ -19,6 +19,7 @@ public class AudioManager : MonoBehaviour, IPlayNote
 
     private uint _currentNote = 0;
     private ToneGenerator _toneGenerator;
+    private EnvironmentMusicPlayer _environmentMusicPlayer;
 
     public AudioManager()
     {
@@ -30,16 +31,18 @@ public class AudioManager : MonoBehaviour, IPlayNote
     {
         if (Instance != null && Instance != this)
         {
-            Destroy(gameObject);
+            Destroy(gameObject); 
             return;
         }
         Instance = this;
         DontDestroyOnLoad(gameObject);
 
+        _environmentMusicPlayer = GetComponent<EnvironmentMusicPlayer>();
+
         Debug.Log("AudioManager initialized.");
     }
 
-    public void PlayNote(string note)
+    public void PlayLoopingNote(string note)
     {
         float frequency = _toneGenerator.ConvertNoteToFrequency(note);
         Debug.Log($"Playing note with frequency: {note} Hz");
@@ -47,13 +50,27 @@ public class AudioManager : MonoBehaviour, IPlayNote
         if(_currentNote == 0)
         {
             AkUnitySoundEngine.SetRTPCValue("Note_Frequency", frequency);
-            _currentNote = playToneEvent.Post(gameObject);
+            _currentNote = AkUnitySoundEngine.PostEvent(playToneEvent.Id, gameObject);
         }
     }
 
-    public void StopNote()
+    public void StopLoopingNote()
     {
         playToneEvent.Stop(gameObject);
         _currentNote = 0;
+    }
+
+    public void PlayEnvironmentNoteSequence(NoteScriptObj[] section)
+    {
+        Debug.Log("Entered PlayEnvironmentNoteSequence in AudioManager.");
+
+        try
+        {
+            _environmentMusicPlayer.PlayNoteSequence(section);
+        }
+        catch (System.Exception ex)
+        {
+            Debug.LogError($"Error playing environment note sequence: {ex.Message}");
+        }
     }
 }

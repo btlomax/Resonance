@@ -190,11 +190,11 @@ public class RadialMenuGenerator : MonoBehaviour
 
     private void PlayNote(string note)
     {
-       AudioManager.Instance.PlayNote(note);
+       AudioManager.Instance.PlayLoopingNote(note);
     }
 
     private void StopNote()
     {
-        AudioManager.Instance.StopNote();
+        AudioManager.Instance.StopLoopingNote();
     }
 }

@@ -8,6 +8,6 @@ namespace Assets.SFX
 {
     public interface IPlayNote
     {
-        void PlayNote(string note);
+        void PlayLoopingNote(string note);
     }
 }

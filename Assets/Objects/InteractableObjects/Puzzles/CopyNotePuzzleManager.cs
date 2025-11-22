@@ -13,8 +13,13 @@ public class CopyNotePuzzleManager : BasePuzzleManager
     public SingingStone[] singingStones;
     public NoteScriptObj[] noteSequence;
 
+    [SerializeField]
+    private EnvironmentMusicPlayer _environmentMusicPlayer;
 
     public float delayBetweenNotes = 0.5f;
+
+    [SerializeField]
+    private bool _activated = false;
 
     private void Awake()
     {
@@ -27,7 +32,10 @@ public class CopyNotePuzzleManager : BasePuzzleManager
     /// <param name="interactor"></param>
     public override void Interact(GameObject interactor)
     {
-        OnPuzzleActivated();
+        if(!_activated)
+            OnPuzzleActivated();
+
+        _activated = true;
     }
 
     /// <summary>
@@ -37,23 +45,16 @@ public class CopyNotePuzzleManager : BasePuzzleManager
     /// notes. Ensure that the puzzle is in a valid state to be activated before calling this method.</remarks>
     public override void OnPuzzleActivated()
     {
-        AudioManager.Instance.PlayEnvironmentNoteSequence(noteSequence);
+        Debug.Log("Copy Note Puzzle Activated: Starting arpeggio sequence.");
+        AudioManager.Instance.StartSequenceCoroutine(noteSequence);
+
+        StartCoroutine(ResetActivated(3));
     }
 
-    /// <summary>
-    /// Plays a sequence of notes on the singing stones with a specified delay between each note.
-    /// </summary>
-    /// <remarks>Each stone in the sequence plays its note, waits for the specified delay, and then stops the
-    /// note before moving to the next stone.</remarks>
-    /// <param name="delay">The time, in seconds, to wait between playing each note.</param>
-    /// <returns>An enumerator that performs the arpeggio routine when iterated.</returns>
-    private IEnumerator ArpeggioRoutine(float delay)
+    private IEnumerator ResetActivated(float delay)
     {
-        foreach (var stone in singingStones)
-        {
-            stone.PlayNote();
-            yield return new WaitForSeconds(delay);
-            stone.StopNote();
-        }
+        yield return new WaitForSeconds(delay);
+
+        _activated = false;
     }
 }

@@ -253,7 +253,11 @@ MonoBehaviour:
   singingStones: []
   noteSequence:
   - {fileID: 11400000, guid: 1565dcd6a3d9b624eb220e7764a11d0f, type: 2}
+  - {fileID: 11400000, guid: b9bc5d35cb9907444b1996bc31d76bfe, type: 2}
+  - {fileID: 11400000, guid: 73dbfee8d390b824f86625fa4507a983, type: 2}
+  _environmentMusicPlayer: {fileID: 1774432541}
   delayBetweenNotes: 0.7
+  _activated: 0
 --- !u!1 &116778374
 GameObject:
   m_ObjectHideFlags: 0
@@ -891,7 +895,6 @@ GameObject:
   - component: {fileID: 714333584}
   - component: {fileID: 714333585}
   - component: {fileID: 714333586}
-  - component: {fileID: 714333587}
   m_Layer: 0
   m_Name: AudioManager
   m_TagString: Untagged
@@ -929,11 +932,16 @@ MonoBehaviour:
   playToneEvent:
     idInternal: 0
     valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: 0530412b2b9461b42b215fa6bc1d64e0, type: 2}
+  playSequenceEvent:
+    idInternal: 0
+    valueGuidInternal: 
     WwiseObjectReference: {fileID: 11400000, guid: c21308a28719d7e49bc42c6e61d9eccc, type: 2}
   noteFrequencyRTPC:
     idInternal: 0
     valueGuidInternal: 
     WwiseObjectReference: {fileID: 11400000, guid: 5c7068392a69b294481419a023342ac7, type: 2}
+  _environmentMusicPlayer: {fileID: 1774432541}
 --- !u!114 &714333586
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -959,22 +967,6 @@ MonoBehaviour:
   unloadTriggerList: 958ca0ea
   bankNameInternal: 
   valueGuidInternal: 
---- !u!114 &714333587
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 714333583}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 45842f39ee2119d40a56dd0f6aee24ba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EnvironmentMusicPlayer
-  playSequenceEvent:
-    idInternal: 0
-    valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: c21308a28719d7e49bc42c6e61d9eccc, type: 2}
 --- !u!1 &826626965
 GameObject:
   m_ObjectHideFlags: 0
@@ -2065,6 +2057,54 @@ Transform:
   - {fileID: 1451417236}
   m_Father: {fileID: 5838376}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1774432539
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1774432540}
+  - component: {fileID: 1774432541}
+  m_Layer: 0
+  m_Name: EMP
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1774432540
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1774432539}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1774432541
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1774432539}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45842f39ee2119d40a56dd0f6aee24ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnvironmentMusicPlayer
+  playSequenceEvent:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: c21308a28719d7e49bc42c6e61d9eccc, type: 2}
 --- !u!1 &1945773581
 GameObject:
   m_ObjectHideFlags: 0
@@ -2340,4 +2380,5 @@ SceneRoots:
   - {fileID: 826626969}
   - {fileID: 1451038217}
   - {fileID: 169616515}
+  - {fileID: 1774432540}
   - {fileID: 714333584}

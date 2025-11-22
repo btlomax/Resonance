@@ -17,7 +17,7 @@ public class EnvironmentMusicPlayer : MonoBehaviour
             _noteFinished = false;
 
             AkUnitySoundEngine.SetSwitch("SequencePlayer", note.noteTitle, gameObject);
-
+            Debug.Log($"Event ID : {playSequenceEvent.Id} - Playing note: {note.noteTitle} (Frequency: {note.noteFrequency} Hz)");
             AkUnitySoundEngine.PostEvent(playSequenceEvent.Id, gameObject, (uint)AkCallbackType.AK_EndOfEvent, NoteFinishedCallback, null);
 
             yield return new WaitUntil(() => _noteFinished);

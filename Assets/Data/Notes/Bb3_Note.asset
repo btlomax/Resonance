@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 260790f1ab500654d885e9990c919f76, type: 3}
-  m_Name: G#4_Note
+  m_Name: Bb3_Note
   m_EditorClassIdentifier: Assembly-CSharp::NoteScriptObj
-  noteTitle: G#4
-  noteFrequency: 415
+  noteTitle: Bb3
+  noteFrequency: 233
   unlocked: 0

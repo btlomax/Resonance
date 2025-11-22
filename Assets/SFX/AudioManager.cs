@@ -1,4 +1,5 @@
 using Assets.SFX;
+using System.Collections;
 using UnityEngine;
 
 
@@ -11,15 +12,22 @@ public class AudioManager : MonoBehaviour, IPlayNote
 {
     public static AudioManager Instance { get; private set; }
 
+    private bool _noteFinished = false;
+
     [Header("Wwise Events")]
     public AK.Wwise.Event playToneEvent;
+    public AK.Wwise.Event playSequenceEvent;
+
+    //public AK.Wwise.Switch noteSwitch;
 
     [SerializeField]
     private AK.Wwise.RTPC noteFrequencyRTPC = null;
 
+    [SerializeField]
+    private EnvironmentMusicPlayer _environmentMusicPlayer;
+
     private uint _currentNote = 0;
     private ToneGenerator _toneGenerator;
-    private EnvironmentMusicPlayer _environmentMusicPlayer;
 
     public AudioManager()
     {
@@ -36,8 +44,6 @@ public class AudioManager : MonoBehaviour, IPlayNote
         }
         Instance = this;
         DontDestroyOnLoad(gameObject);
-
-        _environmentMusicPlayer = GetComponent<EnvironmentMusicPlayer>();
 
         Debug.Log("AudioManager initialized.");
     }
@@ -64,13 +70,34 @@ public class AudioManager : MonoBehaviour, IPlayNote
     {
         Debug.Log("Entered PlayEnvironmentNoteSequence in AudioManager.");
 
-        try
+        PlayNoteSequence(section);
+        Debug.Log("Note sequence has been played.");
+    }
+
+    public void StartSequenceCoroutine(NoteScriptObj[] notesToPlay)
+    {
+        StartCoroutine(PlayNoteSequence(notesToPlay));
+    }
+
+    public IEnumerator PlayNoteSequence(NoteScriptObj[] notesToPlay)
+    {
+        Debug.Log("Playing note sequence...");
+
+        foreach (var note in notesToPlay)
         {
-            _environmentMusicPlayer.PlayNoteSequence(section);
+            _noteFinished = false;
+
+            AkUnitySoundEngine.SetSwitch("A3_A4", note.noteTitle, gameObject);
+            Debug.Log($"Event ID : {playSequenceEvent.Id} - Playing note: {note.noteTitle} (Frequency: {note.noteFrequency} Hz)");
+            AkUnitySoundEngine.PostEvent(playSequenceEvent.Id, gameObject, (uint)AkCallbackType.AK_EndOfEvent, NoteFinishedCallback, null);
+
+            yield return new WaitUntil(() => _noteFinished);
         }
-        catch (System.Exception ex)
-        {
-            Debug.LogError($"Error playing environment note sequence: {ex.Message}");
-        }
+    }
+
+    private void NoteFinishedCallback(object in_cookie, AkCallbackType type, AkCallbackInfo info)
+    {
+        if (type == AkCallbackType.AK_EndOfEvent)
+            _noteFinished = true;
     }
 }

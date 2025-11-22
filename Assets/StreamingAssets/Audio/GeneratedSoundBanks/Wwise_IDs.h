@@ -19,18 +19,27 @@ namespace AK
 
     namespace SWITCHES
     {
-        namespace SEQUENCEPLAYER
+        namespace A3_A4
         {
-            static const AkUniqueID GROUP = 3788318133U;
+            static const AkUniqueID GROUP = 4168603283U;
 
             namespace SWITCH
             {
-                static const AkUniqueID A4_NOTE = 2048425061U;
-                static const AkUniqueID B4_NOTE = 2876098650U;
-                static const AkUniqueID BB4_NOTE = 2488697938U;
-                static const AkUniqueID C4_NOTE = 3137378983U;
+                static const AkUniqueID A3 = 1886858601U;
+                static const AkUniqueID A4 = 1886858606U;
+                static const AkUniqueID AB4 = 1134309148U;
+                static const AkUniqueID B4 = 1870081011U;
+                static const AkUniqueID BB4 = 496612491U;
+                static const AkUniqueID C4 = 1853303296U;
+                static const AkUniqueID D4 = 1836525717U;
+                static const AkUniqueID DB4 = 362097357U;
+                static const AkUniqueID E4 = 1819748154U;
+                static const AkUniqueID EB4 = 731057968U;
+                static const AkUniqueID F4 = 1802970447U;
+                static const AkUniqueID G4 = 1786192860U;
+                static const AkUniqueID GB4 = 596439562U;
             } // namespace SWITCH
-        } // namespace SEQUENCEPLAYER
+        } // namespace A3_A4
 
     } // namespace SWITCHES
 

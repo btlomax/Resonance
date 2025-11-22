@@ -12,7 +12,6 @@ public abstract class Interactable : MonoBehaviour, IObjectInteraction
 
     void Awake()
     {
-        Highlighter = transform.Find("Highlighter")?.gameObject;
     }
 
     // Called by PlayerInteraction when the player presses interact.

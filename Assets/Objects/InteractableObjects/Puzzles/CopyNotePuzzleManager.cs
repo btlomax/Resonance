@@ -18,6 +18,9 @@ public class CopyNotePuzzleManager : BasePuzzleManager
     [SerializeField]
     private bool _activated = false;
 
+    [SerializeField]
+    private Recorder _recorder;
+
     private void Awake()
     {
         singingStones = GetComponentsInChildren<SingingStone>();
@@ -46,6 +49,8 @@ public class CopyNotePuzzleManager : BasePuzzleManager
         AudioManager.Instance.PlayCopyPuzzleSequence(noteSequence);
 
         StartCoroutine(ResetActivated(3));
+
+        _recorder.StartRecording();
     }
 
     private IEnumerator ResetActivated(float delay)

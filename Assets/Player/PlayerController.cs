@@ -1,5 +1,7 @@
 using Assets.Player.Contracts;
+using System.Collections;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 /// <summary>
 /// Need to think about breaking this into smaller components later
@@ -27,6 +29,7 @@ public class PlayerController : MonoBehaviour
     private const float _inputDeadzone = 0.01f;
     private CharacterController _charController;
     private Ray _ray;
+    private bool _hasInteracted = false;
 
     private void Awake()
     {
@@ -63,10 +66,13 @@ public class PlayerController : MonoBehaviour
 
     private void TryInteract()
     {
-       if (_currentFocus != null)
+       if (_currentFocus != null && !_hasInteracted)
        {
            _currentFocus.Interact(gameObject);
-       }
+           _hasInteracted = true;
+
+           StartCoroutine(WaitAfterInteract(1f));
+        }
     }
 
     private void HandleFocus()
@@ -98,6 +104,12 @@ public class PlayerController : MonoBehaviour
             _currentFocus.OnFocusExit();
             _currentFocus = null;
         }
+    }
+
+    private IEnumerator WaitAfterInteract(float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+        _hasInteracted = false;
     }
 }
 

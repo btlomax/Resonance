@@ -30,12 +30,9 @@ public class AudioManager : MonoBehaviour, IPlayNote
     private CopyPuzzleSequencePlayer _cPSP;
 
     private uint _currentNote = 0;
-    private ToneGenerator _toneGenerator;
 
     public AudioManager()
     {
-        _toneGenerator = new ToneGenerator();
-        Debug.Log("Tone generator created.");
     }
 
     private void Awake()

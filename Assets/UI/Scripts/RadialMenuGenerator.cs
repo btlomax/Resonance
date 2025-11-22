@@ -13,6 +13,7 @@ public class RadialMenuGenerator : MonoBehaviour
     public VoidEventChannel openRadialMenuEventListener;
     public VoidEventChannel closeRadialMenuEventListener;
     public VoidEventChannel toggleRadialMenuEventListener;
+    public NotePlayedEventChannel notePlayedEvent;
 
     private Image[] _activeSlices;
 
@@ -191,6 +192,8 @@ public class RadialMenuGenerator : MonoBehaviour
     private void PlayNote(string note)
     {
        AudioManager.Instance.PlayLoopingNote(note);
+
+       notePlayedEvent.RaiseEvent(note);
     }
 
     private void StopNote()

@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::NoteScriptObj
   noteTitle: A3
   noteFrequency: 220
-  unlocked: 1
+  unlocked: 0

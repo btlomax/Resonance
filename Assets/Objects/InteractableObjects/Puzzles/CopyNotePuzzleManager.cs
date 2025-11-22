@@ -1,6 +1,6 @@
 using Assets.Player.Contracts;
-using NUnit.Framework;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
@@ -11,7 +11,8 @@ public class CopyNotePuzzleManager : BasePuzzleManager
 {
     [Header("Copy Note Puzzle Settings")]
     public SingingStone[] singingStones;
-    public string[] noteSequence;
+    public List<string> noteSequence = new List<string>();
+    public NoteComparisonStarted noteComparisonStartedEvent;
 
     public float delayBetweenNotes = 0.5f;
 
@@ -26,13 +27,18 @@ public class CopyNotePuzzleManager : BasePuzzleManager
         singingStones = GetComponentsInChildren<SingingStone>();
     }
 
+    private void OnEnable()
+    {
+        noteComparisonStartedEvent.OnNoteComparisonStarted += OnNoteComparisonStarted;
+    }
+
     /// <summary>
     /// When the player interacts with the puzzle manager, start the arpeggio sequence
     /// </summary>
     /// <param name="interactor"></param>
     public override void Interact(GameObject interactor)
     {
-        if(!_activated)
+        if(!_activated && !IsSolved)
             OnPuzzleActivated();
 
         _activated = true;
@@ -48,15 +54,41 @@ public class CopyNotePuzzleManager : BasePuzzleManager
         Debug.Log("Copy Note Puzzle Activated: Starting arpeggio sequence.");
         AudioManager.Instance.PlayCopyPuzzleSequence(noteSequence);
 
-        StartCoroutine(ResetActivated(3));
+        StartCoroutine(SimpleWait(3));
 
         _recorder.StartRecording();
     }
 
-    private IEnumerator ResetActivated(float delay)
+    private IEnumerator SimpleWait(float delay)
     {
         yield return new WaitForSeconds(delay);
 
         _activated = false;
+    }
+
+    private void OnNoteComparisonStarted(List<string> notesRecorded)
+    {
+        StartCoroutine(SimpleWait(3));
+
+        Debug.Log("Comparing recorded notes with the sequence...");
+
+        if(notesRecorded.Count != noteSequence.Count)
+        {
+            Debug.Log("Note sequence length mismatch. Puzzle failed.");
+            return;
+        }
+
+        for(int i = 0; i < noteSequence.Count; i++)
+        {
+            if(notesRecorded[i] != noteSequence[i])
+            {
+                Debug.Log($"Note mismatch at index {i}. Expected: {noteSequence[i]}, Recorded: {notesRecorded[i]}. Puzzle failed.");
+                return;
+            }
+        }
+
+        Debug.Log("Note sequence matched! Puzzle solved.");
+
+        MarkSolved();
     }
 }

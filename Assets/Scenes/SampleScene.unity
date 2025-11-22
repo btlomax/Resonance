@@ -256,7 +256,7 @@ MonoBehaviour:
   - C4
   - E4
   - G4
-  - F4
+  noteComparisonStartedEvent: {fileID: 11400000, guid: 57958f04d7df0e6458087942b5dfe450, type: 2}
   delayBetweenNotes: 0.7
   _activated: 0
   _recorder: {fileID: 1641436547}
@@ -2317,6 +2317,8 @@ MonoBehaviour:
   showHighlight: 1
   Highlighter: {fileID: 85450750}
   notePlayedEvent: {fileID: 11400000, guid: 715a2acaaee5ffd43988bde98608b7b7, type: 2}
+  noteComparisonStartedEvent: {fileID: 11400000, guid: 57958f04d7df0e6458087942b5dfe450, type: 2}
+  _recordedNotes: []
 --- !u!1 &1653140006
 GameObject:
   m_ObjectHideFlags: 0

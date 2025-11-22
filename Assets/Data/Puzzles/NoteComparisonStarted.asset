@@ -9,9 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 260790f1ab500654d885e9990c919f76, type: 3}
-  m_Name: A4_Note
-  m_EditorClassIdentifier: Assembly-CSharp::NoteScriptObj
-  noteTitle: A4
-  noteFrequency: 440
-  unlocked: 0
+  m_Script: {fileID: 11500000, guid: 522637dd9e0380a488774b38be3582be, type: 3}
+  m_Name: NoteComparisonStarted
+  m_EditorClassIdentifier: Assembly-CSharp::NoteComparisonStarted

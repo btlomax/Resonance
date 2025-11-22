@@ -1,5 +1,6 @@
 using AK.Wwise;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
@@ -11,12 +12,12 @@ public class CopyPuzzleSequencePlayer : MonoBehaviour
     [Header("Wwise Events")]
     public AK.Wwise.Event playSequenceEvent;
 
-    public void StartSequenceCoroutine(string[] notesToPlay)
+    public void StartSequenceCoroutine(List<string> notesToPlay)
     {
         StartCoroutine(PlayNoteSequence(notesToPlay));
     }
 
-    private IEnumerator PlayNoteSequence(string[] notesToPlay)
+    private IEnumerator PlayNoteSequence(List<string> notesToPlay)
     {
         Debug.Log("Playing note sequence...");
 

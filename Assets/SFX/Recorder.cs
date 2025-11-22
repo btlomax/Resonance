@@ -3,7 +3,9 @@ using UnityEngine;
 
 public class Recorder : Interactable
 {
+    [Header("Recorder Settings")]
     public NotePlayedEventChannel notePlayedEvent;
+    public NoteComparisonStarted noteComparisonStartedEvent;
 
     [SerializeField]
     private List<string> _recordedNotes = new List<string>();
@@ -37,7 +39,7 @@ public class Recorder : Interactable
         Debug.Log("Stopped Recording Notes");
         _isRecording = false;
 
-        // Fire off comparison event or logic here
+        noteComparisonStartedEvent.RaiseEvent(_recordedNotes);
     }
 
     private void OnNotePlayed(string noteName)

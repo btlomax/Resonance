@@ -1,5 +1,7 @@
 using Assets.SFX;
+using NUnit.Framework;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 
@@ -63,7 +65,7 @@ public class AudioManager : MonoBehaviour, IPlayNote
         _currentNote = 0;
     }
 
-    public void PlayCopyPuzzleSequence(string[] noteSequence)
+    public void PlayCopyPuzzleSequence(List<string> noteSequence)
     {
         Debug.Log("AudioManager: Starting copy puzzle sequence.");
         _cPSP.StartSequenceCoroutine(noteSequence);

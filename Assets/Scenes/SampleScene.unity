@@ -252,10 +252,10 @@ MonoBehaviour:
   Highlighter: {fileID: 1653140006}
   singingStones: []
   noteSequence:
-  - {fileID: 11400000, guid: 1565dcd6a3d9b624eb220e7764a11d0f, type: 2}
-  - {fileID: 11400000, guid: b9bc5d35cb9907444b1996bc31d76bfe, type: 2}
-  - {fileID: 11400000, guid: 73dbfee8d390b824f86625fa4507a983, type: 2}
-  _environmentMusicPlayer: {fileID: 1774432541}
+  - C4
+  - E4
+  - G4
+  - F4
   delayBetweenNotes: 0.7
   _activated: 0
 --- !u!1 &116778374
@@ -895,6 +895,7 @@ GameObject:
   - component: {fileID: 714333584}
   - component: {fileID: 714333585}
   - component: {fileID: 714333586}
+  - component: {fileID: 714333587}
   m_Layer: 0
   m_Name: AudioManager
   m_TagString: Untagged
@@ -941,7 +942,7 @@ MonoBehaviour:
     idInternal: 0
     valueGuidInternal: 
     WwiseObjectReference: {fileID: 11400000, guid: 5c7068392a69b294481419a023342ac7, type: 2}
-  _environmentMusicPlayer: {fileID: 1774432541}
+  _cPSP: {fileID: 714333587}
 --- !u!114 &714333586
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -967,6 +968,22 @@ MonoBehaviour:
   unloadTriggerList: 958ca0ea
   bankNameInternal: 
   valueGuidInternal: 
+--- !u!114 &714333587
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 714333583}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45842f39ee2119d40a56dd0f6aee24ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CopyPuzzleSequencePlayer
+  playSequenceEvent:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: c21308a28719d7e49bc42c6e61d9eccc, type: 2}
 --- !u!1 &826626965
 GameObject:
   m_ObjectHideFlags: 0
@@ -1284,7 +1301,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::RadialMenuGenerator
   slicePrefab: {fileID: 219626147}
   allNotes:
-  - {fileID: 11400000, guid: 1565dcd6a3d9b624eb220e7764a11d0f, type: 2}
   - {fileID: 11400000, guid: 057cc2feaa99439419a36e8704ce8258, type: 2}
   - {fileID: 11400000, guid: 34fe43778326f894bbcb2e21843704bb, type: 2}
   - {fileID: 11400000, guid: b9bc5d35cb9907444b1996bc31d76bfe, type: 2}
@@ -1296,6 +1312,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 66f5d1f2929c9c544b5dc13fb024afa7, type: 2}
   - {fileID: 11400000, guid: a4f25df3d64a026458cd163109cdfbc9, type: 2}
   - {fileID: 11400000, guid: 23fb7b02fdeabeb4681db14bd67370a2, type: 2}
+  - {fileID: 11400000, guid: 1565dcd6a3d9b624eb220e7764a11d0f, type: 2}
   radialMenu: {fileID: 116778375}
   openRadialMenuEventListener: {fileID: 11400000, guid: 11f05b8d7d368a44f8e4bc39e84d8efc, type: 2}
   closeRadialMenuEventListener: {fileID: 11400000, guid: 8d766bd75f3a88a4c8338e4bd2e645be, type: 2}

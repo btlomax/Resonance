@@ -19,17 +19,17 @@ namespace AK
 
     namespace SWITCHES
     {
-        namespace A3_A4
+        namespace ENV_A3_A4
         {
-            static const AkUniqueID GROUP = 4168603283U;
+            static const AkUniqueID GROUP = 2282671883U;
 
             namespace SWITCH
             {
                 static const AkUniqueID A3 = 1886858601U;
                 static const AkUniqueID A4 = 1886858606U;
                 static const AkUniqueID AB4 = 1134309148U;
-                static const AkUniqueID B4 = 1870081011U;
-                static const AkUniqueID BB4 = 496612491U;
+                static const AkUniqueID B3 = 1870081012U;
+                static const AkUniqueID BB3 = 496612492U;
                 static const AkUniqueID C4 = 1853303296U;
                 static const AkUniqueID D4 = 1836525717U;
                 static const AkUniqueID DB4 = 362097357U;
@@ -39,7 +39,29 @@ namespace AK
                 static const AkUniqueID G4 = 1786192860U;
                 static const AkUniqueID GB4 = 596439562U;
             } // namespace SWITCH
-        } // namespace A3_A4
+        } // namespace ENV_A3_A4
+
+        namespace PLY_A3_A4
+        {
+            static const AkUniqueID GROUP = 2888024727U;
+
+            namespace SWITCH
+            {
+                static const AkUniqueID A3 = 1886858601U;
+                static const AkUniqueID A4 = 1886858606U;
+                static const AkUniqueID AB4 = 1134309148U;
+                static const AkUniqueID B3 = 1870081012U;
+                static const AkUniqueID BB3 = 496612492U;
+                static const AkUniqueID C4 = 1853303296U;
+                static const AkUniqueID D4 = 1836525717U;
+                static const AkUniqueID DB4 = 362097357U;
+                static const AkUniqueID E4 = 1819748154U;
+                static const AkUniqueID EB4 = 731057968U;
+                static const AkUniqueID F4 = 1802970447U;
+                static const AkUniqueID G4 = 1786192860U;
+                static const AkUniqueID GB4 = 596439562U;
+            } // namespace SWITCH
+        } // namespace PLY_A3_A4
 
     } // namespace SWITCHES
 

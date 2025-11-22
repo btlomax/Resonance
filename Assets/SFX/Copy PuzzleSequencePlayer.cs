@@ -2,13 +2,21 @@ using AK.Wwise;
 using System.Collections;
 using UnityEngine;
 
-public class EnvironmentMusicPlayer : MonoBehaviour
+/// <summary>
+/// Responsible for playing sequences of notes for copy puzzles
+/// </summary>
+public class CopyPuzzleSequencePlayer : MonoBehaviour
 {
     private bool _noteFinished = false;
     [Header("Wwise Events")]
     public AK.Wwise.Event playSequenceEvent;
 
-    public IEnumerator PlayNoteSequence(NoteScriptObj[] notesToPlay)
+    public void StartSequenceCoroutine(string[] notesToPlay)
+    {
+        StartCoroutine(PlayNoteSequence(notesToPlay));
+    }
+
+    private IEnumerator PlayNoteSequence(string[] notesToPlay)
     {
         Debug.Log("Playing note sequence...");
 
@@ -16,8 +24,8 @@ public class EnvironmentMusicPlayer : MonoBehaviour
         {
             _noteFinished = false;
 
-            AkUnitySoundEngine.SetSwitch("SequencePlayer", note.noteTitle, gameObject);
-            Debug.Log($"Event ID : {playSequenceEvent.Id} - Playing note: {note.noteTitle} (Frequency: {note.noteFrequency} Hz)");
+            AkUnitySoundEngine.SetSwitch("Env_A3_A4", note, gameObject);
+            Debug.Log($"Event ID : {playSequenceEvent.Id} - Playing note: {note}");
             AkUnitySoundEngine.PostEvent(playSequenceEvent.Id, gameObject, (uint)AkCallbackType.AK_EndOfEvent, NoteFinishedCallback, null);
 
             yield return new WaitUntil(() => _noteFinished);

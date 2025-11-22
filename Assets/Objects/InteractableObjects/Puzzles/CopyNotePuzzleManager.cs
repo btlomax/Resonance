@@ -11,10 +11,7 @@ public class CopyNotePuzzleManager : BasePuzzleManager
 {
     [Header("Copy Note Puzzle Settings")]
     public SingingStone[] singingStones;
-    public NoteScriptObj[] noteSequence;
-
-    [SerializeField]
-    private EnvironmentMusicPlayer _environmentMusicPlayer;
+    public string[] noteSequence;
 
     public float delayBetweenNotes = 0.5f;
 
@@ -46,7 +43,7 @@ public class CopyNotePuzzleManager : BasePuzzleManager
     public override void OnPuzzleActivated()
     {
         Debug.Log("Copy Note Puzzle Activated: Starting arpeggio sequence.");
-        AudioManager.Instance.StartSequenceCoroutine(noteSequence);
+        AudioManager.Instance.PlayCopyPuzzleSequence(noteSequence);
 
         StartCoroutine(ResetActivated(3));
     }

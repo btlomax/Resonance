@@ -21,18 +21,20 @@ public class ToneGenerator
         // Note format: "C4", "A#3", etc.
         switch (note)
         {
-            case "C4": return 261f;
-            case "C#4": return 277f;
-            case "D4": return 293f;
-            case "D#4": return 311f;
-            case "E4": return 329f;
-            case "F4": return 349f;
-            case "F#4": return 369f;
-            case "G4": return 392f;
-            case "G#4": return 415f;
-            case "A4": return 440f;
-            case "A#4": return 466f;
-            case "B4": return 493f;
+           case "A3": return 220f;
+           case "Bb3": return 233.08f;
+           case "B3": return 246.94f;
+           case "C4": return 261.63f;
+           case "Db4": return 277.18f;
+           case "D4": return 293.66f;
+           case "Eb4": return 311.13f;
+           case "E4": return 329.63f;
+           case "F4": return 349.23f;
+           case "Gb4": return 369.99f;
+           case "G4": return 392.00f;
+           case "Ab4": return 415.30f;
+           case "A4": return 440f;
+
             default: return 440f; // Default to A4
         }
     }

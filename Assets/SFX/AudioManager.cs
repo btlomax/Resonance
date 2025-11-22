@@ -23,8 +23,11 @@ public class AudioManager : MonoBehaviour, IPlayNote
     [SerializeField]
     private AK.Wwise.RTPC noteFrequencyRTPC = null;
 
+    /// <summary>
+    /// The Copy Puzzle Sequence Player responsible for playing sequences of notes for copy puzzles.
+    /// </summary>
     [SerializeField]
-    private EnvironmentMusicPlayer _environmentMusicPlayer;
+    private CopyPuzzleSequencePlayer _cPSP;
 
     private uint _currentNote = 0;
     private ToneGenerator _toneGenerator;
@@ -50,54 +53,22 @@ public class AudioManager : MonoBehaviour, IPlayNote
 
     public void PlayLoopingNote(string note)
     {
-        float frequency = _toneGenerator.ConvertNoteToFrequency(note);
-        Debug.Log($"Playing note with frequency: {note} Hz");
-       
         if(_currentNote == 0)
         {
-            AkUnitySoundEngine.SetRTPCValue("Note_Frequency", frequency);
+            AkUnitySoundEngine.SetSwitch("Ply_A3_A4", note, gameObject);
             _currentNote = AkUnitySoundEngine.PostEvent(playToneEvent.Id, gameObject);
         }
     }
 
     public void StopLoopingNote()
     {
-        playToneEvent.Stop(gameObject);
+        AkUnitySoundEngine.StopPlayingID(_currentNote);
         _currentNote = 0;
     }
 
-    public void PlayEnvironmentNoteSequence(NoteScriptObj[] section)
+    public void PlayCopyPuzzleSequence(string[] noteSequence)
     {
-        Debug.Log("Entered PlayEnvironmentNoteSequence in AudioManager.");
-
-        PlayNoteSequence(section);
-        Debug.Log("Note sequence has been played.");
-    }
-
-    public void StartSequenceCoroutine(NoteScriptObj[] notesToPlay)
-    {
-        StartCoroutine(PlayNoteSequence(notesToPlay));
-    }
-
-    public IEnumerator PlayNoteSequence(NoteScriptObj[] notesToPlay)
-    {
-        Debug.Log("Playing note sequence...");
-
-        foreach (var note in notesToPlay)
-        {
-            _noteFinished = false;
-
-            AkUnitySoundEngine.SetSwitch("A3_A4", note.noteTitle, gameObject);
-            Debug.Log($"Event ID : {playSequenceEvent.Id} - Playing note: {note.noteTitle} (Frequency: {note.noteFrequency} Hz)");
-            AkUnitySoundEngine.PostEvent(playSequenceEvent.Id, gameObject, (uint)AkCallbackType.AK_EndOfEvent, NoteFinishedCallback, null);
-
-            yield return new WaitUntil(() => _noteFinished);
-        }
-    }
-
-    private void NoteFinishedCallback(object in_cookie, AkCallbackType type, AkCallbackInfo info)
-    {
-        if (type == AkCallbackType.AK_EndOfEvent)
-            _noteFinished = true;
+        Debug.Log("AudioManager: Starting copy puzzle sequence.");
+        _cPSP.StartSequenceCoroutine(noteSequence);
     }
 }

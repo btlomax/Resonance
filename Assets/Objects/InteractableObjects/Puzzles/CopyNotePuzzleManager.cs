@@ -55,8 +55,6 @@ public class CopyNotePuzzleManager : BasePuzzleManager
         AudioManager.Instance.PlayCopyPuzzleSequence(noteSequence);
 
         StartCoroutine(SimpleWait(3));
-
-        _recorder.StartRecording();
     }
 
     private IEnumerator SimpleWait(float delay)

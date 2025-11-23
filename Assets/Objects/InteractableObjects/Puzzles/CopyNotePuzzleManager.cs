@@ -68,7 +68,8 @@ public class CopyNotePuzzleManager : BasePuzzleManager
     {
         StartCoroutine(SimpleWait(3));
 
-        Debug.Log("Comparing recorded notes with the sequence...");
+        if (notesRecorded.Count == 0)
+            return;
 
         if(notesRecorded.Count != noteSequence.Count)
         {

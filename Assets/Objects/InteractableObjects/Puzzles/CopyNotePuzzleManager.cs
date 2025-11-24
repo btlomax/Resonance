@@ -13,6 +13,7 @@ public class CopyNotePuzzleManager : BasePuzzleManager
     public SingingStone[] singingStones;
     public List<string> noteSequence = new List<string>();
     public NoteComparisonStarted noteComparisonStartedEvent;
+    public GameObject successObject;
 
     public float delayBetweenNotes = 0.5f;
 
@@ -54,19 +55,26 @@ public class CopyNotePuzzleManager : BasePuzzleManager
         Debug.Log("Copy Note Puzzle Activated: Starting arpeggio sequence.");
         AudioManager.Instance.PlayCopyPuzzleSequence(noteSequence);
 
-        StartCoroutine(SimpleWait(3));
+        StartCoroutine(PuzzleActivateDelay(3));
     }
 
-    private IEnumerator SimpleWait(float delay)
+    private IEnumerator PuzzleActivateDelay(float delay)
     {
         yield return new WaitForSeconds(delay);
 
         _activated = false;
     }
 
+    private IEnumerator BridgeAppearDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+
+        successObject.SetActive(true);
+    }
+
     private void OnNoteComparisonStarted(List<string> notesRecorded)
     {
-        StartCoroutine(SimpleWait(3));
+        StartCoroutine(PuzzleActivateDelay(3));
 
         if (notesRecorded.Count == 0)
             return;
@@ -89,5 +97,10 @@ public class CopyNotePuzzleManager : BasePuzzleManager
         Debug.Log("Note sequence matched! Puzzle solved.");
 
         MarkSolved();
+    }
+
+    public override void MarkSolved()
+    {
+        StartCoroutine(BridgeAppearDelay(5));
     }
 }

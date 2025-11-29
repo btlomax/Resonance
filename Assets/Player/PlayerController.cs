@@ -1,5 +1,6 @@
 using Assets.Player.Contracts;
 using System.Collections;
+using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.Rendering;
 

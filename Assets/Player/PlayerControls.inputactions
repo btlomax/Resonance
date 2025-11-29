@@ -38,7 +38,7 @@
                 {
                     "name": "Move",
                     "id": "d3881353-c481-432a-a73c-6ae01c50ad6d",
-                    "path": "2DVector",
+                    "path": "2DVector(mode=2)",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

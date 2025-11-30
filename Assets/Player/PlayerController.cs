@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour
 {
     [Header("Ray Settings")]
     [Tooltip("How far the raycast checks forward.")]
-    [Range(0f, 20f)]
+    [Range(0f, 2f)]
     public float rayLength = 5f;
 
     [Header("Movement Settings")]
@@ -21,6 +21,7 @@ public class PlayerController : MonoBehaviour
 
     [Header("References")]
     public Transform cameraTransform; // assign CameraTarget or camera
+    public CinemachineCamera cam;
 
     [SerializeField]
     private Interactable _currentFocus;
@@ -56,11 +57,24 @@ public class PlayerController : MonoBehaviour
         if (moveInput.sqrMagnitude < _inputDeadzone * _inputDeadzone)
             return;
 
-        Vector3 movement = new Vector3(moveInput.x, 0f, moveInput.y);
+        // Get camera forward and right, but flatten to prevent tilting on slopes
+        Vector3 camForward = cam.transform.forward;
+        camForward.y = 0;
+        camForward.Normalize();
 
-        transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(movement), 0.1f);
-        transform.TransformDirection(movement * moveSpeed * Time.deltaTime);
-        // transform.Translate(movement * moveSpeed * Time.deltaTime, Space.World);
+        Vector3 camRight = cam.transform.right;
+        camRight.y = 0;
+        camRight.Normalize();
+
+        // Build movement relative to camera
+        Vector3 movement = camForward * moveInput.y + camRight * moveInput.x;
+
+        // Rotate the player toward movement direction
+        transform.rotation = Quaternion.Slerp(
+            transform.rotation,
+            Quaternion.LookRotation(movement),
+            0.1f
+        );
 
         _charController.Move(movement * moveSpeed * Time.deltaTime);
     }

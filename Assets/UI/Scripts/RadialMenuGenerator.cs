@@ -11,6 +11,8 @@ public class RadialMenuGenerator : MonoBehaviour
     public Image slicePrefab;
     public NoteScriptObj[] allNotes;
     public RectTransform radialMenu;
+
+    [Header("Event Channels")]
     public VoidEventChannel openRadialMenuEventListener;
     public VoidEventChannel closeRadialMenuEventListener;
     public VoidEventChannel toggleRadialMenuEventListener;

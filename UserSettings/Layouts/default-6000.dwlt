@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1920
     height: 989
   m_ShowMode: 4
-  m_Title: Project
+  m_Title: Inspector
   m_RootView: {fileID: 6}
   m_MinSize: {x: 875, y: 332}
   m_MaxSize: {x: 10000, y: 10000}
@@ -415,9 +415,9 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 0
-    y: 78.66667
-    width: 1130.3334
-    height: 538.6667
+    y: 79
+    width: 1271
+    height: 550
   m_SerializedDataModeController:
     m_DataMode: 0
     m_PreferredDataMode: 0
@@ -478,7 +478,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Environment/Objects
+    - Assets/Environment/Tiles
     m_Globs: []
     m_ProductIds: 
     m_AnyWithAssetOrigin: 0
@@ -488,16 +488,16 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Environment/Objects
+  - Assets/Environment/Tiles
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\lomax\Resonance
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 79}
-    m_SelectedIDs: e2c00000
-    m_LastClickedID: 49378
-    m_ExpandedIDs: 0000000080bf000082bf000084bf000086bf0000
+    m_SelectedIDs: ecc00000
+    m_LastClickedID: 49388
+    m_ExpandedIDs: 0000000098bf00009abf00009cbf00009ebf0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -526,7 +526,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 0000000080bf000082bf000084bf000086bf0000
+    m_ExpandedIDs: 0000000098bf00009abf00009cbf00009ebf0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -674,7 +674,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 14fbffff
+      m_ExpandedIDs: 14ccffff14fbffffe0bd0000beca0000f0ca0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -1110,9 +1110,9 @@ MonoBehaviour:
   m_AudioPlay: 0
   m_DebugDrawModesUseInteractiveLightBakingData: 0
   m_Position:
-    m_Target: {x: -21.414305, y: -99.51621, z: -82.55508}
+    m_Target: {x: -444.52063, y: -304.26108, z: -47.240986}
     speed: 2
-    m_Value: {x: -21.414305, y: -99.51621, z: -82.55508}
+    m_Value: {x: -444.52063, y: -304.26108, z: -47.240986}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -1158,20 +1158,20 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.020221423, y: -0.89354634, z: 0.44694737, w: 0.04016492}
+    m_Target: {x: 0.26948696, y: -0.55812913, z: 0.19779949, w: 0.75958365}
     speed: 2
-    m_Value: {x: -0.020221423, y: 0.89354634, z: -0.44694734, w: -0.040164918}
+    m_Value: {x: -0.26948696, y: 0.55812913, z: -0.19779947, w: -0.75958365}
   m_Size:
-    m_Target: 73.64104
+    m_Target: 264.7993
     speed: 2
-    m_Value: 73.64104
+    m_Value: 264.7993
   m_Ortho:
     m_Target: 0
     speed: 2
     m_Value: 0
   m_CameraSettings:
-    m_Speed: 1.06047
-    m_SpeedNormalized: 0.53
+    m_Speed: 1.900049
+    m_SpeedNormalized: 0.9499995
     m_SpeedMin: 0.001
     m_SpeedMax: 2
     m_EasingEnabled: 1

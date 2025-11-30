@@ -1,12 +1,13 @@
+using Unity.Cinemachine;
 using UnityEngine;
 
 public class InputHandler : MonoBehaviour
 {
     private PlayerControls _controls;
 
+
     public Vector2 MoveInput { get; private set; }
     public Vector2 MenuSelectInput { get; private set; }
-
     public bool InteractInput { get; private set; }
 
     public VoidEventChannel openRadialMenuEvent;
@@ -49,7 +50,7 @@ public class InputHandler : MonoBehaviour
 
     private void OnNoteWheelPerformed()
     {
-        if(inputSettings.radialMenuHoldToOpen)
+        if (inputSettings.radialMenuHoldToOpen)
         {
             openRadialMenuEvent.RaiseEvent();
         }
@@ -61,7 +62,7 @@ public class InputHandler : MonoBehaviour
 
     private void OnNoteWheelCanceled()
     {
-        if(inputSettings.radialMenuHoldToOpen)
+        if (inputSettings.radialMenuHoldToOpen)
         {
             closeRadialMenuEvent.RaiseEvent();
         }

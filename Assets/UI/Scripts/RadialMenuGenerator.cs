@@ -1,6 +1,7 @@
 using System;
 using System.Linq;
 using TMPro;
+using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -23,6 +24,8 @@ public class RadialMenuGenerator : MonoBehaviour
     private int _highlightedSlice = -1;
     [SerializeField]
     private float _selectionAngle = -1f;
+    [SerializeField]
+    private CinemachineInputAxisController _cameraInput;
 
 #if UNITY_EDITOR
     [Header("Debug")]
@@ -38,7 +41,6 @@ public class RadialMenuGenerator : MonoBehaviour
     {
         HandleRightStickInput();
     }
-
    
     private void OnEnable()
     {
@@ -58,16 +60,19 @@ public class RadialMenuGenerator : MonoBehaviour
     private void ShowMenu()
     {
         radialMenu.gameObject.SetActive(true);
+        _cameraInput.enabled = false;
     }
 
     private void HideMenu()
     {
         radialMenu.gameObject.SetActive(false);
+        _cameraInput.enabled = true;
     }
 
     private void ToggleMenu()
     {
         radialMenu.gameObject.SetActive(!radialMenu.gameObject.activeSelf);
+        _cameraInput.enabled = !radialMenu.gameObject.activeSelf;
     }
     #endregion
 

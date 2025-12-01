@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour
     [Header("Movement Settings")]
     public float moveSpeed = 5f;
     public float rotationSpeed = 10f;
+    public float gravity = -9.81f;
 
     [Header("References")]
     public Transform cameraTransform; // assign CameraTarget or camera

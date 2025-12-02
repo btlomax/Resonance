@@ -14,11 +14,14 @@ public class PlayerController : MonoBehaviour
     [Tooltip("How far the raycast checks forward.")]
     [Range(0f, 2f)]
     public float rayLength = 5f;
+    [Range(0f, 2f)]
+    public float groundCheckDistance = 0.5f;
 
     [Header("Movement Settings")]
     public float moveSpeed = 5f;
     public float rotationSpeed = 10f;
     public float gravity = -9.81f;
+    public bool grounded;
 
     [Header("References")]
     public Transform cameraTransform; // assign CameraTarget or camera
@@ -41,6 +44,9 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        Debug.DrawRay(transform.position + Vector3.up * 0.1f, Vector3.down * groundCheckDistance,
+               grounded ? Color.green : Color.red);
+
         HandleMovement();
 
         HandleFocus();
@@ -77,6 +83,17 @@ public class PlayerController : MonoBehaviour
             0.1f
         );
 
+        if(CheckGrounded() && movement.y < 0)
+        {
+            // Apply gravity when grounded
+            movement.y = -2f;
+        }
+        else
+        {
+            // Apply gravity when in air
+            movement.y += gravity * Time.deltaTime;
+        }
+
         _charController.Move(movement * moveSpeed * Time.deltaTime);
     }
 
@@ -89,6 +106,15 @@ public class PlayerController : MonoBehaviour
 
            StartCoroutine(WaitAfterInteract(1f));
         }
+    }
+
+    private bool CheckGrounded()
+    {
+        grounded = Physics.Raycast(transform.position + Vector3.up * 0.1f, Vector3.down, groundCheckDistance);
+
+       
+
+        return grounded;
     }
 
     private void HandleFocus()

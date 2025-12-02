@@ -790,7 +790,7 @@ Transform:
   m_GameObject: {fileID: 177785925}
   serializedVersion: 2
   m_LocalRotation: {x: 0.18875054, y: 0.6814494, z: -0.18875055, w: 0.68144935}
-  m_LocalPosition: {x: -180.9, y: 9.785, z: -139.9}
+  m_LocalPosition: {x: -180.9, y: 9.485001, z: -139.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1017,7 +1017,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 457e4604254ff9049b5a0f6022ea8c88, type: 3}
       propertyPath: m_Layer
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2699092741681021261, guid: 457e4604254ff9049b5a0f6022ea8c88, type: 3}
       propertyPath: m_Convex
@@ -1025,7 +1025,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8164078558771037576, guid: 457e4604254ff9049b5a0f6022ea8c88, type: 3}
       propertyPath: m_Layer
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2761,8 +2761,6 @@ GameObject:
   - component: {fileID: 1517332151}
   - component: {fileID: 1517332150}
   - component: {fileID: 1517332149}
-  - component: {fileID: 1517332155}
-  - component: {fileID: 1517332156}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -2783,8 +2781,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
   rayLength: 0.2
+  groundCheckDistance: 0.15
   moveSpeed: 8
   rotationSpeed: 20
+  gravity: -9.81
+  grounded: 0
   cameraTransform: {fileID: 1350070061}
   cam: {fileID: 177785930}
   _currentFocus: {fileID: 0}
@@ -2812,8 +2813,8 @@ CharacterController:
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
-  m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 1.39, z: 0}
+  m_MinMoveDistance: 0
+  m_Center: {x: 0, y: 1.75, z: 0}
 --- !u!4 &1517332151
 Transform:
   m_ObjectHideFlags: 0
@@ -2823,7 +2824,7 @@ Transform:
   m_GameObject: {fileID: 1517332148}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -170.9, y: 0.8, z: -139.9}
+  m_LocalPosition: {x: -170.9, y: 0.5, z: -139.9}
   m_LocalScale: {x: 0.75, y: 0.75, z: 0.75}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -2832,91 +2833,6 @@ Transform:
   - {fileID: 2074465878}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
---- !u!114 &1517332155
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1517332148}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.InputSystem::UnityEngine.InputSystem.PlayerInput
-  m_Actions: {fileID: -944628639613478452, guid: fca166139b7d05d4d87431cc8771dc32, type: 3}
-  m_NotificationBehavior: 2
-  m_UIInputModule: {fileID: 0}
-  m_DeviceLostEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_DeviceRegainedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ControlsChangedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ActionEvents:
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 78071b61-262a-4ec8-bafe-ed5504c84601
-    m_ActionName: 'Mouse/Keyboard/Movement[/Keyboard/upArrow,/Keyboard/downArrow,/Keyboard/leftArrow,/Keyboard/rightArrow]'
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: f8a67ad1-d0c5-4e63-97f5-6a620cdb70a7
-    m_ActionName: 'Mouse/Keyboard/Interact[/Keyboard/e]'
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: e04571a7-94a8-49c3-827b-1eea6db4d23d
-    m_ActionName: 'Controller/Movement[/XInputControllerWindows/leftStick/up,/XInputControllerWindows/leftStick/down,/XInputControllerWindows/leftStick/left,/XInputControllerWindows/leftStick/right]'
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 2d677c1b-5ac9-4d19-a773-339fa130694a
-    m_ActionName: 'Controller/Interact[/XInputControllerWindows/buttonSouth]'
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 62d85def-c1e5-4fc3-8eda-9b9b67707924
-    m_ActionName: 'Controller/NoteWheel[/XInputControllerWindows/leftTrigger]'
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 8c3404e1-cd5e-4b42-8345-70b99c1837d7
-    m_ActionName: 'Mouse/Keyboard/NoteWheel[/Keyboard/leftShift]'
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 452d0fed-aaf0-40a9-9e9d-fcea65baa8e1
-    m_ActionName: 'Controller/NoteWheelSelection[/XInputControllerWindows/rightStick/up,/XInputControllerWindows/rightStick/down,/XInputControllerWindows/rightStick/left,/XInputControllerWindows/rightStick/right]'
-  m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: 
-  m_DefaultActionMap: Mouse/Keyboard
-  m_SplitScreenIndex: -1
-  m_Camera: {fileID: 0}
---- !u!54 &1517332156
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1517332148}
-  serializedVersion: 5
-  m_Mass: 1
-  m_LinearDamping: 0
-  m_AngularDamping: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 8
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!1 &1534359873
 GameObject:
   m_ObjectHideFlags: 0

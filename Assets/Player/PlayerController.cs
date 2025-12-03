@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour
 {
     [Header("Ray Settings")]
     [Tooltip("How far the raycast checks forward.")]
-    [Range(0f, 2f)]
+    [Range(0f, 5f)]
     public float rayLength = 5f;
     [Range(0f, 2f)]
     public float groundCheckDistance = 0.5f;
@@ -119,12 +119,12 @@ public class PlayerController : MonoBehaviour
 
     private void HandleFocus()
     {
-        _ray.origin = transform.position;
+        _ray.origin = transform.position + new Vector3(0, 1, 0);
         _ray.direction = transform.forward;
 
         Debug.DrawRay(_ray.origin, _ray.direction * rayLength, Color.red);
 
-        if (Physics.Raycast(_ray, out RaycastHit hitInfo))
+        if (Physics.Raycast(_ray, out RaycastHit hitInfo, rayLength))
         {
             if (hitInfo.transform.TryGetComponent(out IObjectInteraction objectInteraction))
             {

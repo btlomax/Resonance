@@ -10,10 +10,6 @@ public abstract class Interactable : MonoBehaviour, IObjectInteraction
 
     public GameObject Highlighter;
 
-    void Awake()
-    {
-    }
-
     // Called by PlayerInteraction when the player presses interact.
     public abstract void Interact(GameObject interactor);
 

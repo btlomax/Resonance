@@ -1,12 +1,14 @@
 using UnityEngine;
 
-public class LeverAndMechanism : Interactable
+public class TriggerInteractable : Interactable
 {
     public GameObject mechanism;
 
+    public string InteractMessage = string.Empty;
+
     public override void Interact(GameObject interactor)
     {
-        Debug.Log($"The lever creaks as {interactor.name} pulls it, activating the mechanism.");
+        Debug.Log($"{InteractMessage}");
 
         if(mechanism != null)
             mechanism.SetActive(!mechanism.activeSelf);

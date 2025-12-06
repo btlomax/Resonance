@@ -50,6 +50,8 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        CheckGrounded();
+
         Debug.DrawRay(transform.position + Vector3.up * groundCheckStartPoint, Vector3.down * groundCheckDistance,
                grounded ? Color.green : Color.red);
 
@@ -65,9 +67,8 @@ public class PlayerController : MonoBehaviour
 
     private void HandleMovement()
     {
-        Vector2 moveInput = _inputHandler != null ? _inputHandler.MoveInput : Vector2.zero;
 
-        CheckGrounded();
+        Vector2 moveInput = _inputHandler != null ? _inputHandler.MoveInput : Vector2.zero;
 
         if (moveInput.sqrMagnitude < _inputDeadzone * _inputDeadzone)
             return;
@@ -90,7 +91,6 @@ public class PlayerController : MonoBehaviour
             Quaternion.LookRotation(_movement),
             0.1f
         );
-
 
         _charController.Move(_movement * moveSpeed * Time.deltaTime);
     }

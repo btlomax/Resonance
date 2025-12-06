@@ -10,12 +10,17 @@ using UnityEngine.Rendering;
 [RequireComponent(typeof(CharacterController))]
 public class PlayerController : MonoBehaviour
 {
-    [Header("Ray Settings")]
+    [Header("Interact Ray Settings")]
     [Tooltip("How far the raycast checks forward.")]
     [Range(0f, 5f)]
     public float rayLength = 5f;
+
+    [Header("Ground Check Settings")]
     [Range(0f, 2f)]
     public float groundCheckDistance = 0.5f;
+    [Range(0f, 2f)]
+    public float groundCheckStartPoint = 0f;
+    public LayerMask groundLayer;
 
     [Header("Movement Settings")]
     public float moveSpeed = 5f;
@@ -36,6 +41,7 @@ public class PlayerController : MonoBehaviour
     private CharacterController _charController;
     private Ray _ray;
     private bool _hasInteracted = false;
+    private Vector3 _movement;
 
     private void Awake()
     {
@@ -44,7 +50,7 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        Debug.DrawRay(transform.position + Vector3.up * 0.1f, Vector3.down * groundCheckDistance,
+        Debug.DrawRay(transform.position + Vector3.up * groundCheckStartPoint, Vector3.down * groundCheckDistance,
                grounded ? Color.green : Color.red);
 
         HandleMovement();
@@ -61,6 +67,8 @@ public class PlayerController : MonoBehaviour
     {
         Vector2 moveInput = _inputHandler != null ? _inputHandler.MoveInput : Vector2.zero;
 
+        CheckGrounded();
+
         if (moveInput.sqrMagnitude < _inputDeadzone * _inputDeadzone)
             return;
 
@@ -74,27 +82,17 @@ public class PlayerController : MonoBehaviour
         camRight.Normalize();
 
         // Build movement relative to camera
-        Vector3 movement = camForward * moveInput.y + camRight * moveInput.x;
+        _movement = camForward * moveInput.y + camRight * moveInput.x;
 
         // Rotate the player toward movement direction
         transform.rotation = Quaternion.Slerp(
             transform.rotation,
-            Quaternion.LookRotation(movement),
+            Quaternion.LookRotation(_movement),
             0.1f
         );
 
-        if(CheckGrounded() && movement.y < 0)
-        {
-            // Apply gravity when grounded
-            movement.y = -2f;
-        }
-        else
-        {
-            // Apply gravity when in air
-            movement.y += gravity * Time.deltaTime;
-        }
 
-        _charController.Move(movement * moveSpeed * Time.deltaTime);
+        _charController.Move(_movement * moveSpeed * Time.deltaTime);
     }
 
     private void TryInteract()
@@ -108,13 +106,17 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private bool CheckGrounded()
+    private void CheckGrounded()
     {
-        grounded = Physics.Raycast(transform.position + Vector3.up * 0.1f, Vector3.down, groundCheckDistance);
+        if(Physics.Raycast(transform.position + Vector3.up * groundCheckStartPoint, Vector3.down, groundCheckDistance, groundLayer))
+            grounded = true;
+        else
+            grounded = false;
 
-       
-
-        return grounded;
+        if (!grounded)
+        {
+           _charController.SimpleMove(Vector3.up * gravity);
+        }
     }
 
     private void HandleFocus()

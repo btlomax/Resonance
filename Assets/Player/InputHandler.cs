@@ -4,8 +4,6 @@ using UnityEngine;
 public class InputHandler : MonoBehaviour
 {
     private PlayerControls _controls;
-
-
     public Vector2 MoveInput { get; private set; }
     public Vector2 MenuSelectInput { get; private set; }
     public bool InteractInput { get; private set; }

@@ -16,6 +16,7 @@ public abstract class Interactable : MonoBehaviour, IObjectInteraction
     // Optional: Called when player looks at object.
     public virtual void OnFocusEnter()
     {
+        if(showHighlight)
         Highlighter.SetActive(true);
     }
 

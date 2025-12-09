@@ -139,9 +139,7 @@ public class RadialMenuGenerator : MonoBehaviour
         float angle = Mathf.Atan2(stickInput.y, stickInput.x) * Mathf.Rad2Deg;
 
         angle -= 90;
-
         angle = 360f - angle;
-
         angle %= 360f;
 
         return angle;
@@ -198,13 +196,13 @@ public class RadialMenuGenerator : MonoBehaviour
 
     private void PlayNote(string note)
     {
-       AudioManager.Instance.PlayLoopingNote(note);
+       AudioManager.Instance.Player_PlayLoopingNote(note);
 
        notePlayedEvent.RaiseEvent(note);
     }
 
     private void StopNote()
     {
-        AudioManager.Instance.StopLoopingNote();
+        AudioManager.Instance.Player_StopLoopingNote();
     }
 }

@@ -29,11 +29,11 @@ public class SingingStone : Interactable
 
     public void PlayNote()
     {
-        AudioManager.Instance.PlayLoopingNote(note.noteTitle);
+        AudioManager.Instance.Player_PlayLoopingNote(note.noteTitle);
     }
 
     public void StopNote()
     {
-        AudioManager.Instance.StopLoopingNote();
+        AudioManager.Instance.Player_StopLoopingNote();
     }
 }

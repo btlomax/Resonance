@@ -17,7 +17,8 @@ public class AudioManager : MonoBehaviour, IPlayNote
     private bool _noteFinished = false;
 
     [Header("Wwise Events")]
-    public AK.Wwise.Event playToneEvent;
+    public AK.Wwise.Event Player_PlayToneEvent;
+    public AK.Wwise.Event Environment_PlayToneEvent;
     public AK.Wwise.Event playSequenceEvent;
 
     //public AK.Wwise.Switch noteSwitch;
@@ -31,7 +32,8 @@ public class AudioManager : MonoBehaviour, IPlayNote
     [SerializeField]
     private CopyPuzzleSequencePlayer _cPSP;
 
-    private uint _currentNote = 0;
+    private uint _playerCurrentNote = 0;
+    private uint _environmentCurrentNote = 0;
 
     public AudioManager()
     {
@@ -50,19 +52,35 @@ public class AudioManager : MonoBehaviour, IPlayNote
         Debug.Log("AudioManager initialized.");
     }
 
-    public void PlayLoopingNote(string note)
+    public void Player_PlayLoopingNote(string note)
     {
-        if(_currentNote == 0)
+        if(_playerCurrentNote == 0)
         {
             AkUnitySoundEngine.SetSwitch("Ply_A3_A4", note, gameObject);
-            _currentNote = AkUnitySoundEngine.PostEvent(playToneEvent.Id, gameObject);
+            _playerCurrentNote = AkUnitySoundEngine.PostEvent(Player_PlayToneEvent.Id, gameObject);
         }
     }
 
-    public void StopLoopingNote()
+    public void Player_StopLoopingNote()
     {
-        AkUnitySoundEngine.StopPlayingID(_currentNote);
-        _currentNote = 0;
+        AkUnitySoundEngine.StopPlayingID(_playerCurrentNote);
+        _playerCurrentNote = 0;
+    }
+
+    public void Environment_PlayLoopingNote(string note)
+    {
+        if (_environmentCurrentNote == 0)
+        {
+            AkUnitySoundEngine.SetSwitch("Env_A3_A4", note, gameObject);
+            _environmentCurrentNote = AkUnitySoundEngine.PostEvent(Environment_PlayToneEvent.Id, gameObject);
+        }
+    }
+
+    public void Environment_StopLoopingNote()
+    {
+        AkUnitySoundEngine.StopPlayingID(_environmentCurrentNote);
+        _environmentCurrentNote = 0;
+        Debug.Log("AudioManager: Stopped environment looping note.");
     }
 
     public void PlayCopyPuzzleSequence(List<string> noteSequence)

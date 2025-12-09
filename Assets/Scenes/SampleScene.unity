@@ -4431,10 +4431,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 595d237e71dba7c45ac6b6dd6f1aa25a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AudioManager
-  playToneEvent:
+  Player_PlayToneEvent:
     idInternal: 0
     valueGuidInternal: 
     WwiseObjectReference: {fileID: 11400000, guid: 0530412b2b9461b42b215fa6bc1d64e0, type: 2}
+  Environment_PlayToneEvent:
+    idInternal: 0
+    valueGuidInternal: 
+    WwiseObjectReference: {fileID: 11400000, guid: c21308a28719d7e49bc42c6e61d9eccc, type: 2}
   playSequenceEvent:
     idInternal: 0
     valueGuidInternal: 
@@ -5997,6 +6001,7 @@ MonoBehaviour:
   _activated: 0
   _recorder: {fileID: 0}
   noteComparisonStartedEvent: {fileID: 11400000, guid: 57958f04d7df0e6458087942b5dfe450, type: 2}
+  resonatorNote: C4
 --- !u!114 &1024637358
 MonoBehaviour:
   m_ObjectHideFlags: 0

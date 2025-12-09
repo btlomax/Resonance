@@ -14,7 +14,7 @@ namespace AK
     namespace EVENTS
     {
         static const AkUniqueID ENVIRONMENTNOTE_PLAY = 2675223085U;
-        static const AkUniqueID EPLAY_NOTE_SINGLE = 2889586914U;
+        static const AkUniqueID PLAYERNOTE_PLAY = 293658751U;
     } // namespace EVENTS
 
     namespace SWITCHES

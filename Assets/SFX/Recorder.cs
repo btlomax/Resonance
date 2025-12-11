@@ -29,17 +29,17 @@ public class Recorder : MonoBehaviour
         _recordedNotes.Clear();
 
         isRecording = true;
+        noteComparisonStartedEvent.RaiseEvent(_recordedNotes);
+
         Debug.Log($"Started Recording Notes: {isRecording}");
     }
 
     private void StopRecording()
     {
         notePlayedEvent.OnNotePlayed -= OnNotePlayed;
-
+        noteComparisonStartedEvent.RaiseEvent(_recordedNotes);
         Debug.Log("Stopped Recording Notes");
         isRecording = false;
-
-        noteComparisonStartedEvent.RaiseEvent(_recordedNotes);
     }
 
     private void OnNotePlayed(string noteName)

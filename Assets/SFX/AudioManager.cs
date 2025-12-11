@@ -35,10 +35,6 @@ public class AudioManager : MonoBehaviour, IPlayNote
     private uint _playerCurrentNote = 0;
     private uint _environmentCurrentNote = 0;
 
-    public AudioManager()
-    {
-    }
-
     private void Awake()
     {
         if (Instance != null && Instance != this)

@@ -189,7 +189,7 @@ public class RadialMenuGenerator : MonoBehaviour
             PlayNote(_activeSlices[sliceIndex].name);
         }
 
-        Debug.Log($"Selected slice: {_activeSlices[sliceIndex].name}");
+        //Debug.Log($"Selected slice: {_activeSlices[sliceIndex].name}");
 
         return;
     }

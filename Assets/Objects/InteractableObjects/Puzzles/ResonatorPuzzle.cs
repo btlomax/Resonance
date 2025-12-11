@@ -9,9 +9,13 @@ public class ResonatorPuzzle : BasePuzzleManager
     private bool _activated = false;
     [SerializeField]
     private Recorder _recorder;
+    [SerializeField]
+    private bool _isSolved = false;
 
     public NoteComparisonStarted noteComparisonStartedEvent;
     public string resonatorNote;
+    public MusicalScale puzzleScale;
+    public string targetInterval;
 
     private void Awake()
     {
@@ -19,8 +23,6 @@ public class ResonatorPuzzle : BasePuzzleManager
         {
             _recorder = GetComponent<Recorder>();
         }
-
-        noteComparisonStartedEvent.OnNoteComparisonStarted += OnNoteComparisonStarted;
 
         Debug.Assert(_recorder != null, "ResonatorPuzzle requires a Recorder component.");
     }
@@ -52,6 +54,7 @@ public class ResonatorPuzzle : BasePuzzleManager
     {
         if(other.CompareTag("Player"))
         {
+            noteComparisonStartedEvent.OnNoteComparisonStarted += OnNoteComparisonStarted;
             OnPuzzleActivated();
         }
     }
@@ -60,6 +63,8 @@ public class ResonatorPuzzle : BasePuzzleManager
     {
         if(other.CompareTag("Player"))
         {
+            noteComparisonStartedEvent.OnNoteComparisonStarted -= OnNoteComparisonStarted;
+
             // Stop resonator sound and stop recording player input
             Debug.Log("Player exited Resonator Puzzle area: Stopping resonator sound and recording.");
             _activated = false;
@@ -70,22 +75,22 @@ public class ResonatorPuzzle : BasePuzzleManager
     }
     private void OnNoteComparisonStarted(List<string> notesRecorded)
     {
-        StartCoroutine(PuzzleActivateDelay(3));
+        Debug.Log($"Entering OnNoteComparisonStarted in ResonatorPuzzle... {notesRecorded.Count} notes recorded.");
 
-        if (notesRecorded.Count == 0)
-            return;
-
-        // Need to figure out how to compare two notes and work out the interval between them
-
-        Debug.Log("Note sequence matched! Puzzle solved.");
-
-       // MarkSolved();
+       // if (notesRecorded.Count > 0)
+            StartCoroutine(StartLookup(notesRecorded));
     }
 
-    private IEnumerator PuzzleActivateDelay(float delay)
+    private IEnumerator StartLookup(List<string> notesRecorded)
     {
-        yield return new WaitForSeconds(delay);
+        Debug.Log("Comparing recorded notes to target interval...");
 
-        _activated = false;
+        _isSolved = NoteLookup.NoteLookUp(notesRecorded[0], targetInterval, puzzleScale.NotesInScale);
+
+        if (_isSolved)
+        {
+            Debug.Log("Note sequence matched! Puzzle solved.");
+            yield return true;
+        }
     }
 }

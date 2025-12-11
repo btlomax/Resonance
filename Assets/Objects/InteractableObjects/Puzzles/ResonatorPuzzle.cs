@@ -73,6 +73,12 @@ public class ResonatorPuzzle : BasePuzzleManager
             AudioManager.Instance.Environment_StopLoopingNote();
         }
     }
+
+    /// <summary>
+    /// This method is only called once at the moment, so no notes are recorded.
+    /// Need another method on the recorder that keeps recording until the player exits the area or the puzzle is solved.
+    /// </summary>
+    /// <param name="notesRecorded"></param>
     private void OnNoteComparisonStarted(List<string> notesRecorded)
     {
         Debug.Log($"Entering OnNoteComparisonStarted in ResonatorPuzzle... {notesRecorded.Count} notes recorded.");

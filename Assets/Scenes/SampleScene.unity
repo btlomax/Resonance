@@ -258,7 +258,7 @@ MonoBehaviour:
   successObject: {fileID: 0}
   delayBetweenNotes: 0.7
   _activated: 0
-  _recorder: {fileID: 1362828345}
+  _recorder: {fileID: 0}
 --- !u!4 &13377430 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 484712, guid: f698e0c6a1a0af544986ce002a15e85a, type: 3}
@@ -1393,7 +1393,7 @@ Transform:
   m_GameObject: {fileID: 177785925}
   serializedVersion: 2
   m_LocalRotation: {x: 0.18875054, y: 0.6814494, z: -0.18875055, w: 0.68144935}
-  m_LocalPosition: {x: -180.78, y: 19.105, z: -198.21}
+  m_LocalPosition: {x: -180.78, y: 9.465, z: -198.21}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5155,10 +5155,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.CanvasScaler
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -5999,7 +5999,7 @@ MonoBehaviour:
   showHighlight: 0
   Highlighter: {fileID: 157378094}
   _activated: 0
-  _recorder: {fileID: 0}
+  _recorder: {fileID: 1024637358}
   noteComparisonStartedEvent: {fileID: 11400000, guid: 57958f04d7df0e6458087942b5dfe450, type: 2}
   resonatorNote: C4
 --- !u!114 &1024637358
@@ -6014,9 +6014,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14e9f7b1255426844a5dc86bcf539339, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Recorder
-  displayName: Interactable
-  showHighlight: 1
-  Highlighter: {fileID: 0}
   notePlayedEvent: {fileID: 11400000, guid: 715a2acaaee5ffd43988bde98608b7b7, type: 2}
   noteComparisonStartedEvent: {fileID: 11400000, guid: 57958f04d7df0e6458087942b5dfe450, type: 2}
   _recordedNotes: []
@@ -7593,9 +7590,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14e9f7b1255426844a5dc86bcf539339, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Recorder
-  displayName: Interactable
-  showHighlight: 1
-  Highlighter: {fileID: 85450750}
   notePlayedEvent: {fileID: 11400000, guid: 715a2acaaee5ffd43988bde98608b7b7, type: 2}
   noteComparisonStartedEvent: {fileID: 11400000, guid: 57958f04d7df0e6458087942b5dfe450, type: 2}
   _recordedNotes: []
@@ -8007,7 +8001,7 @@ MonoBehaviour:
   successObject: {fileID: 330778374}
   delayBetweenNotes: 0.7
   _activated: 0
-  _recorder: {fileID: 1362828345}
+  _recorder: {fileID: 0}
 --- !u!4 &1435029775
 Transform:
   m_ObjectHideFlags: 0
@@ -8829,7 +8823,7 @@ Transform:
   m_GameObject: {fileID: 1517332148}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -170.78, y: 10.12, z: -198.21}
+  m_LocalPosition: {x: -170.78, y: 0.48, z: -198.21}
   m_LocalScale: {x: 0.75, y: 0.75, z: 0.75}
   m_ConstrainProportionsScale: 1
   m_Children:

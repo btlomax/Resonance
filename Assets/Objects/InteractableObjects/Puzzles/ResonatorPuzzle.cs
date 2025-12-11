@@ -42,7 +42,7 @@ public class ResonatorPuzzle : BasePuzzleManager
             _activated = true;
             Debug.Log("Resonator Puzzle Activated: Starting resonator sound and recording player input.");
 
-            _recorder.Interact(gameObject);
+            _recorder.ToggleRecordingState();
 
             AudioManager.Instance.Environment_PlayLoopingNote(resonatorNote);
         }
@@ -64,7 +64,7 @@ public class ResonatorPuzzle : BasePuzzleManager
             Debug.Log("Player exited Resonator Puzzle area: Stopping resonator sound and recording.");
             _activated = false;
             
-            _recorder.Interact(gameObject);
+            _recorder.ToggleRecordingState();
             AudioManager.Instance.Environment_StopLoopingNote();
         }
     }
@@ -76,11 +76,10 @@ public class ResonatorPuzzle : BasePuzzleManager
             return;
 
         // Need to figure out how to compare two notes and work out the interval between them
-        
 
         Debug.Log("Note sequence matched! Puzzle solved.");
 
-        MarkSolved();
+       // MarkSolved();
     }
 
     private IEnumerator PuzzleActivateDelay(float delay)

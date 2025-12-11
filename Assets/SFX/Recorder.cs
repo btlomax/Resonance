@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Recorder : Interactable
+public class Recorder : MonoBehaviour
 {
     [Header("Recorder Settings")]
     public NotePlayedEventChannel notePlayedEvent;
@@ -52,10 +52,9 @@ public class Recorder : Interactable
     }
 
     /// <summary>
-    /// Start recordding if not recording, stop recording if currently recording.
+    /// Start recording if not recording, stop recording if currently recording.
     /// </summary>
-    /// <param name="interactor"></param>
-    public override void Interact(GameObject interactor)
+    public void ToggleRecordingState()
     {
         if(!isRecording)
             StartRecording();

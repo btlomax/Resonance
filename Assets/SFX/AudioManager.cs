@@ -67,7 +67,7 @@ public class AudioManager : MonoBehaviour, IPlayNote
     {
         if (_environmentCurrentNote == 0)
         {
-            AkUnitySoundEngine.SetSwitch("Env_A3_A4", note, gameObject);
+            AkUnitySoundEngine.SetSwitch("Env_Looping_A3_A4", note, gameObject);
             _environmentCurrentNote = AkUnitySoundEngine.PostEvent(Environment_PlayToneEvent.Id, gameObject);
         }
     }

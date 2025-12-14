@@ -25,7 +25,7 @@ public class CopyPuzzleSequencePlayer : MonoBehaviour
         {
             _noteFinished = false;
 
-            AkUnitySoundEngine.SetSwitch("Env_A3_A4", note, gameObject);
+            AkUnitySoundEngine.SetSwitch("Env_Single_A3_A4", note, gameObject);
             Debug.Log($"Event ID : {playSequenceEvent.Id} - Playing note: {note}");
             AkUnitySoundEngine.PostEvent(playSequenceEvent.Id, gameObject, (uint)AkCallbackType.AK_EndOfEvent, NoteFinishedCallback, null);
 

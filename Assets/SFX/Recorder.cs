@@ -90,6 +90,7 @@ public class Recorder : MonoBehaviour
     {
         isRecording = false;
         notePlayedEvent.OnNotePlayed -= OnNotePlayed;
+        Debug.Log("Stopped Continous Recording Notes");
     }
 
     public void Update()

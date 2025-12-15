@@ -11,6 +11,8 @@ public class ResonatorPuzzle : BasePuzzleManager
     private Recorder _recorder;
     [SerializeField]
     private bool _isSolved = false;
+    [SerializeField]
+    private bool _correctNotePlayed = false;
 
     public NoteComparisonStarted noteComparisonStartedEvent;
     public string resonatorNote;
@@ -55,7 +57,7 @@ public class ResonatorPuzzle : BasePuzzleManager
 
     private void OnTriggerExit(Collider other)
     {
-        if(other.CompareTag("Player"))
+        if(other.CompareTag("Player") && !_isSolved)
         {
             noteComparisonStartedEvent.OnNoteComparisonStarted -= OnNoteComparisonStarted;
 
@@ -86,22 +88,9 @@ public class ResonatorPuzzle : BasePuzzleManager
 
         Debug.Log("Comparing recorded notes to target interval...");
 
-        StartCoroutine(Delay(3.0f));
-        AudioManager.Instance.Environment_StopLoopingNote();
-        _isSolved = NoteLookup.NoteLookUp(noteRecorded, targetInterval, puzzleScale.NotesInScale);
-
-        if (_isSolved)
-        {
-            Debug.Log("Note sequence matched! Puzzle solved.");
-            MarkSolved();
-        }
-        else
-        {
-            Debug.Log("Note sequence did not match. Try again.");
-
-            yield return WaitAndRestart(5.0f); // Wait for 5 seconds before allowing another attempt
-
-        }
+        StartCoroutine(DelayAndLookup(3.0f, noteRecorded));
+       
+       yield return null;
     }
 
     private IEnumerator WaitAndRestart(float waitTime)
@@ -116,13 +105,29 @@ public class ResonatorPuzzle : BasePuzzleManager
         }
     }
 
-    private IEnumerator Delay(float delay)
+    private IEnumerator DelayAndLookup(float delay, string note)
     {
         yield return new WaitForSeconds(delay);
+        AudioManager.Instance.Environment_StopLoopingNote();
+        _correctNotePlayed = NoteLookup.NoteLookUp(note, targetInterval, puzzleScale.NotesInScale);
+
+        if (_correctNotePlayed)
+        {
+            Debug.Log("Note sequence matched! Puzzle solved.");
+            MarkSolved();
+        }
+        else
+        {
+            Debug.Log("Note sequence did not match. Try again.");
+
+            yield return WaitAndRestart(5.0f); // Wait for 5 seconds before allowing another attempt
+
+        }
     }
 
     public override void MarkSolved()
     {
         Debug.Log("Resonator Puzzle marked as solved.");
+        _isSolved = true;
     }
 }

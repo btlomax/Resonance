@@ -6001,10 +6001,11 @@ MonoBehaviour:
   _activated: 0
   _recorder: {fileID: 1024637358}
   _isSolved: 0
+  _correctNotePlayed: 0
   noteComparisonStartedEvent: {fileID: 11400000, guid: 57958f04d7df0e6458087942b5dfe450, type: 2}
   resonatorNote: C4
   puzzleScale: {fileID: 11400000, guid: 52dfae87b23a65b40a94ff7b84a173e8, type: 2}
-  targetInterval: Fifth
+  targetInterval: Fourth
 --- !u!114 &1024637358
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -11,6 +11,6 @@ public class RecorderInteractable : Interactable
 
     public override void Interact(GameObject interactor)
     {
-        _recorder.ToggleRecordingState();
+        _recorder.ToggleSimpleRecordingState();
     }
 }

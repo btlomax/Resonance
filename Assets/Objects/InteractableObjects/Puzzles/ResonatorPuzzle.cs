@@ -32,19 +32,12 @@ public class ResonatorPuzzle : BasePuzzleManager
         throw new System.NotImplementedException();
     }
 
-    public override void MarkSolved()
-    {
-        throw new System.NotImplementedException();
-    }
-
     public override void OnPuzzleActivated()
     {
-        if (!_activated && !IsSolved)
+        if (!_activated && !_isSolved)
         {
             _activated = true;
             Debug.Log("Resonator Puzzle Activated: Starting resonator sound and recording player input.");
-
-            _recorder.ToggleRecordingState();
 
             AudioManager.Instance.Environment_PlayLoopingNote(resonatorNote);
         }
@@ -52,9 +45,10 @@ public class ResonatorPuzzle : BasePuzzleManager
     
     private void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("Player"))
+        if(other.CompareTag("Player") && !_isSolved)
         {
             noteComparisonStartedEvent.OnNoteComparisonStarted += OnNoteComparisonStarted;
+            _recorder.ToggleContinousRecording(); // Start recording player input
             OnPuzzleActivated();
         }
     }
@@ -69,34 +63,66 @@ public class ResonatorPuzzle : BasePuzzleManager
             Debug.Log("Player exited Resonator Puzzle area: Stopping resonator sound and recording.");
             _activated = false;
             
-            _recorder.ToggleRecordingState();
+            _recorder.ToggleContinousRecording(); // Stop recording if active
             AudioManager.Instance.Environment_StopLoopingNote();
         }
     }
 
     /// <summary>
-    /// This method is only called once at the moment, so no notes are recorded.
-    /// Need another method on the recorder that keeps recording until the player exits the area or the puzzle is solved.
+    /// This is the method that receives the recorded notes from the Recorder
     /// </summary>
     /// <param name="notesRecorded"></param>
     private void OnNoteComparisonStarted(List<string> notesRecorded)
     {
         Debug.Log($"Entering OnNoteComparisonStarted in ResonatorPuzzle... {notesRecorded.Count} notes recorded.");
 
-       // if (notesRecorded.Count > 0)
-            StartCoroutine(StartLookup(notesRecorded));
+        if (notesRecorded.Count > 0 && notesRecorded.Count == 1)
+            StartCoroutine(StartLookup(notesRecorded[0]));
     }
 
-    private IEnumerator StartLookup(List<string> notesRecorded)
+    private IEnumerator StartLookup(string noteRecorded)
     {
+        _recorder.ToggleContinousRecording(); // Stop recording to prevent interference during comparison
+
         Debug.Log("Comparing recorded notes to target interval...");
 
-        _isSolved = NoteLookup.NoteLookUp(notesRecorded[0], targetInterval, puzzleScale.NotesInScale);
+        StartCoroutine(Delay(3.0f));
+        AudioManager.Instance.Environment_StopLoopingNote();
+        _isSolved = NoteLookup.NoteLookUp(noteRecorded, targetInterval, puzzleScale.NotesInScale);
 
         if (_isSolved)
         {
             Debug.Log("Note sequence matched! Puzzle solved.");
-            yield return true;
+            MarkSolved();
         }
+        else
+        {
+            Debug.Log("Note sequence did not match. Try again.");
+
+            yield return WaitAndRestart(5.0f); // Wait for 5 seconds before allowing another attempt
+
+        }
+    }
+
+    private IEnumerator WaitAndRestart(float waitTime)
+    {
+        AudioManager.Instance.Environment_StopLoopingNote();
+        yield return new WaitForSeconds(waitTime);
+        if (_activated && !_isSolved)
+        {
+            Debug.Log("Restarting resonator sound and recording for another attempt.");
+            AudioManager.Instance.Environment_PlayLoopingNote(resonatorNote);
+            _recorder.ToggleContinousRecording(); // Restart recording
+        }
+    }
+
+    private IEnumerator Delay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+    }
+
+    public override void MarkSolved()
+    {
+        Debug.Log("Resonator Puzzle marked as solved.");
     }
 }

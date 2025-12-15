@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b44f5f9c8e01064089bfb65b77a6b73, type: 3}
   m_Name: C Major
   m_EditorClassIdentifier: Assembly-CSharp::MusicalScale
-  ScaleName: C
+  ScaleName: C4
   NotesInScale:
-  - C
-  - D
-  - E
-  - F
-  - G
-  - A
-  - B
+  - C4
+  - D4
+  - E4
+  - F4
+  - G4
+  - A5
+  - B5

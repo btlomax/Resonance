@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -13,7 +14,6 @@ public class Recorder : MonoBehaviour
     public bool isRecording = false;
 
     public List<string> GetRecordedNotes() => new List<string>(_recordedNotes);
-    public bool IsRecording { get => isRecording; }
 
     private void OnEnable()
     {
@@ -23,7 +23,10 @@ public class Recorder : MonoBehaviour
     {
     }
 
-    private void StartRecording()
+    /// <summary>
+    /// When a note is played, add it to the recorded notes list.
+    /// </summary>
+    private void StartSimpleRecording()
     {
         notePlayedEvent.OnNotePlayed += OnNotePlayed;
         _recordedNotes.Clear();
@@ -33,7 +36,11 @@ public class Recorder : MonoBehaviour
         Debug.Log($"Started Recording Notes: {isRecording}");
     }
 
-    private void StopRecording()
+    /// <summary>
+    /// When recording is stopped, raise the note comparison event with the recorded notes.
+    /// This is used for puzzles to compare the recorded notes against the expected sequence.
+    /// </summary>
+    private void StopSimpleRecording()
     {
         noteComparisonStartedEvent.RaiseEvent(_recordedNotes);
 
@@ -42,6 +49,24 @@ public class Recorder : MonoBehaviour
         isRecording = false;
     }
 
+    /// <summary>
+    /// Start recording if not recording, stop recording if currently recording.
+    /// </summary>
+    public void ToggleSimpleRecordingState()
+    {
+        if (!isRecording)
+            StartSimpleRecording();
+        else
+            StopSimpleRecording();
+    }
+
+    public void ToggleContinousRecording()
+    {  
+        if (!isRecording)
+            StartContinousRecording();
+        else
+            StopContinousRecording();
+    }   
     private void OnNotePlayed(string noteName)
     {
         if(!isRecording)
@@ -50,15 +75,40 @@ public class Recorder : MonoBehaviour
         _recordedNotes.Add(noteName);
         Debug.Log($"Recorded note: {noteName}");
     }
+    private void StartContinousRecording()
+    {
+        isRecording = true;
+        _recordedNotes.Clear();
+        notePlayedEvent.OnNotePlayed += OnNotePlayed;
+       // var _recordingCoroutine = StartCoroutine(ContinousRecord());
 
-    /// <summary>
-    /// Start recording if not recording, stop recording if currently recording.
-    /// </summary>
-    public void ToggleRecordingState()
+        // Need to constantly raise the note comparison event until stopped.
+        // Could use a coroutine or a repeating invoke.
+    }
+
+    private void StopContinousRecording()
+    {
+        isRecording = false;
+        notePlayedEvent.OnNotePlayed -= OnNotePlayed;
+    }
+
+    public void Update()
     {
         if(!isRecording)
-            StartRecording();
-        else
-            StopRecording();
+            return;
+
+        if (_recordedNotes.Count == 1)
+        {
+            StartCoroutine(Delay(3f));
+
+            notePlayedEvent.OnNotePlayed -= OnNotePlayed;
+            noteComparisonStartedEvent.RaiseEvent(_recordedNotes);
+            Debug.Log("Updated Recording: Raised Note Comparison Event");
+        }
+    }
+
+    private IEnumerator Delay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
     }
 }

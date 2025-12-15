@@ -1433,7 +1433,7 @@ MonoBehaviour:
     SplineCurvature: 0.407
   RecenteringTarget: 2
   HorizontalAxis:
-    Value: 90.00001
+    Value: 90
     Center: 90.00001
     Range: {x: -180, y: 180}
     Wrap: 1
@@ -6004,7 +6004,7 @@ MonoBehaviour:
   noteComparisonStartedEvent: {fileID: 11400000, guid: 57958f04d7df0e6458087942b5dfe450, type: 2}
   resonatorNote: C4
   puzzleScale: {fileID: 11400000, guid: 52dfae87b23a65b40a94ff7b84a173e8, type: 2}
-  targetInterval: Fifth
+  targetInterval: Octave
 --- !u!114 &1024637358
 MonoBehaviour:
   m_ObjectHideFlags: 0

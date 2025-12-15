@@ -4442,7 +4442,7 @@ MonoBehaviour:
   playSequenceEvent:
     idInternal: 0
     valueGuidInternal: 
-    WwiseObjectReference: {fileID: 11400000, guid: c21308a28719d7e49bc42c6e61d9eccc, type: 2}
+    WwiseObjectReference: {fileID: 11400000, guid: 15c4747f18ffb3247bbeba74cde9c2c1, type: 2}
   noteFrequencyRTPC:
     idInternal: 0
     valueGuidInternal: 
@@ -7572,31 +7572,16 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1362828346}
-  - component: {fileID: 1362828345}
   - component: {fileID: 1362828347}
+  - component: {fileID: 1362828349}
+  - component: {fileID: 1362828348}
   m_Layer: 0
-  m_Name: RecordingCube
+  m_Name: RecordingInteractable
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1362828345
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1362828344}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 14e9f7b1255426844a5dc86bcf539339, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Recorder
-  notePlayedEvent: {fileID: 11400000, guid: 715a2acaaee5ffd43988bde98608b7b7, type: 2}
-  noteComparisonStartedEvent: {fileID: 11400000, guid: 57958f04d7df0e6458087942b5dfe450, type: 2}
-  _recordedNotes: []
-  isRecording: 0
 --- !u!4 &1362828346
 Transform:
   m_ObjectHideFlags: 0
@@ -7635,6 +7620,37 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 3, y: 3, z: 3.5}
   m_Center: {x: 0, y: 1.55, z: 0}
+--- !u!114 &1362828348
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1362828344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14e9f7b1255426844a5dc86bcf539339, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Recorder
+  notePlayedEvent: {fileID: 11400000, guid: 715a2acaaee5ffd43988bde98608b7b7, type: 2}
+  noteComparisonStartedEvent: {fileID: 11400000, guid: 57958f04d7df0e6458087942b5dfe450, type: 2}
+  _recordedNotes: []
+  isRecording: 0
+--- !u!114 &1362828349
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1362828344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48550f7f8fda0ab4bbfe28011f9c29ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RecorderInteractable
+  displayName: Interactable
+  showHighlight: 1
+  Highlighter: {fileID: 85450750}
 --- !u!4 &1369559669 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 495608, guid: 9557d9df99749ae44a099f23f74bbad0, type: 3}
@@ -7974,7 +7990,7 @@ GameObject:
   - component: {fileID: 1435029774}
   - component: {fileID: 1435029776}
   m_Layer: 0
-  m_Name: PlayCube
+  m_Name: PuzzleStarter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8002,9 +8018,9 @@ MonoBehaviour:
   - G4
   noteComparisonStartedEvent: {fileID: 11400000, guid: 57958f04d7df0e6458087942b5dfe450, type: 2}
   successObject: {fileID: 330778374}
-  delayBetweenNotes: 0.7
+  delayBetweenNotes: 0.5
   _activated: 0
-  _recorder: {fileID: 0}
+  _recorder: {fileID: 1362828348}
 --- !u!4 &1435029775
 Transform:
   m_ObjectHideFlags: 0

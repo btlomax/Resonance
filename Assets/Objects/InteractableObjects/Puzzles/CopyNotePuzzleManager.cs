@@ -39,7 +39,7 @@ public class CopyNotePuzzleManager : BasePuzzleManager
     /// <param name="interactor"></param>
     public override void Interact(GameObject interactor)
     {
-        if(!_activated && !IsSolved)
+        if(!_activated || !IsSolved)
             OnPuzzleActivated();
 
         _activated = true;
@@ -74,6 +74,9 @@ public class CopyNotePuzzleManager : BasePuzzleManager
 
     private void OnNoteComparisonStarted(List<string> notesRecorded)
     {
+        if(!_activated || IsSolved)
+            return;
+
         StartCoroutine(PuzzleActivateDelay(3));
 
         if (notesRecorded.Count == 0)

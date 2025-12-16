@@ -16,6 +16,7 @@ public class CopyNotePuzzleManager : BasePuzzleManager
     public GameObject successObject;
 
     public float delayBetweenNotes = 0.5f;
+    public bool isSolved = false;
 
     [SerializeField]
     private bool _activated = false;
@@ -39,10 +40,8 @@ public class CopyNotePuzzleManager : BasePuzzleManager
     /// <param name="interactor"></param>
     public override void Interact(GameObject interactor)
     {
-        if(!_activated || !IsSolved)
+        if(!IsSolved)
             OnPuzzleActivated();
-
-        _activated = true;
     }
 
     /// <summary>
@@ -52,6 +51,11 @@ public class CopyNotePuzzleManager : BasePuzzleManager
     /// notes. Ensure that the puzzle is in a valid state to be activated before calling this method.</remarks>
     public override void OnPuzzleActivated()
     {
+        if(_activated)
+            return;
+
+        _activated = true;
+
         Debug.Log("Copy Note Puzzle Activated: Starting arpeggio sequence.");
         AudioManager.Instance.PlayCopyPuzzleSequence(noteSequence);
 
@@ -62,7 +66,6 @@ public class CopyNotePuzzleManager : BasePuzzleManager
     {
         yield return new WaitForSeconds(delay);
 
-        _activated = false;
     }
 
     private IEnumerator BridgeAppearDelay(float delay)
@@ -74,17 +77,21 @@ public class CopyNotePuzzleManager : BasePuzzleManager
 
     private void OnNoteComparisonStarted(List<string> notesRecorded)
     {
-        if(!_activated || IsSolved)
+        if(isSolved)
             return;
 
         StartCoroutine(PuzzleActivateDelay(3));
 
         if (notesRecorded.Count == 0)
+        {
+            _activated = false;
             return;
+        }
 
         if(notesRecorded.Count != noteSequence.Count)
         {
             Debug.Log("Note sequence length mismatch. Puzzle failed.");
+            _activated = false;
             return;
         }
 
@@ -93,6 +100,7 @@ public class CopyNotePuzzleManager : BasePuzzleManager
             if(notesRecorded[i] != noteSequence[i])
             {
                 Debug.Log($"Note mismatch at index {i}. Expected: {noteSequence[i]}, Recorded: {notesRecorded[i]}. Puzzle failed.");
+                _activated = false;
                 return;
             }
         }
@@ -104,6 +112,8 @@ public class CopyNotePuzzleManager : BasePuzzleManager
 
     public override void MarkSolved()
     {
-        StartCoroutine(BridgeAppearDelay(5));
+        isSolved = true;
+        _recorder.puzzleSolved = true;
+        Debug.Log("Copy Note Puzzle Marked as Solved.");
     }
 }

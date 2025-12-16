@@ -12,6 +12,8 @@ public class Recorder : MonoBehaviour
     private List<string> _recordedNotes = new List<string>();
 
     public bool isRecording = false;
+    public bool isContinousRecording = false;
+    public bool puzzleSolved = false;
 
     public List<string> GetRecordedNotes() => new List<string>(_recordedNotes);
 
@@ -54,6 +56,9 @@ public class Recorder : MonoBehaviour
     /// </summary>
     public void ToggleSimpleRecordingState()
     {
+        if(puzzleSolved)
+            return;
+
         if (!isRecording)
             StartSimpleRecording();
         else
@@ -62,22 +67,25 @@ public class Recorder : MonoBehaviour
 
     public void ToggleContinousRecording()
     {  
-        if (!isRecording)
+        if(puzzleSolved)
+            return;
+
+        if (!isContinousRecording)
             StartContinousRecording();
         else
             StopContinousRecording();
     }   
     private void OnNotePlayed(string noteName)
     {
-        if(!isRecording)
-            return;
-
-        _recordedNotes.Add(noteName);
-        Debug.Log($"Recorded note: {noteName}");
+        if(isRecording || isContinousRecording)
+        {
+            _recordedNotes.Add(noteName);
+            Debug.Log($"Recorded note: {noteName}");
+        }
     }
     private void StartContinousRecording()
     {
-        isRecording = true;
+        isContinousRecording = true;
         _recordedNotes.Clear();
         notePlayedEvent.OnNotePlayed += OnNotePlayed;
        // var _recordingCoroutine = StartCoroutine(ContinousRecord());
@@ -88,17 +96,17 @@ public class Recorder : MonoBehaviour
 
     private void StopContinousRecording()
     {
-        isRecording = false;
+        isContinousRecording = false;
         notePlayedEvent.OnNotePlayed -= OnNotePlayed;
         Debug.Log("Stopped Continous Recording Notes");
     }
 
     public void Update()
     {
-        if(!isRecording)
+        if(!isContinousRecording || isRecording)
             return;
 
-        if (_recordedNotes.Count == 1)
+        if (_recordedNotes.Count == 1 && isContinousRecording)
         {
             StartCoroutine(Delay(3f));
 

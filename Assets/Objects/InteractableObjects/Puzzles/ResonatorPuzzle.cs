@@ -14,10 +14,12 @@ public class ResonatorPuzzle : BasePuzzleManager
     [SerializeField]
     private bool _correctNotePlayed = false;
 
+    [Header("Resonator Puzzle Settings")]
     public NoteComparisonStarted noteComparisonStartedEvent;
     public string resonatorNote;
     public MusicalScale puzzleScale;
     public string targetInterval;
+    public TriggerInteractable triggerable;
 
     private void Awake()
     {
@@ -76,6 +78,9 @@ public class ResonatorPuzzle : BasePuzzleManager
     /// <param name="notesRecorded"></param>
     private void OnNoteComparisonStarted(List<string> notesRecorded)
     {
+        if(_isSolved)
+            return;
+
         Debug.Log($"Entering OnNoteComparisonStarted in ResonatorPuzzle... {notesRecorded.Count} notes recorded.");
 
         if (notesRecorded.Count > 0 && notesRecorded.Count == 1)
@@ -129,5 +134,8 @@ public class ResonatorPuzzle : BasePuzzleManager
     {
         Debug.Log("Resonator Puzzle marked as solved.");
         _isSolved = true;
+        _recorder.puzzleSolved = true;
+
+        triggerable.TriggerAction("ActivateMechanism");
     }
 }

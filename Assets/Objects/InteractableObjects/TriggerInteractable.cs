@@ -1,28 +1,30 @@
 using UnityEngine;
 
-public class TriggerInteractable : Interactable
+public class TriggerInteractable : MonoBehaviour
 {
-    public GameObject mechanism;
+    public BaseMechanism mechanism;
 
     public string InteractMessage = string.Empty;
 
-    public override void Interact(GameObject interactor)
+    public void TriggerAction(string action)
     {
-        Debug.Log($"{InteractMessage}");
-
-        if(mechanism != null)
-            mechanism.SetActive(!mechanism.activeSelf);
-    }
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
+       Debug.Log($"TriggerInteractable received action: {action}");
         
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+       switch(action)
+       {
+           case "ActivateMechanism":
+               if(mechanism != null)
+               {
+                    mechanism.ActivateMechanism();
+                }
+               else
+               {
+                   Debug.LogWarning("No mechanism assigned to TriggerInteractable.");
+               }
+               break;
+            default:
+               Debug.LogWarning($"Unknown action: {action}");
+               break;
+        }
     }
 }

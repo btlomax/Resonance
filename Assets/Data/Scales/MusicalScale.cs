@@ -4,5 +4,5 @@ using UnityEngine;
 public class MusicalScale : ScriptableObject
 {
     public string ScaleName;
-    public string[] NotesInScale;
+    public NoteScriptObj[] NotesInScale;
 }

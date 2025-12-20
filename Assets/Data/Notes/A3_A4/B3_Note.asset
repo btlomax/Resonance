@@ -14,4 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::NoteScriptObj
   noteTitle: B3
   noteFrequency: 246
-  unlocked: 1
+  unlocked: 0
+  noteColor: {r: 0, g: 0.8893428, b: 1, a: 1}

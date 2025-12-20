@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MusicalScale
   ScaleName: C4
   NotesInScale:
-  - C4
-  - D4
-  - E4
-  - F4
-  - G4
-  - A5
-  - B5
+  - {fileID: 11400000, guid: b9bc5d35cb9907444b1996bc31d76bfe, type: 2}
+  - {fileID: 11400000, guid: bd51991a690a1354fad3852898d147ca, type: 2}
+  - {fileID: 11400000, guid: 73dbfee8d390b824f86625fa4507a983, type: 2}
+  - {fileID: 11400000, guid: d5c288a267c337d408f1c7d9264a7e39, type: 2}
+  - {fileID: 11400000, guid: a4f25df3d64a026458cd163109cdfbc9, type: 2}
+  - {fileID: 11400000, guid: f68cb81fcfb7b3a4e82d37cd669fb11c, type: 2}
+  - {fileID: 11400000, guid: 34fe43778326f894bbcb2e21843704bb, type: 2}

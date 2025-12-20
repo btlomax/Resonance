@@ -11,6 +11,7 @@ public class RadialMenuGenerator : MonoBehaviour
     public Image slicePrefab;
     public NoteScriptObj[] allNotes;
     public RectTransform radialMenu;
+    public MusicalScale currentMusicalScale;
 
     [Header("Event Channels")]
     public VoidEventChannel openRadialMenuEventListener;
@@ -18,8 +19,8 @@ public class RadialMenuGenerator : MonoBehaviour
     public VoidEventChannel toggleRadialMenuEventListener;
     public NotePlayedEventChannel notePlayedEvent;
 
+    [SerializeField]
     private Image[] _activeSlices;
-
     [SerializeField]
     private InputHandler _inputHandler;
     [SerializeField]
@@ -88,18 +89,18 @@ public class RadialMenuGenerator : MonoBehaviour
             Destroy(child.gameObject);
         }
 
-        var unlockedNotes = allNotes.Where(n => n.unlocked).ToArray();
+        /* var unlockedNotes = allNotes.Where(n => n.unlocked).ToArray();
 
-        int sliceCount = unlockedNotes.Length;
+        int sliceCount = unlockedNotes.Length; */
 
-        if (sliceCount == 0) return;
+        if (currentMusicalScale.NotesInScale.Length == 0) return;
 
-        float sliceAngle = 360f / sliceCount;
-        float fillAmount = 1f / sliceCount;
+        _activeSlices = new Image[currentMusicalScale.NotesInScale.Length];
 
-        _activeSlices = new Image[sliceCount];
+        float sliceAngle = 360f / currentMusicalScale.NotesInScale.Length;
+        float fillAmount = 1f / currentMusicalScale.NotesInScale.Length; 
 
-        for (int i = 0; i < sliceCount; i++)
+        for (int i = 0; i < currentMusicalScale.NotesInScale.Length; i++)
         {
             Image newSlice = Instantiate(slicePrefab, radialMenu);
             newSlice.type = Image.Type.Filled;
@@ -112,7 +113,10 @@ public class RadialMenuGenerator : MonoBehaviour
 
             _activeSlices[i] = newSlice;
             _activeSlices[i].gameObject.SetActive(true);
-            _activeSlices[i].name = $"{unlockedNotes[i].noteTitle}";
+            _activeSlices[i].name = $"{currentMusicalScale.NotesInScale[i].noteTitle}";
+            _activeSlices[i].color = new Color(currentMusicalScale.NotesInScale[i].noteColor.r,
+                currentMusicalScale.NotesInScale[i].noteColor.g,
+                currentMusicalScale.NotesInScale[i].noteColor.b, 0.5f);
         }
     }
 
@@ -164,7 +168,10 @@ public class RadialMenuGenerator : MonoBehaviour
             if (_highlightedSlice >= 0)
             {
                 _activeSlices[_highlightedSlice].transform.localScale = Vector3.one;
-                _activeSlices[_highlightedSlice].color = Color.white;
+                new Color(_activeSlices[_highlightedSlice].color.r,
+                    _activeSlices[_highlightedSlice].color.g,
+                    _activeSlices[_highlightedSlice].color.b, 0.5f);
+
                 _highlightedSlice = -1;
             }
 
@@ -177,11 +184,15 @@ public class RadialMenuGenerator : MonoBehaviour
             if (_highlightedSlice >= 0)
             {
                 _activeSlices[_highlightedSlice].transform.localScale = Vector3.one;
-                _activeSlices[_highlightedSlice].color = Color.white;
+                _activeSlices[_highlightedSlice].color = new Color(currentMusicalScale.NotesInScale[_highlightedSlice].noteColor.r,
+                    currentMusicalScale.NotesInScale[_highlightedSlice].noteColor.g,
+                    currentMusicalScale.NotesInScale[_highlightedSlice].noteColor.b, 1);
             }
 
             _activeSlices[sliceIndex].transform.localScale = Vector3.one * 1.2f;
-            _activeSlices[sliceIndex].color = Color.yellow;
+            _activeSlices[sliceIndex].color = new Color(currentMusicalScale.NotesInScale[sliceIndex].noteColor.r,
+                    currentMusicalScale.NotesInScale[sliceIndex].noteColor.g,
+                    currentMusicalScale.NotesInScale[sliceIndex].noteColor.b, 0.5f);
 
             _highlightedSlice = sliceIndex;
 

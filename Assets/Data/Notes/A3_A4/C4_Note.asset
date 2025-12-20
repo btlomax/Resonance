@@ -15,3 +15,4 @@ MonoBehaviour:
   noteTitle: C4
   noteFrequency: 261
   unlocked: 1
+  noteColor: {r: 0.09451604, g: 1, b: 0, a: 1}

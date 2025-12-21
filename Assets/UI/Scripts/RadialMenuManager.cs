@@ -1,3 +1,4 @@
+using Assets.Data;
 using System;
 using System.Linq;
 using TMPro;
@@ -10,6 +11,7 @@ public class RadialMenuGenerator : MonoBehaviour
     [Header("Radial Menu Settings")]
     public Image slicePrefab;
     public NoteScriptObj[] allNotes;
+    public ScaleDegreeToColour ScaleDegreeColourLookup;
     public RectTransform radialMenu;
     public MusicalScale currentMusicalScale;
     public TMP_Text scaleNameText;
@@ -121,9 +123,7 @@ public class RadialMenuGenerator : MonoBehaviour
 
             // Set slice name and color with alpha, otherwise it appears fully opaque
             _activeSlices[i].name = $"{currentMusicalScale.NotesInScale[i].noteTitle}";
-            _activeSlices[i].color = new Color(currentMusicalScale.NotesInScale[i].noteColor.r,
-                currentMusicalScale.NotesInScale[i].noteColor.g,
-                currentMusicalScale.NotesInScale[i].noteColor.b, 0.5f);
+            _activeSlices[i].color = ScaleDegreeColourLookup.Get(i);
         }
     }
 
@@ -175,9 +175,7 @@ public class RadialMenuGenerator : MonoBehaviour
             if (_highlightedSlice >= 0)
             {
                 _activeSlices[_highlightedSlice].transform.localScale = Vector3.one;
-                _activeSlices[_highlightedSlice].color = new Color(_activeSlices[_highlightedSlice].color.r,
-                    _activeSlices[_highlightedSlice].color.g,
-                    _activeSlices[_highlightedSlice].color.b, 0.5f);
+                _activeSlices[_highlightedSlice].color = ScaleDegreeColourLookup.Get(_highlightedSlice);
 
                 _highlightedSlice = -1;
             }
@@ -191,15 +189,11 @@ public class RadialMenuGenerator : MonoBehaviour
             if (_highlightedSlice >= 0)
             {
                 _activeSlices[_highlightedSlice].transform.localScale = Vector3.one;
-                _activeSlices[_highlightedSlice].color = new Color(currentMusicalScale.NotesInScale[_highlightedSlice].noteColor.r,
-                    currentMusicalScale.NotesInScale[_highlightedSlice].noteColor.g,
-                    currentMusicalScale.NotesInScale[_highlightedSlice].noteColor.b, 0.5f);
+                _activeSlices[_highlightedSlice].color = ScaleDegreeColourLookup.Get(_highlightedSlice);
             }
 
             _activeSlices[sliceIndex].transform.localScale = Vector3.one * 1.2f;
-            _activeSlices[sliceIndex].color = new Color(currentMusicalScale.NotesInScale[sliceIndex].noteColor.r,
-                    currentMusicalScale.NotesInScale[sliceIndex].noteColor.g,
-                    currentMusicalScale.NotesInScale[sliceIndex].noteColor.b, 1);
+            _activeSlices[sliceIndex].color = ScaleDegreeColourLookup.Get(sliceIndex) * 1.5f;
 
             _highlightedSlice = sliceIndex;
 

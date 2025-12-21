@@ -12,6 +12,9 @@ public class RadialMenuGenerator : MonoBehaviour
     public NoteScriptObj[] allNotes;
     public RectTransform radialMenu;
     public MusicalScale currentMusicalScale;
+    public TMP_Text scaleNameText;
+    public TMP_Text noteNameText;
+
 
     [Header("Event Channels")]
     public VoidEventChannel openRadialMenuEventListener;
@@ -89,10 +92,6 @@ public class RadialMenuGenerator : MonoBehaviour
             Destroy(child.gameObject);
         }
 
-        /* var unlockedNotes = allNotes.Where(n => n.unlocked).ToArray();
-
-        int sliceCount = unlockedNotes.Length; */
-
         if (currentMusicalScale.NotesInScale.Length == 0) return;
 
         _activeSlices = new Image[currentMusicalScale.NotesInScale.Length];
@@ -107,9 +106,16 @@ public class RadialMenuGenerator : MonoBehaviour
             newSlice.fillMethod = Image.FillMethod.Radial360;
             newSlice.fillAmount = fillAmount;
 
+            TMP_Text scaleDegreeText = Instantiate(scaleNameText, newSlice.transform);
+            scaleDegreeText.text = (i + 1).ToString();
+
+            TMP_Text noteNameTextInstance = Instantiate(noteNameText, newSlice.transform);
+            noteNameTextInstance.text = currentMusicalScale.NotesInScale[i].noteTitle;
+
             // Rotate the slice
             float rotationZ = -sliceAngle * i + (sliceAngle / 2f);
             newSlice.transform.localRotation = Quaternion.Euler(0, 0, rotationZ);
+           // scaleNameText.transform.localRotation = Quaternion.Euler(0, 0, -rotationZ);
 
             _activeSlices[i] = newSlice;
             _activeSlices[i].gameObject.SetActive(true);

@@ -115,10 +115,11 @@ public class RadialMenuGenerator : MonoBehaviour
             // Rotate the slice
             float rotationZ = -sliceAngle * i + (sliceAngle / 2f);
             newSlice.transform.localRotation = Quaternion.Euler(0, 0, rotationZ);
-           // scaleNameText.transform.localRotation = Quaternion.Euler(0, 0, -rotationZ);
 
             _activeSlices[i] = newSlice;
             _activeSlices[i].gameObject.SetActive(true);
+
+            // Set slice name and color with alpha, otherwise it appears fully opaque
             _activeSlices[i].name = $"{currentMusicalScale.NotesInScale[i].noteTitle}";
             _activeSlices[i].color = new Color(currentMusicalScale.NotesInScale[i].noteColor.r,
                 currentMusicalScale.NotesInScale[i].noteColor.g,
@@ -174,7 +175,7 @@ public class RadialMenuGenerator : MonoBehaviour
             if (_highlightedSlice >= 0)
             {
                 _activeSlices[_highlightedSlice].transform.localScale = Vector3.one;
-                new Color(_activeSlices[_highlightedSlice].color.r,
+                _activeSlices[_highlightedSlice].color = new Color(_activeSlices[_highlightedSlice].color.r,
                     _activeSlices[_highlightedSlice].color.g,
                     _activeSlices[_highlightedSlice].color.b, 0.5f);
 
@@ -192,13 +193,13 @@ public class RadialMenuGenerator : MonoBehaviour
                 _activeSlices[_highlightedSlice].transform.localScale = Vector3.one;
                 _activeSlices[_highlightedSlice].color = new Color(currentMusicalScale.NotesInScale[_highlightedSlice].noteColor.r,
                     currentMusicalScale.NotesInScale[_highlightedSlice].noteColor.g,
-                    currentMusicalScale.NotesInScale[_highlightedSlice].noteColor.b, 1);
+                    currentMusicalScale.NotesInScale[_highlightedSlice].noteColor.b, 0.5f);
             }
 
             _activeSlices[sliceIndex].transform.localScale = Vector3.one * 1.2f;
             _activeSlices[sliceIndex].color = new Color(currentMusicalScale.NotesInScale[sliceIndex].noteColor.r,
                     currentMusicalScale.NotesInScale[sliceIndex].noteColor.g,
-                    currentMusicalScale.NotesInScale[sliceIndex].noteColor.b, 0.5f);
+                    currentMusicalScale.NotesInScale[sliceIndex].noteColor.b, 1);
 
             _highlightedSlice = sliceIndex;
 

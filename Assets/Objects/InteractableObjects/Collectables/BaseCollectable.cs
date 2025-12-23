@@ -17,9 +17,12 @@ public abstract class BaseCollectable : MonoBehaviour, ICollectable
         {
             if (collectableScale.NotesInScale[i].noteTitle == targetNote)
             {
-                Debug.Log($"Collectable colour is {scaleDegreeToColour.scaleDegreeColours[i]} for note {targetNote}.");
-                Renderer renderer = GetComponent<Renderer>();
-                renderer.material.color = scaleDegreeToColour.scaleDegreeColours[i];
+                foreach(var obj in numberOfCollectables)
+                {
+                    Debug.Log($"Collectable colour is {scaleDegreeToColour.scaleDegreeColours[i]} for note {targetNote}.");
+                    Renderer renderer = obj.GetComponent<Renderer>();
+                    renderer.material.color = scaleDegreeToColour.scaleDegreeColours[i];
+                }
             }
         }
     }
@@ -31,5 +34,5 @@ public abstract class BaseCollectable : MonoBehaviour, ICollectable
     public abstract void OnNotePlayed(string noteName);
 
     public abstract void TriggerCollection();
-    public abstract void Collect();
+    public abstract void Collect(GameObject gameObject);
 }

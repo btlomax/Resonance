@@ -8,6 +8,8 @@ public class InputHandler : MonoBehaviour
     public Vector2 MenuSelectInput { get; private set; }
     public bool InteractInput { get; private set; }
 
+    public bool JumpInput { get; private set; }
+
     public VoidEventChannel openRadialMenuEvent;
     public VoidEventChannel closeRadialMenuEvent;
     public VoidEventChannel toggleRadialMenuEvent;
@@ -23,6 +25,10 @@ public class InputHandler : MonoBehaviour
 
         _controls.Controller.Movement.performed += ctx => MoveInput = ctx.ReadValue<Vector2>();
         _controls.Controller.Movement.canceled += _ => MoveInput = Vector2.zero;
+
+        // Jumping
+        _controls.Controller.Jump.performed += ctx => JumpInput = true;
+        _controls.Controller.Jump.canceled += ctx => JumpInput = false;
 
         // Interact
         _controls.Controller.Interact.performed += ctx => InteractInput = true;

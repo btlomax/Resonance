@@ -239,6 +239,15 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Jump"",
+                    ""type"": ""Button"",
+                    ""id"": ""37cf49b2-29c6-4ebe-8978-92f7fb25cac1"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -373,6 +382,17 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""action"": ""NoteWheelSelection"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""85a3a5af-d5f0-4f67-a278-6e2a05d827cd"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Jump"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -390,6 +410,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         m_Controller_Interact = m_Controller.FindAction("Interact", throwIfNotFound: true);
         m_Controller_NoteWheel = m_Controller.FindAction("NoteWheel", throwIfNotFound: true);
         m_Controller_NoteWheelSelection = m_Controller.FindAction("NoteWheelSelection", throwIfNotFound: true);
+        m_Controller_Jump = m_Controller.FindAction("Jump", throwIfNotFound: true);
     }
 
     ~@PlayerControls()
@@ -593,6 +614,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Controller_Interact;
     private readonly InputAction m_Controller_NoteWheel;
     private readonly InputAction m_Controller_NoteWheelSelection;
+    private readonly InputAction m_Controller_Jump;
     /// <summary>
     /// Provides access to input actions defined in input action map "Controller".
     /// </summary>
@@ -620,6 +642,10 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Controller/NoteWheelSelection".
         /// </summary>
         public InputAction @NoteWheelSelection => m_Wrapper.m_Controller_NoteWheelSelection;
+        /// <summary>
+        /// Provides access to the underlying input action "Controller/Jump".
+        /// </summary>
+        public InputAction @Jump => m_Wrapper.m_Controller_Jump;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -658,6 +684,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @NoteWheelSelection.started += instance.OnNoteWheelSelection;
             @NoteWheelSelection.performed += instance.OnNoteWheelSelection;
             @NoteWheelSelection.canceled += instance.OnNoteWheelSelection;
+            @Jump.started += instance.OnJump;
+            @Jump.performed += instance.OnJump;
+            @Jump.canceled += instance.OnJump;
         }
 
         /// <summary>
@@ -681,6 +710,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @NoteWheelSelection.started -= instance.OnNoteWheelSelection;
             @NoteWheelSelection.performed -= instance.OnNoteWheelSelection;
             @NoteWheelSelection.canceled -= instance.OnNoteWheelSelection;
+            @Jump.started -= instance.OnJump;
+            @Jump.performed -= instance.OnJump;
+            @Jump.canceled -= instance.OnJump;
         }
 
         /// <summary>
@@ -778,5 +810,12 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnNoteWheelSelection(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Jump" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnJump(InputAction.CallbackContext context);
     }
 }

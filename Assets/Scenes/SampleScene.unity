@@ -10361,6 +10361,8 @@ MonoBehaviour:
   numberOfCollectables:
   - {fileID: 719500891}
   - {fileID: 446205930}
+  - {fileID: 1223663098}
+  - {fileID: 340581987}
   notePlayedEvent: {fileID: 11400000, guid: 715a2acaaee5ffd43988bde98608b7b7, type: 2}
   scaleDegreeToColour: {fileID: 11400000, guid: 48554a68db960b74e910d344b3f55048, type: 2}
   targetNote: A4

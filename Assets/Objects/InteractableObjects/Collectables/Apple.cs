@@ -28,7 +28,7 @@ public class Apple : BaseCollectable
         if (noteName == targetNote)
         {
             Debug.Log("Correct note played! Collecting apple.");
-            StartCoroutine(WaitBeforeDrop(3f));
+            StartCoroutine(WaitBeforeDrop(2f));
         }
         else
         {
@@ -57,7 +57,7 @@ public class Apple : BaseCollectable
             rb.useGravity = true;         // let it fall naturally
 
             // Wait a bit to let it drop
-            yield return new WaitForSeconds(0.3f);
+            yield return new WaitForSeconds(0.1f);
 
             // Phase 2: fly toward player
             rb.useGravity = false;        // optional: fly in straight line

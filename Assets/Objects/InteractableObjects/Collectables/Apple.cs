@@ -22,6 +22,7 @@ public class Apple : BaseCollectable
     {
         notePlayedEvent.OnNotePlayed -= OnNotePlayed;
     }
+
     public override void OnNotePlayed(string noteName)
     {
         if (noteName == targetNote)
@@ -34,6 +35,7 @@ public class Apple : BaseCollectable
             Debug.Log("Incorrect note played. Apple remains on tree.");
         }
     }
+
     private IEnumerator WaitBeforeDrop(float waitTime)
     {
         yield return new WaitForSeconds(waitTime);

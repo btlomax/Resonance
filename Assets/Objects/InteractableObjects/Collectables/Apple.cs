@@ -1,5 +1,6 @@
 using Assets.Objects.InteractableObjects.Collectables;
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEditor.Build;
 using UnityEngine;
 
@@ -25,7 +26,7 @@ public class Apple : BaseCollectable
         if(other.CompareTag("Player"))
         {
             notePlayedEvent.OnNotePlayed += OnNotePlayed;
-            playerTransform = other.transform;
+            player = other.GameObject();
         }
     }
 
@@ -66,9 +67,9 @@ public class Apple : BaseCollectable
         rb.useGravity = false;        // optional: fly in straight line
         rb.linearVelocity = Vector3.zero;   // stop current movement
 
-        Vector3 direction = (playerTransform.position - transform.position).normalized;
+        Vector3 direction = (player.transform.position - transform.position).normalized;
 
-        while (Vector3.Distance(transform.position, playerTransform.position) > 0.1f)
+        while (Vector3.Distance(transform.position, player.transform.position) > 0.1f)
         {
             rb.MovePosition(transform.position + direction * flightSpeed * Time.deltaTime);
             yield return null;

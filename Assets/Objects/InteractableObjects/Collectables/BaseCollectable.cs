@@ -8,7 +8,7 @@ public abstract class BaseCollectable : MonoBehaviour, ICollectable
     public ScaleDegreeToColour scaleDegreeToColour;
     public string targetNote;
     public MusicalScale collectableScale;
-    public Transform playerTransform;
+    public GameObject player;
     public float flightSpeed;
 
     public void Awake()

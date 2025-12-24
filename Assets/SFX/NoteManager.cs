@@ -1,19 +1,15 @@
 using System.Collections;
 using UnityEngine;
 
-public static class NoteLookup
+public static class NoteManager
 {
-    private static string _targetNote;
-    public static bool NoteLookUp(string playerNote, string targetInterval, NoteScriptObj[] scale)
+    public static string _targetNote;
+    public static string NoteLookUp(string targetInterval, NoteScriptObj[] scale)
     {
-        if(string.IsNullOrEmpty(playerNote))
-            return false;
-
-        Debug.Log($"Looking up player note: {playerNote} for target interval: {targetInterval} using the {scale} scale");
-
         switch (targetInterval)
         {
             case "Octave":
+            case "Root":
                 _targetNote = scale[0].noteTitle;
                 break;
             case "Second":
@@ -42,10 +38,20 @@ public static class NoteLookup
                 break;
             default:
                 Debug.LogError("Invalid target interval: " + targetInterval);
-                return false;
+                return string.Empty;
         }
 
-        if(playerNote == _targetNote)
+        return _targetNote;
+    }
+
+    public static bool NoteComparison(string playerNote, string targetNote)
+    {
+        if(string.IsNullOrEmpty(playerNote) || string.IsNullOrEmpty(targetNote))
+            return false;
+
+        Debug.Log($"Comparing player note: {playerNote} with target note: {targetNote}");
+
+        if(playerNote == targetNote)
         {
             return true;
         }

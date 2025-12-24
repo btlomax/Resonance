@@ -19,8 +19,12 @@ public class ResonatorPuzzle : BasePuzzleManager
     public NoteComparisonStarted noteComparisonStartedEvent;
     public string resonatorNote;
     public MusicalScale puzzleScale;
+    public string targetNote;
     public string targetInterval;
     public TriggerInteractable triggerable;
+    public GameObject resonatorGem;
+    public ScaleDegreeToColour scaleDegreeToColour;
+    public Light resonatorLight;
 
     private void Awake()
     {
@@ -29,6 +33,18 @@ public class ResonatorPuzzle : BasePuzzleManager
             _recorder = GetComponent<Recorder>();
         }
 
+        targetNote = NoteManager.NoteLookUp(targetInterval, puzzleScale.NotesInScale);
+
+        for (int i = 0; i < puzzleScale.NotesInScale.Length; i++)
+        {
+            if (puzzleScale.NotesInScale[i].noteTitle == targetNote)
+            {
+                Renderer renderer = resonatorGem.GetComponent<Renderer>();
+                renderer.material.color = scaleDegreeToColour.scaleDegreeColours[i];
+                resonatorLight.color = scaleDegreeToColour.scaleDegreeColours[i];
+            }
+        }
+        
         Debug.Assert(_recorder != null, "ResonatorPuzzle requires a Recorder component.");
     }
 
@@ -115,7 +131,8 @@ public class ResonatorPuzzle : BasePuzzleManager
     {
         yield return new WaitForSeconds(delay);
         AudioManager.Instance.Environment_StopLoopingNote();
-        _correctNotePlayed = NoteLookup.NoteLookUp(note, targetInterval, puzzleScale.NotesInScale);
+
+        _correctNotePlayed = NoteManager.NoteComparison(targetNote, note);
 
         if (_correctNotePlayed)
         {
@@ -136,6 +153,8 @@ public class ResonatorPuzzle : BasePuzzleManager
         Debug.Log("Resonator Puzzle marked as solved.");
         _isSolved = true;
         _recorder.puzzleSolved = true;
+
+        resonatorLight.enabled = false;
 
         triggerable.TriggerAction("ActivateMechanism");
     }

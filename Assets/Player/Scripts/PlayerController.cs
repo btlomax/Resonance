@@ -25,7 +25,9 @@ public class PlayerController : MonoBehaviour
     [Header("Movement Settings")]
     public float moveSpeed = 5f;
     public float rotationSpeed = 10f;
-    public float gravity = -9.81f;
+    public float jumpHeight = 2f;
+    public Vector3 verticalVelocity;
+    public float gravity = -20f;
     public bool grounded;
 
     [Header("References")]
@@ -70,9 +72,6 @@ public class PlayerController : MonoBehaviour
 
         Vector2 moveInput = _inputHandler != null ? _inputHandler.MoveInput : Vector2.zero;
 
-        if (moveInput.sqrMagnitude < _inputDeadzone * _inputDeadzone)
-            return;
-
         // Get camera forward and right, but flatten to prevent tilting on slopes
         Vector3 camForward = cam.transform.forward;
         camForward.y = 0;
@@ -85,6 +84,8 @@ public class PlayerController : MonoBehaviour
         // Build movement relative to camera
         _movement = camForward * moveInput.y + camRight * moveInput.x;
 
+        _movement = Vector3.ClampMagnitude(_movement, 1f);
+
         // Rotate the player toward movement direction
         transform.rotation = Quaternion.Slerp(
             transform.rotation,
@@ -92,7 +93,23 @@ public class PlayerController : MonoBehaviour
             0.1f
         );
 
-        _charController.Move(_movement * moveSpeed * Time.deltaTime);
+        if(grounded)
+        {
+            if(verticalVelocity.y < 0)
+                verticalVelocity.y = -2f; // small downward force to keep grounded
+
+            if (_inputHandler.JumpInput)
+                verticalVelocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+        }
+
+        verticalVelocity.y += gravity * Time.deltaTime;
+
+        // Final movement
+        Vector3 finalMove =
+            _movement * moveSpeed +
+            verticalVelocity;
+
+        _charController.Move(finalMove * Time.deltaTime);
     }
 
     private void TryInteract()
@@ -112,11 +129,6 @@ public class PlayerController : MonoBehaviour
             grounded = true;
         else
             grounded = false;
-
-        if (!grounded)
-        {
-           _charController.SimpleMove(Vector3.up * gravity);
-        }
     }
 
     private void HandleFocus()

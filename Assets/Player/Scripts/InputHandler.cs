@@ -10,9 +10,10 @@ public class InputHandler : MonoBehaviour
 
     public bool JumpInput { get; private set; }
 
-    public VoidEventChannel openRadialMenuEvent;
-    public VoidEventChannel closeRadialMenuEvent;
-    public VoidEventChannel toggleRadialMenuEvent;
+    public VoidEventChannel OpenRadialMenuEvent;
+    public VoidEventChannel CloseRadialMenuEvent;
+    public VoidEventChannel ToggleRadialMenuEvent;
+    public VoidEventChannel ToggleMajorMinor;
     public InputSettings inputSettings;
 
     private void Awake()
@@ -44,6 +45,9 @@ public class InputHandler : MonoBehaviour
         _controls.MouseKeyboard.NoteWheel.performed += ctx => OnNoteWheelPerformed();
         _controls.MouseKeyboard.NoteWheel.canceled += _ => OnNoteWheelCanceled();
 
+        _controls.Controller.ToggleMajorMinor.performed += ctx => OnToggleMinorMajor();
+       // _controls.Controller.ToggleMajorMinor.canceled += _ => OnToggleMinorMajor();
+
         //Radial menu selection
         _controls.Controller.NoteWheelSelection.performed += ctx => MenuSelectInput = ctx.ReadValue<Vector2>();
         _controls.Controller.NoteWheelSelection.canceled += _ => MenuSelectInput = Vector2.zero;
@@ -56,11 +60,11 @@ public class InputHandler : MonoBehaviour
     {
         if (inputSettings.radialMenuHoldToOpen)
         {
-            openRadialMenuEvent.RaiseEvent();
+            OpenRadialMenuEvent.RaiseEvent();
         }
         else
         {
-            toggleRadialMenuEvent.RaiseEvent();
+            ToggleRadialMenuEvent.RaiseEvent();
         }
     }
 
@@ -68,7 +72,12 @@ public class InputHandler : MonoBehaviour
     {
         if (inputSettings.radialMenuHoldToOpen)
         {
-            closeRadialMenuEvent.RaiseEvent();
+            CloseRadialMenuEvent.RaiseEvent();
         }
+    }
+
+    private void OnToggleMinorMajor()
+    {
+        ToggleMajorMinor.RaiseEvent();
     }
 }

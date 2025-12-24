@@ -1475,7 +1475,7 @@ MonoBehaviour:
     SplineCurvature: 0.407
   RecenteringTarget: 2
   HorizontalAxis:
-    Value: 90.00001
+    Value: 90
     Center: 90.00001
     Range: {x: -180, y: 180}
     Wrap: 1
@@ -6761,11 +6761,9 @@ MonoBehaviour:
   openRadialMenuEventListener: {fileID: 11400000, guid: 11f05b8d7d368a44f8e4bc39e84d8efc, type: 2}
   closeRadialMenuEventListener: {fileID: 11400000, guid: 8d766bd75f3a88a4c8338e4bd2e645be, type: 2}
   toggleRadialMenuEventListener: {fileID: 11400000, guid: cbe8533b8958bc94ba25deaddf4ebbbf, type: 2}
+  toggleMajorMinor: {fileID: 11400000, guid: 32522c66bb0c003438861a728d2ffb97, type: 2}
   notePlayedEvent: {fileID: 11400000, guid: 715a2acaaee5ffd43988bde98608b7b7, type: 2}
-  _activeSlices: []
   _inputHandler: {fileID: 1451038216}
-  _highlightedSlice: -1
-  _selectionAngle: -1
   _cameraInput: {fileID: 177785926}
   showDebugGizmos: 1
 --- !u!82 &1043442665
@@ -8842,9 +8840,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68db24bd3eea0d143b1c76c7d715435b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InputHandler
-  openRadialMenuEvent: {fileID: 11400000, guid: 11f05b8d7d368a44f8e4bc39e84d8efc, type: 2}
-  closeRadialMenuEvent: {fileID: 11400000, guid: 8d766bd75f3a88a4c8338e4bd2e645be, type: 2}
-  toggleRadialMenuEvent: {fileID: 11400000, guid: cbe8533b8958bc94ba25deaddf4ebbbf, type: 2}
+  OpenRadialMenuEvent: {fileID: 11400000, guid: 11f05b8d7d368a44f8e4bc39e84d8efc, type: 2}
+  CloseRadialMenuEvent: {fileID: 11400000, guid: 8d766bd75f3a88a4c8338e4bd2e645be, type: 2}
+  ToggleRadialMenuEvent: {fileID: 11400000, guid: cbe8533b8958bc94ba25deaddf4ebbbf, type: 2}
+  ToggleMajorMinor: {fileID: 11400000, guid: 32522c66bb0c003438861a728d2ffb97, type: 2}
   inputSettings: {fileID: 11400000, guid: 6f911136b6764834a992309a288ee838, type: 2}
 --- !u!4 &1451038217
 Transform:

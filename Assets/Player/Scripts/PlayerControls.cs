@@ -248,6 +248,15 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ToggleMajorMinor"",
+                    ""type"": ""Button"",
+                    ""id"": ""c20d4f72-5a98-470b-88ce-b05bd0b67385"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -393,6 +402,17 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""action"": ""Jump"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""df53fda6-3bfa-4f18-957e-19a3a69f29a2"",
+                    ""path"": ""<Gamepad>/leftStickPress"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ToggleMajorMinor"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -411,6 +431,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         m_Controller_NoteWheel = m_Controller.FindAction("NoteWheel", throwIfNotFound: true);
         m_Controller_NoteWheelSelection = m_Controller.FindAction("NoteWheelSelection", throwIfNotFound: true);
         m_Controller_Jump = m_Controller.FindAction("Jump", throwIfNotFound: true);
+        m_Controller_ToggleMajorMinor = m_Controller.FindAction("ToggleMajorMinor", throwIfNotFound: true);
     }
 
     ~@PlayerControls()
@@ -615,6 +636,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Controller_NoteWheel;
     private readonly InputAction m_Controller_NoteWheelSelection;
     private readonly InputAction m_Controller_Jump;
+    private readonly InputAction m_Controller_ToggleMajorMinor;
     /// <summary>
     /// Provides access to input actions defined in input action map "Controller".
     /// </summary>
@@ -646,6 +668,10 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Controller/Jump".
         /// </summary>
         public InputAction @Jump => m_Wrapper.m_Controller_Jump;
+        /// <summary>
+        /// Provides access to the underlying input action "Controller/ToggleMajorMinor".
+        /// </summary>
+        public InputAction @ToggleMajorMinor => m_Wrapper.m_Controller_ToggleMajorMinor;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -687,6 +713,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Jump.started += instance.OnJump;
             @Jump.performed += instance.OnJump;
             @Jump.canceled += instance.OnJump;
+            @ToggleMajorMinor.started += instance.OnToggleMajorMinor;
+            @ToggleMajorMinor.performed += instance.OnToggleMajorMinor;
+            @ToggleMajorMinor.canceled += instance.OnToggleMajorMinor;
         }
 
         /// <summary>
@@ -713,6 +742,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Jump.started -= instance.OnJump;
             @Jump.performed -= instance.OnJump;
             @Jump.canceled -= instance.OnJump;
+            @ToggleMajorMinor.started -= instance.OnToggleMajorMinor;
+            @ToggleMajorMinor.performed -= instance.OnToggleMajorMinor;
+            @ToggleMajorMinor.canceled -= instance.OnToggleMajorMinor;
         }
 
         /// <summary>
@@ -817,5 +849,12 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnJump(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "ToggleMajorMinor" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnToggleMajorMinor(InputAction.CallbackContext context);
     }
 }

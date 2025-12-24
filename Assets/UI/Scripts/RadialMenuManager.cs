@@ -27,23 +27,21 @@ public class RadialMenuGenerator : MonoBehaviour
     public TMP_Text scaleNameText;
     public TMP_Text noteNameText;
 
-
     [Header("Event Channels")]
     public VoidEventChannel openRadialMenuEventListener;
     public VoidEventChannel closeRadialMenuEventListener;
     public VoidEventChannel toggleRadialMenuEventListener;
+    public VoidEventChannel toggleMajorMinor;
     public NotePlayedEventChannel notePlayedEvent;
 
     [SerializeField]
-    private Image[] _activeSlices;
-    [SerializeField]
     private InputHandler _inputHandler;
     [SerializeField]
-    private int _highlightedSlice = -1;
-    [SerializeField]
-    private float _selectionAngle = -1f;
-    [SerializeField]
     private CinemachineInputAxisController _cameraInput;
+
+    private int _highlightedSlice = -1;
+    private float _selectionAngle = -1f;
+    private Image[] _activeSlices;
 
 #if UNITY_EDITOR
     [Header("Debug")]
@@ -55,13 +53,7 @@ public class RadialMenuGenerator : MonoBehaviour
     {
         currentMajorScale = allUnlockedScales.First();
 
-        currentMinorScale = new MusicalScale()
-        {
-            ScaleName = currentMajorScale.GetNameOfMinorScale(),
-            NotesInScale = currentMajorScale.GetRelativeMinorScale(),
-        };
-
-        currentMinorScale.name = currentMinorScale.ScaleName;
+        GetRelativeMinor();
 
         currentScale = currentMajorScale;
 
@@ -79,6 +71,7 @@ public class RadialMenuGenerator : MonoBehaviour
         openRadialMenuEventListener.OnEventRaised += ShowMenu;
         closeRadialMenuEventListener.OnEventRaised += HideMenu;
         toggleRadialMenuEventListener.OnEventRaised += ToggleMenu;
+        toggleMajorMinor.OnEventRaised += OnToggleMajorMinor;
     }
 
     private void OnDisable()
@@ -86,6 +79,7 @@ public class RadialMenuGenerator : MonoBehaviour
         openRadialMenuEventListener.OnEventRaised -= ShowMenu;
         closeRadialMenuEventListener.OnEventRaised -= HideMenu;
         toggleRadialMenuEventListener.OnEventRaised -= ToggleMenu;
+        toggleMajorMinor.OnEventRaised -= OnToggleMajorMinor;
     }
     #endregion
 
@@ -159,7 +153,7 @@ public class RadialMenuGenerator : MonoBehaviour
     {
        if(radialMenu.gameObject.activeSelf)
        {
-           _selectionAngle = CalculateAngleFromStickInput( _inputHandler.MenuSelectInput);
+            _selectionAngle = CalculateAngleFromStickInput( _inputHandler.MenuSelectInput);
 
            SelectNoteSlice(_activeSlices, _selectionAngle);
        }
@@ -241,5 +235,38 @@ public class RadialMenuGenerator : MonoBehaviour
     private void StopNote()
     {
         AudioManager.Instance.Player_StopLoopingNote();
+    }
+
+    private void GetRelativeMinor()
+    {
+        if (!currentMinorScale)
+        {
+            currentMinorScale = new MusicalScale()
+            {
+                ScaleName = currentMajorScale.GetNameOfMinorScale(),
+                NotesInScale = currentMajorScale.GetRelativeMinorScale(),
+            };
+        }
+        else
+        {
+            currentMinorScale.ScaleName = currentMajorScale.GetNameOfMinorScale();
+            currentMinorScale.NotesInScale = currentMajorScale.GetRelativeMinorScale();
+        }
+
+        currentMinorScale.name = currentMinorScale.ScaleName;
+    }
+
+    private void OnToggleMajorMinor()
+    {
+        if(currentScale == currentMajorScale)
+        {
+            currentScale = currentMinorScale;
+        }
+        else
+        {
+            currentScale = currentMajorScale;
+        }
+
+        RebuildMenu();
     }
 }

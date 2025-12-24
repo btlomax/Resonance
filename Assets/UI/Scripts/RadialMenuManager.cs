@@ -1,19 +1,29 @@
 using Assets.Data;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using TMPro;
 using Unity.Cinemachine;
+using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class RadialMenuGenerator : MonoBehaviour
 {
+    #region Fields and Properties
     [Header("Radial Menu Settings")]
     public Image slicePrefab;
+    
+    public RectTransform radialMenu;
+
     public NoteScriptObj[] allNotes;
     public ScaleDegreeToColour ScaleDegreeColourLookup;
-    public RectTransform radialMenu;
-    public MusicalScale currentMusicalScale;
+
+    public MusicalScale currentMajorScale;
+    public MusicalScale currentMinorScale;
+    public MusicalScale currentScale;
+    public MusicalScale[] allUnlockedScales;
+
     public TMP_Text scaleNameText;
     public TMP_Text noteNameText;
 
@@ -39,9 +49,22 @@ public class RadialMenuGenerator : MonoBehaviour
     [Header("Debug")]
     public bool showDebugGizmos = true;
 #endif
+    #endregion
 
     private void Awake()
     {
+        currentMajorScale = allUnlockedScales.First();
+
+        currentMinorScale = new MusicalScale()
+        {
+            ScaleName = currentMajorScale.GetNameOfMinorScale(),
+            NotesInScale = currentMajorScale.GetRelativeMinorScale(),
+        };
+
+        currentMinorScale.name = currentMinorScale.ScaleName;
+
+        currentScale = currentMajorScale;
+
         RebuildMenu();
     }
 
@@ -49,7 +72,8 @@ public class RadialMenuGenerator : MonoBehaviour
     {
         HandleRightStickInput();
     }
-   
+
+    #region OnEnable/OnDisable
     private void OnEnable()
     {
         openRadialMenuEventListener.OnEventRaised += ShowMenu;
@@ -63,6 +87,7 @@ public class RadialMenuGenerator : MonoBehaviour
         closeRadialMenuEventListener.OnEventRaised -= HideMenu;
         toggleRadialMenuEventListener.OnEventRaised -= ToggleMenu;
     }
+    #endregion
 
     #region Show/Hide/Toggle Menu Methods
     private void ShowMenu()
@@ -94,14 +119,14 @@ public class RadialMenuGenerator : MonoBehaviour
             Destroy(child.gameObject);
         }
 
-        if (currentMusicalScale.NotesInScale.Length == 0) return;
+        if(currentScale.NotesInScale.Length == 0 ) return;
 
-        _activeSlices = new Image[currentMusicalScale.NotesInScale.Length];
+        _activeSlices = new Image[currentScale.NotesInScale.Length];
 
-        float sliceAngle = 360f / currentMusicalScale.NotesInScale.Length;
-        float fillAmount = 1f / currentMusicalScale.NotesInScale.Length; 
+        float sliceAngle = 360f / currentScale.NotesInScale.Length;
+        float fillAmount = 1f / currentScale.NotesInScale.Length; 
 
-        for (int i = 0; i < currentMusicalScale.NotesInScale.Length; i++)
+        for (int i = 0; i < currentScale.NotesInScale.Length; i++)
         {
             Image newSlice = Instantiate(slicePrefab, radialMenu);
             newSlice.type = Image.Type.Filled;
@@ -112,7 +137,7 @@ public class RadialMenuGenerator : MonoBehaviour
             scaleDegreeText.text = (i + 1).ToString();
 
             TMP_Text noteNameTextInstance = Instantiate(noteNameText, newSlice.transform);
-            noteNameTextInstance.text = currentMusicalScale.NotesInScale[i].noteTitle;
+            noteNameTextInstance.text = currentScale.NotesInScale[i].noteTitle;
 
             // Rotate the slice
             float rotationZ = -sliceAngle * i + (sliceAngle / 2f);
@@ -122,7 +147,7 @@ public class RadialMenuGenerator : MonoBehaviour
             _activeSlices[i].gameObject.SetActive(true);
 
             // Set slice name and color with alpha, otherwise it appears fully opaque
-            _activeSlices[i].name = $"{currentMusicalScale.NotesInScale[i].noteTitle}";
+            _activeSlices[i].name = $"{currentScale.NotesInScale[i].noteTitle}";
             _activeSlices[i].color = ScaleDegreeColourLookup.Get(i);
         }
     }
@@ -137,7 +162,7 @@ public class RadialMenuGenerator : MonoBehaviour
            _selectionAngle = CalculateAngleFromStickInput( _inputHandler.MenuSelectInput);
 
            SelectNoteSlice(_activeSlices, _selectionAngle);
-        }
+       }
     }
 
     /// <summary>

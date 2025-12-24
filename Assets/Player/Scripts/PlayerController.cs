@@ -86,12 +86,15 @@ public class PlayerController : MonoBehaviour
 
         _movement = Vector3.ClampMagnitude(_movement, 1f);
 
-        // Rotate the player toward movement direction
-        transform.rotation = Quaternion.Slerp(
-            transform.rotation,
-            Quaternion.LookRotation(_movement),
-            0.1f
-        );
+        if(_movement.sqrMagnitude > _inputDeadzone * _inputDeadzone)
+        {
+            // Rotate the player toward movement direction
+            transform.rotation = Quaternion.Slerp(
+                transform.rotation,
+                Quaternion.LookRotation(_movement),
+                0.1f
+            );
+        }
 
         if(grounded)
         {

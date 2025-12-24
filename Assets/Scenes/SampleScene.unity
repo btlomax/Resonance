@@ -2819,7 +2819,7 @@ GameObject:
   - component: {fileID: 393756343}
   - component: {fileID: 393756342}
   - component: {fileID: 393756341}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: StoneBridge
   m_TagString: Untagged
   m_Icon: {fileID: 0}

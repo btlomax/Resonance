@@ -6504,7 +6504,7 @@ MonoBehaviour:
   resonatorNote: C4
   puzzleScale: {fileID: 11400000, guid: 52dfae87b23a65b40a94ff7b84a173e8, type: 2}
   targetNote: 
-  targetInterval: Sixth
+  targetInterval: Major Seventh
   triggerable: {fileID: 1024637359}
   resonatorGem: {fileID: 36500860}
   scaleDegreeToColour: {fileID: 11400000, guid: 48554a68db960b74e910d344b3f55048, type: 2}

@@ -22,6 +22,8 @@ public class ResonatorPuzzle : BasePuzzleManager
     public string resonatorNote;
     public MusicalScale puzzleScale;
     public string targetNote;
+
+    //Make this a dropdown list
     public string targetInterval;
     public TriggerInteractable triggerable;
     public GameObject resonatorGem;

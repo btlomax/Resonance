@@ -14,6 +14,8 @@ public class ResonatorPuzzle : BasePuzzleManager
     private bool _isSolved = false;
     [SerializeField]
     private bool _correctNotePlayed = false;
+    [SerializeField]
+    private GameObject activeUIPrompt;
 
     [Header("Resonator Puzzle Settings")]
     public NoteComparisonStarted noteComparisonStartedEvent;
@@ -68,6 +70,11 @@ public class ResonatorPuzzle : BasePuzzleManager
     {
         if(other.CompareTag("Player") && !_isSolved)
         {
+            if(activeUIPrompt == null)
+            {
+                activeUIPrompt = WorldUIManager.Instance.CreateWorldUI(UIPromptLocation, puzzleScale.ScaleName);
+            }
+
             noteComparisonStartedEvent.OnNoteComparisonStarted += OnNoteComparisonStarted;
             _recorder.ToggleContinousRecording(); // Start recording player input
             OnPuzzleActivated();
@@ -78,6 +85,12 @@ public class ResonatorPuzzle : BasePuzzleManager
     {
         if(other.CompareTag("Player") && !_isSolved)
         {
+            if(activeUIPrompt != null)
+            {
+                WorldUIManager.Instance.HidePrompt(activeUIPrompt);
+                activeUIPrompt = null;
+            }
+
             noteComparisonStartedEvent.OnNoteComparisonStarted -= OnNoteComparisonStarted;
 
             // Stop resonator sound and stop recording player input
@@ -155,6 +168,12 @@ public class ResonatorPuzzle : BasePuzzleManager
         _recorder.puzzleSolved = true;
 
         resonatorLight.enabled = false;
+
+        if (activeUIPrompt != null)
+        {
+            WorldUIManager.Instance.HidePrompt(activeUIPrompt);
+            activeUIPrompt = null;
+        }
 
         triggerable.TriggerAction("ActivateMechanism");
     }

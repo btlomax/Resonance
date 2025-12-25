@@ -18,6 +18,13 @@ public class WorldUIManager : MonoBehaviour
         Instance = this;
     }
 
+    /// <summary>
+    /// Create a world space UI element that follows a target transform and displays prompt text on the object.
+    /// Displays text passed in promptText parameter.
+    /// </summary>
+    /// <param name="target"></param>
+    /// <param name="promptText"></param>
+    /// <returns></returns>
     public GameObject CreateWorldUI(Transform target, string promptText)
     {
         GameObject worldUIInstance = Instantiate(worldUIPrefab, worldCanvas.transform);

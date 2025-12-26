@@ -28,7 +28,7 @@ public class BeamManager : MonoBehaviour
 
     public void ProcessBeam(Beam beam)
     {
-        Ray currentRay = beam.beam;
+        Ray currentRay = beam.lightBeam;
 
         for (int i = 0; i < maxReflections; i++)
         {

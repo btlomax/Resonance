@@ -3,19 +3,19 @@ using UnityEngine;
 public class BeamEmitter : MonoBehaviour
 {
     [Header("Beam Settings")]
-    [SerializeField] private Transform beamOrigin;
-    [SerializeField] private Color beamColor = Color.white;
+    [SerializeField] private Transform _beamOrigin;
+    private Color _beamColor = Color.white;
+    [SerializeField] private BeamRenderer _beamRenderer;
+    [SerializeField] float _beamDuration = 5f;
+
     public string resonantNote;
     public NotePlayedEventChannel onNotePlayed;
-
-    private void Update()
-    {
-        
-    }
+    public ScaleDegreeToColour scaleDegreeToColour;
+    public MusicalScale musicalScale;
 
     public void Emit(string incomingNote)
     {
-        if(beamOrigin == null)
+        if(_beamOrigin == null)
         {
             Debug.LogError("Beam Origin is not assigned.");
             return;
@@ -27,13 +27,24 @@ public class BeamEmitter : MonoBehaviour
             return;
         }
 
-        Ray ray = new Ray(beamOrigin.position, beamOrigin.forward);
-        Debug.DrawRay(beamOrigin.position, beamOrigin.forward * 10f, beamColor);
-        Beam emittedBeam = new Beam(ray, beamColor);
+        for (int i = 0; i < musicalScale.NotesInScale.Length; i++)
+        {
+            if (musicalScale.NotesInScale[i].noteTitle == incomingNote)
+            {
+                _beamColor = scaleDegreeToColour.scaleDegreeColours[i];
+            }
+        }
 
-        Debug.Log("Emitting beam from " + beamOrigin.position + " in direction " + beamOrigin.forward);
+        Ray ray = new Ray(_beamOrigin.position, _beamOrigin.forward);
+        Debug.DrawRay(_beamOrigin.position, _beamOrigin.forward * 10f, _beamColor, _beamDuration);
+        Beam emittedBeam = new Beam(ray, _beamColor);
+
+        Debug.Log("Emitting beam from " + _beamOrigin.position + " in direction " + _beamOrigin.forward);
 
         BeamManager.Instance.ProcessBeam(emittedBeam);
+
+        // Beam colour not changing here
+        _beamRenderer.RenderBeam(emittedBeam, _beamDuration);
     }
 
     public void OnTriggerEnter(Collider other)

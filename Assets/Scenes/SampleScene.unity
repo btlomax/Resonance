@@ -1396,7 +1396,7 @@ MonoBehaviour:
     SplineCurvature: 0.407
   RecenteringTarget: 2
   HorizontalAxis:
-    Value: 90
+    Value: 90.00001
     Center: 90.00001
     Range: {x: -180, y: 180}
     Wrap: 1
@@ -5697,7 +5697,7 @@ RectTransform:
   m_Children:
   - {fileID: 1043442663}
   - {fileID: 1080419921}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1286763544}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -7945,6 +7945,39 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c0614087df966b6489e95a0b7230002b, type: 3}
+--- !u!1 &1286763543
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1286763544}
+  m_Layer: 0
+  m_Name: UI
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1286763544
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1286763543}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -189.17003, y: 41.05, z: -199.87779}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 826626969}
+  - {fileID: 1547684456}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1288066225
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9554,7 +9587,7 @@ GameObject:
   - component: {fileID: 1547684454}
   - component: {fileID: 1547684453}
   m_Layer: 5
-  m_Name: WorldUICanvas
+  m_Name: WorldUIRoot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9599,7 +9632,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!223 &1547684455
 Canvas:
   m_ObjectHideFlags: 0
@@ -9630,17 +9663,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1547684452}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 199.87779}
   m_LocalScale: {x: 0.03, y: 0.03, z: 0.03}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 718159117}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1286763544}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 634.5, y: 305.5}
+  m_AnchoredPosition: {x: 823.67004, y: 264.45}
   m_SizeDelta: {x: 1269, y: 611}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!4 &1565489880 stripped
@@ -12485,7 +12518,6 @@ SceneRoots:
   - {fileID: 177785931}
   - {fileID: 5838376}
   - {fileID: 2103724332}
-  - {fileID: 826626969}
   - {fileID: 1451038217}
   - {fileID: 169616515}
   - {fileID: 714333584}
@@ -12495,4 +12527,4 @@ SceneRoots:
   - {fileID: 1024637356}
   - {fileID: 393756345}
   - {fileID: 1674022261}
-  - {fileID: 1547684456}
+  - {fileID: 1286763544}

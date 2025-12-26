@@ -57,7 +57,7 @@ public class Apple : BaseCollectable
             rb.useGravity = true;         // let it fall naturally
 
             // Wait a bit to let it drop
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(0.3f);
 
             // Phase 2: fly toward player
             rb.useGravity = false;        // optional: fly in straight line

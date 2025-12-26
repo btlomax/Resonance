@@ -19,7 +19,6 @@ public abstract class BaseCollectable : MonoBehaviour, ICollectable
             {
                 foreach(var obj in numberOfCollectables)
                 {
-                    Debug.Log($"Collectable colour is {scaleDegreeToColour.scaleDegreeColours[i]} for note {targetNote}.");
                     Renderer renderer = obj.GetComponent<Renderer>();
                     renderer.material.color = scaleDegreeToColour.scaleDegreeColours[i];
                 }

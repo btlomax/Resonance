@@ -8875,7 +8875,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BeamEmitter
   _beamOrigin: {fileID: 336235729}
-  _beamColor: {r: 1, g: 0, b: 0, a: 1}
   _beamRenderer: {fileID: 1514295455}
   _beamDuration: 10
   resonantNote: C4

@@ -1458,7 +1458,7 @@ MonoBehaviour:
   RecenteringTarget: 2
   HorizontalAxis:
     Value: 90
-    Center: 90.00001
+    Center: 90
     Range: {x: -180, y: 180}
     Wrap: 1
     Recentering:
@@ -1970,11 +1970,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Mirror
   _mirror: {fileID: 291405148}
   mirrorZAngle: 0
-  onNotePlayed: {fileID: 11400000, guid: 715a2acaaee5ffd43988bde98608b7b7, type: 2}
-  scaleDegreeToColour: {fileID: 11400000, guid: 48554a68db960b74e910d344b3f55048, type: 2}
-  musicalScale: {fileID: 11400000, guid: 52dfae87b23a65b40a94ff7b84a173e8, type: 2}
-  rotateClockwiseNote: D4
-  rotateAntiClockwiseNote: F4
 --- !u!1001 &300233345
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -7,6 +7,7 @@ public class BeamRenderer : MonoBehaviour
     [SerializeField] private bool animatePulse = true;
     [SerializeField] private float pulseSpeed;
     [SerializeField] private float pulseAmplitude;
+    [SerializeField] private Material _beamMaterial;
 
     [SerializeField] private Beam currentBeam;
     private float beamLifetime;
@@ -40,8 +41,8 @@ public class BeamRenderer : MonoBehaviour
 
         // Setup LineRenderer positions
         lineRenderer.positionCount = beam.segments.Count + 1;
-        lineRenderer.startColor = beam.color;
-        lineRenderer.endColor = beam.color;
+
+        _beamMaterial.color = beam.color;
 
         lineRenderer.SetPosition(0, beam.segments[0].origin);
 

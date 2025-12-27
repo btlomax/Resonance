@@ -1396,7 +1396,7 @@ MonoBehaviour:
     SplineCurvature: 0.407
   RecenteringTarget: 2
   HorizontalAxis:
-    Value: 90
+    Value: 90.00001
     Center: 90.00001
     Range: {x: -180, y: 180}
     Wrap: 1
@@ -9611,7 +9611,7 @@ LineRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 1, g: 0, b: 0, a: 1}
+      key0: {r: 0, g: 0.03999734, b: 1, a: 1}
       key1: {r: 1, g: 1, b: 1, a: 1}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
@@ -9667,6 +9667,7 @@ MonoBehaviour:
   animatePulse: 0
   pulseSpeed: 2
   pulseAmplitude: 0.02
+  _beamMaterial: {fileID: 2100000, guid: 94784bb868bf8ee4b985b9702b719f9d, type: 2}
 --- !u!4 &1514295456
 Transform:
   m_ObjectHideFlags: 0

@@ -4,22 +4,27 @@ public class BeamEmitter : MonoBehaviour
 {
     [Header("Beam Settings")]
     [SerializeField] private Transform _beamOrigin;
-    private Color _beamColor = Color.white;
+    [SerializeField] private Color _beamColor;
     [SerializeField] private BeamRenderer _beamRenderer;
-    [SerializeField] float _beamDuration = 5f;
+    [SerializeField] private float _beamDuration = 5f;
+    [SerializeField] private GameObject _emitterGem;
+    [SerializeField] private Light _emitterLight;
+    [SerializeField] private bool _transmitNoteColour;
 
     public string resonantNote;
     public NotePlayedEventChannel onNotePlayed;
     public ScaleDegreeToColour scaleDegreeToColour;
     public MusicalScale musicalScale;
 
+    private void Awake()
+    {
+        _emitterLight = GetComponentInChildren<Light>();
+    }
+
     public void Emit(string incomingNote)
     {
         if(_beamOrigin == null)
-        {
-            Debug.LogError("Beam Origin is not assigned.");
             return;
-        }
 
         if(incomingNote != resonantNote || string.IsNullOrEmpty(incomingNote))
         {
@@ -27,19 +32,27 @@ public class BeamEmitter : MonoBehaviour
             return;
         }
 
-        for (int i = 0; i < musicalScale.NotesInScale.Length; i++)
+        if(_transmitNoteColour)
         {
-            if (musicalScale.NotesInScale[i].noteTitle == incomingNote)
+            for (int i = 0; i < musicalScale.NotesInScale.Length; i++)
             {
-                _beamColor = scaleDegreeToColour.scaleDegreeColours[i];
+                if (musicalScale.NotesInScale[i].noteTitle == incomingNote)
+                {
+                    _beamColor = scaleDegreeToColour.scaleDegreeColours[i];
+                }
             }
         }
+        else
+            _beamColor = Color.white;
 
         Ray ray = new Ray(_beamOrigin.position, _beamOrigin.forward);
         Debug.DrawRay(_beamOrigin.position, _beamOrigin.forward * 10f, _beamColor, _beamDuration);
         Beam emittedBeam = new Beam(ray, _beamColor);
 
-        Debug.Log("Emitting beam from " + _beamOrigin.position + " in direction " + _beamOrigin.forward);
+        var renderer = _emitterGem.GetComponentInChildren<Renderer>();
+        renderer.material.color = _beamColor;
+
+        _emitterLight.color = _beamColor;
 
         BeamManager.Instance.ProcessBeam(emittedBeam);
 
@@ -51,14 +64,17 @@ public class BeamEmitter : MonoBehaviour
     {
         if(other.CompareTag("Player"))
         {
-            Debug.Log("Player entered BeamEmitter trigger. Subscribing to note played events.");
             onNotePlayed.OnNotePlayed += Emit;
+            _emitterGem.GetComponentInChildren<Renderer>().material.color = Color.white;
+            _emitterLight.enabled = true;
+            _emitterLight.color = Color.white;
         }
     }
 
     public void OnTriggerExit(Collider other)
     {
-        Debug.Log("Player exited BeamEmitter trigger. Unsubscribing from note played events.");
         onNotePlayed.OnNotePlayed -= Emit;
+        _emitterGem.GetComponentInChildren<Renderer>().material.color = Color.gray;
+        _emitterLight.enabled = false;
     }
 }

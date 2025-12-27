@@ -44,7 +44,7 @@ public class ResonatorPuzzle : BasePuzzleManager
             if (puzzleScale.NotesInScale[i].noteTitle == targetNote)
             {
                 Renderer renderer = resonatorGem.GetComponent<Renderer>();
-                renderer.material.color = scaleDegreeToColour.scaleDegreeColours[i];
+                renderer.material.SetColor("_BaseColour", scaleDegreeToColour.scaleDegreeColours[i]);
                 resonatorLight.color = scaleDegreeToColour.scaleDegreeColours[i];
             }
         }

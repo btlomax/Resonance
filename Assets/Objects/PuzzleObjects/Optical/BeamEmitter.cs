@@ -19,6 +19,16 @@ public class BeamEmitter : MonoBehaviour
     private void Awake()
     {
         _emitterLight = GetComponentInChildren<Light>();
+
+        for (int i = 0; i < musicalScale.NotesInScale.Length; i++)
+        {
+            if (musicalScale.NotesInScale[i].noteTitle == resonantNote)
+            {
+                Renderer renderer = _emitterGem.GetComponentInChildren<Renderer>();
+                renderer.material.SetColor("_BaseColour", scaleDegreeToColour.scaleDegreeColours[i]);
+                _emitterLight.color = scaleDegreeToColour.scaleDegreeColours[i];
+            }
+        }
     }
 
     public void Emit(string incomingNote)
@@ -49,14 +59,8 @@ public class BeamEmitter : MonoBehaviour
         Debug.DrawRay(_beamOrigin.position, _beamOrigin.forward * 10f, _beamColor, _beamDuration);
         Beam emittedBeam = new Beam(ray, _beamColor);
 
-        var renderer = _emitterGem.GetComponentInChildren<Renderer>();
-        renderer.material.color = _beamColor;
-
-        _emitterLight.color = _beamColor;
-
         BeamManager.Instance.ProcessBeam(emittedBeam);
 
-        // Beam colour not changing here
         _beamRenderer.RenderBeam(emittedBeam, _beamDuration);
     }
 
@@ -67,7 +71,6 @@ public class BeamEmitter : MonoBehaviour
             onNotePlayed.OnNotePlayed += Emit;
             _emitterGem.GetComponentInChildren<Renderer>().material.color = Color.white;
             _emitterLight.enabled = true;
-            _emitterLight.color = Color.white;
         }
     }
 

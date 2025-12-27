@@ -24,10 +24,10 @@ public class Beam
     }
 }
 
-public struct BeamSegment
+public readonly struct BeamSegment
 {
-    public Vector3 origin;
-    public Vector3 end;
+    public readonly Vector3 origin;
+    public readonly Vector3 end;
 
     public BeamSegment(Vector3 origin, Vector3 end)
     {

@@ -22,13 +22,13 @@ public class MirrorStone : MonoBehaviour
             if (musicalScale.NotesInScale[i].noteTitle == RotateClockwiseNote)
             {
                 var renderer = RotateClockwiseMarker.GetComponentInChildren<Renderer>();
-                renderer.material.color = scaleDegreeToColour.scaleDegreeColours[i];
+                renderer.material.SetColor("_BaseColour", scaleDegreeToColour.scaleDegreeColours[i]);
 
             }
             if (musicalScale.NotesInScale[i].noteTitle == RotateCounterClockwiseNote)
             {
                 var renderer = RotateCounterClockwiseMarker.GetComponentInChildren<Renderer>();
-                renderer.material.color = scaleDegreeToColour.scaleDegreeColours[i];
+                renderer.material.SetColor("_BaseColour", scaleDegreeToColour.scaleDegreeColours[i]);
             }
         }
     }

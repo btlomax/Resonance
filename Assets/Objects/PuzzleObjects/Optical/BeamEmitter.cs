@@ -99,6 +99,7 @@ public class BeamEmitter : BaseMechanism
 
     public override void ActivateMechanism()
     {
+        var trigger = GetComponent<BoxCollider>().enabled = true;
         Emit_NoNote();
     }
 }

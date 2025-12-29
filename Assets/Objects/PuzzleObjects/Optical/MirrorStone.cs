@@ -4,7 +4,7 @@ public class MirrorStone : MonoBehaviour
 {
     [SerializeField] private GameObject _mirror;
     [SerializeField] private float _mirrorXAngle = 0f;
-                     private float _mirrorYAngle = 0f;
+    [SerializeField]  private float _mirrorYAngle = 0f;
     [SerializeField] private float _mirrorZAngle = 0f;
     [SerializeField] private float _rotateAmount = 45f;
 
@@ -15,6 +15,8 @@ public class MirrorStone : MonoBehaviour
     public string RotateCounterClockwiseNote;
     public GameObject RotateClockwiseMarker;
     public GameObject RotateCounterClockwiseMarker;
+    public bool CanRotate = true;
+
 
     private void Awake()
     {
@@ -51,6 +53,9 @@ public class MirrorStone : MonoBehaviour
 
     private void RotateMirror(string incomingNote)
     {
+        if (!CanRotate)
+            return;
+
         if (incomingNote != RotateClockwiseNote &&
             incomingNote != RotateCounterClockwiseNote)
             return;

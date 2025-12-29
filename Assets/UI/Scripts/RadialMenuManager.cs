@@ -241,11 +241,9 @@ public class RadialMenuGenerator : MonoBehaviour
     {
         if (!currentMinorScale)
         {
-            currentMinorScale = new MusicalScale()
-            {
-                ScaleName = currentMajorScale.GetNameOfMinorScale(),
-                NotesInScale = currentMajorScale.GetRelativeMinorScale(),
-            };
+            currentMinorScale = ScriptableObject.CreateInstance<MusicalScale>();
+            currentMinorScale.ScaleName = currentMajorScale.GetNameOfMinorScale();
+            currentMinorScale.NotesInScale = currentMajorScale.GetRelativeMinorScale();
         }
         else
         {

@@ -1,5 +1,9 @@
 using UnityEngine;
 
+/// <summary>
+/// Need to put this on an object that can trigger a mechanism to activate it via interaction
+/// Put the mechanism on the object to be triggered
+/// </summary>
 public class TriggerInteractable : MonoBehaviour
 {
     public BaseMechanism mechanism;

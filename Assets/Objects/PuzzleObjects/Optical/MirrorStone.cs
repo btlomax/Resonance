@@ -4,6 +4,7 @@ public class MirrorStone : MonoBehaviour
 {
     [SerializeField] private GameObject _mirror;
     [SerializeField] private float _mirrorXAngle = 0f;
+                     private float _mirrorYAngle = 0f;
     [SerializeField] private float _mirrorZAngle = 0f;
     [SerializeField] private float _rotateAmount = 45f;
 
@@ -17,7 +18,9 @@ public class MirrorStone : MonoBehaviour
 
     private void Awake()
     {
-        for(int i = 0; i < musicalScale.NotesInScale.Length; i++)
+        _mirrorYAngle = _mirror.transform.rotation.y;
+
+        for (int i = 0; i < musicalScale.NotesInScale.Length; i++)
         {
             if (musicalScale.NotesInScale[i].noteTitle == RotateClockwiseNote)
             {
@@ -48,19 +51,15 @@ public class MirrorStone : MonoBehaviour
 
     private void RotateMirror(string incomingNote)
     {
-        if(incomingNote == RotateClockwiseNote)
-        {
-            _mirrorZAngle -= _rotateAmount;
-        }
-        else if (incomingNote == RotateCounterClockwiseNote)
-        {
-            _mirrorZAngle += _rotateAmount;
-        }
-        else
-        {
+        if (incomingNote != RotateClockwiseNote &&
+            incomingNote != RotateCounterClockwiseNote)
             return;
-        }
 
-        _mirror.transform.rotation = Quaternion.Euler(_mirrorXAngle, 0f, _mirrorZAngle);
+        float delta =
+            incomingNote == RotateClockwiseNote
+                ? -_rotateAmount
+                : _rotateAmount;
+
+        _mirror.transform.Rotate(Vector3.forward, delta, Space.Self);
     }
 }

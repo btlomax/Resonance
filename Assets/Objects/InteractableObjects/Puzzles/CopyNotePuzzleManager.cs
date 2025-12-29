@@ -14,6 +14,7 @@ public class CopyNotePuzzleManager : BasePuzzleManager
     public List<string> noteSequence = new List<string>();
     public NoteComparisonStarted noteComparisonStartedEvent;
     public GameObject successObject;
+    public TriggerInteractable triggerable;
 
     public float delayBetweenNotes = 0.5f;
     public bool isSolved = false;
@@ -114,6 +115,7 @@ public class CopyNotePuzzleManager : BasePuzzleManager
     {
         isSolved = true;
         _recorder.puzzleSolved = true;
+        triggerable.TriggerAction("ActivateMechanism");
         Debug.Log("Copy Note Puzzle Marked as Solved.");
     }
 }

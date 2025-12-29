@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class BeamEmitter : MonoBehaviour
+public class BeamEmitter : BaseMechanism
 {
     [Header("Beam Settings")]
     [SerializeField] private Transform _beamOrigin;
@@ -11,6 +11,10 @@ public class BeamEmitter : MonoBehaviour
     [SerializeField] private Light _emitterLight;
     [SerializeField] private bool _transmitNoteColour;
 
+    public bool EmitFromNotePlayed = true;
+
+    [Header("Musical Settings")]
+    [Tooltip("Only needed if player directly interacts with the emitter")]
     public string resonantNote;
     public NotePlayedEventChannel onNotePlayed;
     public ScaleDegreeToColour scaleDegreeToColour;
@@ -31,12 +35,12 @@ public class BeamEmitter : MonoBehaviour
         }
     }
 
-    public void Emit(string incomingNote)
+    public void EmitFromNote(string incomingNote)
     {
         if(_beamOrigin == null)
             return;
 
-        if(incomingNote != resonantNote || string.IsNullOrEmpty(incomingNote))
+        if(incomingNote != resonantNote)
         {
             Debug.Log("Incoming note " + incomingNote + " does not match resonant note " + resonantNote + ". Beam not emitted.");
             return;
@@ -64,11 +68,23 @@ public class BeamEmitter : MonoBehaviour
         _beamRenderer.RenderBeam(emittedBeam, _beamDuration);
     }
 
+    public void Emit_NoNote()
+    {
+        if (_beamOrigin == null)
+            return;
+
+        Ray ray = new Ray(_beamOrigin.position, _beamOrigin.forward);
+        Debug.DrawRay(_beamOrigin.position, _beamOrigin.forward * 10f, _beamColor, _beamDuration);
+        Beam emittedBeam = new Beam(ray, _beamColor);
+        BeamManager.Instance.ProcessBeam(emittedBeam);
+        _beamRenderer.RenderBeam(emittedBeam, _beamDuration);
+    }
+
     public void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("Player"))
+        if(other.CompareTag("Player") && EmitFromNotePlayed)
         {
-            onNotePlayed.OnNotePlayed += Emit;
+            onNotePlayed.OnNotePlayed += EmitFromNote;
             _emitterGem.GetComponentInChildren<Renderer>().material.color = Color.white;
             _emitterLight.enabled = true;
         }
@@ -76,8 +92,13 @@ public class BeamEmitter : MonoBehaviour
 
     public void OnTriggerExit(Collider other)
     {
-        onNotePlayed.OnNotePlayed -= Emit;
-        _emitterGem.GetComponentInChildren<Renderer>().material.color = Color.gray;
+        onNotePlayed.OnNotePlayed -= EmitFromNote;
+       // _emitterGem.GetComponentInChildren<Renderer>().material.color = Color.gray;
         _emitterLight.enabled = false;
+    }
+
+    public override void ActivateMechanism()
+    {
+        Emit_NoNote();
     }
 }

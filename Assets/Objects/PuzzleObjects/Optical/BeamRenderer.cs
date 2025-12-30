@@ -2,25 +2,26 @@ using UnityEngine;
 
 public class BeamRenderer : MonoBehaviour
 {
-    [SerializeField] private LineRenderer lineRenderer;
-    [SerializeField] private float baseWidth;
-    [SerializeField] private bool animatePulse = true;
-    [SerializeField] private float pulseSpeed;
-    [SerializeField] private float pulseAmplitude;
+    [SerializeField] private LineRenderer _lineRenderer;
+    [SerializeField] private float _baseWidth;
+    [SerializeField] private bool _animatePulse = true;
+    [SerializeField] private float _pulseSpeed;
+    [SerializeField] private float _pulseAmplitude;
     [SerializeField] private Material _beamMaterial;
+    [SerializeField] private Beam _currentBeam;
+    private float _beamLifetime;
 
-    [SerializeField] private Beam currentBeam;
-    private float beamLifetime;
+    public Transform beamOrigin;
 
     private void Awake()
     {
-        if(lineRenderer == null)
+        if(_lineRenderer == null)
         {
-            lineRenderer = GetComponent<LineRenderer>();
+            _lineRenderer = GetComponent<LineRenderer>();
         }
 
-        lineRenderer.useWorldSpace = true;
-        lineRenderer.positionCount = 0;
+        _lineRenderer.useWorldSpace = true;
+        _lineRenderer.positionCount = 0;
     }
 
     /// <summary>
@@ -36,43 +37,60 @@ public class BeamRenderer : MonoBehaviour
             return;
         }
 
-        currentBeam = beam;
-        beamLifetime = duration;
+        _currentBeam = beam;
+        _beamLifetime = duration;
 
         // Setup LineRenderer positions
-        lineRenderer.positionCount = beam.segments.Count + 1;
+        _lineRenderer.positionCount = beam.segments.Count + 1;
 
         _beamMaterial.color = beam.color;
 
-        lineRenderer.SetPosition(0, beam.segments[0].origin);
+        _lineRenderer.SetPosition(0, beam.segments[0].origin);
 
         for (int i = 0; i < beam.segments.Count; i++)
         {
-            lineRenderer.SetPosition(i + 1, beam.segments[i].end);
+            _lineRenderer.SetPosition(i + 1, beam.segments[i].end);
         }
 
-        lineRenderer.startWidth = baseWidth;
-        lineRenderer.endWidth = baseWidth;
+        _lineRenderer.startWidth = _baseWidth;
+        _lineRenderer.endWidth = _baseWidth;
     }
 
     private void Update()
     {
-        if (currentBeam == null)
+        if (_currentBeam == null || beamOrigin == null)
             return;
 
-        // Pulse animation
-        if (animatePulse)
+        // Recalculate beam ray every frame
+        _currentBeam.segments.Clear();
+
+        Ray ray = new Ray(beamOrigin.position, beamOrigin.forward);
+        _currentBeam.lightBeam = ray;
+
+        BeamManager.Instance.ProcessBeam(_currentBeam);
+
+        // Update line positions
+        _lineRenderer.positionCount = _currentBeam.segments.Count + 1;
+        _lineRenderer.SetPosition(0, _currentBeam.segments[0].origin);
+
+        for (int i = 0; i < _currentBeam.segments.Count; i++)
         {
-            float pulse = baseWidth + Mathf.Sin(Time.time * pulseSpeed) * pulseAmplitude;
-            lineRenderer.startWidth = pulse;
-            lineRenderer.endWidth = pulse;
+            _lineRenderer.SetPosition(i + 1, _currentBeam.segments[i].end);
+        }
+
+        // Pulse animation
+        if (_animatePulse)
+        {
+            float pulse = _baseWidth + Mathf.Sin(Time.time * _pulseSpeed) * _pulseAmplitude;
+            _lineRenderer.startWidth = pulse;
+            _lineRenderer.endWidth = pulse;
         }
 
         // Reduce lifetime
-        if (beamLifetime > 0f)
+        if (_beamLifetime > 0f)
         {
-            beamLifetime -= Time.deltaTime;
-            if (beamLifetime <= 0f)
+            _beamLifetime -= Time.deltaTime;
+            if (_beamLifetime <= 0f)
             {
                 Clear();
             }
@@ -81,7 +99,7 @@ public class BeamRenderer : MonoBehaviour
 
     public void Clear()
     {
-        lineRenderer.positionCount = 0;
-        currentBeam = null;
+        _lineRenderer.positionCount = 0;
+        _currentBeam = null;
     }
 }

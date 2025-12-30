@@ -33,6 +33,7 @@ public class RadialMenuGenerator : MonoBehaviour
     public VoidEventChannel toggleRadialMenuEventListener;
     public VoidEventChannel toggleMajorMinor;
     public NotePlayedEventChannel notePlayedEvent;
+    public OnNoteStoppedEvent onNoteStoppedEvent;
 
     [SerializeField]
     private InputHandler _inputHandler;
@@ -235,6 +236,8 @@ public class RadialMenuGenerator : MonoBehaviour
     private void StopNote()
     {
         AudioManager.Instance.Player_StopLoopingNote();
+
+        onNoteStoppedEvent.RaiseEvent();
     }
 
     private void GetRelativeMinor()

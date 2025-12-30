@@ -1,14 +1,14 @@
 using UnityEngine;
+using static UnityEngine.GridBrushBase;
 
 public class MirrorStone : MonoBehaviour
 {
     [SerializeField] private GameObject _mirror;
-    [SerializeField] private float _mirrorXAngle = 0f;
-    [SerializeField]  private float _mirrorYAngle = 0f;
-    [SerializeField] private float _mirrorZAngle = 0f;
     [SerializeField] private float _rotateAmount = 45f;
+    [SerializeField] private int _rotationDirection = 0;
 
     public NotePlayedEventChannel NotePlayed;
+    public OnNoteStoppedEvent OnNoteStopped;
     public ScaleDegreeToColour scaleDegreeToColour;
     public MusicalScale musicalScale;
     public string RotateClockwiseNote;
@@ -17,11 +17,8 @@ public class MirrorStone : MonoBehaviour
     public GameObject RotateCounterClockwiseMarker;
     public bool CanRotate = true;
 
-
     private void Awake()
     {
-        _mirrorYAngle = _mirror.transform.rotation.y;
-
         for (int i = 0; i < musicalScale.NotesInScale.Length; i++)
         {
             if (musicalScale.NotesInScale[i].noteTitle == RotateClockwiseNote)
@@ -38,33 +35,46 @@ public class MirrorStone : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        if (_rotationDirection == 0) return;
+
+        _mirror.transform.Rotate(
+            Vector3.forward,
+            _rotationDirection * _rotateAmount * Time.deltaTime,
+            Space.Self
+        );
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
             NotePlayed.OnNotePlayed += RotateMirror;
+            OnNoteStopped.OnNoteStopped += StopRotating;
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
         NotePlayed.OnNotePlayed -= RotateMirror;
+        OnNoteStopped.OnNoteStopped -= StopRotating;
     }
 
     private void RotateMirror(string incomingNote)
     {
-        if (!CanRotate)
-            return;
+        if (!CanRotate) return;
 
-        if (incomingNote != RotateClockwiseNote &&
-            incomingNote != RotateCounterClockwiseNote)
-            return;
+        if (incomingNote == RotateClockwiseNote)
+            _rotationDirection = -1;
+        else if (incomingNote == RotateCounterClockwiseNote)
+            _rotationDirection = 1;
+    }
 
-        float delta =
-            incomingNote == RotateClockwiseNote
-                ? -_rotateAmount
-                : _rotateAmount;
-
-        _mirror.transform.Rotate(Vector3.forward, delta, Space.Self);
+    private void StopRotating()
+    {
+        _rotationDirection = 0;
     }
 }
+
+// x: 49.391 y: 52.5 z: 78.5

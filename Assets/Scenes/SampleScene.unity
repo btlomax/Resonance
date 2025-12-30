@@ -508,7 +508,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8352993228363211378, guid: aff2c518c53f34b438ca02732cf3dd08, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2385,6 +2385,7 @@ MonoBehaviour:
   _mirrorZAngle: 45
   _rotateAmount: 22.5
   NotePlayed: {fileID: 11400000, guid: 715a2acaaee5ffd43988bde98608b7b7, type: 2}
+  OnNoteStopped: {fileID: 0}
   scaleDegreeToColour: {fileID: 11400000, guid: 48554a68db960b74e910d344b3f55048, type: 2}
   musicalScale: {fileID: 11400000, guid: 52dfae87b23a65b40a94ff7b84a173e8, type: 2}
   RotateClockwiseNote: B3
@@ -7502,6 +7503,7 @@ MonoBehaviour:
   toggleRadialMenuEventListener: {fileID: 11400000, guid: cbe8533b8958bc94ba25deaddf4ebbbf, type: 2}
   toggleMajorMinor: {fileID: 11400000, guid: 32522c66bb0c003438861a728d2ffb97, type: 2}
   notePlayedEvent: {fileID: 11400000, guid: 715a2acaaee5ffd43988bde98608b7b7, type: 2}
+  onNoteStoppedEvent: {fileID: 11400000, guid: 43a5a7aa2428e3a45a19d10a6e632cf9, type: 2}
   _inputHandler: {fileID: 1451038216}
   _cameraInput: {fileID: 177785926}
   showDebugGizmos: 1
@@ -11213,13 +11215,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1608836773}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.3908812, y: 0.6898508, z: 0.52969855, w: 0.30122623}
+  m_LocalRotation: {x: 0.5444574, y: 0.07404737, z: 0.37241697, w: 0.74792296}
   m_LocalPosition: {x: -0.02, y: 5.35, z: -0.21}
   m_LocalScale: {x: 1, y: 0.1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1912052476}
-  m_LocalEulerAnglesHint: {x: 77.5, y: 65.5, z: 52}
+  m_LocalEulerAnglesHint: {x: 49.4, y: 52.5, z: 78.5}
 --- !u!114 &1608836775
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13510,6 +13512,7 @@ MonoBehaviour:
   _mirrorZAngle: 52
   _rotateAmount: 22.5
   NotePlayed: {fileID: 11400000, guid: 715a2acaaee5ffd43988bde98608b7b7, type: 2}
+  OnNoteStopped: {fileID: 11400000, guid: 43a5a7aa2428e3a45a19d10a6e632cf9, type: 2}
   scaleDegreeToColour: {fileID: 11400000, guid: 48554a68db960b74e910d344b3f55048, type: 2}
   musicalScale: {fileID: 11400000, guid: 52dfae87b23a65b40a94ff7b84a173e8, type: 2}
   RotateClockwiseNote: B3
@@ -14322,6 +14325,7 @@ MonoBehaviour:
   _mirrorZAngle: 52
   _rotateAmount: 22.5
   NotePlayed: {fileID: 11400000, guid: 715a2acaaee5ffd43988bde98608b7b7, type: 2}
+  OnNoteStopped: {fileID: 11400000, guid: 43a5a7aa2428e3a45a19d10a6e632cf9, type: 2}
   scaleDegreeToColour: {fileID: 11400000, guid: 48554a68db960b74e910d344b3f55048, type: 2}
   musicalScale: {fileID: 11400000, guid: 52dfae87b23a65b40a94ff7b84a173e8, type: 2}
   RotateClockwiseNote: B3

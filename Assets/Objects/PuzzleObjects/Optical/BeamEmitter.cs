@@ -88,6 +88,7 @@ public class BeamEmitter : BaseMechanism
             onNotePlayed.OnNotePlayed += EmitFromNote;
             _emitterGem.GetComponentInChildren<Renderer>().material.color = Color.white;
             _emitterLight.enabled = true;
+            Debug.Log("Player entered emitter trigger, subscribed to note played event.");
         }
     }
 

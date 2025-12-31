@@ -519,8 +519,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8352993228363211378, guid: aff2c518c53f34b438ca02732cf3dd08, type: 3}
+      propertyPath: m_Size.x
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 8352993228363211378, guid: aff2c518c53f34b438ca02732cf3dd08, type: 3}
+      propertyPath: m_Size.z
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 8352993228363211378, guid: aff2c518c53f34b438ca02732cf3dd08, type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8352993228363211378, guid: aff2c518c53f34b438ca02732cf3dd08, type: 3}
+      propertyPath: m_Center.y
+      value: 1.64
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1554,7 +1566,7 @@ MonoBehaviour:
     SplineCurvature: 0.407
   RecenteringTarget: 2
   HorizontalAxis:
-    Value: 90.00001
+    Value: 90
     Center: 90.00001
     Range: {x: -180, y: 180}
     Wrap: 1
@@ -9123,7 +9135,7 @@ Transform:
   m_GameObject: {fileID: 1362828344}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.99010205, z: -0, w: 0.14034916}
-  m_LocalPosition: {x: -4.289995, y: 0.034999907, z: 21.140001}
+  m_LocalPosition: {x: -5.17, y: 0.034999907, z: 21.03}
   m_LocalScale: {x: 0.75, y: 0.75, z: 0.75}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -9849,8 +9861,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1435029773}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0.27403784, z: -0, w: 0.9617189}
-  m_LocalPosition: {x: 6.44, y: 0.00999999, z: 21.18}
+  m_LocalRotation: {x: -0, y: -0.0073015094, z: -0, w: 0.9999734}
+  m_LocalPosition: {x: 6.22, y: 0.01000005, z: 16.61}
   m_LocalScale: {x: 0.75, y: 0.75, z: 0.75}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -9858,7 +9870,7 @@ Transform:
   - {fileID: 1774432540}
   - {fileID: 2114752061}
   m_Father: {fileID: 799381648}
-  m_LocalEulerAnglesHint: {x: 0, y: -31.809, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -0.837, z: 0}
 --- !u!65 &1435029776
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10774,8 +10786,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BeamRenderer
   _lineRenderer: {fileID: 0}
-  _baseWidth: 0
-  _animatePulse: 1
+  _baseWidth: 0.1
+  _animatePulse: 0
   _pulseSpeed: 0
   _pulseAmplitude: 0
   _beamMaterial: {fileID: 2100000, guid: 94784bb868bf8ee4b985b9702b719f9d, type: 2}

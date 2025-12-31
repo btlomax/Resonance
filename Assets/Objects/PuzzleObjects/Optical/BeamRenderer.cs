@@ -58,25 +58,8 @@ public class BeamRenderer : MonoBehaviour
 
     private void Update()
     {
-        if (_currentBeam == null || beamOrigin == null)
+        if (_currentBeam == null)
             return;
-
-        // Recalculate beam ray every frame
-        _currentBeam.segments.Clear();
-
-        Ray ray = new Ray(beamOrigin.position, beamOrigin.forward);
-        _currentBeam.lightBeam = ray;
-
-        BeamManager.Instance.ProcessBeam(_currentBeam);
-
-        // Update line positions
-        _lineRenderer.positionCount = _currentBeam.segments.Count + 1;
-        _lineRenderer.SetPosition(0, _currentBeam.segments[0].origin);
-
-        for (int i = 0; i < _currentBeam.segments.Count; i++)
-        {
-            _lineRenderer.SetPosition(i + 1, _currentBeam.segments[i].end);
-        }
 
         // Pulse animation
         if (_animatePulse)

@@ -4,7 +4,7 @@ using static UnityEngine.GridBrushBase;
 public class MirrorStone : MonoBehaviour
 {
     [SerializeField] private GameObject _mirror;
-    [SerializeField] private float _rotateAmount = 45f;
+    [SerializeField] private float _rotateAmount = 10;
     [SerializeField] private int _rotationDirection = 0;
 
     public NotePlayedEventChannel NotePlayed;
@@ -39,11 +39,14 @@ public class MirrorStone : MonoBehaviour
     {
         if (_rotationDirection == 0) return;
 
-        _mirror.transform.Rotate(
-            Vector3.forward,
-            _rotationDirection * _rotateAmount * Time.deltaTime,
-            Space.Self
-        );
+        if(CanRotate)
+        {
+            _mirror.transform.Rotate(
+           Vector3.forward,
+           _rotationDirection * _rotateAmount * Time.deltaTime,
+           Space.Self
+           );
+        }
     }
 
     private void OnTriggerEnter(Collider other)

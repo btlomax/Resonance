@@ -40,7 +40,7 @@ public class BeamEmitter : BaseMechanism
         if(_beamOrigin == null)
             return;
 
-        if(incomingNote != resonantNote)
+        if (incomingNote != resonantNote)
         {
             Debug.Log("Incoming note " + incomingNote + " does not match resonant note " + resonantNote + ". Beam not emitted.");
             return;
@@ -77,6 +77,7 @@ public class BeamEmitter : BaseMechanism
         Ray ray = new Ray(_beamOrigin.position, _beamOrigin.forward);
         Debug.DrawRay(_beamOrigin.position, _beamOrigin.forward * 10f, _beamColor, _beamDuration);
         Beam emittedBeam = new Beam(ray, _beamColor);
+        _beamRenderer.beamOrigin = _beamOrigin;
         BeamManager.Instance.ProcessBeam(emittedBeam);
         _beamRenderer.RenderBeam(emittedBeam, _beamDuration);
     }

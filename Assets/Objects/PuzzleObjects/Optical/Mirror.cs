@@ -9,7 +9,7 @@ public class Mirror : MonoBehaviour, IOpticalElement
         Vector3 normal = transform.up;
         Vector3 reflectedDir = Vector3.Reflect(incomingRay.direction, normal);
 
-        outgoingRay = new Ray(hit.point, reflectedDir);
+        outgoingRay = new Ray(transform.position, reflectedDir);
         Debug.DrawRay(outgoingRay.origin, outgoingRay.direction * 10f, beam.color, 1f);
 
         return true;

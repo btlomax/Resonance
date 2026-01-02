@@ -29,6 +29,8 @@ public class BeamManager : MonoBehaviour
 
     public void ProcessBeam(Beam beam)
     {
+        beam.segments.Clear();
+
         Ray currentRay = beam.lightBeam;
         BeamContext context = new BeamContext(beam.color);
 

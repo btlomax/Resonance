@@ -25,7 +25,7 @@ public class BeamRenderer : MonoBehaviour
     }
 
     /// <summary>
-    /// Light not matching note colour
+    /// Renders the given beam for the specified duration
     /// </summary>
     /// <param name="beam"></param>
     /// <param name="duration"></param>
@@ -58,8 +58,25 @@ public class BeamRenderer : MonoBehaviour
 
     private void Update()
     {
-        if (_currentBeam == null)
+        if (_currentBeam == null || beamOrigin == null)
             return;
+
+        if(_currentBeam.segments.Count > 0)
+            _currentBeam.segments.Clear();
+
+        Ray ray = new Ray(beamOrigin.position, beamOrigin.forward);
+        _currentBeam.lightBeam = ray;
+
+        BeamManager.Instance.ProcessBeam(_currentBeam);
+
+        // Update line positions
+        _lineRenderer.positionCount = _currentBeam.segments.Count + 1; 
+        _lineRenderer.SetPosition(0, _currentBeam.segments[0].origin);
+
+        for (int i = 0; i < _currentBeam.segments.Count; i++)
+        {
+            _lineRenderer.SetPosition(i + 1, _currentBeam.segments[i].end);
+        }
 
         // Pulse animation
         if (_animatePulse)

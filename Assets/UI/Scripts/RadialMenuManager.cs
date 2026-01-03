@@ -159,8 +159,6 @@ public class RadialMenuGenerator : MonoBehaviour
        if(radialMenu.gameObject.activeSelf)
        {
            _selectionAngle = CalculateAngleFromStickInput( _inputHandler.MenuSelectInput);
-           UpdateDirectionIndicator(_selectionAngle);
-
             SelectNoteSlice(_activeSlices, _selectionAngle);
        }
     }

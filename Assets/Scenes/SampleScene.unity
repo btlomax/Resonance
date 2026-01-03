@@ -7863,6 +7863,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RadialMenuGenerator
   slicePrefab: {fileID: 7142997862106237420, guid: 23a3fb617d3602841a206e11460091cf, type: 3}
+  deadZone: 0.2
   radialMenu: {fileID: 116778375}
   allNotes:
   - {fileID: 11400000, guid: 057cc2feaa99439419a36e8704ce8258, type: 2}
@@ -7893,6 +7894,9 @@ MonoBehaviour:
   onNoteStoppedEvent: {fileID: 11400000, guid: 43a5a7aa2428e3a45a19d10a6e632cf9, type: 2}
   _inputHandler: {fileID: 1451038216}
   _cameraInput: {fileID: 177785926}
+  _sliceHysteresis: 0.2
+  directionIndicator: {fileID: 0}
+  indicatorDeadZone: 0.2
   showDebugGizmos: 1
 --- !u!82 &1043442665
 AudioSource:

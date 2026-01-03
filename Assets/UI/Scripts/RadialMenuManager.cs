@@ -13,7 +13,8 @@ public class RadialMenuGenerator : MonoBehaviour
     #region Fields and Properties
     [Header("Radial Menu Settings")]
     public Image slicePrefab;
-    
+    public float deadZone = 0.25f;
+
     public RectTransform radialMenu;
 
     public NoteScriptObj[] allNotes;
@@ -39,6 +40,8 @@ public class RadialMenuGenerator : MonoBehaviour
     private InputHandler _inputHandler;
     [SerializeField]
     private CinemachineInputAxisController _cameraInput;
+    [SerializeField]
+    private float _sliceHysteresis = 0.2f;
 
     private int _highlightedSlice = -1;
     private float _selectionAngle = -1f;
@@ -150,13 +153,15 @@ public class RadialMenuGenerator : MonoBehaviour
     /// <summary>
     /// Uses right stick input to determine which slice is selected.
     /// </summary>
+
     private void HandleRightStickInput()
     {
        if(radialMenu.gameObject.activeSelf)
        {
-            _selectionAngle = CalculateAngleFromStickInput( _inputHandler.MenuSelectInput);
+           _selectionAngle = CalculateAngleFromStickInput( _inputHandler.MenuSelectInput);
+           UpdateDirectionIndicator(_selectionAngle);
 
-           SelectNoteSlice(_activeSlices, _selectionAngle);
+            SelectNoteSlice(_activeSlices, _selectionAngle);
        }
     }
 
@@ -167,13 +172,8 @@ public class RadialMenuGenerator : MonoBehaviour
     /// <returns></returns>
     private float CalculateAngleFromStickInput(Vector2 stickInput)
     {
-        float angle = Mathf.Atan2(stickInput.y, stickInput.x) * Mathf.Rad2Deg;
-
-        angle -= 90;
-        angle = 360f - angle;
-        angle %= 360f;
-
-        return angle;
+        float angle = Mathf.Atan2(stickInput.x, stickInput.y) * Mathf.Rad2Deg;
+        return (angle + 360f) % 360f;
     }
 
     /// <summary>
@@ -185,11 +185,11 @@ public class RadialMenuGenerator : MonoBehaviour
     {
         float sliceAngle = 360f / activeSlices.Length;
 
-        int sliceIndex = Mathf.FloorToInt(angle / sliceAngle);
+        int sliceIndex = GetSliceIndexWithHysteresis(angle, _highlightedSlice, activeSlices.Length);
         sliceIndex = Mathf.Clamp(sliceIndex, 0, _activeSlices.Length - 1);
 
         // When stick is not being moved
-        if (_inputHandler.MenuSelectInput.sqrMagnitude < 0.05f)
+        if (_inputHandler.MenuSelectInput.magnitude < deadZone)
         {
             // Clear highlight
             if (_highlightedSlice >= 0)
@@ -224,6 +224,27 @@ public class RadialMenuGenerator : MonoBehaviour
         //Debug.Log($"Selected slice: {_activeSlices[sliceIndex].name}");
 
         return;
+    }
+
+    private int GetSliceIndexWithHysteresis(float angle, int currentSlice, int sliceCount)
+    {
+        float sliceSize = 360f / sliceCount;
+
+        int rawIndex = Mathf.FloorToInt(angle / sliceSize);
+        rawIndex = (rawIndex + sliceCount) % sliceCount;
+
+        if (currentSlice < 0)
+            return rawIndex;
+
+        float sliceCenter = (currentSlice + 0.5f) * sliceSize;
+        float delta = Mathf.DeltaAngle(sliceCenter, angle);
+
+        float hysteresisAngle = sliceSize * _sliceHysteresis;
+
+        if (Mathf.Abs(delta) < sliceSize / 2f + hysteresisAngle)
+            return currentSlice;
+
+        return rawIndex;
     }
 
     private void PlayNote(string note)

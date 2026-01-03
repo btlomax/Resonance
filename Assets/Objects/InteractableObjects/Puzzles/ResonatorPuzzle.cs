@@ -4,6 +4,16 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
+/// <summary>
+/// Manages the logic and state for a resonator-based musical puzzle, requiring players to play specific notes or
+/// intervals to solve it.
+/// </summary>
+/// <remarks>The <see cref="ResonatorPuzzle"/> class coordinates user interaction, note comparison, and puzzle
+/// state transitions for a musical puzzle scenario. It integrates with audio playback, recording, and UI prompt systems
+/// to provide feedback and progression. The puzzle is solved when the player correctly matches the target note or
+/// interval as defined by the puzzle configuration. <para> This class is typically attached to a puzzle GameObject in
+/// the scene and requires a <see cref="Recorder"/> component to function. It also interacts with other components such
+/// as <see cref="TriggerInteractable"/>, <see cref="Light"/>, and UI managers. </para></remarks>
 public class ResonatorPuzzle : BasePuzzleManager
 {
     [SerializeField]

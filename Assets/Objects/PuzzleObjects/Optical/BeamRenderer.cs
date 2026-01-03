@@ -1,5 +1,12 @@
 using UnityEngine;
 
+/// <summary>
+/// Renders and manages the visual representation of a beam using a <see cref="LineRenderer"/> component.
+/// </summary>
+/// <remarks>The <c>BeamRenderer</c> is responsible for displaying beam effects in the scene, including animating
+/// width pulses and updating the beam's path in real time. It supports rendering beams for a specified duration and
+/// clearing them when needed. Attach this component to a GameObject with a <see cref="LineRenderer"/> to enable beam
+/// visualization.</remarks>
 public class BeamRenderer : MonoBehaviour
 {
     [SerializeField] private LineRenderer _lineRenderer;
@@ -56,6 +63,13 @@ public class BeamRenderer : MonoBehaviour
         _lineRenderer.endWidth = _baseWidth;
     }
 
+    /// <summary>
+    /// Updates the state and visual representation of the current beam each frame.
+    /// </summary>
+    /// <remarks>This method recalculates the beam path, updates the associated line renderer to reflect any
+    /// changes, applies pulse animation if enabled, and manages the beam lifetime. It should be called once per
+    /// frame, typically from an update loop, to ensure the beam remains accurate and responsive to changes in origin,
+    /// direction, or animation state.</remarks>
     private void Update()
     {
         if (_currentBeam == null || beamOrigin == null)

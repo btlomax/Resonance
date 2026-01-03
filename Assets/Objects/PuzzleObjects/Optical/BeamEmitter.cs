@@ -1,5 +1,13 @@
 using UnityEngine;
 
+/// <summary>
+/// Represents a mechanism that emits a visual beam in response to musical notes or player interaction within the game
+/// environment.
+/// </summary>
+/// <remarks>The <see cref="BeamEmitter"/> can emit beams either automatically when a specific note is played or
+/// manually through direct activation. It supports color customization based on musical scale degrees and can interact
+/// with player-triggered events. This component is typically used in musical or puzzle-based gameplay scenarios where
+/// visual feedback is tied to audio input or player actions.</remarks>
 public class BeamEmitter : BaseMechanism
 {
     [Header("Beam Settings")]
@@ -35,6 +43,14 @@ public class BeamEmitter : BaseMechanism
         }
     }
 
+    /// <summary>
+    /// Emits a beam from the origin if the specified note matches the resonant note.
+    /// </summary>
+    /// <remarks>If the incoming note does not match the resonant note, no beam is emitted and the method
+    /// returns without effect. The color of the emitted beam is determined by the note and current settings; if note
+    /// color transmission is enabled, the beam color corresponds to the note's scale degree, otherwise it is
+    /// white.</remarks>
+    /// <param name="incomingNote">The note to evaluate for beam emission. The beam is emitted only if this value matches the resonant note.</param>
     public void EmitFromNote(string incomingNote)
     {
         if(_beamOrigin == null)
@@ -69,6 +85,11 @@ public class BeamEmitter : BaseMechanism
         _beamRenderer.RenderBeam(emittedBeam, _beamDuration);
     }
 
+    /// <summary>
+    /// Emits a beam from the current origin without requiring any associated note.
+    /// </summary>
+    /// <remarks>This method draws and processes a beam using the configured origin, color, and duration. No
+    /// additional data or note is associated with the emitted beam.</remarks>
     public void Emit_NoNote()
     {
         if (_beamOrigin == null)

@@ -11,6 +11,8 @@ public class RotationIndicator : MonoBehaviour
     {
         var renderer = GetComponent<CanvasRenderer>();
         renderer.SetColor(color);
+
+        // Need to tweak so each arrow is pointing perpendicular to the rotation of the parent object
         transform.localRotation = Quaternion.Euler(0f, yRotation, 0f);
     }
 

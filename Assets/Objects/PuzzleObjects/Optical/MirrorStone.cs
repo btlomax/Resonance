@@ -30,7 +30,7 @@ public class MirrorStone : MonoBehaviour
                 {
                     if(_rotateClockwiseUIPrompt == null)
                     {
-                        _rotateClockwiseUIPrompt = WorldUIManager.Instance.CreateRotationIndicators(RotateClockwiseMarkerLocation, scaleDegreeToColour.scaleDegreeColours[i], -135);
+                        _rotateClockwiseUIPrompt = WorldUIManager.Instance.CreateRotationIndicators(RotateClockwiseMarkerLocation, scaleDegreeToColour.scaleDegreeColours[i], transform.right);
                         _rotateClockwiseUIPrompt.SetActive(false);
                     }
                 }
@@ -39,7 +39,8 @@ public class MirrorStone : MonoBehaviour
                 {
                     if(_rotateCounterClockwiseUIPrompt == null)
                     {
-                        _rotateCounterClockwiseUIPrompt = WorldUIManager.Instance.CreateRotationIndicators(RotateCounterClockwiseMarkerLocation, scaleDegreeToColour.scaleDegreeColours[i], 45);
+                        var rotationOffset = (transform.rotation.y + 90) * 57.3f;
+                        _rotateCounterClockwiseUIPrompt = WorldUIManager.Instance.CreateRotationIndicators(RotateCounterClockwiseMarkerLocation, scaleDegreeToColour.scaleDegreeColours[i], -transform.right);
                         _rotateCounterClockwiseUIPrompt.SetActive(false);
                     }
                 }

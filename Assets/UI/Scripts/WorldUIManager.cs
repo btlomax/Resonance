@@ -44,7 +44,7 @@ public class WorldUIManager : MonoBehaviour
         return worldUIInstance;
     }
 
-    public GameObject CreateRotationIndicators(Transform target, Color arrowColour, float arrowRotation)
+    public GameObject CreateRotationIndicators(Transform target, Color arrowColour, Vector3 arrowRotation)
     {
         GameObject rotationIndicator = Instantiate(mirrorArrow, worldCanvas.transform);
         RotationIndicator rotationComponent = rotationIndicator.GetComponent<RotationIndicator>();
@@ -53,7 +53,7 @@ public class WorldUIManager : MonoBehaviour
         {
             rotationComponent.target = target;
             rotationComponent.color = arrowColour;
-            rotationComponent.yRotation = arrowRotation;
+            rotationComponent.direction = arrowRotation;
         }
 
         return rotationIndicator;

@@ -9,6 +9,7 @@ public class InputHandler : MonoBehaviour
     public bool InteractInput { get; private set; }
 
     public bool JumpInput { get; private set; }
+    public bool TeleportInput { get; private set; }
 
     public VoidEventChannel OpenRadialMenuEvent;
     public VoidEventChannel CloseRadialMenuEvent;
@@ -37,6 +38,10 @@ public class InputHandler : MonoBehaviour
 
         _controls.MouseKeyboard.Interact.performed += ctx => InteractInput = true;
         _controls.MouseKeyboard.Interact.canceled += _ => InteractInput = false;
+
+        // Teleport
+        _controls.Controller.TeleportBackToEmitter.performed += ctx => TeleportInput = true;
+        _controls.Controller.TeleportBackToEmitter.canceled += _ => TeleportInput = false;
 
         //Radial menu
         _controls.Controller.NoteWheel.performed += ctx => OnNoteWheelPerformed();

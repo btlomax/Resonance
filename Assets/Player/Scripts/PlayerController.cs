@@ -29,10 +29,12 @@ public class PlayerController : MonoBehaviour
     public Vector3 verticalVelocity;
     public float gravity = -20f;
     public bool grounded;
+    public Vector3 verticalOffset;
 
     [Header("References")]
     public Transform cameraTransform; // assign CameraTarget or camera
     public CinemachineCamera cam;
+    public Transform emitterTeleport;
 
     [SerializeField]
     private Interactable _currentFocus;
@@ -64,6 +66,11 @@ public class PlayerController : MonoBehaviour
         if (_inputHandler.InteractInput)
         {
             TryInteract();
+        }
+
+        if(emitterTeleport != null && _inputHandler.TeleportInput)
+        {
+            transform.position = emitterTeleport.position + verticalOffset;
         }
     }
 

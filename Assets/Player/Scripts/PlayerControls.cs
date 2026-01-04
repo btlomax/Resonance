@@ -257,6 +257,15 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""TeleportBackToEmitter"",
+                    ""type"": ""Button"",
+                    ""id"": ""702abb05-83bb-4d1d-9424-f0ce5237a3b6"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -413,6 +422,17 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""action"": ""ToggleMajorMinor"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""23059c08-9512-42d5-852c-a828528831ed"",
+                    ""path"": ""<Gamepad>/dpad/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""TeleportBackToEmitter"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -432,6 +452,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         m_Controller_NoteWheelSelection = m_Controller.FindAction("NoteWheelSelection", throwIfNotFound: true);
         m_Controller_Jump = m_Controller.FindAction("Jump", throwIfNotFound: true);
         m_Controller_ToggleMajorMinor = m_Controller.FindAction("ToggleMajorMinor", throwIfNotFound: true);
+        m_Controller_TeleportBackToEmitter = m_Controller.FindAction("TeleportBackToEmitter", throwIfNotFound: true);
     }
 
     ~@PlayerControls()
@@ -637,6 +658,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Controller_NoteWheelSelection;
     private readonly InputAction m_Controller_Jump;
     private readonly InputAction m_Controller_ToggleMajorMinor;
+    private readonly InputAction m_Controller_TeleportBackToEmitter;
     /// <summary>
     /// Provides access to input actions defined in input action map "Controller".
     /// </summary>
@@ -672,6 +694,10 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Controller/ToggleMajorMinor".
         /// </summary>
         public InputAction @ToggleMajorMinor => m_Wrapper.m_Controller_ToggleMajorMinor;
+        /// <summary>
+        /// Provides access to the underlying input action "Controller/TeleportBackToEmitter".
+        /// </summary>
+        public InputAction @TeleportBackToEmitter => m_Wrapper.m_Controller_TeleportBackToEmitter;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -716,6 +742,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @ToggleMajorMinor.started += instance.OnToggleMajorMinor;
             @ToggleMajorMinor.performed += instance.OnToggleMajorMinor;
             @ToggleMajorMinor.canceled += instance.OnToggleMajorMinor;
+            @TeleportBackToEmitter.started += instance.OnTeleportBackToEmitter;
+            @TeleportBackToEmitter.performed += instance.OnTeleportBackToEmitter;
+            @TeleportBackToEmitter.canceled += instance.OnTeleportBackToEmitter;
         }
 
         /// <summary>
@@ -745,6 +774,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @ToggleMajorMinor.started -= instance.OnToggleMajorMinor;
             @ToggleMajorMinor.performed -= instance.OnToggleMajorMinor;
             @ToggleMajorMinor.canceled -= instance.OnToggleMajorMinor;
+            @TeleportBackToEmitter.started -= instance.OnTeleportBackToEmitter;
+            @TeleportBackToEmitter.performed -= instance.OnTeleportBackToEmitter;
+            @TeleportBackToEmitter.canceled -= instance.OnTeleportBackToEmitter;
         }
 
         /// <summary>
@@ -856,5 +888,12 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnToggleMajorMinor(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "TeleportBackToEmitter" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnTeleportBackToEmitter(InputAction.CallbackContext context);
     }
 }

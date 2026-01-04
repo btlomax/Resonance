@@ -19,7 +19,9 @@ public class BeamEmitter : BaseMechanism
     [SerializeField] private Light _emitterLight;
     [SerializeField] private bool _transmitNoteColour;
 
+
     public bool EmitFromNotePlayed = true;
+    public GameObject emitterTeleportPad;
 
     [Header("Musical Settings")]
     [Tooltip("Only needed if player directly interacts with the emitter")]
@@ -110,14 +112,14 @@ public class BeamEmitter : BaseMechanism
             onNotePlayed.OnNotePlayed += EmitFromNote;
             _emitterGem.GetComponentInChildren<Renderer>().material.color = Color.white;
             _emitterLight.enabled = true;
-            Debug.Log("Player entered emitter trigger, subscribed to note played event.");
+
+            other.GetComponent<PlayerController>().emitterTeleport = emitterTeleportPad.transform;
         }
     }
 
     public void OnTriggerExit(Collider other)
     {
         onNotePlayed.OnNotePlayed -= EmitFromNote;
-       // _emitterGem.GetComponentInChildren<Renderer>().material.color = Color.gray;
         _emitterLight.enabled = false;
     }
 

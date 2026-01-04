@@ -11,7 +11,9 @@ public class WorldUIManager : MonoBehaviour
     [SerializeField]
     private CinemachineCamera mainCamera;
     [SerializeField]
-    private GameObject worldUIPrefab;
+    private GameObject resonatorUI;
+    [SerializeField]
+    private GameObject mirrorArrow;
 
     private void Awake()
     {
@@ -25,19 +27,36 @@ public class WorldUIManager : MonoBehaviour
     /// <param name="target"></param>
     /// <param name="promptText"></param>
     /// <returns></returns>
-    public GameObject CreateWorldUI(Transform target, string promptText)
+    public GameObject CreateResonatorUI(Transform target, string promptText, Color textColor)
     {
-        GameObject worldUIInstance = Instantiate(worldUIPrefab, worldCanvas.transform);
-        WorldUIFollow followComponent = worldUIInstance.GetComponent<WorldUIFollow>();
+        GameObject worldUIInstance = Instantiate(resonatorUI, worldCanvas.transform);
+        WorldUIFollowText followComponent = worldUIInstance.GetComponent<WorldUIFollowText>();
 
         if (followComponent != null)
         {
             followComponent.target = target;
             followComponent.mainCamera = mainCamera;
             followComponent.promptText.text = promptText;
+            followComponent.promptText.color = textColor;
+
         }
 
         return worldUIInstance;
+    }
+
+    public GameObject CreateRotationIndicators(Transform target, Color arrowColour, float arrowRotation)
+    {
+        GameObject rotationIndicator = Instantiate(mirrorArrow, worldCanvas.transform);
+        RotationIndicator rotationComponent = rotationIndicator.GetComponent<RotationIndicator>();
+
+        if(rotationComponent != null)
+        {
+            rotationComponent.target = target;
+            rotationComponent.color = arrowColour;
+            rotationComponent.yRotation = arrowRotation;
+        }
+
+        return rotationIndicator;
     }
 
     public void HidePrompt(GameObject ui)

@@ -6,6 +6,8 @@ public class MirrorStone : MonoBehaviour
     [SerializeField] private GameObject _mirror;
     [SerializeField] private float _rotateAmount = 10;
     [SerializeField] private int _rotationDirection = 0;
+    [SerializeField] private GameObject _rotateClockwiseUIPrompt;
+    [SerializeField] private GameObject _rotateCounterClockwiseUIPrompt;
 
     public NotePlayedEventChannel NotePlayed;
     public OnNoteStoppedEvent OnNoteStopped;
@@ -13,24 +15,34 @@ public class MirrorStone : MonoBehaviour
     public MusicalScale musicalScale;
     public string RotateClockwiseNote;
     public string RotateCounterClockwiseNote;
-    public GameObject RotateClockwiseMarker;
-    public GameObject RotateCounterClockwiseMarker;
+    public Transform RotateClockwiseMarkerLocation;
+    public Transform RotateCounterClockwiseMarkerLocation;
+   
     public bool CanRotate = true;
 
-    private void Awake()
+    private void Start()
     {
-        for (int i = 0; i < musicalScale.NotesInScale.Length; i++)
+        if(CanRotate)
         {
-            if (musicalScale.NotesInScale[i].noteTitle == RotateClockwiseNote)
+            for (int i = 0; i < musicalScale.NotesInScale.Length; i++)
             {
-                var renderer = RotateClockwiseMarker.GetComponentInChildren<Renderer>();
-                renderer.material.SetColor("_BaseColour", scaleDegreeToColour.scaleDegreeColours[i]);
+                if (musicalScale.NotesInScale[i].noteTitle == RotateClockwiseNote)
+                {
+                    if(_rotateClockwiseUIPrompt == null)
+                    {
+                        _rotateClockwiseUIPrompt = WorldUIManager.Instance.CreateRotationIndicators(RotateClockwiseMarkerLocation, scaleDegreeToColour.scaleDegreeColours[i], -135);
+                        _rotateClockwiseUIPrompt.SetActive(false);
+                    }
+                }
 
-            }
-            if (musicalScale.NotesInScale[i].noteTitle == RotateCounterClockwiseNote)
-            {
-                var renderer = RotateCounterClockwiseMarker.GetComponentInChildren<Renderer>();
-                renderer.material.SetColor("_BaseColour", scaleDegreeToColour.scaleDegreeColours[i]);
+                if (musicalScale.NotesInScale[i].noteTitle == RotateCounterClockwiseNote)
+                {
+                    if(_rotateCounterClockwiseUIPrompt == null)
+                    {
+                        _rotateCounterClockwiseUIPrompt = WorldUIManager.Instance.CreateRotationIndicators(RotateCounterClockwiseMarkerLocation, scaleDegreeToColour.scaleDegreeColours[i], 45);
+                        _rotateCounterClockwiseUIPrompt.SetActive(false);
+                    }
+                }
             }
         }
     }
@@ -51,10 +63,12 @@ public class MirrorStone : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && CanRotate)
         {
             NotePlayed.OnNotePlayed += RotateMirror;
             OnNoteStopped.OnNoteStopped += StopRotating;
+            _rotateClockwiseUIPrompt.SetActive(true);
+            _rotateCounterClockwiseUIPrompt.SetActive(true);
         }
     }
 
@@ -62,6 +76,8 @@ public class MirrorStone : MonoBehaviour
     {
         NotePlayed.OnNotePlayed -= RotateMirror;
         OnNoteStopped.OnNoteStopped -= StopRotating;
+        _rotateClockwiseUIPrompt.SetActive(false);
+        _rotateCounterClockwiseUIPrompt.SetActive(false);
     }
 
     private void RotateMirror(string incomingNote)

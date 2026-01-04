@@ -84,7 +84,7 @@ public class ResonatorPuzzle : BasePuzzleManager
         {
             if(activeUIPrompt == null)
             {
-                activeUIPrompt = WorldUIManager.Instance.CreateWorldUI(UIPromptLocation, puzzleScale.ScaleName);
+                activeUIPrompt = WorldUIManager.Instance.CreateResonatorUI(UIPromptLocation, puzzleScale.ScaleName, resonatorLight.color);
             }
 
             noteComparisonStartedEvent.OnNoteComparisonStarted += OnNoteComparisonStarted;

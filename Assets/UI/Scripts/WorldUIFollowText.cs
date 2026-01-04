@@ -5,7 +5,7 @@ using UnityEngine;
 /// <summary>
 ///  This component makes a UI element follow a target in world space and face the main camera.
 /// </summary>
-public class WorldUIFollow : MonoBehaviour
+public class WorldUIFollowText : MonoBehaviour
 {
     public Transform target;
     public CinemachineCamera mainCamera;

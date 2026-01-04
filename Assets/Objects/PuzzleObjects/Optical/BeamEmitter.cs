@@ -78,7 +78,6 @@ public class BeamEmitter : BaseMechanism
             _beamColor = Color.white;
 
         Ray ray = new Ray(_beamOrigin.position, _beamOrigin.forward);
-        Debug.DrawRay(_beamOrigin.position, _beamOrigin.forward * 10f, _beamColor, _beamDuration);
         Beam emittedBeam = new Beam(ray, _beamColor);
         _beamRenderer.beamOrigin = _beamOrigin;
 

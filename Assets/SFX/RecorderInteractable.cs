@@ -11,10 +11,20 @@ public class RecorderInteractable : Interactable
     [Header("For future use")]
     public Image recordingLightOn;
     public Image recordingLightOff;
+
+    public GameObject recordingLight;
+    public Color recordingLightEmissionColour;
+    public float intensity;
+    private Renderer _recordingLightRenderer;
+    private Material _recordingLightMaterial;
     
     private void Awake()
     {
         _recorder = GetComponent<Recorder>();
+        _recordingLightRenderer = recordingLight.GetComponent<Renderer>();
+
+        if( _recordingLightRenderer != null )
+            _recordingLightMaterial = _recordingLightRenderer.material;
     }
 
     public override void Interact(GameObject interactor)
@@ -24,10 +34,14 @@ public class RecorderInteractable : Interactable
         if(_recorder.isRecording)
         {
             recordingText.SetText("Recording!");
+            _recordingLightMaterial.EnableKeyword("_EMISSION");
+            _recordingLightMaterial.SetColor("_EmissionColor", recordingLightEmissionColour * intensity);
+
             return;
         }
 
         recordingText.SetText("Not recording...");
+        _recordingLightMaterial.DisableKeyword("_EMISSION");
     }
 
     private void OnTriggerEnter(Collider other)

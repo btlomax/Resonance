@@ -12,6 +12,21 @@ public class CopyPuzzleSequencePlayer : MonoBehaviour
     [Header("Wwise Events")]
     public AK.Wwise.Event playSequenceEvent;
 
+    [Header("Light Settings")]
+    public GameObject playArrow;
+    public Color playLightEmissionColour;
+    public float intensity;
+    private Renderer _playLightRenderer;
+    private Material _playLightMaterial;
+
+    private void Awake()
+    {
+        _playLightRenderer = playArrow.GetComponent<Renderer>();
+
+        if (_playLightRenderer != null)
+            _playLightMaterial = _playLightRenderer.material;
+    }
+
     public void StartSequenceCoroutine(List<string> notesToPlay)
     {
         StartCoroutine(PlayNoteSequence(notesToPlay));
@@ -20,6 +35,9 @@ public class CopyPuzzleSequencePlayer : MonoBehaviour
     private IEnumerator PlayNoteSequence(List<string> notesToPlay)
     {
         Debug.Log("Playing note sequence...");
+
+        _playLightMaterial.EnableKeyword("_EMISSION");
+        //_playLightMaterial.SetColor("_EmissionColor", playLightEmissionColour * intensity);
 
         foreach (var note in notesToPlay)
         {
@@ -31,6 +49,9 @@ public class CopyPuzzleSequencePlayer : MonoBehaviour
 
             yield return new WaitUntil(() => _noteFinished);
         }
+
+        _playLightMaterial.DisableKeyword("_EMISSION");
+
     }
 
     private void NoteFinishedCallback(object in_cookie, AkCallbackType type, AkCallbackInfo info)

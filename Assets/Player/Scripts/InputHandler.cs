@@ -7,9 +7,11 @@ public class InputHandler : MonoBehaviour
     public Vector2 MoveInput { get; private set; }
     public Vector2 MenuSelectInput { get; private set; }
     public bool InteractInput { get; private set; }
-
     public bool JumpInput { get; private set; }
     public bool TeleportInput { get; private set; }
+
+    [SerializeField]
+    public bool PauseMenuInput { get; private set; }
 
     public VoidEventChannel OpenRadialMenuEvent;
     public VoidEventChannel CloseRadialMenuEvent;
@@ -42,6 +44,11 @@ public class InputHandler : MonoBehaviour
         // Teleport
         _controls.Controller.TeleportBackToEmitter.performed += ctx => TeleportInput = true;
         _controls.Controller.TeleportBackToEmitter.canceled += _ => TeleportInput = false;
+
+        // Pause menu
+        _controls.Controller.Pause.performed += ctx => PauseMenuInput = true;
+
+        _controls.MouseKeyboard.Pause.performed += ctx => PauseMenuInput = true;
 
         //Radial menu
         _controls.Controller.NoteWheel.performed += ctx => OnNoteWheelPerformed();

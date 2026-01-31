@@ -118,6 +118,15 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Pause"",
+                    ""type"": ""Button"",
+                    ""id"": ""9ceeedc2-a4dd-45d9-b6d2-1e67647328bc"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -197,6 +206,17 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""action"": ""NoteWheel"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""dd8ba8ae-f035-41e8-b5d0-3954d4288e44"",
+                    ""path"": ""<Keyboard>/p"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -262,6 +282,15 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""name"": ""TeleportBackToEmitter"",
                     ""type"": ""Button"",
                     ""id"": ""702abb05-83bb-4d1d-9424-f0ce5237a3b6"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Pause"",
+                    ""type"": ""Button"",
+                    ""id"": ""6aeff1e3-e635-4458-8f49-5304f248e4e8"",
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
@@ -433,6 +462,17 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""action"": ""TeleportBackToEmitter"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a3da7df6-724d-4801-bf40-83b7567706ba"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -444,6 +484,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         m_MouseKeyboard_Movement = m_MouseKeyboard.FindAction("Movement", throwIfNotFound: true);
         m_MouseKeyboard_Interact = m_MouseKeyboard.FindAction("Interact", throwIfNotFound: true);
         m_MouseKeyboard_NoteWheel = m_MouseKeyboard.FindAction("NoteWheel", throwIfNotFound: true);
+        m_MouseKeyboard_Pause = m_MouseKeyboard.FindAction("Pause", throwIfNotFound: true);
         // Controller
         m_Controller = asset.FindActionMap("Controller", throwIfNotFound: true);
         m_Controller_Movement = m_Controller.FindAction("Movement", throwIfNotFound: true);
@@ -453,6 +494,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         m_Controller_Jump = m_Controller.FindAction("Jump", throwIfNotFound: true);
         m_Controller_ToggleMajorMinor = m_Controller.FindAction("ToggleMajorMinor", throwIfNotFound: true);
         m_Controller_TeleportBackToEmitter = m_Controller.FindAction("TeleportBackToEmitter", throwIfNotFound: true);
+        m_Controller_Pause = m_Controller.FindAction("Pause", throwIfNotFound: true);
     }
 
     ~@PlayerControls()
@@ -537,6 +579,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     private readonly InputAction m_MouseKeyboard_Movement;
     private readonly InputAction m_MouseKeyboard_Interact;
     private readonly InputAction m_MouseKeyboard_NoteWheel;
+    private readonly InputAction m_MouseKeyboard_Pause;
     /// <summary>
     /// Provides access to input actions defined in input action map "Mouse/Keyboard".
     /// </summary>
@@ -560,6 +603,10 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "MouseKeyboard/NoteWheel".
         /// </summary>
         public InputAction @NoteWheel => m_Wrapper.m_MouseKeyboard_NoteWheel;
+        /// <summary>
+        /// Provides access to the underlying input action "MouseKeyboard/Pause".
+        /// </summary>
+        public InputAction @Pause => m_Wrapper.m_MouseKeyboard_Pause;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -595,6 +642,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @NoteWheel.started += instance.OnNoteWheel;
             @NoteWheel.performed += instance.OnNoteWheel;
             @NoteWheel.canceled += instance.OnNoteWheel;
+            @Pause.started += instance.OnPause;
+            @Pause.performed += instance.OnPause;
+            @Pause.canceled += instance.OnPause;
         }
 
         /// <summary>
@@ -615,6 +665,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @NoteWheel.started -= instance.OnNoteWheel;
             @NoteWheel.performed -= instance.OnNoteWheel;
             @NoteWheel.canceled -= instance.OnNoteWheel;
+            @Pause.started -= instance.OnPause;
+            @Pause.performed -= instance.OnPause;
+            @Pause.canceled -= instance.OnPause;
         }
 
         /// <summary>
@@ -659,6 +712,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Controller_Jump;
     private readonly InputAction m_Controller_ToggleMajorMinor;
     private readonly InputAction m_Controller_TeleportBackToEmitter;
+    private readonly InputAction m_Controller_Pause;
     /// <summary>
     /// Provides access to input actions defined in input action map "Controller".
     /// </summary>
@@ -698,6 +752,10 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Controller/TeleportBackToEmitter".
         /// </summary>
         public InputAction @TeleportBackToEmitter => m_Wrapper.m_Controller_TeleportBackToEmitter;
+        /// <summary>
+        /// Provides access to the underlying input action "Controller/Pause".
+        /// </summary>
+        public InputAction @Pause => m_Wrapper.m_Controller_Pause;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -745,6 +803,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @TeleportBackToEmitter.started += instance.OnTeleportBackToEmitter;
             @TeleportBackToEmitter.performed += instance.OnTeleportBackToEmitter;
             @TeleportBackToEmitter.canceled += instance.OnTeleportBackToEmitter;
+            @Pause.started += instance.OnPause;
+            @Pause.performed += instance.OnPause;
+            @Pause.canceled += instance.OnPause;
         }
 
         /// <summary>
@@ -777,6 +838,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @TeleportBackToEmitter.started -= instance.OnTeleportBackToEmitter;
             @TeleportBackToEmitter.performed -= instance.OnTeleportBackToEmitter;
             @TeleportBackToEmitter.canceled -= instance.OnTeleportBackToEmitter;
+            @Pause.started -= instance.OnPause;
+            @Pause.performed -= instance.OnPause;
+            @Pause.canceled -= instance.OnPause;
         }
 
         /// <summary>
@@ -838,6 +902,13 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnNoteWheel(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Pause" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnPause(InputAction.CallbackContext context);
     }
     /// <summary>
     /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "Controller" which allows adding and removing callbacks.
@@ -895,5 +966,12 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnTeleportBackToEmitter(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Pause" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnPause(InputAction.CallbackContext context);
     }
 }

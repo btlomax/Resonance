@@ -1962,7 +1962,7 @@ GameObject:
   - component: {fileID: 264498418}
   - component: {fileID: 264498419}
   m_Layer: 5
-  m_Name: PauseMenu
+  m_Name: PauseMenuRoot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1979,7 +1979,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 312304600}
   m_Father: {fileID: 826626969}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -2000,7 +2001,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PauseMenuManager
   _inputHandler: {fileID: 1451038216}
-  _cameraInput: {fileID: 177785926}
+  TogglePauseMenuEvent: {fileID: 11400000, guid: a7939413b90c3e944a53a59eb5f51f28, type: 2}
+  pauseMenuUIBase: {fileID: 312304599}
 --- !u!4 &266721169 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 419496, guid: 569a8bf35dedd194b8728a76b136f56c, type: 3}
@@ -2317,6 +2319,81 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: e8292eb9aa4fc024f9b14bf1a4277c91, type: 3}
   m_PrefabInstance: {fileID: 310619013}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &312304599
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 312304600}
+  - component: {fileID: 312304602}
+  - component: {fileID: 312304601}
+  m_Layer: 5
+  m_Name: PauseMenuBase
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &312304600
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 312304599}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 5, y: 5, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 264498418}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &312304601
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 312304599}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &312304602
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 312304599}
+  m_CullTransparentMesh: 1
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0
@@ -7706,12 +7783,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1011606407}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -144.76154, y: 1.34, z: -218.16353}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.23739624, y: -6.14296, z: 11.496429}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 2085316511}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1013504137
 PrefabInstance:
@@ -11105,6 +11182,7 @@ MonoBehaviour:
   CloseRadialMenuEvent: {fileID: 11400000, guid: 8d766bd75f3a88a4c8338e4bd2e645be, type: 2}
   ToggleRadialMenuEvent: {fileID: 11400000, guid: cbe8533b8958bc94ba25deaddf4ebbbf, type: 2}
   ToggleMajorMinor: {fileID: 11400000, guid: 32522c66bb0c003438861a728d2ffb97, type: 2}
+  TogglePauseMenuEvent: {fileID: 11400000, guid: a7939413b90c3e944a53a59eb5f51f28, type: 2}
   inputSettings: {fileID: 11400000, guid: 6f911136b6764834a992309a288ee838, type: 2}
 --- !u!4 &1451038217
 Transform:
@@ -15869,6 +15947,7 @@ Transform:
   - {fileID: 2103724332}
   - {fileID: 1451038217}
   - {fileID: 169616515}
+  - {fileID: 1011606409}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &2100661548 stripped
@@ -16196,7 +16275,6 @@ SceneRoots:
   - {fileID: 1286763544}
   - {fileID: 330611726}
   - {fileID: 103662527}
-  - {fileID: 1011606409}
   - {fileID: 428335367}
   - {fileID: 695000042}
   - {fileID: 2085316511}

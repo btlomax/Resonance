@@ -10,13 +10,11 @@ public class InputHandler : MonoBehaviour
     public bool JumpInput { get; private set; }
     public bool TeleportInput { get; private set; }
 
-    [SerializeField]
-    public bool PauseMenuInput { get; private set; }
-
     public VoidEventChannel OpenRadialMenuEvent;
     public VoidEventChannel CloseRadialMenuEvent;
     public VoidEventChannel ToggleRadialMenuEvent;
     public VoidEventChannel ToggleMajorMinor;
+    public VoidEventChannel TogglePauseMenuEvent;
     public InputSettings inputSettings;
 
     private void Awake()
@@ -46,9 +44,8 @@ public class InputHandler : MonoBehaviour
         _controls.Controller.TeleportBackToEmitter.canceled += _ => TeleportInput = false;
 
         // Pause menu
-        _controls.Controller.Pause.performed += ctx => PauseMenuInput = true;
-
-        _controls.MouseKeyboard.Pause.performed += ctx => PauseMenuInput = true;
+        _controls.Controller.Pause.performed += ctx => OnPausePerformed();
+        _controls.MouseKeyboard.Pause.performed += ctx => OnPausePerformed();
 
         //Radial menu
         _controls.Controller.NoteWheel.performed += ctx => OnNoteWheelPerformed();
@@ -86,6 +83,11 @@ public class InputHandler : MonoBehaviour
         {
             CloseRadialMenuEvent.RaiseEvent();
         }
+    }
+
+    private void OnPausePerformed()
+    {
+        TogglePauseMenuEvent.RaiseEvent();
     }
 
     private void OnToggleMinorMajor()

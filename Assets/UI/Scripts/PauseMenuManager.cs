@@ -5,34 +5,25 @@ public class PauseMenuManager : MonoBehaviour
 {
     [SerializeField]
     private InputHandler _inputHandler;
-    [SerializeField]
-    private CinemachineInputAxisController _cameraInput;
 
-    public static bool IsPaused { get;  private set; } = false;
+    public VoidEventChannel TogglePauseMenuEvent;
+    public GameObject pauseMenuUIBase;
 
-    private void Update()
+    private void OnEnable()
     {
-        if(_inputHandler.PauseMenuInput)
-        {
-            if (IsPaused)
-                ResumeGame();
-            else
-                PauseGame();
-        }
+        TogglePauseMenuEvent.OnEventRaised += OnTogglePauseMenu;
     }
 
-    private void PauseGame()
+    private void OnDisable()
     {
-        Debug.Log("Game Paused");
-        Time.timeScale = 0f;
-        IsPaused = true;
+        TogglePauseMenuEvent.OnEventRaised -= OnTogglePauseMenu;
     }
 
-    private void ResumeGame()
+    private void OnTogglePauseMenu()
     {
-        Debug.Log("Game Resumed");
-        Time.timeScale = 1f;
-        _cameraInput.enabled = true;
-        IsPaused = false;
+        // Implement pause menu toggle logic here
+        Debug.Log("Pause menu toggled.");
+
+        pauseMenuUIBase.SetActive(!pauseMenuUIBase.activeSelf);
     }
 }

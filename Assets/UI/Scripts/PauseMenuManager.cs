@@ -19,11 +19,15 @@ public class PauseMenuManager : MonoBehaviour
         TogglePauseMenuEvent.OnEventRaised -= OnTogglePauseMenu;
     }
 
-    private void OnTogglePauseMenu()
+    public void OnTogglePauseMenu()
     {
         // Implement pause menu toggle logic here
         Debug.Log("Pause menu toggled.");
 
         pauseMenuUIBase.SetActive(!pauseMenuUIBase.activeSelf);
+
+        Time.timeScale = pauseMenuUIBase.activeSelf ? 0f : 1f;
+
+        Debug.Log("Time.timeScale set to: " + Time.timeScale);
     }
 }

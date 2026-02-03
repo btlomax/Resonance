@@ -88,6 +88,7 @@ public class InputHandler : MonoBehaviour
     private void OnPausePerformed()
     {
         TogglePauseMenuEvent.RaiseEvent();
+
     }
 
     private void OnToggleMinorMajor()

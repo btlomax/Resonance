@@ -221,7 +221,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             ]
         },
         {
-            ""name"": ""Controller"",
+            ""name"": ""Controller -Gameplay"",
             ""id"": ""1aeb5918-b97f-4970-b368-be97a227412d"",
             ""actions"": [
                 {
@@ -485,22 +485,22 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         m_MouseKeyboard_Interact = m_MouseKeyboard.FindAction("Interact", throwIfNotFound: true);
         m_MouseKeyboard_NoteWheel = m_MouseKeyboard.FindAction("NoteWheel", throwIfNotFound: true);
         m_MouseKeyboard_Pause = m_MouseKeyboard.FindAction("Pause", throwIfNotFound: true);
-        // Controller
-        m_Controller = asset.FindActionMap("Controller", throwIfNotFound: true);
-        m_Controller_Movement = m_Controller.FindAction("Movement", throwIfNotFound: true);
-        m_Controller_Interact = m_Controller.FindAction("Interact", throwIfNotFound: true);
-        m_Controller_NoteWheel = m_Controller.FindAction("NoteWheel", throwIfNotFound: true);
-        m_Controller_NoteWheelSelection = m_Controller.FindAction("NoteWheelSelection", throwIfNotFound: true);
-        m_Controller_Jump = m_Controller.FindAction("Jump", throwIfNotFound: true);
-        m_Controller_ToggleMajorMinor = m_Controller.FindAction("ToggleMajorMinor", throwIfNotFound: true);
-        m_Controller_TeleportBackToEmitter = m_Controller.FindAction("TeleportBackToEmitter", throwIfNotFound: true);
-        m_Controller_Pause = m_Controller.FindAction("Pause", throwIfNotFound: true);
+        // Controller -Gameplay
+        m_ControllerGameplay = asset.FindActionMap("Controller -Gameplay", throwIfNotFound: true);
+        m_ControllerGameplay_Movement = m_ControllerGameplay.FindAction("Movement", throwIfNotFound: true);
+        m_ControllerGameplay_Interact = m_ControllerGameplay.FindAction("Interact", throwIfNotFound: true);
+        m_ControllerGameplay_NoteWheel = m_ControllerGameplay.FindAction("NoteWheel", throwIfNotFound: true);
+        m_ControllerGameplay_NoteWheelSelection = m_ControllerGameplay.FindAction("NoteWheelSelection", throwIfNotFound: true);
+        m_ControllerGameplay_Jump = m_ControllerGameplay.FindAction("Jump", throwIfNotFound: true);
+        m_ControllerGameplay_ToggleMajorMinor = m_ControllerGameplay.FindAction("ToggleMajorMinor", throwIfNotFound: true);
+        m_ControllerGameplay_TeleportBackToEmitter = m_ControllerGameplay.FindAction("TeleportBackToEmitter", throwIfNotFound: true);
+        m_ControllerGameplay_Pause = m_ControllerGameplay.FindAction("Pause", throwIfNotFound: true);
     }
 
     ~@PlayerControls()
     {
         UnityEngine.Debug.Assert(!m_MouseKeyboard.enabled, "This will cause a leak and performance issues, PlayerControls.MouseKeyboard.Disable() has not been called.");
-        UnityEngine.Debug.Assert(!m_Controller.enabled, "This will cause a leak and performance issues, PlayerControls.Controller.Disable() has not been called.");
+        UnityEngine.Debug.Assert(!m_ControllerGameplay.enabled, "This will cause a leak and performance issues, PlayerControls.ControllerGameplay.Disable() has not been called.");
     }
 
     /// <summary>
@@ -702,64 +702,64 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     /// </summary>
     public MouseKeyboardActions @MouseKeyboard => new MouseKeyboardActions(this);
 
-    // Controller
-    private readonly InputActionMap m_Controller;
-    private List<IControllerActions> m_ControllerActionsCallbackInterfaces = new List<IControllerActions>();
-    private readonly InputAction m_Controller_Movement;
-    private readonly InputAction m_Controller_Interact;
-    private readonly InputAction m_Controller_NoteWheel;
-    private readonly InputAction m_Controller_NoteWheelSelection;
-    private readonly InputAction m_Controller_Jump;
-    private readonly InputAction m_Controller_ToggleMajorMinor;
-    private readonly InputAction m_Controller_TeleportBackToEmitter;
-    private readonly InputAction m_Controller_Pause;
+    // Controller -Gameplay
+    private readonly InputActionMap m_ControllerGameplay;
+    private List<IControllerGameplayActions> m_ControllerGameplayActionsCallbackInterfaces = new List<IControllerGameplayActions>();
+    private readonly InputAction m_ControllerGameplay_Movement;
+    private readonly InputAction m_ControllerGameplay_Interact;
+    private readonly InputAction m_ControllerGameplay_NoteWheel;
+    private readonly InputAction m_ControllerGameplay_NoteWheelSelection;
+    private readonly InputAction m_ControllerGameplay_Jump;
+    private readonly InputAction m_ControllerGameplay_ToggleMajorMinor;
+    private readonly InputAction m_ControllerGameplay_TeleportBackToEmitter;
+    private readonly InputAction m_ControllerGameplay_Pause;
     /// <summary>
-    /// Provides access to input actions defined in input action map "Controller".
+    /// Provides access to input actions defined in input action map "Controller -Gameplay".
     /// </summary>
-    public struct ControllerActions
+    public struct ControllerGameplayActions
     {
         private @PlayerControls m_Wrapper;
 
         /// <summary>
         /// Construct a new instance of the input action map wrapper class.
         /// </summary>
-        public ControllerActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
+        public ControllerGameplayActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
         /// <summary>
-        /// Provides access to the underlying input action "Controller/Movement".
+        /// Provides access to the underlying input action "ControllerGameplay/Movement".
         /// </summary>
-        public InputAction @Movement => m_Wrapper.m_Controller_Movement;
+        public InputAction @Movement => m_Wrapper.m_ControllerGameplay_Movement;
         /// <summary>
-        /// Provides access to the underlying input action "Controller/Interact".
+        /// Provides access to the underlying input action "ControllerGameplay/Interact".
         /// </summary>
-        public InputAction @Interact => m_Wrapper.m_Controller_Interact;
+        public InputAction @Interact => m_Wrapper.m_ControllerGameplay_Interact;
         /// <summary>
-        /// Provides access to the underlying input action "Controller/NoteWheel".
+        /// Provides access to the underlying input action "ControllerGameplay/NoteWheel".
         /// </summary>
-        public InputAction @NoteWheel => m_Wrapper.m_Controller_NoteWheel;
+        public InputAction @NoteWheel => m_Wrapper.m_ControllerGameplay_NoteWheel;
         /// <summary>
-        /// Provides access to the underlying input action "Controller/NoteWheelSelection".
+        /// Provides access to the underlying input action "ControllerGameplay/NoteWheelSelection".
         /// </summary>
-        public InputAction @NoteWheelSelection => m_Wrapper.m_Controller_NoteWheelSelection;
+        public InputAction @NoteWheelSelection => m_Wrapper.m_ControllerGameplay_NoteWheelSelection;
         /// <summary>
-        /// Provides access to the underlying input action "Controller/Jump".
+        /// Provides access to the underlying input action "ControllerGameplay/Jump".
         /// </summary>
-        public InputAction @Jump => m_Wrapper.m_Controller_Jump;
+        public InputAction @Jump => m_Wrapper.m_ControllerGameplay_Jump;
         /// <summary>
-        /// Provides access to the underlying input action "Controller/ToggleMajorMinor".
+        /// Provides access to the underlying input action "ControllerGameplay/ToggleMajorMinor".
         /// </summary>
-        public InputAction @ToggleMajorMinor => m_Wrapper.m_Controller_ToggleMajorMinor;
+        public InputAction @ToggleMajorMinor => m_Wrapper.m_ControllerGameplay_ToggleMajorMinor;
         /// <summary>
-        /// Provides access to the underlying input action "Controller/TeleportBackToEmitter".
+        /// Provides access to the underlying input action "ControllerGameplay/TeleportBackToEmitter".
         /// </summary>
-        public InputAction @TeleportBackToEmitter => m_Wrapper.m_Controller_TeleportBackToEmitter;
+        public InputAction @TeleportBackToEmitter => m_Wrapper.m_ControllerGameplay_TeleportBackToEmitter;
         /// <summary>
-        /// Provides access to the underlying input action "Controller/Pause".
+        /// Provides access to the underlying input action "ControllerGameplay/Pause".
         /// </summary>
-        public InputAction @Pause => m_Wrapper.m_Controller_Pause;
+        public InputAction @Pause => m_Wrapper.m_ControllerGameplay_Pause;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
-        public InputActionMap Get() { return m_Wrapper.m_Controller; }
+        public InputActionMap Get() { return m_Wrapper.m_ControllerGameplay; }
         /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Enable()" />
         public void Enable() { Get().Enable(); }
         /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Disable()" />
@@ -767,9 +767,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.enabled" />
         public bool enabled => Get().enabled;
         /// <summary>
-        /// Implicitly converts an <see ref="ControllerActions" /> to an <see ref="InputActionMap" /> instance.
+        /// Implicitly converts an <see ref="ControllerGameplayActions" /> to an <see ref="InputActionMap" /> instance.
         /// </summary>
-        public static implicit operator InputActionMap(ControllerActions set) { return set.Get(); }
+        public static implicit operator InputActionMap(ControllerGameplayActions set) { return set.Get(); }
         /// <summary>
         /// Adds <see cref="InputAction.started"/>, <see cref="InputAction.performed"/> and <see cref="InputAction.canceled"/> callbacks provided via <param cref="instance" /> on all input actions contained in this map.
         /// </summary>
@@ -777,11 +777,11 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         /// <remarks>
         /// If <paramref name="instance" /> is <c>null</c> or <paramref name="instance"/> have already been added this method does nothing.
         /// </remarks>
-        /// <seealso cref="ControllerActions" />
-        public void AddCallbacks(IControllerActions instance)
+        /// <seealso cref="ControllerGameplayActions" />
+        public void AddCallbacks(IControllerGameplayActions instance)
         {
-            if (instance == null || m_Wrapper.m_ControllerActionsCallbackInterfaces.Contains(instance)) return;
-            m_Wrapper.m_ControllerActionsCallbackInterfaces.Add(instance);
+            if (instance == null || m_Wrapper.m_ControllerGameplayActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_ControllerGameplayActionsCallbackInterfaces.Add(instance);
             @Movement.started += instance.OnMovement;
             @Movement.performed += instance.OnMovement;
             @Movement.canceled += instance.OnMovement;
@@ -814,8 +814,8 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         /// <remarks>
         /// Calling this method when <paramref name="instance" /> have not previously been registered has no side-effects.
         /// </remarks>
-        /// <seealso cref="ControllerActions" />
-        private void UnregisterCallbacks(IControllerActions instance)
+        /// <seealso cref="ControllerGameplayActions" />
+        private void UnregisterCallbacks(IControllerGameplayActions instance)
         {
             @Movement.started -= instance.OnMovement;
             @Movement.performed -= instance.OnMovement;
@@ -844,12 +844,12 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         }
 
         /// <summary>
-        /// Unregisters <param cref="instance" /> and unregisters all input action callbacks via <see cref="ControllerActions.UnregisterCallbacks(IControllerActions)" />.
+        /// Unregisters <param cref="instance" /> and unregisters all input action callbacks via <see cref="ControllerGameplayActions.UnregisterCallbacks(IControllerGameplayActions)" />.
         /// </summary>
-        /// <seealso cref="ControllerActions.UnregisterCallbacks(IControllerActions)" />
-        public void RemoveCallbacks(IControllerActions instance)
+        /// <seealso cref="ControllerGameplayActions.UnregisterCallbacks(IControllerGameplayActions)" />
+        public void RemoveCallbacks(IControllerGameplayActions instance)
         {
-            if (m_Wrapper.m_ControllerActionsCallbackInterfaces.Remove(instance))
+            if (m_Wrapper.m_ControllerGameplayActionsCallbackInterfaces.Remove(instance))
                 UnregisterCallbacks(instance);
         }
 
@@ -859,21 +859,21 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         /// <remarks>
         /// If <paramref name="instance" /> is <c>null</c>, calling this method will only unregister all existing callbacks but not register any new callbacks.
         /// </remarks>
-        /// <seealso cref="ControllerActions.AddCallbacks(IControllerActions)" />
-        /// <seealso cref="ControllerActions.RemoveCallbacks(IControllerActions)" />
-        /// <seealso cref="ControllerActions.UnregisterCallbacks(IControllerActions)" />
-        public void SetCallbacks(IControllerActions instance)
+        /// <seealso cref="ControllerGameplayActions.AddCallbacks(IControllerGameplayActions)" />
+        /// <seealso cref="ControllerGameplayActions.RemoveCallbacks(IControllerGameplayActions)" />
+        /// <seealso cref="ControllerGameplayActions.UnregisterCallbacks(IControllerGameplayActions)" />
+        public void SetCallbacks(IControllerGameplayActions instance)
         {
-            foreach (var item in m_Wrapper.m_ControllerActionsCallbackInterfaces)
+            foreach (var item in m_Wrapper.m_ControllerGameplayActionsCallbackInterfaces)
                 UnregisterCallbacks(item);
-            m_Wrapper.m_ControllerActionsCallbackInterfaces.Clear();
+            m_Wrapper.m_ControllerGameplayActionsCallbackInterfaces.Clear();
             AddCallbacks(instance);
         }
     }
     /// <summary>
-    /// Provides a new <see cref="ControllerActions" /> instance referencing this action map.
+    /// Provides a new <see cref="ControllerGameplayActions" /> instance referencing this action map.
     /// </summary>
-    public ControllerActions @Controller => new ControllerActions(this);
+    public ControllerGameplayActions @ControllerGameplay => new ControllerGameplayActions(this);
     /// <summary>
     /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "Mouse/Keyboard" which allows adding and removing callbacks.
     /// </summary>
@@ -911,11 +911,11 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         void OnPause(InputAction.CallbackContext context);
     }
     /// <summary>
-    /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "Controller" which allows adding and removing callbacks.
+    /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "Controller -Gameplay" which allows adding and removing callbacks.
     /// </summary>
-    /// <seealso cref="ControllerActions.AddCallbacks(IControllerActions)" />
-    /// <seealso cref="ControllerActions.RemoveCallbacks(IControllerActions)" />
-    public interface IControllerActions
+    /// <seealso cref="ControllerGameplayActions.AddCallbacks(IControllerGameplayActions)" />
+    /// <seealso cref="ControllerGameplayActions.RemoveCallbacks(IControllerGameplayActions)" />
+    public interface IControllerGameplayActions
     {
         /// <summary>
         /// Method invoked when associated input action "Movement" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.

@@ -54,6 +54,9 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        if (_inputHandler.IsPaused)
+            return;
+
         CheckGrounded();
 
         Debug.DrawRay(transform.position + Vector3.up * groundCheckStartPoint, Vector3.down * groundCheckDistance,

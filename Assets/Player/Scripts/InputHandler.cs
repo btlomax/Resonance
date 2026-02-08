@@ -1,8 +1,10 @@
 using Unity.Cinemachine;
+using UnityEditor.ShaderGraph;
 using UnityEngine;
 
 public class InputHandler : MonoBehaviour
 {
+    public PlayerControls Controls { get => _controls; }
     private PlayerControls _controls;
     public Vector2 MoveInput { get; private set; }
     public Vector2 MenuSelectInput { get; private set; }
@@ -10,7 +12,7 @@ public class InputHandler : MonoBehaviour
     public bool JumpInput { get; private set; }
     public bool TeleportInput { get; private set; }
 
-    public bool IsPaused { get; private set; } = false;
+    public bool IsPaused { get; set; } = false;
 
     public VoidEventChannel OpenRadialMenuEvent;
     public VoidEventChannel CloseRadialMenuEvent;
@@ -24,11 +26,11 @@ public class InputHandler : MonoBehaviour
         _controls = new PlayerControls();
 
         // Movement
-        _controls.MouseKeyboard.Movement.performed += ctx => MoveInput = ctx.ReadValue<Vector2>();
-        _controls.MouseKeyboard.Movement.canceled += _ => MoveInput = Vector2.zero;
+        _controls.MouseKeyboard.Move.performed += ctx => MoveInput = ctx.ReadValue<Vector2>();
+        _controls.MouseKeyboard.Move.canceled += _ => MoveInput = Vector2.zero;
 
-        _controls.ControllerGameplay.Movement.performed += ctx => MoveInput = ctx.ReadValue<Vector2>();
-        _controls.ControllerGameplay.Movement.canceled += _ => MoveInput = Vector2.zero;
+        _controls.ControllerGameplay.Move.performed += ctx => MoveInput = ctx.ReadValue<Vector2>();
+        _controls.ControllerGameplay.Move.canceled += _ => MoveInput = Vector2.zero;
 
         // Jumping
         _controls.ControllerGameplay.Jump.performed += ctx => JumpInput = true;
@@ -48,6 +50,7 @@ public class InputHandler : MonoBehaviour
         // Pause menu
         _controls.ControllerGameplay.Pause.performed += ctx => OnPausePerformed();
         _controls.MouseKeyboard.Pause.performed += ctx => OnPausePerformed();
+        _controls.ControllerUI.Pause.performed += ctx => OnPausePerformed();
 
         //Radial menu
         _controls.ControllerGameplay.NoteWheel.performed += ctx => OnNoteWheelPerformed();
@@ -92,7 +95,6 @@ public class InputHandler : MonoBehaviour
     private void OnPausePerformed()
     {
         TogglePauseMenuEvent.RaiseEvent();
-        IsPaused = !IsPaused;
     }
 
     private void OnToggleMinorMajor()

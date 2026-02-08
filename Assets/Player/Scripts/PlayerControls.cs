@@ -93,7 +93,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             ""id"": ""9fb259e4-72ad-47ae-8769-49912413b317"",
             ""actions"": [
                 {
-                    ""name"": ""Movement"",
+                    ""name"": ""Move"",
                     ""type"": ""Button"",
                     ""id"": ""78071b61-262a-4ec8-bafe-ed5504c84601"",
                     ""expectedControlType"": """",
@@ -137,7 +137,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Movement"",
+                    ""action"": ""Move"",
                     ""isComposite"": true,
                     ""isPartOfComposite"": false
                 },
@@ -148,7 +148,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Movement"",
+                    ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -159,7 +159,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Movement"",
+                    ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -170,7 +170,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Movement"",
+                    ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -181,7 +181,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Movement"",
+                    ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -221,11 +221,11 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             ]
         },
         {
-            ""name"": ""Controller -Gameplay"",
+            ""name"": ""Controller - Gameplay"",
             ""id"": ""1aeb5918-b97f-4970-b368-be97a227412d"",
             ""actions"": [
                 {
-                    ""name"": ""Movement"",
+                    ""name"": ""Move"",
                     ""type"": ""Value"",
                     ""id"": ""e04571a7-94a8-49c3-827b-1eea6db4d23d"",
                     ""expectedControlType"": ""Vector2"",
@@ -305,7 +305,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Movement"",
+                    ""action"": ""Move"",
                     ""isComposite"": true,
                     ""isPartOfComposite"": false
                 },
@@ -316,7 +316,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Movement"",
+                    ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -327,7 +327,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Movement"",
+                    ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -338,7 +338,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Movement"",
+                    ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -349,7 +349,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Movement"",
+                    ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -475,19 +475,118 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Controller - UI"",
+            ""id"": ""4aa624db-8e1d-44f7-aad4-49f836199b42"",
+            ""actions"": [
+                {
+                    ""name"": ""Move"",
+                    ""type"": ""Value"",
+                    ""id"": ""6028f62b-87e6-4fb3-9ef6-802df5c00d45"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Submit"",
+                    ""type"": ""Button"",
+                    ""id"": ""23d34c58-54b6-4c13-b03b-fb2ff727f940"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Cancel"",
+                    ""type"": ""Button"",
+                    ""id"": ""cab9dd0a-8f3a-4218-aba6-9ce92bd2eb57"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Pause"",
+                    ""type"": ""Button"",
+                    ""id"": ""eeca1db6-ad50-47fd-8442-0897215c839d"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""57239c99-ac9c-4f71-8ae1-0dea054ac3dd"",
+                    ""path"": ""<Gamepad>/leftStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""59452f30-3312-465a-9d58-fc9d0316f1d8"",
+                    ""path"": ""<Gamepad>/dpad"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5783bb88-23bc-4ce4-80f2-e8c3b42719a1"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Submit"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f48b97e2-052b-4ed8-9414-61269f9a84bc"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Cancel"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4ac979f9-46e6-49e3-b808-267741f687db"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
 }");
         // Mouse/Keyboard
         m_MouseKeyboard = asset.FindActionMap("Mouse/Keyboard", throwIfNotFound: true);
-        m_MouseKeyboard_Movement = m_MouseKeyboard.FindAction("Movement", throwIfNotFound: true);
+        m_MouseKeyboard_Move = m_MouseKeyboard.FindAction("Move", throwIfNotFound: true);
         m_MouseKeyboard_Interact = m_MouseKeyboard.FindAction("Interact", throwIfNotFound: true);
         m_MouseKeyboard_NoteWheel = m_MouseKeyboard.FindAction("NoteWheel", throwIfNotFound: true);
         m_MouseKeyboard_Pause = m_MouseKeyboard.FindAction("Pause", throwIfNotFound: true);
-        // Controller -Gameplay
-        m_ControllerGameplay = asset.FindActionMap("Controller -Gameplay", throwIfNotFound: true);
-        m_ControllerGameplay_Movement = m_ControllerGameplay.FindAction("Movement", throwIfNotFound: true);
+        // Controller - Gameplay
+        m_ControllerGameplay = asset.FindActionMap("Controller - Gameplay", throwIfNotFound: true);
+        m_ControllerGameplay_Move = m_ControllerGameplay.FindAction("Move", throwIfNotFound: true);
         m_ControllerGameplay_Interact = m_ControllerGameplay.FindAction("Interact", throwIfNotFound: true);
         m_ControllerGameplay_NoteWheel = m_ControllerGameplay.FindAction("NoteWheel", throwIfNotFound: true);
         m_ControllerGameplay_NoteWheelSelection = m_ControllerGameplay.FindAction("NoteWheelSelection", throwIfNotFound: true);
@@ -495,12 +594,19 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         m_ControllerGameplay_ToggleMajorMinor = m_ControllerGameplay.FindAction("ToggleMajorMinor", throwIfNotFound: true);
         m_ControllerGameplay_TeleportBackToEmitter = m_ControllerGameplay.FindAction("TeleportBackToEmitter", throwIfNotFound: true);
         m_ControllerGameplay_Pause = m_ControllerGameplay.FindAction("Pause", throwIfNotFound: true);
+        // Controller - UI
+        m_ControllerUI = asset.FindActionMap("Controller - UI", throwIfNotFound: true);
+        m_ControllerUI_Move = m_ControllerUI.FindAction("Move", throwIfNotFound: true);
+        m_ControllerUI_Submit = m_ControllerUI.FindAction("Submit", throwIfNotFound: true);
+        m_ControllerUI_Cancel = m_ControllerUI.FindAction("Cancel", throwIfNotFound: true);
+        m_ControllerUI_Pause = m_ControllerUI.FindAction("Pause", throwIfNotFound: true);
     }
 
     ~@PlayerControls()
     {
         UnityEngine.Debug.Assert(!m_MouseKeyboard.enabled, "This will cause a leak and performance issues, PlayerControls.MouseKeyboard.Disable() has not been called.");
         UnityEngine.Debug.Assert(!m_ControllerGameplay.enabled, "This will cause a leak and performance issues, PlayerControls.ControllerGameplay.Disable() has not been called.");
+        UnityEngine.Debug.Assert(!m_ControllerUI.enabled, "This will cause a leak and performance issues, PlayerControls.ControllerUI.Disable() has not been called.");
     }
 
     /// <summary>
@@ -576,7 +682,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     // Mouse/Keyboard
     private readonly InputActionMap m_MouseKeyboard;
     private List<IMouseKeyboardActions> m_MouseKeyboardActionsCallbackInterfaces = new List<IMouseKeyboardActions>();
-    private readonly InputAction m_MouseKeyboard_Movement;
+    private readonly InputAction m_MouseKeyboard_Move;
     private readonly InputAction m_MouseKeyboard_Interact;
     private readonly InputAction m_MouseKeyboard_NoteWheel;
     private readonly InputAction m_MouseKeyboard_Pause;
@@ -592,9 +698,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         /// </summary>
         public MouseKeyboardActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
         /// <summary>
-        /// Provides access to the underlying input action "MouseKeyboard/Movement".
+        /// Provides access to the underlying input action "MouseKeyboard/Move".
         /// </summary>
-        public InputAction @Movement => m_Wrapper.m_MouseKeyboard_Movement;
+        public InputAction @Move => m_Wrapper.m_MouseKeyboard_Move;
         /// <summary>
         /// Provides access to the underlying input action "MouseKeyboard/Interact".
         /// </summary>
@@ -633,9 +739,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         {
             if (instance == null || m_Wrapper.m_MouseKeyboardActionsCallbackInterfaces.Contains(instance)) return;
             m_Wrapper.m_MouseKeyboardActionsCallbackInterfaces.Add(instance);
-            @Movement.started += instance.OnMovement;
-            @Movement.performed += instance.OnMovement;
-            @Movement.canceled += instance.OnMovement;
+            @Move.started += instance.OnMove;
+            @Move.performed += instance.OnMove;
+            @Move.canceled += instance.OnMove;
             @Interact.started += instance.OnInteract;
             @Interact.performed += instance.OnInteract;
             @Interact.canceled += instance.OnInteract;
@@ -656,9 +762,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         /// <seealso cref="MouseKeyboardActions" />
         private void UnregisterCallbacks(IMouseKeyboardActions instance)
         {
-            @Movement.started -= instance.OnMovement;
-            @Movement.performed -= instance.OnMovement;
-            @Movement.canceled -= instance.OnMovement;
+            @Move.started -= instance.OnMove;
+            @Move.performed -= instance.OnMove;
+            @Move.canceled -= instance.OnMove;
             @Interact.started -= instance.OnInteract;
             @Interact.performed -= instance.OnInteract;
             @Interact.canceled -= instance.OnInteract;
@@ -702,10 +808,10 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     /// </summary>
     public MouseKeyboardActions @MouseKeyboard => new MouseKeyboardActions(this);
 
-    // Controller -Gameplay
+    // Controller - Gameplay
     private readonly InputActionMap m_ControllerGameplay;
     private List<IControllerGameplayActions> m_ControllerGameplayActionsCallbackInterfaces = new List<IControllerGameplayActions>();
-    private readonly InputAction m_ControllerGameplay_Movement;
+    private readonly InputAction m_ControllerGameplay_Move;
     private readonly InputAction m_ControllerGameplay_Interact;
     private readonly InputAction m_ControllerGameplay_NoteWheel;
     private readonly InputAction m_ControllerGameplay_NoteWheelSelection;
@@ -714,7 +820,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     private readonly InputAction m_ControllerGameplay_TeleportBackToEmitter;
     private readonly InputAction m_ControllerGameplay_Pause;
     /// <summary>
-    /// Provides access to input actions defined in input action map "Controller -Gameplay".
+    /// Provides access to input actions defined in input action map "Controller - Gameplay".
     /// </summary>
     public struct ControllerGameplayActions
     {
@@ -725,9 +831,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         /// </summary>
         public ControllerGameplayActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
         /// <summary>
-        /// Provides access to the underlying input action "ControllerGameplay/Movement".
+        /// Provides access to the underlying input action "ControllerGameplay/Move".
         /// </summary>
-        public InputAction @Movement => m_Wrapper.m_ControllerGameplay_Movement;
+        public InputAction @Move => m_Wrapper.m_ControllerGameplay_Move;
         /// <summary>
         /// Provides access to the underlying input action "ControllerGameplay/Interact".
         /// </summary>
@@ -782,9 +888,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         {
             if (instance == null || m_Wrapper.m_ControllerGameplayActionsCallbackInterfaces.Contains(instance)) return;
             m_Wrapper.m_ControllerGameplayActionsCallbackInterfaces.Add(instance);
-            @Movement.started += instance.OnMovement;
-            @Movement.performed += instance.OnMovement;
-            @Movement.canceled += instance.OnMovement;
+            @Move.started += instance.OnMove;
+            @Move.performed += instance.OnMove;
+            @Move.canceled += instance.OnMove;
             @Interact.started += instance.OnInteract;
             @Interact.performed += instance.OnInteract;
             @Interact.canceled += instance.OnInteract;
@@ -817,9 +923,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         /// <seealso cref="ControllerGameplayActions" />
         private void UnregisterCallbacks(IControllerGameplayActions instance)
         {
-            @Movement.started -= instance.OnMovement;
-            @Movement.performed -= instance.OnMovement;
-            @Movement.canceled -= instance.OnMovement;
+            @Move.started -= instance.OnMove;
+            @Move.performed -= instance.OnMove;
+            @Move.canceled -= instance.OnMove;
             @Interact.started -= instance.OnInteract;
             @Interact.performed -= instance.OnInteract;
             @Interact.canceled -= instance.OnInteract;
@@ -874,6 +980,135 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     /// Provides a new <see cref="ControllerGameplayActions" /> instance referencing this action map.
     /// </summary>
     public ControllerGameplayActions @ControllerGameplay => new ControllerGameplayActions(this);
+
+    // Controller - UI
+    private readonly InputActionMap m_ControllerUI;
+    private List<IControllerUIActions> m_ControllerUIActionsCallbackInterfaces = new List<IControllerUIActions>();
+    private readonly InputAction m_ControllerUI_Move;
+    private readonly InputAction m_ControllerUI_Submit;
+    private readonly InputAction m_ControllerUI_Cancel;
+    private readonly InputAction m_ControllerUI_Pause;
+    /// <summary>
+    /// Provides access to input actions defined in input action map "Controller - UI".
+    /// </summary>
+    public struct ControllerUIActions
+    {
+        private @PlayerControls m_Wrapper;
+
+        /// <summary>
+        /// Construct a new instance of the input action map wrapper class.
+        /// </summary>
+        public ControllerUIActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
+        /// <summary>
+        /// Provides access to the underlying input action "ControllerUI/Move".
+        /// </summary>
+        public InputAction @Move => m_Wrapper.m_ControllerUI_Move;
+        /// <summary>
+        /// Provides access to the underlying input action "ControllerUI/Submit".
+        /// </summary>
+        public InputAction @Submit => m_Wrapper.m_ControllerUI_Submit;
+        /// <summary>
+        /// Provides access to the underlying input action "ControllerUI/Cancel".
+        /// </summary>
+        public InputAction @Cancel => m_Wrapper.m_ControllerUI_Cancel;
+        /// <summary>
+        /// Provides access to the underlying input action "ControllerUI/Pause".
+        /// </summary>
+        public InputAction @Pause => m_Wrapper.m_ControllerUI_Pause;
+        /// <summary>
+        /// Provides access to the underlying input action map instance.
+        /// </summary>
+        public InputActionMap Get() { return m_Wrapper.m_ControllerUI; }
+        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Enable()" />
+        public void Enable() { Get().Enable(); }
+        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Disable()" />
+        public void Disable() { Get().Disable(); }
+        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.enabled" />
+        public bool enabled => Get().enabled;
+        /// <summary>
+        /// Implicitly converts an <see ref="ControllerUIActions" /> to an <see ref="InputActionMap" /> instance.
+        /// </summary>
+        public static implicit operator InputActionMap(ControllerUIActions set) { return set.Get(); }
+        /// <summary>
+        /// Adds <see cref="InputAction.started"/>, <see cref="InputAction.performed"/> and <see cref="InputAction.canceled"/> callbacks provided via <param cref="instance" /> on all input actions contained in this map.
+        /// </summary>
+        /// <param name="instance">Callback instance.</param>
+        /// <remarks>
+        /// If <paramref name="instance" /> is <c>null</c> or <paramref name="instance"/> have already been added this method does nothing.
+        /// </remarks>
+        /// <seealso cref="ControllerUIActions" />
+        public void AddCallbacks(IControllerUIActions instance)
+        {
+            if (instance == null || m_Wrapper.m_ControllerUIActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_ControllerUIActionsCallbackInterfaces.Add(instance);
+            @Move.started += instance.OnMove;
+            @Move.performed += instance.OnMove;
+            @Move.canceled += instance.OnMove;
+            @Submit.started += instance.OnSubmit;
+            @Submit.performed += instance.OnSubmit;
+            @Submit.canceled += instance.OnSubmit;
+            @Cancel.started += instance.OnCancel;
+            @Cancel.performed += instance.OnCancel;
+            @Cancel.canceled += instance.OnCancel;
+            @Pause.started += instance.OnPause;
+            @Pause.performed += instance.OnPause;
+            @Pause.canceled += instance.OnPause;
+        }
+
+        /// <summary>
+        /// Removes <see cref="InputAction.started"/>, <see cref="InputAction.performed"/> and <see cref="InputAction.canceled"/> callbacks provided via <param cref="instance" /> on all input actions contained in this map.
+        /// </summary>
+        /// <remarks>
+        /// Calling this method when <paramref name="instance" /> have not previously been registered has no side-effects.
+        /// </remarks>
+        /// <seealso cref="ControllerUIActions" />
+        private void UnregisterCallbacks(IControllerUIActions instance)
+        {
+            @Move.started -= instance.OnMove;
+            @Move.performed -= instance.OnMove;
+            @Move.canceled -= instance.OnMove;
+            @Submit.started -= instance.OnSubmit;
+            @Submit.performed -= instance.OnSubmit;
+            @Submit.canceled -= instance.OnSubmit;
+            @Cancel.started -= instance.OnCancel;
+            @Cancel.performed -= instance.OnCancel;
+            @Cancel.canceled -= instance.OnCancel;
+            @Pause.started -= instance.OnPause;
+            @Pause.performed -= instance.OnPause;
+            @Pause.canceled -= instance.OnPause;
+        }
+
+        /// <summary>
+        /// Unregisters <param cref="instance" /> and unregisters all input action callbacks via <see cref="ControllerUIActions.UnregisterCallbacks(IControllerUIActions)" />.
+        /// </summary>
+        /// <seealso cref="ControllerUIActions.UnregisterCallbacks(IControllerUIActions)" />
+        public void RemoveCallbacks(IControllerUIActions instance)
+        {
+            if (m_Wrapper.m_ControllerUIActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        /// <summary>
+        /// Replaces all existing callback instances and previously registered input action callbacks associated with them with callbacks provided via <param cref="instance" />.
+        /// </summary>
+        /// <remarks>
+        /// If <paramref name="instance" /> is <c>null</c>, calling this method will only unregister all existing callbacks but not register any new callbacks.
+        /// </remarks>
+        /// <seealso cref="ControllerUIActions.AddCallbacks(IControllerUIActions)" />
+        /// <seealso cref="ControllerUIActions.RemoveCallbacks(IControllerUIActions)" />
+        /// <seealso cref="ControllerUIActions.UnregisterCallbacks(IControllerUIActions)" />
+        public void SetCallbacks(IControllerUIActions instance)
+        {
+            foreach (var item in m_Wrapper.m_ControllerUIActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_ControllerUIActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    /// <summary>
+    /// Provides a new <see cref="ControllerUIActions" /> instance referencing this action map.
+    /// </summary>
+    public ControllerUIActions @ControllerUI => new ControllerUIActions(this);
     /// <summary>
     /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "Mouse/Keyboard" which allows adding and removing callbacks.
     /// </summary>
@@ -882,12 +1117,12 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     public interface IMouseKeyboardActions
     {
         /// <summary>
-        /// Method invoked when associated input action "Movement" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// Method invoked when associated input action "Move" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>
         /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnMovement(InputAction.CallbackContext context);
+        void OnMove(InputAction.CallbackContext context);
         /// <summary>
         /// Method invoked when associated input action "Interact" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>
@@ -911,19 +1146,19 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         void OnPause(InputAction.CallbackContext context);
     }
     /// <summary>
-    /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "Controller -Gameplay" which allows adding and removing callbacks.
+    /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "Controller - Gameplay" which allows adding and removing callbacks.
     /// </summary>
     /// <seealso cref="ControllerGameplayActions.AddCallbacks(IControllerGameplayActions)" />
     /// <seealso cref="ControllerGameplayActions.RemoveCallbacks(IControllerGameplayActions)" />
     public interface IControllerGameplayActions
     {
         /// <summary>
-        /// Method invoked when associated input action "Movement" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// Method invoked when associated input action "Move" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>
         /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnMovement(InputAction.CallbackContext context);
+        void OnMove(InputAction.CallbackContext context);
         /// <summary>
         /// Method invoked when associated input action "Interact" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>
@@ -966,6 +1201,42 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnTeleportBackToEmitter(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Pause" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnPause(InputAction.CallbackContext context);
+    }
+    /// <summary>
+    /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "Controller - UI" which allows adding and removing callbacks.
+    /// </summary>
+    /// <seealso cref="ControllerUIActions.AddCallbacks(IControllerUIActions)" />
+    /// <seealso cref="ControllerUIActions.RemoveCallbacks(IControllerUIActions)" />
+    public interface IControllerUIActions
+    {
+        /// <summary>
+        /// Method invoked when associated input action "Move" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnMove(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Submit" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnSubmit(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Cancel" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnCancel(InputAction.CallbackContext context);
         /// <summary>
         /// Method invoked when associated input action "Pause" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>

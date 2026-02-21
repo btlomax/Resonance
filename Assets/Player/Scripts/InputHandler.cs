@@ -49,7 +49,7 @@ public class InputHandler : MonoBehaviour
 
         // Pause menu
         _controls.ControllerGameplay.Pause.performed += ctx => OnPausePerformed();
-        _controls.MouseKeyboard.Pause.performed += ctx => OnPausePerformed();
+        //_controls.MouseKeyboard.Pause.performed += ctx => OnPausePerformed();
         _controls.ControllerUI.Pause.performed += ctx => OnPausePerformed();
 
         //Radial menu

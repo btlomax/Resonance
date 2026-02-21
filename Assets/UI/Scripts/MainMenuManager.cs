@@ -21,7 +21,8 @@ public class MainMenuManager : MonoBehaviour
    {
         // Load the main game scene
         UnityEngine.SceneManagement.SceneManager.LoadScene(1); // Assuming the main game scene is at index 1 in the build settings
-   }
+        _inputHandler.Controls.ControllerUI.Disable(); // Disable UI controls when starting the game
+    }
    
    public void OnOptionsClicked()
    {

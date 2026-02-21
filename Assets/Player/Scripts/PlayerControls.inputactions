@@ -32,15 +32,6 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
-                },
-                {
-                    "name": "Pause",
-                    "type": "Button",
-                    "id": "9ceeedc2-a4dd-45d9-b6d2-1e67647328bc",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -120,17 +111,6 @@
                     "action": "NoteWheel",
                     "isComposite": false,
                     "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "dd8ba8ae-f035-41e8-b5d0-3954d4288e44",
-                    "path": "<Keyboard>/p",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Pause",
-                    "isComposite": false,
-                    "isPartOfComposite": false
                 }
             ]
         },
@@ -196,15 +176,6 @@
                     "name": "TeleportBackToEmitter",
                     "type": "Button",
                     "id": "702abb05-83bb-4d1d-9424-f0ce5237a3b6",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "Pause",
-                    "type": "Button",
-                    "id": "6aeff1e3-e635-4458-8f49-5304f248e4e8",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -376,17 +347,6 @@
                     "action": "TeleportBackToEmitter",
                     "isComposite": false,
                     "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "a3da7df6-724d-4801-bf40-83b7567706ba",
-                    "path": "<Gamepad>/start",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Pause",
-                    "isComposite": false,
-                    "isPartOfComposite": false
                 }
             ]
         },
@@ -416,15 +376,6 @@
                     "name": "Cancel",
                     "type": "Button",
                     "id": "cab9dd0a-8f3a-4218-aba6-9ce92bd2eb57",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "Pause",
-                    "type": "Button",
-                    "id": "eeca1db6-ad50-47fd-8442-0897215c839d",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -552,11 +503,28 @@
                     "action": "Cancel",
                     "isComposite": false,
                     "isPartOfComposite": false
-                },
+                }
+            ]
+        },
+        {
+            "name": "Global",
+            "id": "3869b11f-be8b-4044-b1e6-9f842d8d45c5",
+            "actions": [
+                {
+                    "name": "Pause",
+                    "type": "Button",
+                    "id": "25ccff26-802d-4ed9-924e-15ae7504f066",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
                 {
                     "name": "",
-                    "id": "4ac979f9-46e6-49e3-b808-267741f687db",
-                    "path": "<Gamepad>/start",
+                    "id": "833102a1-3a2e-4d4e-b558-a85cbae77c2b",
+                    "path": "<Keyboard>/p",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -566,8 +534,8 @@
                 },
                 {
                     "name": "",
-                    "id": "b2d21d56-a0d2-41ba-8653-88eab743c7de",
-                    "path": "<Keyboard>/p",
+                    "id": "556f92cb-f7cc-4c95-a8a1-cf2eab15c399",
+                    "path": "<Gamepad>/start",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

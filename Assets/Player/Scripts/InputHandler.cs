@@ -24,6 +24,8 @@ public class InputHandler : MonoBehaviour
     private void Awake()
     {
         _controls = new PlayerControls();
+        _controls.Global.Enable();   // Always on
+        _controls.ControllerGameplay.Enable(); // Initially active
 
         // Movement
         _controls.MouseKeyboard.Move.performed += ctx => MoveInput = ctx.ReadValue<Vector2>();
@@ -47,10 +49,8 @@ public class InputHandler : MonoBehaviour
         _controls.ControllerGameplay.TeleportBackToEmitter.performed += ctx => TeleportInput = true;
         _controls.ControllerGameplay.TeleportBackToEmitter.canceled += _ => TeleportInput = false;
 
-        // Pause menu
-        _controls.ControllerGameplay.Pause.performed += ctx => OnPausePerformed();
-        //_controls.MouseKeyboard.Pause.performed += ctx => OnPausePerformed();
-        _controls.ControllerUI.Pause.performed += ctx => OnPausePerformed();
+        // Global pause
+        _controls.Global.Pause.performed += ctx => OnPausePerformed();
 
         //Radial menu
         _controls.ControllerGameplay.NoteWheel.performed += ctx => OnNoteWheelPerformed();

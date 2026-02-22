@@ -37,6 +37,7 @@ public class CopyPuzzleSequencePlayer : MonoBehaviour
         Debug.Log("Playing note sequence...");
 
         _playLightMaterial.EnableKeyword("_EMISSION");
+
         //_playLightMaterial.SetColor("_EmissionColor", playLightEmissionColour * intensity);
 
         foreach (var note in notesToPlay)

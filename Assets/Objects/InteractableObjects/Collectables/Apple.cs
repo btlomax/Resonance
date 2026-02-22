@@ -28,7 +28,7 @@ public class Apple : BaseCollectable
         if (noteName == targetNote)
         {
             Debug.Log("Correct note played! Collecting apple.");
-            StartCoroutine(WaitBeforeDrop(2f));
+            StartCoroutine(WaitBeforeDrop(0.5f));
         }
         else
         {
@@ -52,26 +52,28 @@ public class Apple : BaseCollectable
         {
             Rigidbody rb = obj.GetComponent<Rigidbody>();
 
-            // Phase 1: drop
+            // Drop
             rb.isKinematic = false;       // enable physics
             rb.useGravity = true;         // let it fall naturally
 
             // Wait a bit to let it drop
             yield return new WaitForSeconds(0.3f);
 
-            // Phase 2: fly toward player
+            // Fly toward player
             rb.useGravity = false;        // optional: fly in straight line
             rb.linearVelocity = Vector3.zero;   // stop current movement
 
-            Vector3 direction = (player.transform.position - obj.transform.position).normalized;
-
-            while (Vector3.Distance(obj.transform.position, player.transform.position) > 0.1f)
+            if(player != null)
             {
-                rb.MovePosition(obj.transform.position + direction * flightSpeed * Time.deltaTime);
-                yield return null;
-            }
+                while (Vector3.Distance(obj.transform.position, player.transform.position) > 1f)
+                {
+                    Vector3 direction = (player.transform.position - obj.transform.position).normalized;
+                    rb.MovePosition(obj.transform.position + direction * flightSpeed * Time.deltaTime);
+                    yield return null;
+                }
 
-            Collect(obj);
+                Collect(obj);
+            }
         }
     }
 
@@ -81,6 +83,7 @@ public class Apple : BaseCollectable
 
         player.GetComponent<PlayerInventory>().AddItem("Apple", 1);
 
+        gameObject.SetActive(false); // hide the apple object
         Destroy(gameObject);
     }
 }

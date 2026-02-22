@@ -19,6 +19,8 @@ public class BeamEmitter : BaseMechanism
     [SerializeField] private Light _emitterLight;
     [SerializeField] private bool _transmitNoteColour;
 
+    private Renderer _emitterGemRenderer;
+    private Material _emitterGemMaterial;
 
     public bool EmitFromNotePlayed = true;
     public GameObject emitterTeleportPad;
@@ -33,6 +35,10 @@ public class BeamEmitter : BaseMechanism
     private void Awake()
     {
         _emitterLight = GetComponentInChildren<Light>();
+        _emitterGemRenderer = _emitterGem.GetComponentInChildren<Renderer>();
+
+        if(_emitterGemRenderer != null)
+            _emitterGemMaterial = _emitterGemRenderer.material;
 
         for (int i = 0; i < musicalScale.NotesInScale.Length; i++)
         {

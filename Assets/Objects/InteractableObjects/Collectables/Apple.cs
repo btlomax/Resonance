@@ -1,3 +1,4 @@
+using Assets.Data.GameManagement;
 using Assets.Objects.InteractableObjects.Collectables;
 using System.Collections;
 using Unity.VisualScripting;
@@ -14,7 +15,11 @@ public class Apple : BaseCollectable
         if(other.CompareTag("Player"))
         {
             notePlayedEvent.OnNotePlayed += OnNotePlayed;
-            player = other.GameObject();
+            player = other.gameObject;
+
+            GameProgressionTracker.Instance.TriggerEvent(GameEvent.ReachedApples);
+
+            // Start glowing here
         }
     }
 
@@ -75,6 +80,8 @@ public class Apple : BaseCollectable
                 Collect(obj);
             }
         }
+
+        GameProgressionTracker.Instance.TriggerEvent(GameEvent.ApplesCollected);
     }
 
     public override void Collect(GameObject gameObject)

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PopupData
   triggerEvent: 1
   title: The World Is Listening
-  bodyText: "Spin the wheel of sound,\nMatch the <color=#FF4444>red</color> to crimson
+  bodyText: "Spin the wheel of sound,\nMatch the <color=#D64545>red</color> to crimson
     fruit,\nIt falls to your song. \n"
   displayDuration: 5
   pauseGame: 1

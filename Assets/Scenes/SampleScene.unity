@@ -10004,8 +10004,9 @@ MonoBehaviour:
   currentScale: {fileID: 0}
   allUnlockedScales:
   - {fileID: 11400000, guid: 52dfae87b23a65b40a94ff7b84a173e8, type: 2}
-  scaleNameText: {fileID: 8123762257059780480, guid: 42e209eec4796d649889b9edb405e0ce, type: 3}
+  scaleDegreeText: {fileID: 8123762257059780480, guid: 42e209eec4796d649889b9edb405e0ce, type: 3}
   noteNameText: {fileID: 4102824070557811260, guid: 146fb8bfabbd110488c8eaef2ed5112e, type: 3}
+  scaleNameText: {fileID: 4102824070557811260, guid: 299091462669ccb43b5d5ea54ca2a705, type: 3}
   openRadialMenuEventListener: {fileID: 11400000, guid: 11f05b8d7d368a44f8e4bc39e84d8efc, type: 2}
   closeRadialMenuEventListener: {fileID: 11400000, guid: 8d766bd75f3a88a4c8338e4bd2e645be, type: 2}
   toggleRadialMenuEventListener: {fileID: 11400000, guid: cbe8533b8958bc94ba25deaddf4ebbbf, type: 2}
@@ -10015,6 +10016,7 @@ MonoBehaviour:
   _inputHandler: {fileID: 1451038216}
   _cameraInput: {fileID: 177785926}
   _sliceHysteresis: 0.2
+  _scaleNameOffset: {x: -25, y: 130}
   showDebugGizmos: 1
 --- !u!82 &1043442665
 AudioSource:

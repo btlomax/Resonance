@@ -25,8 +25,9 @@ public class RadialMenuGenerator : MonoBehaviour
     public MusicalScale currentScale;
     public MusicalScale[] allUnlockedScales;
 
-    public TMP_Text scaleNameText;
+    public TMP_Text scaleDegreeText;
     public TMP_Text noteNameText;
+    public TMP_Text scaleNameText;
 
     [Header("Event Channels")]
     public VoidEventChannel openRadialMenuEventListener;
@@ -42,6 +43,8 @@ public class RadialMenuGenerator : MonoBehaviour
     private CinemachineInputAxisController _cameraInput;
     [SerializeField]
     private float _sliceHysteresis = 0.2f;
+    [SerializeField]
+    private Vector2 _scaleNameOffset;
 
     private int _highlightedSlice = -1;
     private float _selectionAngle = -1f;
@@ -131,7 +134,7 @@ public class RadialMenuGenerator : MonoBehaviour
             newSlice.fillMethod = Image.FillMethod.Radial360;
             newSlice.fillAmount = fillAmount;
 
-            TMP_Text scaleDegreeText = Instantiate(scaleNameText, newSlice.transform);
+            TMP_Text scaleDegreeTextbox = Instantiate(scaleDegreeText, newSlice.transform);
             scaleDegreeText.text = (i + 1).ToString();
 
             TMP_Text noteNameTextInstance = Instantiate(noteNameText, newSlice.transform);
@@ -148,6 +151,11 @@ public class RadialMenuGenerator : MonoBehaviour
             _activeSlices[i].name = $"{currentScale.NotesInScale[i].noteTitle}";
             _activeSlices[i].color = ScaleDegreeColourLookup.Get(i);
         }
+
+        TMP_Text scaleName = Instantiate(scaleNameText, radialMenu.transform);
+        scaleName.transform.position += new Vector3(_scaleNameOffset.x, _scaleNameOffset.y, 0); // Adjust position as needed
+
+        scaleName.SetText(currentScale.ScaleName);
     }
 
     /// <summary>
@@ -281,6 +289,7 @@ public class RadialMenuGenerator : MonoBehaviour
         if(currentScale == currentMajorScale)
         {
             currentScale = currentMinorScale;
+            
         }
         else
         {

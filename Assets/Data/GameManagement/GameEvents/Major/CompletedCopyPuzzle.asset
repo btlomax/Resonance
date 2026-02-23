@@ -10,11 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c5dd61c46ce6ec34791235e91dae3102, type: 3}
-  m_Name: IncorrectHarmony
+  m_Name: CompletedCopyPuzzle
   m_EditorClassIdentifier: Assembly-CSharp::PopupData
-  popupType: 1
-  triggerEvent: 5
-  title: Incorrect Harmony
-  bodyText: Try a note that mirrors the glow
-  displayDuration: 3
-  pauseGame: 0
+  popupType: 0
+  triggerEvent: 6
+  errorEvent: 0
+  title: Emission
+  bodyText: 'You have activated the beam! Use the mirrors dotted around the area
+    to direct the beam to the target, and open the door.
+
+
+    Play the correct note
+    to reactivate the beam. Press UP on the d-pad to warp back to the emitter.'
+  displayDuration: 5
+  pauseGame: 1

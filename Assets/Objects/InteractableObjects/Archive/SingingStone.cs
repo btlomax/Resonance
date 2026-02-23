@@ -6,7 +6,7 @@ using UnityEngine;
 public class SingingStone : Interactable
 {
     [Header("Singing Stone Settings")]
-    [SerializeField] private GameEvent eventToTrigger;
+    [SerializeField] private GameUI_Event eventToTrigger;
 
     private void Awake()
     {
@@ -15,6 +15,6 @@ public class SingingStone : Interactable
     public override void Interact(GameObject interactor)
     {
         Debug.Log($"The Singing Stone hums a melodious tune as {interactor.name} interacts with it.");
-        GameProgressionTracker.Instance.TriggerEvent(eventToTrigger, true);
+        GameEventDispatcher.Instance.TriggerEvent(eventToTrigger, true);
     }
 }

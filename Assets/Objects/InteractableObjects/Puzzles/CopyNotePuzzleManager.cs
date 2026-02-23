@@ -1,3 +1,4 @@
+using Assets.Data.GameManagement;
 using Assets.Player.Contracts;
 using System.Collections;
 using System.Collections.Generic;
@@ -93,6 +94,7 @@ public class CopyNotePuzzleManager : BasePuzzleManager
         {
             Debug.Log("Note sequence length mismatch. Puzzle failed.");
             _activated = false;
+            GameEventDispatcher.Instance.TriggerErrorEvent(GameUI_Errors.IncorrectSequence);
             return;
         }
 
@@ -102,6 +104,7 @@ public class CopyNotePuzzleManager : BasePuzzleManager
             {
                 Debug.Log($"Note mismatch at index {i}. Expected: {noteSequence[i]}, Recorded: {notesRecorded[i]}. Puzzle failed.");
                 _activated = false;
+                GameEventDispatcher.Instance.TriggerErrorEvent(GameUI_Errors.IncorrectSequence);
                 return;
             }
         }
@@ -116,6 +119,6 @@ public class CopyNotePuzzleManager : BasePuzzleManager
         isSolved = true;
         _recorder.puzzleSolved = true;
         triggerable.TriggerAction("ActivateMechanism");
-        Debug.Log("Copy Note Puzzle Marked as Solved.");
+        GameEventDispatcher.Instance.TriggerEvent(GameUI_Event.CompletedCopyPuzzle);
     }
 }

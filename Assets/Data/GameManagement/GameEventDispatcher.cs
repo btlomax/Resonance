@@ -2,15 +2,15 @@ using Assets.Data.GameManagement;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEditor.Searcher.Searcher.AnalyticsEvent;
 
-public class GameProgressionTracker : MonoBehaviour
+public class GameEventDispatcher : MonoBehaviour
 {
-    public static GameProgressionTracker Instance;
+    public static GameEventDispatcher Instance;
 
-    private HashSet<GameEvent> triggeredEvents = new HashSet<GameEvent>();
+    private HashSet<GameUI_Event> triggeredEvents = new HashSet<GameUI_Event>();
 
-    public static event Action<GameEvent> OnGameEventTriggered;
+    public static event Action<GameUI_Event> OnGameEventTriggered;
+    public static event Action<GameUI_Errors> OnGameEvent_ErrorTriggered;
 
     private void Awake()
     {
@@ -25,7 +25,7 @@ public class GameProgressionTracker : MonoBehaviour
         }
     }
 
-    public void TriggerEvent(GameEvent gameEvent, bool force = false)
+    public void TriggerEvent(GameUI_Event gameEvent, bool force = false)
     {
         bool isNew = triggeredEvents.Add(gameEvent);
 
@@ -34,5 +34,10 @@ public class GameProgressionTracker : MonoBehaviour
             Debug.Log($"Event Fired: {gameEvent} (Forced: {force})");
             OnGameEventTriggered?.Invoke(gameEvent);
         }
+    }
+
+    public void TriggerErrorEvent(GameUI_Errors errorEvent)
+    {
+       OnGameEvent_ErrorTriggered?.Invoke(errorEvent);
     }
 }

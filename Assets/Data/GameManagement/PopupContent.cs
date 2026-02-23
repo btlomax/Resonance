@@ -5,7 +5,8 @@ using UnityEngine;
 public class PopupData : ScriptableObject
 {
     public PopupType popupType;
-    public GameEvent triggerEvent;
+    public GameUI_Event triggerEvent;
+    public GameUI_Errors errorEvent;
     public string title;
     [TextArea(5, 10)] public string bodyText;
     public float displayDuration = 5f;
@@ -16,6 +17,5 @@ public class PopupData : ScriptableObject
 public enum PopupType
 {
     Big,
-    Toast,
-    Tutorial
+    Toast
 }

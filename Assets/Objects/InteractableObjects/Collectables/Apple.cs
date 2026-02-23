@@ -17,7 +17,7 @@ public class Apple : BaseCollectable
             notePlayedEvent.OnNotePlayed += OnNotePlayed;
             player = other.gameObject;
 
-            GameProgressionTracker.Instance.TriggerEvent(GameEvent.ReachedApples);
+            GameEventDispatcher.Instance.TriggerEvent(GameUI_Event.ReachedApples);
 
             // Start glowing here
         }
@@ -81,7 +81,7 @@ public class Apple : BaseCollectable
             }
         }
 
-        GameProgressionTracker.Instance.TriggerEvent(GameEvent.ApplesCollected);
+        GameEventDispatcher.Instance.TriggerEvent(GameUI_Event.ApplesCollected);
     }
 
     public override void Collect(GameObject gameObject)

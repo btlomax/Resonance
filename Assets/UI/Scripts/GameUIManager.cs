@@ -11,6 +11,8 @@ public class GameUIManager : MonoBehaviour
     [SerializeField]
     private List<PopupData> popupLibrary = new List<PopupData>();
     [SerializeField]
+    private List<PopupData> errorPopupLibrary = new List<PopupData>();
+    [SerializeField]
     private Canvas _gameUICanvas;
 
     public GameObject bigPopupPanel;
@@ -20,9 +22,18 @@ public class GameUIManager : MonoBehaviour
     [SerializeField] private AnimationCurve slideCurve;
     [SerializeField] private float slideDistance = 200f;
 
-    private void OnEnable() => GameProgressionTracker.OnGameEventTriggered += HandleProgression;
-    private void OnDisable() => GameProgressionTracker.OnGameEventTriggered -= HandleProgression;
-    private void HandleProgression(GameEvent gameEvent)
+    private void OnEnable()
+    {
+        GameEventDispatcher.OnGameEventTriggered += HandleGameUIEvent;
+        GameEventDispatcher.OnGameEvent_ErrorTriggered += HandleGameUIErrorEvent;
+    }
+
+    private void OnDisable()
+    {
+        GameEventDispatcher.OnGameEventTriggered -= HandleGameUIEvent;
+        GameEventDispatcher.OnGameEvent_ErrorTriggered -= HandleGameUIErrorEvent;
+    }
+    private void HandleGameUIEvent(GameUI_Event gameEvent)
     {
        PopupData data = popupLibrary.Find(p => p.triggerEvent == gameEvent);
 
@@ -38,6 +49,14 @@ public class GameUIManager : MonoBehaviour
                   break;
             }
         }
+    }
+
+    private void HandleGameUIErrorEvent(GameUI_Errors error)
+    {
+        PopupData errorData = errorPopupLibrary.Find(p => p.errorEvent == error);
+
+        if(errorData != null)
+            ShowToastPanel(errorData);
     }
 
     private void ShowBigPopupPanel(PopupData data)

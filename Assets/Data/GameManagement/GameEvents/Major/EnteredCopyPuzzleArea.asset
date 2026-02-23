@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5dd61c46ce6ec34791235e91dae3102, type: 3}
+  m_Name: EnteredCopyPuzzleArea
+  m_EditorClassIdentifier: Assembly-CSharp::PopupData
+  popupType: 0
+  triggerEvent: 5
+  errorEvent: 0
+  title: The Sincerest Form of Flattery
+  bodyText: 'Interact with the green play button to hear the sequence.
+
+
+    Interact
+    with the red record button to start/stop recording.'
+  displayDuration: 5
+  pauseGame: 1

@@ -6,13 +6,21 @@ using System.Threading.Tasks;
 
 namespace Assets.Data.GameManagement
 {
-    public enum GameEvent
+    public enum GameUI_Event
     {
         None,
         ReachedApples,
         ApplesCollected,
         EnteredResonatorPuzzleArea,
         CompletedResonatorPuzzle,
-        IncorrectHarmony
+        EnteredCopyPuzzleArea,
+        CompletedCopyPuzzle,
+    }
+
+    public enum GameUI_Errors
+    {
+        None,
+        IncorrectHarmony,
+        IncorrectSequence,
     }
 }

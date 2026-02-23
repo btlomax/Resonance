@@ -15,13 +15,11 @@ MonoBehaviour:
   popupType: 0
   triggerEvent: 3
   title: Harmony
-  bodyText: 'A note in the air
+  bodyText: 'Match the crystal hue
 
-    Answer with your own bright tones
+    Use the glowing scale above
 
-    Match
-    the glowing hue
-
-'
+    Find the
+    note it needs'
   displayDuration: 5
   pauseGame: 1

@@ -135,7 +135,7 @@ public class RadialMenuGenerator : MonoBehaviour
             newSlice.fillAmount = fillAmount;
 
             TMP_Text scaleDegreeTextbox = Instantiate(scaleDegreeText, newSlice.transform);
-            scaleDegreeText.text = (i + 1).ToString();
+            scaleDegreeTextbox.SetText((i + 1).ToString());
 
             TMP_Text noteNameTextInstance = Instantiate(noteNameText, newSlice.transform);
             noteNameTextInstance.text = currentScale.NotesInScale[i].noteTitle;
@@ -155,7 +155,7 @@ public class RadialMenuGenerator : MonoBehaviour
         TMP_Text scaleName = Instantiate(scaleNameText, radialMenu.transform);
         scaleName.transform.position += new Vector3(_scaleNameOffset.x, _scaleNameOffset.y, 0); // Adjust position as needed
 
-        scaleName.SetText(currentScale.ScaleName);
+        scaleName.text = currentScale.ScaleName;
     }
 
     /// <summary>

@@ -10,6 +10,9 @@ namespace Assets.Data.GameManagement
     {
         None,
         ReachedApples,
-        ApplesCollected
+        ApplesCollected,
+        EnteredResonatorPuzzleArea,
+        CompletedResonatorPuzzle,
+        IncorrectHarmony
     }
 }

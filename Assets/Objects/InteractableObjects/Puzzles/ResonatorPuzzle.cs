@@ -1,3 +1,4 @@
+using Assets.Data.GameManagement;
 using NUnit.Framework;
 using System.Collections;
 using System.Collections.Generic;
@@ -85,11 +86,10 @@ public class ResonatorPuzzle : BasePuzzleManager
             if(activeUIPrompt == null)
             {
                 activeUIPrompt = WorldUIManager.Instance.CreateResonatorUI(UIPromptLocation, puzzleScale.ScaleName, resonatorLight.color);
+                GameProgressionTracker.Instance.TriggerEvent(GameEvent.EnteredResonatorPuzzleArea);
             }
 
-            noteComparisonStartedEvent.OnNoteComparisonStarted += OnNoteComparisonStarted;
-            _recorder.ToggleContinousRecording(); // Start recording player input
-            OnPuzzleActivated();
+            StartCoroutine(NoteStartDelay(1)); // Delay before starting the note comparison to allow player to prepare
         }
     }
 
@@ -152,6 +152,15 @@ public class ResonatorPuzzle : BasePuzzleManager
         }
     }
 
+    private IEnumerator NoteStartDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+
+        noteComparisonStartedEvent.OnNoteComparisonStarted += OnNoteComparisonStarted;
+        _recorder.ToggleContinousRecording(); // Start recording player input
+        OnPuzzleActivated();
+    }
+
     private IEnumerator DelayAndLookup(float delay, string note)
     {
         yield return new WaitForSeconds(delay);
@@ -167,8 +176,9 @@ public class ResonatorPuzzle : BasePuzzleManager
         else
         {
             Debug.Log("Note sequence did not match. Try again.");
+            GameProgressionTracker.Instance.TriggerEvent(GameEvent.IncorrectHarmony, true);
 
-            yield return WaitAndRestart(5.0f); // Wait for 5 seconds before allowing another attempt
+            yield return WaitAndRestart(3.0f); // Wait for 5 seconds before allowing another attempt
 
         }
     }
@@ -188,5 +198,6 @@ public class ResonatorPuzzle : BasePuzzleManager
         }
 
         triggerable.TriggerAction("ActivateMechanism");
+        GameProgressionTracker.Instance.TriggerEvent(GameEvent.CompletedResonatorPuzzle);
     }
 }

@@ -14,6 +14,11 @@ public class GameUIManager : MonoBehaviour
     private Canvas _gameUICanvas;
 
     public GameObject bigPopupPanel;
+    public GameObject toastPanel;
+
+    [Header("Panel Animation")]
+    [SerializeField] private AnimationCurve slideCurve;
+    [SerializeField] private float slideDistance = 200f;
 
     private void OnEnable() => GameProgressionTracker.OnGameEventTriggered += HandleProgression;
     private void OnDisable() => GameProgressionTracker.OnGameEventTriggered -= HandleProgression;
@@ -23,28 +28,74 @@ public class GameUIManager : MonoBehaviour
 
        if (data != null)
        {
-          ShowPopup(data);
-       }
+          switch(data.popupType)
+          {
+              case PopupType.Big:
+                  ShowBigPopupPanel(data);
+                  break;
+              case PopupType.Toast:
+                  ShowToastPanel(data);
+                  break;
+            }
+        }
     }
 
-    private void ShowPopup(PopupData data)
+    private void ShowBigPopupPanel(PopupData data)
     {
         if(data.pauseGame)
         {
             Time.timeScale = 0f; // Pause the game
-            bigPopupPanel.SetActive(true);
-            StartCoroutine(WaitAndClose(data.displayDuration));
-
-            bigPopupPanel.GetComponentInChildren<TMP_Text>().SetText($"{data.title}\n\n{data.bodyText}");
         }
+
+        bigPopupPanel.GetComponentInChildren<TMP_Text>().SetText($"{data.title}\n\n{data.bodyText}");
+        StartCoroutine(SlidePanelIn(data, bigPopupPanel));
 
         Debug.Log($"Showing popup: {data.title} - {data.bodyText}");
     }
 
-    private IEnumerator WaitAndClose(float waitTime)
+    private void ShowToastPanel(PopupData data)
     {
-        yield return new WaitForSecondsRealtime(waitTime);
-        bigPopupPanel.SetActive(false);
-        Time.timeScale = 1f; // Resume the game
+        toastPanel.GetComponentInChildren<TMP_Text>().SetText($"{data.title}\n\n{data.bodyText}");
+        StartCoroutine(SlidePanelIn(data, toastPanel));
+
+        Debug.Log($"Showing toast: {data.title} - {data.bodyText}");
+    }
+
+    private IEnumerator SlidePanelIn(PopupData data, GameObject panel)
+    {
+        RectTransform rect = panel.GetComponent<RectTransform>();
+        float panelHeight = rect.rect.height;
+
+        Vector2 hiddenPos = new Vector2(0, panelHeight + slideDistance);
+        Vector2 visiblePos = Vector2.zero;
+
+        rect.anchoredPosition = hiddenPos;
+        panel.SetActive(true);
+
+        // 2. Slide In
+        float t = 0;
+        while (t < 1)
+        {
+            t += Time.unscaledDeltaTime * 2f; // Fast slide
+            rect.anchoredPosition = Vector2.Lerp(hiddenPos, visiblePos, slideCurve.Evaluate(t));
+            yield return null;
+        }
+
+        // 3. Wait
+        yield return new WaitForSecondsRealtime(data.displayDuration);
+
+        // 4. Slide Out
+        t = 0;
+        while (t < 1)
+        {
+            t += Time.unscaledDeltaTime * 2f;
+            rect.anchoredPosition = Vector2.Lerp(visiblePos, hiddenPos, slideCurve.Evaluate(t));
+            yield return null;
+        }
+
+        panel.SetActive(false);
+
+        if(data.pauseGame)
+            Time.timeScale = 1f; // Resume the game regardless of popup type, as big popups will pause the game and we want to ensure it resumes after the toast is done
     }
 }

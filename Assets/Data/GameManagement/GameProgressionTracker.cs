@@ -2,6 +2,7 @@ using Assets.Data.GameManagement;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.Searcher.Searcher.AnalyticsEvent;
 
 public class GameProgressionTracker : MonoBehaviour
 {
@@ -24,13 +25,13 @@ public class GameProgressionTracker : MonoBehaviour
         }
     }
 
-    public void TriggerEvent(GameEvent gameEvent)
+    public void TriggerEvent(GameEvent gameEvent, bool force = false)
     {
-        if (!triggeredEvents.Contains(gameEvent))
-        {
-            triggeredEvents.Add(gameEvent);
-            Debug.Log($"Game Event Triggered: {gameEvent}");
+        bool isNew = triggeredEvents.Add(gameEvent);
 
+        if (isNew || force)
+        {
+            Debug.Log($"Event Fired: {gameEvent} (Forced: {force})");
             OnGameEventTriggered?.Invoke(gameEvent);
         }
     }

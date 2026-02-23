@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5dd61c46ce6ec34791235e91dae3102, type: 3}
   m_Name: CollectedApples
   m_EditorClassIdentifier: Assembly-CSharp::PopupData
+  popupType: 1
   triggerEvent: 2
-  title: Apples Collected
-  bodyText: You've collected apples!
+  title: First Resonance
+  bodyText: You've collected the apples using your flute!
   displayDuration: 5
+  pauseGame: 0

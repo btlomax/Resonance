@@ -15,6 +15,8 @@ namespace Assets.Data.GameManagement
         CompletedResonatorPuzzle,
         EnteredCopyPuzzleArea,
         CompletedCopyPuzzle,
+        OpenedDoor,
+        LevelCompleted
     }
 
     public enum GameUI_Errors

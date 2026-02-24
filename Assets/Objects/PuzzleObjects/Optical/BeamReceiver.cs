@@ -14,15 +14,22 @@ public class BeamReceiver : MonoBehaviour, IOpticalElement
     [SerializeField] private bool _isReceiving;
     [SerializeField] private bool _wasHitThisFrame;
     [SerializeField] private Color targetColor;
+    [SerializeField] private float intensity;
+
+    private Renderer _receiverLightRenderer;
+    private Material _receiverLightMaterial;
 
     void Awake()
     {
+        _receiverLightRenderer = GetComponent<Renderer>();
+        if (_receiverLightRenderer != null)
+            _receiverLightMaterial = _receiverLightRenderer.material;
+
         for (int i = 0; i < puzzleScale.NotesInScale.Length; i++)
         {
             if (puzzleScale.NotesInScale[i].noteTitle == targetNote)
             {
-                var renderer = GetComponent<Renderer>();
-                renderer.material.SetColor("_BaseColour", scaleDegreeToColour.scaleDegreeColours[i]);
+                _receiverLightMaterial.color = scaleDegreeToColour.scaleDegreeColours[i];
                 targetColor = scaleDegreeToColour.scaleDegreeColours[i];
             }
         }
@@ -48,13 +55,16 @@ public class BeamReceiver : MonoBehaviour, IOpticalElement
         outgoingRay = default;
 
         _wasHitThisFrame = true;
+        _receiverLightMaterial.EnableKeyword("_EMISSION");
+        _receiverLightMaterial.SetColor("_EmissionColor", beam.color * intensity);
 
-        if(!_isReceiving)
+        if (!_isReceiving)
         {
             _isReceiving = true;
             ReceiveBeam(beam.color);
         }
 
+        _receiverLightMaterial.DisableKeyword("_EMISSION");
         return false;
     }
 

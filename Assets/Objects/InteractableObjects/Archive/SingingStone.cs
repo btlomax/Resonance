@@ -6,7 +6,7 @@ using UnityEngine;
 public class SingingStone : Interactable
 {
     [Header("Singing Stone Settings")]
-    [SerializeField] private GameUI_Event eventToTrigger;
+    public GameUI_Event eventToTrigger;
 
     private void Awake()
     {

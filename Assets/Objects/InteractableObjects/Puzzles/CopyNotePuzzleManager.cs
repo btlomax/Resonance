@@ -11,11 +11,11 @@ using UnityEngine;
 public class CopyNotePuzzleManager : BasePuzzleManager
 {
     [Header("Copy Note Puzzle Settings")]
-    public SingingStone[] singingStones;
     public List<string> noteSequence = new List<string>();
     public NoteComparisonStarted noteComparisonStartedEvent;
     public GameObject successObject;
     public TriggerInteractable triggerable;
+    public SingingStone signPost;
 
     public float delayBetweenNotes = 0.5f;
     public bool isSolved = false;
@@ -28,7 +28,7 @@ public class CopyNotePuzzleManager : BasePuzzleManager
 
     private void Awake()
     {
-        singingStones = GetComponentsInChildren<SingingStone>();
+        signPost.eventToTrigger = GameUI_Event.EnteredCopyPuzzleArea;
     }
 
     private void OnEnable()
@@ -120,5 +120,6 @@ public class CopyNotePuzzleManager : BasePuzzleManager
         _recorder.puzzleSolved = true;
         triggerable.TriggerAction("ActivateMechanism");
         GameEventDispatcher.Instance.TriggerEvent(GameUI_Event.CompletedCopyPuzzle);
+        signPost.eventToTrigger = GameUI_Event.CompletedCopyPuzzle;
     }
 }

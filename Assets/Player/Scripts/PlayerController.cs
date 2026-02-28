@@ -155,7 +155,7 @@ public class PlayerController : MonoBehaviour
         {
             if (hitInfo.transform.TryGetComponent(out IObjectInteraction objectInteraction))
             {
-                if (objectInteraction is Interactable interactable)
+                if (objectInteraction is Interactable interactable) // Don't think I need Interactable, I can just use the interface instead
                 {
                     if (_currentFocus != interactable)
                     {

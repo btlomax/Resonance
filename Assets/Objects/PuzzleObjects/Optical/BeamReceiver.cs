@@ -1,3 +1,4 @@
+using Assets.Data.GameManagement;
 using Assets.Objects.PuzzleObjects;
 using Assets.Objects.PuzzleObjects.Optical;
 using UnityEngine;
@@ -77,6 +78,7 @@ public class BeamReceiver : MonoBehaviour, IOpticalElement
             {
                 Debug.Log("Received correct color beam.");
                 linkedTrigger.TriggerAction("ActivateMechanism");
+                GameEventDispatcher.Instance.TriggerEvent(GameUI_Event.OpenedDoor);
                 return;
             }
             else
@@ -84,6 +86,7 @@ public class BeamReceiver : MonoBehaviour, IOpticalElement
         }
 
         linkedTrigger.TriggerAction("ActivateMechanism");
+        GameEventDispatcher.Instance.TriggerEvent(GameUI_Event.OpenedDoor);
         return;
     }
 

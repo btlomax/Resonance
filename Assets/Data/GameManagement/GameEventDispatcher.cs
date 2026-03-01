@@ -26,7 +26,7 @@ public class GameEventDispatcher : MonoBehaviour
         }
     }
 
-    public void TriggerEvent(GameUI_Event gameEvent, bool force = false)
+    public void TriggerUIEvent(GameUI_Event gameEvent, bool force = false)
     {
         bool isNew = triggeredEvents.Add(gameEvent);
 
@@ -37,7 +37,7 @@ public class GameEventDispatcher : MonoBehaviour
         }
     }
 
-    public void TriggerErrorEvent(GameUI_Errors errorEvent)
+    public void TriggerUIErrorEvent(GameUI_Errors errorEvent)
     {
        OnGameEvent_ErrorTriggered?.Invoke(errorEvent);
     }

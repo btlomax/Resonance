@@ -22,7 +22,7 @@ public class Door : BaseMechanism
     {
         if(_unlocked && other.CompareTag("Player"))
         {
-            GameEventDispatcher.Instance.TriggerEvent(GameUI_Event.LevelCompleted);
+            GameEventDispatcher.Instance.TriggerUIEvent(GameUI_Event.LevelCompleted);
 
             StartCoroutine(WaitBeforeLoadMainMenu(0.3f));
         }

@@ -5,14 +5,13 @@ using UnityEngine;
 public class InputHandler : MonoBehaviour
 {
     public PlayerControls Controls { get => _controls; }
-    private PlayerControls _controls;
     public Vector2 MoveInput { get; private set; }
     public Vector2 MenuSelectInput { get; private set; }
     public bool InteractInput { get; private set; }
     public bool JumpInput { get; private set; }
     public bool TeleportInput { get; private set; }
-
     public bool IsPaused { get; set; } = false;
+    public bool HasFlute { get; set; } = false;
 
     public VoidEventChannel OpenRadialMenuEvent;
     public VoidEventChannel CloseRadialMenuEvent;
@@ -21,11 +20,15 @@ public class InputHandler : MonoBehaviour
     public VoidEventChannel TogglePauseMenuEvent;
     public InputSettings inputSettings;
 
+    private PlayerControls _controls;
+
     private void Awake()
     {
         _controls = new PlayerControls();
         _controls.Global.Enable();   // Always on
         _controls.ControllerGameplay.Enable(); // Initially active
+
+        PlayerFlute.PlayerCollectsFlute += () => HasFlute = true;
 
         // Movement
         _controls.MouseKeyboard.Move.performed += ctx => MoveInput = ctx.ReadValue<Vector2>();
@@ -73,6 +76,8 @@ public class InputHandler : MonoBehaviour
     private void OnNoteWheelPerformed()
     {
         if(IsPaused) return;
+
+        if(!HasFlute) return;
 
         if (inputSettings.radialMenuHoldToOpen)
         {

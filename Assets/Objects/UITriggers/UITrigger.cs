@@ -8,7 +8,7 @@ public class UITrigger : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            GameEventDispatcher.Instance.TriggerEvent(triggerEvent);
+            GameEventDispatcher.Instance.TriggerUIEvent(triggerEvent);
         }
     }
 }

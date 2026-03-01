@@ -94,7 +94,7 @@ public class CopyNotePuzzleManager : BasePuzzleManager
         {
             Debug.Log("Note sequence length mismatch. Puzzle failed.");
             _activated = false;
-            GameEventDispatcher.Instance.TriggerErrorEvent(GameUI_Errors.IncorrectSequence);
+            GameEventDispatcher.Instance.TriggerUIErrorEvent(GameUI_Errors.IncorrectSequence);
             return;
         }
 
@@ -104,7 +104,7 @@ public class CopyNotePuzzleManager : BasePuzzleManager
             {
                 Debug.Log($"Note mismatch at index {i}. Expected: {noteSequence[i]}, Recorded: {notesRecorded[i]}. Puzzle failed.");
                 _activated = false;
-                GameEventDispatcher.Instance.TriggerErrorEvent(GameUI_Errors.IncorrectSequence);
+                GameEventDispatcher.Instance.TriggerUIErrorEvent(GameUI_Errors.IncorrectSequence);
                 return;
             }
         }
@@ -119,7 +119,7 @@ public class CopyNotePuzzleManager : BasePuzzleManager
         isSolved = true;
         _recorder.puzzleSolved = true;
         triggerable.TriggerAction("ActivateMechanism");
-        GameEventDispatcher.Instance.TriggerEvent(GameUI_Event.CompletedCopyPuzzle);
+        GameEventDispatcher.Instance.TriggerUIEvent(GameUI_Event.CompletedCopyPuzzle);
         signPost.eventToTrigger = GameUI_Event.CompletedCopyPuzzle;
     }
 }

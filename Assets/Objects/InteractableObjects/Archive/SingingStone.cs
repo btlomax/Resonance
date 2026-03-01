@@ -15,6 +15,6 @@ public class SingingStone : Interactable
     public override void Interact(GameObject interactor)
     {
         Debug.Log($"The Singing Stone hums a melodious tune as {interactor.name} interacts with it.");
-        GameEventDispatcher.Instance.TriggerEvent(eventToTrigger, true);
+        GameEventDispatcher.Instance.TriggerUIEvent(eventToTrigger, true);
     }
 }

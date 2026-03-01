@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: IncorrectHarmony
   m_EditorClassIdentifier: Assembly-CSharp::PopupData
   popupType: 1
-  triggerEvent: 5
+  triggerEvent: 0
   errorEvent: 1
   title: Incorrect Harmony
   bodyText: Try a note that matches the glow...

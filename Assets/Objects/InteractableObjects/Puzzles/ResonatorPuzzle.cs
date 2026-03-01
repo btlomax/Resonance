@@ -86,7 +86,7 @@ public class ResonatorPuzzle : BasePuzzleManager
             if(activeUIPrompt == null)
             {
                 activeUIPrompt = WorldUIManager.Instance.CreateResonatorUI(UIPromptLocation, puzzleScale.ScaleName, resonatorLight.color);
-                GameEventDispatcher.Instance.TriggerEvent(GameUI_Event.EnteredResonatorPuzzleArea);
+                GameEventDispatcher.Instance.TriggerUIEvent(GameUI_Event.EnteredResonatorPuzzleArea);
             }
 
             StartCoroutine(NoteStartDelay(1)); // Delay before starting the note comparison to allow player to prepare
@@ -176,7 +176,7 @@ public class ResonatorPuzzle : BasePuzzleManager
         else
         {
             Debug.Log("Note sequence did not match. Try again.");
-            GameEventDispatcher.Instance.TriggerErrorEvent(GameUI_Errors.IncorrectHarmony);
+            GameEventDispatcher.Instance.TriggerUIErrorEvent(GameUI_Errors.IncorrectHarmony);
 
             yield return WaitAndRestart(3.0f); // Wait for 5 seconds before allowing another attempt
 
@@ -198,6 +198,6 @@ public class ResonatorPuzzle : BasePuzzleManager
         }
 
         triggerable.TriggerAction("ActivateMechanism");
-        GameEventDispatcher.Instance.TriggerEvent(GameUI_Event.CompletedResonatorPuzzle);
+        GameEventDispatcher.Instance.TriggerUIEvent(GameUI_Event.CompletedResonatorPuzzle);
     }
 }

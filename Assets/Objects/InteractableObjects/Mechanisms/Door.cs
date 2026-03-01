@@ -24,7 +24,7 @@ public class Door : BaseMechanism
         {
             GameEventDispatcher.Instance.TriggerEvent(GameUI_Event.LevelCompleted);
 
-            StartCoroutine(WaitBeforeLoadMainMenu(1f));
+            StartCoroutine(WaitBeforeLoadMainMenu(0.3f));
         }
         else
             Debug.Log("Door is locked");
@@ -32,7 +32,8 @@ public class Door : BaseMechanism
 
     private IEnumerator WaitBeforeLoadMainMenu(float delay)
     {
+        GameEventDispatcher.Instance.TriggerFadeScreenEvent();
+
         yield return new WaitForSeconds(delay);
-        SceneManager.LoadScene(0);
     }
 }

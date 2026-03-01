@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
 public class GameUIManager : MonoBehaviour
@@ -14,7 +15,10 @@ public class GameUIManager : MonoBehaviour
     private List<PopupData> errorPopupLibrary = new List<PopupData>();
     [SerializeField]
     private Canvas _gameUICanvas;
+    [SerializeField]
+    private InputHandler _inputHandler;
 
+    public GameObject fadePanel;
     public GameObject bigPopupPanel;
     public GameObject toastPanel;
 
@@ -22,15 +26,23 @@ public class GameUIManager : MonoBehaviour
     [SerializeField] private AnimationCurve slideCurve;
     [SerializeField] private float slideDistance = 200f;
 
+    private CanvasGroup _fadePanelCanvasGroup;
+
     private void OnEnable()
     {
         GameEventDispatcher.OnGameEventTriggered += HandleGameUIEvent;
+        GameEventDispatcher.OnFadeScreenEventTriggered += FadePanel;
         GameEventDispatcher.OnGameEvent_ErrorTriggered += HandleGameUIErrorEvent;
+
+        _fadePanelCanvasGroup = fadePanel.GetComponent<CanvasGroup>();
+
+        FadePanel(); // Start with fade panel active to create a fade-in effect when the scene loads
     }
 
     private void OnDisable()
     {
         GameEventDispatcher.OnGameEventTriggered -= HandleGameUIEvent;
+        GameEventDispatcher.OnFadeScreenEventTriggered -= FadePanel;
         GameEventDispatcher.OnGameEvent_ErrorTriggered -= HandleGameUIErrorEvent;
     }
     private void HandleGameUIEvent(GameUI_Event gameEvent)
@@ -58,12 +70,20 @@ public class GameUIManager : MonoBehaviour
         if(errorData != null)
             ShowToastPanel(errorData);
     }
+    private void FadePanel()
+    {
+        if(_fadePanelCanvasGroup.alpha == 0)
+            StartCoroutine(AlphaFadeToBlack());
+        else
+            StartCoroutine(AlphaFadeFromBlack());
+    }
 
     private void ShowBigPopupPanel(PopupData data)
     {
         if(data.pauseGame)
         {
             Time.timeScale = 0f; // Pause the game
+            _inputHandler.Controls.Disable();
         }
 
         bigPopupPanel.GetComponentInChildren<TMP_Text>().SetText($"{data.title}\n\n{data.bodyText}");
@@ -113,8 +133,48 @@ public class GameUIManager : MonoBehaviour
         }
 
         panel.SetActive(false);
+        _inputHandler.Controls.Enable();
 
-        if(data.pauseGame)
+        if (data.pauseGame)
             Time.timeScale = 1f; // Resume the game regardless of popup type, as big popups will pause the game and we want to ensure it resumes after the toast is done
+    }
+
+    private IEnumerator AlphaFadeToBlack()
+    {
+        Debug.Log("Starting fade effect");
+        float elapsedTime = 0f;
+
+        while (elapsedTime < 5f)
+        {
+            elapsedTime += Time.deltaTime;
+
+            float alpha = Mathf.Lerp(0f, 1f, elapsedTime);
+
+            _fadePanelCanvasGroup.alpha = alpha;
+
+            yield return null;
+        }
+
+        Debug.Log("Fade effect completed");
+        SceneManager.LoadScene(0);
+    }
+
+    private IEnumerator AlphaFadeFromBlack()
+    {
+        Debug.Log("Starting fade effect");
+        float elapsedTime = 0f;
+
+        while (elapsedTime < 5f)
+        {
+            elapsedTime += Time.deltaTime;
+
+            float alpha = Mathf.Lerp(1f, 0f, elapsedTime);
+
+            _fadePanelCanvasGroup.alpha = alpha;
+
+            yield return null;
+        }
+
+        Debug.Log("Fade effect completed");
     }
 }

@@ -16,7 +16,8 @@ namespace Assets.Data.GameManagement
         EnteredCopyPuzzleArea,
         CompletedCopyPuzzle,
         OpenedDoor,
-        LevelCompleted
+        LevelCompleted,
+        FadeScreenTriggered
     }
 
     public enum GameUI_Errors

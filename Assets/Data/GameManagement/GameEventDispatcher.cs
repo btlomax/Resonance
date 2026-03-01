@@ -10,6 +10,7 @@ public class GameEventDispatcher : MonoBehaviour
     private HashSet<GameUI_Event> triggeredEvents = new HashSet<GameUI_Event>();
 
     public static event Action<GameUI_Event> OnGameEventTriggered;
+    public static event Action OnFadeScreenEventTriggered;
     public static event Action<GameUI_Errors> OnGameEvent_ErrorTriggered;
 
     private void Awake()
@@ -39,5 +40,10 @@ public class GameEventDispatcher : MonoBehaviour
     public void TriggerErrorEvent(GameUI_Errors errorEvent)
     {
        OnGameEvent_ErrorTriggered?.Invoke(errorEvent);
+    }
+
+    public void TriggerFadeScreenEvent()
+    {
+        OnFadeScreenEventTriggered?.Invoke();
     }
 }

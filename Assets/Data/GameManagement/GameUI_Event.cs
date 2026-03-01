@@ -9,6 +9,7 @@ namespace Assets.Data.GameManagement
     public enum GameUI_Event
     {
         None,
+        PickedUpFlute,
         ReachedApples,
         ApplesCollected,
         EnteredResonatorPuzzleArea,
@@ -25,5 +26,7 @@ namespace Assets.Data.GameManagement
         None,
         IncorrectHarmony,
         IncorrectSequence,
+        NotEnoughNotes,
+        TooManyNotes,
     }
 }

@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5dd61c46ce6ec34791235e91dae3102, type: 3}
   m_Name: AppleReached
   m_EditorClassIdentifier: Assembly-CSharp::PopupData
-  triggerEvent: 1
+  popupType: 0
+  triggerEvent: 2
+  errorEvent: 0
   title: The World Is Listening
   bodyText: "Spin the wheel of sound,\nMatch the <color=#D64545>red</color> to crimson
     fruit,\nIt falls to your song. \n"

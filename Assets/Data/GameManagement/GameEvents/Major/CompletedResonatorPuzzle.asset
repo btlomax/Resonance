@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: CompletedResonatorPuzzle
   m_EditorClassIdentifier: Assembly-CSharp::PopupData
   popupType: 1
-  triggerEvent: 4
+  triggerEvent: 5
+  errorEvent: 0
   title: First Harmony
   bodyText: You harmonized with the crystal and the bridge has risen!
   displayDuration: 5

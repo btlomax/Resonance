@@ -15,8 +15,8 @@ MonoBehaviour:
   popupType: 0
   triggerEvent: 8
   errorEvent: 0
-  title: Thank you for playing!
+  title: Until next time!
   bodyText: Thank you for playing the demo level of Resonance, I hope you enjoyed
     it!
-  displayDuration: 10
-  pauseGame: 0
+  displayDuration: 5
+  pauseGame: 1

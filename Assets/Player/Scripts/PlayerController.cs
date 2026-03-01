@@ -64,7 +64,7 @@ public class PlayerController : MonoBehaviour
 
         HandleMovement();
 
-        HandleFocus();
+        UpdateFocus();
 
         if (_inputHandler.InteractInput)
         {
@@ -144,7 +144,7 @@ public class PlayerController : MonoBehaviour
             grounded = false;
     }
 
-    private void HandleFocus()
+    private void UpdateFocus()
     {
         _ray.origin = transform.position + new Vector3(0, 1, 0);
         _ray.direction = transform.forward;

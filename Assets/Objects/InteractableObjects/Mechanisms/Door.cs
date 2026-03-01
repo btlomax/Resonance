@@ -1,19 +1,38 @@
 using Assets.Data.GameManagement;
 using Assets.Player.Contracts;
+using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class Door : BaseMechanism, IObjectInteraction
+public class Door : BaseMechanism
 {
-    public GameObject door;
-    public override void ActivateMechanism()
+    [SerializeField] private bool _unlocked;
+
+    private void Awake()
     {
-        door.SetActive(false);
+        _unlocked = false;
     }
 
-    public void Interact(GameObject interactor)
+    public override void ActivateMechanism()
     {
-        GameEventDispatcher.Instance.TriggerEvent(GameUI_Event.LevelCompleted);
+        _unlocked = true;
+    }
 
-        // Fade out and back to main menu
+    public void OnTriggerEnter(Collider other)
+    {
+        if(_unlocked && other.CompareTag("Player"))
+        {
+            GameEventDispatcher.Instance.TriggerEvent(GameUI_Event.LevelCompleted);
+
+            StartCoroutine(WaitBeforeLoadMainMenu(1f));
+        }
+        else
+            Debug.Log("Door is locked");
+    }
+
+    private IEnumerator WaitBeforeLoadMainMenu(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        SceneManager.LoadScene(0);
     }
 }

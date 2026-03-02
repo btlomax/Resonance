@@ -135,7 +135,7 @@ public class ResonatorPuzzle : BasePuzzleManager
 
         Debug.Log("Comparing recorded notes to target interval...");
 
-        StartCoroutine(DelayAndLookup(3.0f, noteRecorded));
+        StartCoroutine(DelayAndLookup(2f, noteRecorded));
        
        yield return null;
     }
@@ -143,6 +143,7 @@ public class ResonatorPuzzle : BasePuzzleManager
     private IEnumerator WaitAndRestart(float waitTime)
     {
         AudioManager.Instance.Environment_StopLoopingNote();
+        GameEventDispatcher.Instance.TriggerUIErrorEvent(GameUI_Errors.IncorrectHarmony);
         yield return new WaitForSeconds(waitTime);
         if (_activated && !_isSolved)
         {
@@ -176,10 +177,8 @@ public class ResonatorPuzzle : BasePuzzleManager
         else
         {
             Debug.Log("Note sequence did not match. Try again.");
-            GameEventDispatcher.Instance.TriggerUIErrorEvent(GameUI_Errors.IncorrectHarmony);
 
             yield return WaitAndRestart(3.0f); // Wait for 5 seconds before allowing another attempt
-
         }
     }
 

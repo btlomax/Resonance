@@ -23,7 +23,6 @@ public class BeamEmitter : BaseMechanism
     private Material _emitterGemMaterial;
 
     public bool EmitFromNotePlayed = true;
-    public GameObject emitterTeleportPad;
 
     [Header("Musical Settings")]
     [Tooltip("Only needed if player directly interacts with the emitter")]
@@ -118,7 +117,7 @@ public class BeamEmitter : BaseMechanism
             _emitterGem.GetComponentInChildren<Renderer>().material.color = Color.white;
             _emitterLight.enabled = true;
 
-            other.GetComponent<PlayerController>().emitterTeleport = emitterTeleportPad.transform;
+
         }
     }
 

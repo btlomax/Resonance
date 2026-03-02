@@ -20,10 +20,10 @@ MonoBehaviour:
 
 
     It
-    <b>hums</b> with a potential only you can release.
+    hums and vibrates with a potential only you can release.
 
 
-    Use R2 to toggle your
-    note wheel, and then use the right stick to play a note. '
+    Use R2 to toggle
+    your note wheel, and then use the right stick to play a note. '
   displayDuration: 8
   pauseGame: 1

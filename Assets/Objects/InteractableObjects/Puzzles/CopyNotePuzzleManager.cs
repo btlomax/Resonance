@@ -16,6 +16,8 @@ public class CopyNotePuzzleManager : BasePuzzleManager
     public GameObject successObject;
     public TriggerInteractable triggerable;
     public SingingStone signPost;
+    public GameObject teleportPad;
+
 
     public float delayBetweenNotes = 0.5f;
     public bool isSolved = false;
@@ -33,7 +35,6 @@ public class CopyNotePuzzleManager : BasePuzzleManager
 
     private void OnEnable()
     {
-        noteComparisonStartedEvent.OnNoteComparisonStarted += OnNoteComparisonStarted;
     }
 
     /// <summary>
@@ -42,7 +43,11 @@ public class CopyNotePuzzleManager : BasePuzzleManager
     /// <param name="interactor"></param>
     public override void Interact(GameObject interactor)
     {
-        if(!IsSolved)
+        noteComparisonStartedEvent.OnNoteComparisonStarted += OnNoteComparisonStarted;
+        interactor.GetComponent<PlayerController>().emitterTeleport = teleportPad.transform;
+
+
+        if (!IsSolved)
             OnPuzzleActivated();
     }
 
@@ -121,5 +126,7 @@ public class CopyNotePuzzleManager : BasePuzzleManager
         triggerable.TriggerAction("ActivateMechanism");
         GameEventDispatcher.Instance.TriggerUIEvent(GameUI_Event.CompletedCopyPuzzle);
         signPost.eventToTrigger = GameUI_Event.CompletedCopyPuzzle;
+        noteComparisonStartedEvent.OnNoteComparisonStarted -= OnNoteComparisonStarted;
+
     }
 }

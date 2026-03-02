@@ -16,11 +16,10 @@ MonoBehaviour:
   triggerEvent: 4
   errorEvent: 0
   title: Harmony
-  bodyText: 'Match the crystal hue
+  bodyText: 'The crystal is positively humming!
 
-    Use the glowing scale above
 
-    Find the
-    note it needs'
+    Match the colour of the crystal
+    to play along.'
   displayDuration: 5
   pauseGame: 1

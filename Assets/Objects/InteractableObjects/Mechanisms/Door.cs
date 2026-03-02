@@ -16,6 +16,9 @@ public class Door : BaseMechanism
     public override void ActivateMechanism()
     {
         _unlocked = true;
+        var renderer = GetComponent<Renderer>();
+
+        renderer.enabled = false;
     }
 
     public void OnTriggerEnter(Collider other)

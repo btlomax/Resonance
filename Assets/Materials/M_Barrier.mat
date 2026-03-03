@@ -42,6 +42,8 @@ Material:
     - _QueueOffset: 0
     m_Colors:
     - _Barrier_Colour: {r: 0.42986828, g: 0.5169353, b: 0.8679245, a: 1}
+    - _Barrier_Main_Colour: {r: 0.9490196, g: 0.9490196, b: 0.9137255, a: 1}
+    - _Barrier_Secondary_Color: {r: 0, g: 0, b: 0, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!114 &6103955433124228461

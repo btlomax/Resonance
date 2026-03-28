@@ -40,6 +40,8 @@ public class PlayerController : MonoBehaviour
     private Interactable _currentFocus;
     [SerializeField]
     private InputHandler _inputHandler;
+    [SerializeField]
+    private Animator _animator;
 
     private const float _inputDeadzone = 0.01f;
     private CharacterController _charController;

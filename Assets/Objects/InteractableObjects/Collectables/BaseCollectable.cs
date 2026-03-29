@@ -20,8 +20,8 @@ public abstract class BaseCollectable : MonoBehaviour, ICollectable
                 foreach(var obj in numberOfCollectables)
                 {
                     Renderer renderer = obj.GetComponent<Renderer>();
-                    renderer.material.color = scaleDegreeToColour.scaleDegreeColours[i];
-                    renderer.material.SetColor("_EmissionColor", scaleDegreeToColour.scaleDegreeColours[i] * 0.5f); // Adjust emission intensity as needed
+                    renderer.material.SetColor("_BaseColor", scaleDegreeToColour.scaleDegreeColours[i]); // Set base color)
+                    renderer.material.SetColor("_EmissionColor", scaleDegreeToColour.scaleDegreeColours[i] * 1.2f); // Adjust emission intensity as needed
                 }
             }
         }

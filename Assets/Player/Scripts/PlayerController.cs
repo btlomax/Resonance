@@ -2,7 +2,6 @@ using Assets.Player.Contracts;
 using System.Collections;
 using Unity.Cinemachine;
 using UnityEngine;
-using UnityEngine.Rendering;
 
 /// <summary>
 /// Need to think about breaking this into smaller components later

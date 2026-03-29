@@ -1,5 +1,3 @@
-using Unity.Cinemachine;
-using UnityEditor.ShaderGraph;
 using UnityEngine;
 
 public class InputHandler : MonoBehaviour

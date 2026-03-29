@@ -1,8 +1,5 @@
 using Assets.Data.GameManagement;
-using Assets.Objects.InteractableObjects.Collectables;
 using System.Collections;
-using Unity.VisualScripting;
-using UnityEditor.Build;
 using UnityEngine;
 
 public class Apple : BaseCollectable

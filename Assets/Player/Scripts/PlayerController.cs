@@ -52,6 +52,10 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         _charController = GetComponent<CharacterController>();
+        PlayerFlute.PlayerCollectsFlute += () =>
+        {
+            _animator.SetBool("hasFlute", true); // Make sure "hasFlute" exists in your Animator
+        };
     }
 
     private void Update()
@@ -81,7 +85,6 @@ public class PlayerController : MonoBehaviour
 
     private void HandleMovement()
     {
-
         Vector2 moveInput = _inputHandler != null ? _inputHandler.MoveInput : Vector2.zero;
 
         // Get camera forward and right, but flatten to prevent tilting on slopes
@@ -95,8 +98,10 @@ public class PlayerController : MonoBehaviour
 
         // Build movement relative to camera
         _movement = camForward * moveInput.y + camRight * moveInput.x;
-
         _movement = Vector3.ClampMagnitude(_movement, 1f);
+
+        bool isMoving = _movement.sqrMagnitude > _inputDeadzone * _inputDeadzone;
+        _animator.SetBool("isMoving", isMoving);
 
         if(_movement.sqrMagnitude > _inputDeadzone * _inputDeadzone)
         {
@@ -108,9 +113,9 @@ public class PlayerController : MonoBehaviour
             );
         }
 
-        if(grounded)
+        if (grounded)
         {
-            if(verticalVelocity.y < 0)
+            if (verticalVelocity.y < 0)
                 verticalVelocity.y = -2f; // small downward force to keep grounded
 
             if (_inputHandler.JumpInput)
@@ -183,6 +188,8 @@ public class PlayerController : MonoBehaviour
         _hasInteracted = false;
     }
 }
+
+
 
 
 

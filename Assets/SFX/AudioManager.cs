@@ -28,6 +28,8 @@ public class AudioManager : MonoBehaviour, IPlayNote
     public AK.Wwise.Event BarrierDeactivate;
     public AK.Wwise.Event CollectFlute;
     public AK.Wwise.Event InteractEvent;
+    public AK.Wwise.Event Footstep;
+    public AK.Wwise.Event ToastPop;
 
     //public AK.Wwise.Switch noteSwitch;
 

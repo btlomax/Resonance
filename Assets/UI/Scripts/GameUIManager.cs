@@ -120,6 +120,8 @@ public class GameUIManager : MonoBehaviour
             yield return null;
         }
 
+        AudioManager.Instance.PlayOneShot(AudioManager.Instance.ToastPop);
+
         // 3. Wait
         yield return new WaitForSecondsRealtime(data.displayDuration);
 

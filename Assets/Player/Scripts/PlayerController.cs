@@ -136,7 +136,8 @@ public class PlayerController : MonoBehaviour
        if (_currentFocus != null && !_hasInteracted)
        {
            _currentFocus.Interact(gameObject);
-           _hasInteracted = true;
+            AudioManager.Instance.InteractEvent.Post(gameObject);
+            _hasInteracted = true;
 
            StartCoroutine(WaitAfterInteract(1f));
         }
@@ -186,8 +187,6 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSeconds(seconds);
         _hasInteracted = false;
     }
-
-   
 }
 
 

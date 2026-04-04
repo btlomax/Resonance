@@ -4,6 +4,6 @@ public class PlayerSounds : MonoBehaviour
 {
     public void PlayFootstep()
     {
-        Debug.Log("Footstep sound played");
+        AudioManager.Instance.Footstep.Post(gameObject);
     }
 }

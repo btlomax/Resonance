@@ -6,7 +6,7 @@ public class StoneBridge : BaseMechanism
 
     public override void ActivateMechanism()
     {
-        Debug.Log("The stone bridge has been activated.");
         bridge.SetActive(true);
+        AudioManager.Instance.MechanismActivateEvent.Post(gameObject);
     }
 }

@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bafbe165877e6b74db41f39aa3f7ef1c, type: 3}
+  m_Name: 2E0A67A7-D424-435D-9713-0383026D5F3C
+  m_EditorClassIdentifier: AK.Wwise.Unity.API.WwiseTypes::WwiseEventReference
+  objectName: Stone_Bridge
+  id: 1851077388
+  guid: 2E0A67A7-D424-435D-9713-0383026D5F3C
+  IsInUserDefinedSoundBank: 1

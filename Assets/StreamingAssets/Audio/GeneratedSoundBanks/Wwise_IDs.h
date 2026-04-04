@@ -19,7 +19,11 @@ namespace AK
         static const AkUniqueID COLLECT_FLUTE = 1961873250U;
         static const AkUniqueID ENV_LOOPINGNOTE_PLAY = 1725522842U;
         static const AkUniqueID ENV_SINGLENOTE_PLAY = 1603227798U;
+        static const AkUniqueID FOOTSTEP = 1866025847U;
+        static const AkUniqueID INTERACT = 1466384055U;
         static const AkUniqueID PLAYERNOTE_PLAY = 293658751U;
+        static const AkUniqueID STONE_BRIDGE = 1851077388U;
+        static const AkUniqueID TOAST_POP = 1846943658U;
     } // namespace EVENTS
 
     namespace SWITCHES

@@ -13,6 +13,10 @@ namespace AK
 {
     namespace EVENTS
     {
+        static const AkUniqueID APPLE_DETACH = 2559029907U;
+        static const AkUniqueID BARRIER_DOWN = 4025991829U;
+        static const AkUniqueID COLLECT = 2756333705U;
+        static const AkUniqueID COLLECT_FLUTE = 1961873250U;
         static const AkUniqueID ENV_LOOPINGNOTE_PLAY = 1725522842U;
         static const AkUniqueID ENV_SINGLENOTE_PLAY = 1603227798U;
         static const AkUniqueID PLAYERNOTE_PLAY = 293658751U;

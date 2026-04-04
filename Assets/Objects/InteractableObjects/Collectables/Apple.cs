@@ -58,6 +58,8 @@ public class Apple : BaseCollectable
             rb.isKinematic = false;       // enable physics
             rb.useGravity = true;         // let it fall naturally
 
+            AudioManager.Instance.PlayOneShot(AudioManager.Instance.AppleDetachEvent, obj);
+
             // Wait a bit to let it drop
             yield return new WaitForSeconds(0.3f);
 
@@ -86,6 +88,7 @@ public class Apple : BaseCollectable
         Debug.Log("Apple collected!");
 
         player.GetComponent<PlayerInventory>().AddItem("Apple", 1);
+        AudioManager.Instance.PlayOneShot(AudioManager.Instance.CollectItemEvent, gameObject);
 
         gameObject.SetActive(false); // hide the apple object
         Destroy(gameObject);

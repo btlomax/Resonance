@@ -2,6 +2,7 @@ using Assets.Data.GameManagement;
 using Assets.Objects.InteractableObjects.Collectables;
 using Assets.Player.Contracts;
 using System;
+using System.Collections;
 using UnityEngine;
 
 public class PlayerFlute : Interactable
@@ -12,10 +13,19 @@ public class PlayerFlute : Interactable
 
     public override void Interact(GameObject interactor)
     {
-        //fluteModel.SetActive(false);
+        AudioManager.Instance.PlayOneShot(AudioManager.Instance.CollectFlute);
+
         GameEventDispatcher.Instance.TriggerUIEvent(GameUI_Event.PickedUpFlute);
         PlayerCollectsFlute?.Invoke();
-        this.gameObject.SetActive(false);
+        fluteModel.SetActive(false);
+        StartCoroutine(WaitBeforePlay(0.5f));
+    }
+
+    private IEnumerator WaitBeforePlay(float waitTime)
+    {
+        yield return new WaitForSeconds(waitTime);
+        AudioManager.Instance.PlayOneShot(AudioManager.Instance.BarrierDeactivate, sectionWall);
         sectionWall.SetActive(false);
+        this.gameObject.SetActive(false);
     }
 }

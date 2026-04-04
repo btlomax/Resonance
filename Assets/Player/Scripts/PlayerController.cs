@@ -186,6 +186,8 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSeconds(seconds);
         _hasInteracted = false;
     }
+
+   
 }
 
 

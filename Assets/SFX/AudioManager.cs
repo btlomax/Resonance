@@ -16,10 +16,18 @@ public class AudioManager : MonoBehaviour, IPlayNote
 
     private bool _noteFinished = false;
 
-    [Header("Wwise Events")]
+    [Header("Note Events")]
     public AK.Wwise.Event Player_PlayToneEvent;
     public AK.Wwise.Event Environment_PlayToneEvent;
     public AK.Wwise.Event playSequenceEvent;
+
+    [Header("SFX Events")]
+    public AK.Wwise.Event CollectItemEvent;
+    public AK.Wwise.Event MechanismActivateEvent;
+    public AK.Wwise.Event AppleDetachEvent;
+    public AK.Wwise.Event BarrierDeactivate;
+    public AK.Wwise.Event CollectFlute;
+    public AK.Wwise.Event InteractEvent;
 
     //public AK.Wwise.Switch noteSwitch;
 
@@ -83,5 +91,12 @@ public class AudioManager : MonoBehaviour, IPlayNote
     {
         Debug.Log("AudioManager: Starting copy puzzle sequence.");
         _cPSP.StartSequenceCoroutine(noteSequence);
+    }
+
+    
+
+    public void PlayOneShot(AK.Wwise.Event sfxEvent, GameObject source = null)
+    {
+        sfxEvent?.Post(source != null ? source : gameObject);
     }
 }

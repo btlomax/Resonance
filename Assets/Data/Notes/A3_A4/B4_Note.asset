@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 260790f1ab500654d885e9990c919f76, type: 3}
-  m_Name: B3_Note
+  m_Name: B4_Note
   m_EditorClassIdentifier: Assembly-CSharp::NoteScriptObj
-  noteTitle: B3
-  noteFrequency: 246
+  noteTitle: B4
+  noteFrequency: 493
   unlocked: 0
   noteColor: {r: 0, g: 0.40378952, b: 1, a: 1}

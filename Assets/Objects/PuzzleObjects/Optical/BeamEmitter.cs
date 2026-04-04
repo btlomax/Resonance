@@ -89,6 +89,7 @@ public class BeamEmitter : BaseMechanism
         BeamManager.Instance.ProcessBeam(emittedBeam);
 
         _beamRenderer.RenderBeam(emittedBeam, _beamDuration);
+       // AudioManager.Instance.PlayOneShot(AudioManager.Instance.BeamEmitter, gameObject);
     }
 
     /// <summary>

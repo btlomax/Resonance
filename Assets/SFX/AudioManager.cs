@@ -30,6 +30,10 @@ public class AudioManager : MonoBehaviour, IPlayNote
     public AK.Wwise.Event InteractEvent;
     public AK.Wwise.Event Footstep;
     public AK.Wwise.Event ToastPop;
+    public AK.Wwise.Event ErrorPop;
+    public AK.Wwise.Event ClosePopup;
+    public AK.Wwise.Event BeamEmitter;
+    public AK.Wwise.Event EndGame;
 
     //public AK.Wwise.Switch noteSwitch;
 

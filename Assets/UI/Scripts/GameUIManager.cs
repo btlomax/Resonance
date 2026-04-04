@@ -66,9 +66,10 @@ public class GameUIManager : MonoBehaviour
     private void HandleGameUIErrorEvent(GameUI_Errors error)
     {
         PopupData errorData = errorPopupLibrary.Find(p => p.errorEvent == error);
+        AudioManager.Instance.PlayOneShot(AudioManager.Instance.ErrorPop);
 
-        if(errorData != null)
-            ShowToastPanel(errorData);
+        if (errorData != null)
+            ShowToastPanel(errorData, true);
     }
     private void FadePanel()
     {
@@ -87,14 +88,19 @@ public class GameUIManager : MonoBehaviour
         }
 
         bigPopupPanel.GetComponentInChildren<TMP_Text>().SetText($"{data.title}\n\n{data.bodyText}");
-        StartCoroutine(SlidePanelIn(data, bigPopupPanel));
+        AudioManager.Instance.PlayOneShot(AudioManager.Instance.ToastPop);
 
+        StartCoroutine(SlidePanelIn(data, bigPopupPanel));
         Debug.Log($"Showing popup: {data.title} - {data.bodyText}");
     }
 
-    private void ShowToastPanel(PopupData data)
+    private void ShowToastPanel(PopupData data, bool error = false)
     {
         toastPanel.GetComponentInChildren<TMP_Text>().SetText($"{data.title}\n\n{data.bodyText}");
+
+        if(!error)
+            AudioManager.Instance.PlayOneShot(AudioManager.Instance.ToastPop);
+
         StartCoroutine(SlidePanelIn(data, toastPanel));
 
         Debug.Log($"Showing toast: {data.title} - {data.bodyText}");
@@ -111,6 +117,7 @@ public class GameUIManager : MonoBehaviour
         rect.anchoredPosition = hiddenPos;
         panel.SetActive(true);
 
+
         // 2. Slide In
         float t = 0;
         while (t < 1)
@@ -120,13 +127,12 @@ public class GameUIManager : MonoBehaviour
             yield return null;
         }
 
-        AudioManager.Instance.PlayOneShot(AudioManager.Instance.ToastPop);
-
         // 3. Wait
         yield return new WaitForSecondsRealtime(data.displayDuration);
 
         // 4. Slide Out
         t = 0;
+        AudioManager.Instance.PlayOneShot(AudioManager.Instance.ClosePopup);
         while (t < 1)
         {
             t += Time.unscaledDeltaTime * 2f;

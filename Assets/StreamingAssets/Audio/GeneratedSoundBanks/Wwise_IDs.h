@@ -15,13 +15,18 @@ namespace AK
     {
         static const AkUniqueID APPLE_DETACH = 2559029907U;
         static const AkUniqueID BARRIER_DOWN = 4025991829U;
+        static const AkUniqueID BEAMEMITTER = 3733535250U;
+        static const AkUniqueID CLOSEPOPUP = 1235022095U;
         static const AkUniqueID COLLECT = 2756333705U;
         static const AkUniqueID COLLECT_FLUTE = 1961873250U;
+        static const AkUniqueID ENDGAME = 4264815106U;
         static const AkUniqueID ENV_LOOPINGNOTE_PLAY = 1725522842U;
         static const AkUniqueID ENV_SINGLENOTE_PLAY = 1603227798U;
+        static const AkUniqueID ERRORPOPUP = 1111520197U;
         static const AkUniqueID FOOTSTEP = 1866025847U;
         static const AkUniqueID INTERACT = 1466384055U;
         static const AkUniqueID PLAYERNOTE_PLAY = 293658751U;
+        static const AkUniqueID POPUPRETRACT = 3309421160U;
         static const AkUniqueID STONE_BRIDGE = 1851077388U;
         static const AkUniqueID TOAST_POP = 1846943658U;
     } // namespace EVENTS

@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bafbe165877e6b74db41f39aa3f7ef1c, type: 3}
+  m_Name: DEEABE4B-1331-4B20-8DFE-B54445A9C6A6
+  m_EditorClassIdentifier: AK.Wwise.Unity.API.WwiseTypes::WwiseEventReference
+  objectName: ClosePopup
+  id: 1235022095
+  guid: DEEABE4B-1331-4B20-8DFE-B54445A9C6A6
+  IsInUserDefinedSoundBank: 1

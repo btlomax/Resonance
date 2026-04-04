@@ -87,6 +87,7 @@ public class BeamReceiver : MonoBehaviour, IOpticalElement
 
         linkedTrigger.TriggerAction("ActivateMechanism");
         GameEventDispatcher.Instance.TriggerUIEvent(GameUI_Event.OpenedDoor);
+        AudioManager.Instance.PlayOneShot(AudioManager.Instance.EndGame);
         return;
     }
 

@@ -148,10 +148,10 @@ public class RadialMenuGenerator : MonoBehaviour
             _activeSlices[i].color = ScaleDegreeColourLookup.Get(i);
         }
 
-        TMP_Text scaleName = Instantiate(scaleNameText, radialMenu.transform);
-        scaleName.transform.position += new Vector3(_scaleNameOffset.x, _scaleNameOffset.y, 0); // Adjust position as needed
+       // TMP_Text scaleName = Instantiate(scaleNameText, radialMenu.transform);
+       // scaleName.transform.position += new Vector3(_scaleNameOffset.x, _scaleNameOffset.y, 0); // Adjust position as needed
 
-        scaleName.text = currentScale.ScaleName;
+        //scaleName.text = currentScale.ScaleName;
     }
 
     /// <summary>

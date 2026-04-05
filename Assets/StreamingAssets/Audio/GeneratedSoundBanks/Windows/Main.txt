@@ -1,0 +1,100 @@
+Event	ID	Name			Wwise Object Path	Notes
+	293658751	PlayerNote_Play			\Default Work Unit\SynthesisedNotes\PlayerNote_Play	
+	1111520197	ErrorPopup			\Default Work Unit\OneShots\ErrorPopup	
+	1235022095	ClosePopup			\Default Work Unit\OneShots\ClosePopup	
+	1466384055	Interact			\Default Work Unit\OneShots\Interact	
+	1725522842	Env_LoopingNote_Play			\Default Work Unit\SynthesisedNotes\Env_LoopingNote_Play	
+	1846943658	Toast_Pop			\Default Work Unit\OneShots\Toast_Pop	
+	1851077388	Stone_Bridge			\Default Work Unit\OneShots\Stone_Bridge	
+	1866025847	Footstep			\Default Work Unit\OneShots\Footstep	
+	1961873250	Collect_Flute			\Default Work Unit\OneShots\Collect_Flute	
+	2559029907	Apple_Detach			\Default Work Unit\OneShots\Apple_Detach	
+	2756333705	Collect			\Default Work Unit\OneShots\Collect	
+	3309421160	PopupRetract			\Default Work Unit\OneShots\PopupRetract	
+	3733535250	BeamEmitter			\Default Work Unit\OneShots\BeamEmitter	
+	4025991829	Barrier_Down			\Default Work Unit\OneShots\Barrier_Down	
+	4264815106	EndGame			\Default Work Unit\OneShots\EndGame	
+
+Switch Group	ID	Name			Wwise Object Path	Notes
+	1322221620	Env_Looping_A3_A4			\Default Work Unit\Environment\Env_Looping_A3_A4	
+	2888024727	Ply_A3_A4			\Default Work Unit\Player\Ply_A3_A4	
+
+Switch	ID	Name	Switch Group			Notes
+	362097357	Db4	Env_Looping_A3_A4			
+	496612492	Bb3	Env_Looping_A3_A4			
+	596439562	Gb4	Env_Looping_A3_A4			
+	731057968	Eb4	Env_Looping_A3_A4			
+	1134309148	Ab4	Env_Looping_A3_A4			
+	1786192860	G4	Env_Looping_A3_A4			
+	1802970447	F4	Env_Looping_A3_A4			
+	1819748154	E4	Env_Looping_A3_A4			
+	1836525717	D4	Env_Looping_A3_A4			
+	1853303296	C4	Env_Looping_A3_A4			
+	1870081012	B3	Env_Looping_A3_A4			
+	1886858601	A3	Env_Looping_A3_A4			
+	1886858606	A4	Env_Looping_A3_A4			
+	362097357	Db4	Ply_A3_A4			
+	496612492	Bb3	Ply_A3_A4			
+	596439562	Gb4	Ply_A3_A4			
+	731057968	Eb4	Ply_A3_A4			
+	1134309148	Ab4	Ply_A3_A4			
+	1786192860	G4	Ply_A3_A4			
+	1802970447	F4	Ply_A3_A4			
+	1819748154	E4	Ply_A3_A4			
+	1836525717	D4	Ply_A3_A4			
+	1853303296	C4	Ply_A3_A4			
+	1870081012	B3	Ply_A3_A4			
+	1886858601	A3	Ply_A3_A4			
+	1886858606	A4	Ply_A3_A4			
+
+Effect plug-ins	ID	Name	Type				Notes
+	1655770832	High_Freq_Cut_11	Wwise Parametric EQ			
+
+Source plug-ins	ID	Name	Type		Wwise Object Path	Notes
+	1755002	Tone Generator	Wwise Tone Generator		\Actor-Mixer Hierarchy\Default Work Unit\SingleNotes\Environment\Env_Looping_A3_A4\C4\Tone Generator	
+	15597294	Tone Generator	Wwise Tone Generator		\Actor-Mixer Hierarchy\Default Work Unit\SingleNotes\Player\Ply_A3_A4\Eb4\Tone Generator	
+	101240729	Tone Generator	Wwise Tone Generator		\Actor-Mixer Hierarchy\Default Work Unit\SingleNotes\Environment\Env_Looping_A3_A4\A4\Tone Generator	
+	148868113	Tone Generator	Wwise Tone Generator		\Actor-Mixer Hierarchy\Default Work Unit\SingleNotes\Player\Ply_A3_A4\Db4\Tone Generator	
+	212078619	Tone Generator	Wwise Tone Generator		\Actor-Mixer Hierarchy\Default Work Unit\SingleNotes\Environment\Env_Looping_A3_A4\Gb4\Tone Generator	
+	215589727	Tone Generator	Wwise Tone Generator		\Actor-Mixer Hierarchy\Default Work Unit\SingleNotes\Environment\Env_Looping_A3_A4\A3\Tone Generator	
+	257499401	Tone Generator	Wwise Tone Generator		\Actor-Mixer Hierarchy\Default Work Unit\SingleNotes\Player\Ply_A3_A4\A3\Tone Generator	
+	282942249	Tone Generator	Wwise Tone Generator		\Actor-Mixer Hierarchy\Default Work Unit\SingleNotes\Player\Ply_A3_A4\C4\Tone Generator	
+	319345377	Tone Generator	Wwise Tone Generator		\Actor-Mixer Hierarchy\Default Work Unit\SingleNotes\Environment\Env_Looping_A3_A4\Bb3\Tone Generator	
+	358533383	Tone Generator	Wwise Tone Generator		\Actor-Mixer Hierarchy\Default Work Unit\SingleNotes\Player\Ply_A3_A4\E4\Tone Generator	
+	401537659	Tone Generator	Wwise Tone Generator		\Actor-Mixer Hierarchy\Default Work Unit\SingleNotes\Environment\Env_Looping_A3_A4\Db4\Tone Generator	
+	499814124	Tone Generator	Wwise Tone Generator		\Actor-Mixer Hierarchy\Default Work Unit\SingleNotes\Environment\Env_Looping_A3_A4\Ab4\Tone Generator	
+	518724689	Tone Generator	Wwise Tone Generator		\Actor-Mixer Hierarchy\Default Work Unit\SingleNotes\Environment\Env_Looping_A3_A4\B3\Tone Generator	
+	531868844	Tone Generator	Wwise Tone Generator		\Actor-Mixer Hierarchy\Default Work Unit\SingleNotes\Environment\Env_Looping_A3_A4\Eb4\Tone Generator	
+	532149392	Tone Generator	Wwise Tone Generator		\Actor-Mixer Hierarchy\Default Work Unit\SingleNotes\Player\Ply_A3_A4\D4\Tone Generator	
+	548947014	Tone Generator	Wwise Tone Generator		\Actor-Mixer Hierarchy\Default Work Unit\SingleNotes\Player\Ply_A3_A4\Bb3\Tone Generator	
+	628809783	Tone Generator	Wwise Tone Generator		\Actor-Mixer Hierarchy\Default Work Unit\SingleNotes\Player\Ply_A3_A4\Gb4\Tone Generator	
+	629292891	Tone Generator	Wwise Tone Generator		\Actor-Mixer Hierarchy\Default Work Unit\SingleNotes\Player\Ply_A3_A4\A4\Tone Generator	
+	822517995	Tone Generator	Wwise Tone Generator		\Actor-Mixer Hierarchy\Default Work Unit\SingleNotes\Player\Ply_A3_A4\B4\Tone Generator	
+	834413701	Tone Generator	Wwise Tone Generator		\Actor-Mixer Hierarchy\Default Work Unit\SingleNotes\Environment\Env_Looping_A3_A4\E4\Tone Generator	
+	838137911	Tone Generator	Wwise Tone Generator		\Actor-Mixer Hierarchy\Default Work Unit\SingleNotes\Environment\Env_Looping_A3_A4\D4\Tone Generator	
+	874161922	Tone Generator	Wwise Tone Generator		\Actor-Mixer Hierarchy\Default Work Unit\SingleNotes\Environment\Env_Looping_A3_A4\G4\Tone Generator	
+	913346719	Tone Generator	Wwise Tone Generator		\Actor-Mixer Hierarchy\Default Work Unit\SingleNotes\Player\Ply_A3_A4\F4\Tone Generator	
+	971075408	Tone Generator	Wwise Tone Generator		\Actor-Mixer Hierarchy\Default Work Unit\SingleNotes\Environment\Env_Looping_A3_A4\F4\Tone Generator	
+	985916210	Tone Generator	Wwise Tone Generator		\Actor-Mixer Hierarchy\Default Work Unit\SingleNotes\Player\Ply_A3_A4\Ab4\Tone Generator	
+	1039739895	Tone Generator	Wwise Tone Generator		\Actor-Mixer Hierarchy\Default Work Unit\SingleNotes\Player\Ply_A3_A4\G4\Tone Generator	
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	49968161	663311__hnieminen__water-drops	C:\Users\lomax\Resonance_WwiseIntegrationTemp1\Resonance_WwiseProject\.cache\DE\{DE360062-E553-D36D-BBA5-2EBABAA642F1}.wem		\Actor-Mixer Hierarchy\Default Work Unit\OneShots\BridgeRising\663311__hnieminen__water-drops		1047448
+	82829410	EndGame	C:\Users\lomax\Resonance_WwiseIntegrationTemp1\Resonance_WwiseProject\.cache\A1\{A1EAB7D4-1924-FA01-BF24-CBA25B1182DD}.wem		\Actor-Mixer Hierarchy\Default Work Unit\OneShots\EndGame		497904
+	113702393	458269__nicstage__spillway-water	C:\Users\lomax\Resonance_WwiseIntegrationTemp1\Resonance_WwiseProject\.cache\AA\{AAFD5583-FB91-3F7E-973A-8DF91A549AC9}.wem		\Actor-Mixer Hierarchy\Default Work Unit\OneShots\BridgeRising\458269__nicstage__spillway-water		1217572
+	116328347	Interact_Click	C:\Users\lomax\Resonance_WwiseIntegrationTemp1\Resonance_WwiseProject\.cache\04\{043D8DBF-0C81-FA95-A344-F3DB08F44992}.wem		\Actor-Mixer Hierarchy\Default Work Unit\OneShots\Interact_Click		16364
+	245447153	MudFootstep	C:\Users\lomax\Resonance_WwiseIntegrationTemp1\Resonance_WwiseProject\.cache\BA\{BAB479CD-56B7-1A88-119B-8437C807965B}.wem		\Actor-Mixer Hierarchy\Default Work Unit\OneShots\Footstep\MudFootstep		18998
+	308937070	Collect1	C:\Users\lomax\Resonance_WwiseIntegrationTemp1\Resonance_WwiseProject\.cache\C2\{C2E1419D-6769-F7AC-88E8-0B2E2E493E87}.wem		\Actor-Mixer Hierarchy\Default Work Unit\OneShots\Collect1		40130
+	419529499	ToastPop	C:\Users\lomax\Resonance_WwiseIntegrationTemp1\Resonance_WwiseProject\.cache\A5\{A5CDE119-BA63-2213-7CBB-EFFFCAF12DDB}.wem		\Actor-Mixer Hierarchy\Default Work Unit\OneShots\ToastPop		10434
+	448850317	Detach2	C:\Users\lomax\Resonance_WwiseIntegrationTemp1\Resonance_WwiseProject\.cache\B4\{B4B0C937-3E75-71CA-D675-B2FA94EE4752}.wem		\Actor-Mixer Hierarchy\Default Work Unit\OneShots\Apple_Detach_Container\Detach2		31028
+	631927599	StoneBridge	C:\Users\lomax\Resonance_WwiseIntegrationTemp1\Resonance_WwiseProject\.cache\64\{64713532-955F-5449-3224-F858342A7840}.wem		\Actor-Mixer Hierarchy\Default Work Unit\OneShots\BridgeRising\StoneBridge		290080
+	637730733	DirtFootstep	C:\Users\lomax\Resonance_WwiseIntegrationTemp1\Resonance_WwiseProject\.cache\01\{011C9650-666C-7E39-065F-74AF73CAA87E}.wem		\Actor-Mixer Hierarchy\Default Work Unit\OneShots\Footstep\DirtFootstep		20536
+	728974102	Detach1	C:\Users\lomax\Resonance_WwiseIntegrationTemp1\Resonance_WwiseProject\.cache\87\{87151BA5-6120-1C84-9507-15D12A5E9017}.wem		\Actor-Mixer Hierarchy\Default Work Unit\OneShots\Apple_Detach_Container\Detach1		36326
+	756307878	zapsplat_multimedia_ui_tone_short_thin_clicky_error_incorrect_002_92786	C:\Users\lomax\Resonance_WwiseIntegrationTemp1\Resonance_WwiseProject\.cache\B7\{B753427F-1CF2-3C11-DBEC-115A408AAD5A}.wem		\Actor-Mixer Hierarchy\Default Work Unit\OneShots\ErrorPopup\zapsplat_multimedia_ui_tone_short_thin_clicky_error_incorrect_002_92786		132608
+	862757975	Barrier_Down	C:\Users\lomax\Resonance_WwiseIntegrationTemp1\Resonance_WwiseProject\.cache\23\{23CA869C-EBFA-99E8-C1A2-304305F6B662}.wem		\Actor-Mixer Hierarchy\Default Work Unit\OneShots\Barrier_Down		114804
+	950429655	ThudFootstep	C:\Users\lomax\Resonance_WwiseIntegrationTemp1\Resonance_WwiseProject\.cache\C7\{C721318F-B110-6DEC-7CAF-1969105948A5}.wem		\Actor-Mixer Hierarchy\Default Work Unit\OneShots\Footstep\ThudFootstep		43854
+	978186808	Collect_Flute	C:\Users\lomax\Resonance_WwiseIntegrationTemp1\Resonance_WwiseProject\.cache\05\{059D5862-7CFD-8388-7CB8-49EDC905401D}.wem		\Actor-Mixer Hierarchy\Default Work Unit\OneShots\Collect_Flute		807856
+	982422266	BeamEmitter	C:\Users\lomax\Resonance_WwiseIntegrationTemp1\Resonance_WwiseProject\.cache\99\{99CC5332-FB05-FCF5-B0BF-EB0012DE8D96}.wem		\Actor-Mixer Hierarchy\Default Work Unit\OneShots\BeamEmitter		4561224
+	1016278260	PopRetract	C:\Users\lomax\Resonance_WwiseIntegrationTemp1\Resonance_WwiseProject\.cache\90\{90BF06E5-13C8-21C0-8C86-2F1DE9B051AA}.wem		\Actor-Mixer Hierarchy\Default Work Unit\OneShots\PopRetract		19398
+	1038107345	zapsplat_multimedia_ui_tone_short_thin_clicky_error_incorrect_001_92785	C:\Users\lomax\Resonance_WwiseIntegrationTemp1\Resonance_WwiseProject\.cache\3B\{3B6991EF-A68C-79CC-F212-D829220CEA66}.wem		\Actor-Mixer Hierarchy\Default Work Unit\OneShots\ErrorPopup\zapsplat_multimedia_ui_tone_short_thin_clicky_error_incorrect_001_92785		211212
+

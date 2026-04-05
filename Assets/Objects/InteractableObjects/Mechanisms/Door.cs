@@ -26,6 +26,7 @@ public class Door : BaseMechanism
         if(_unlocked && other.CompareTag("Player"))
         {
             GameEventDispatcher.Instance.TriggerUIEvent(GameUI_Event.LevelCompleted);
+            AudioManager.Instance.PlayOneShot(AudioManager.Instance.EndGame);
 
             StartCoroutine(WaitBeforeLoadMainMenu(0.3f));
         }

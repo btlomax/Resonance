@@ -85,7 +85,7 @@ public class ResonatorPuzzle : BasePuzzleManager
         {
             if(activeUIPrompt == null)
             {
-                activeUIPrompt = WorldUIManager.Instance.CreateResonatorUI(UIPromptLocation, puzzleScale.ScaleName, resonatorLight.color);
+                //activeUIPrompt = WorldUIManager.Instance.CreateResonatorUI(UIPromptLocation, puzzleScale.ScaleName, resonatorLight.color);
                 GameEventDispatcher.Instance.TriggerUIEvent(GameUI_Event.EnteredResonatorPuzzleArea);
             }
 

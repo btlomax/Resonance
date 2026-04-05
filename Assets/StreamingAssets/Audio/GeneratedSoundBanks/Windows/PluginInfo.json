@@ -1,0 +1,33 @@
+{
+ "PluginInfo": {
+  "Platform": "Windows",
+  "BasePlatform": "Windows",
+  "PluginLibs": [
+   {
+    "LibName": "Wwise Tone Generator",
+    "LibId": "6684674",
+    "Type": "Source",
+    "DLL": "AkToneGen",
+    "StaticLib": "AkToneSource"
+   },
+   {
+    "LibName": "Wwise Parametric EQ",
+    "LibId": "6881283",
+    "Type": "Effect",
+    "DLL": "AkParametricEQ",
+    "StaticLib": "AkParametricEQFX"
+   },
+   {
+    "LibName": "System",
+    "LibId": "11403271",
+    "Type": "AudioDevice"
+   },
+   {
+    "LibName": "No Output",
+    "LibId": "11862023",
+    "Type": "AudioDevice"
+   }
+  ],
+  "FileHash": "{BE549426-7F29-8C49-BC16-5546B7726224}"
+ }
+}

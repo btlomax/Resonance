@@ -1,0 +1,426 @@
+{
+ "SoundBanksInfo": {
+  "Platform": "Windows",
+  "BasePlatform": "Windows",
+  "SchemaVersion": "16",
+  "SoundBankVersion": "154",
+  "SoundBanks": [
+   {
+    "Id": "1603227798",
+    "Type": "Event",
+    "GUID": "{2570F050-A11C-4CC0-8942-18CBBA6ED637}",
+    "Language": "SFX",
+    "Hash": "{A23F601E-42EA-CEC7-3D48-E4BC57483E0E}",
+    "ObjectPath": "Env_SingleNote_Play",
+    "ShortName": "Env_SingleNote_Play",
+    "Path": "Event/Env_SingleNote_Play.bnk",
+    "Plugins": {
+     "Custom": [
+      {
+       "Id": "1526066",
+       "Name": "Tone Generator",
+       "ObjectPath": "\\Actor-Mixer Hierarchy\\Default Work Unit\\SingleNotes\\Environment\\Env_Single_A3_A4\\Bb3\\Tone Generator",
+       "GUID": "{EAE9C735-E310-431A-8194-66DC840BD999}",
+       "LibName": "Wwise Tone Generator",
+       "LibId": "6684674"
+      },
+      {
+       "Id": "66052342",
+       "Name": "Tone Generator",
+       "ObjectPath": "\\Actor-Mixer Hierarchy\\Default Work Unit\\SingleNotes\\Environment\\Env_Single_A3_A4\\B3\\Tone Generator",
+       "GUID": "{DEABAAA4-BD84-49C7-AA18-1616E3BA8429}",
+       "LibName": "Wwise Tone Generator",
+       "LibId": "6684674"
+      },
+      {
+       "Id": "124832190",
+       "Name": "Tone Generator",
+       "ObjectPath": "\\Actor-Mixer Hierarchy\\Default Work Unit\\SingleNotes\\Environment\\Env_Single_A3_A4\\Ab4\\Tone Generator",
+       "GUID": "{C469BA0F-71C1-46B0-8143-2E98460F42B0}",
+       "LibName": "Wwise Tone Generator",
+       "LibId": "6684674"
+      },
+      {
+       "Id": "140610837",
+       "Name": "Tone Generator",
+       "ObjectPath": "\\Actor-Mixer Hierarchy\\Default Work Unit\\SingleNotes\\Environment\\Env_Single_A3_A4\\Gb4\\Tone Generator",
+       "GUID": "{9C63755D-3800-4E5C-AB91-EFB73698C208}",
+       "LibName": "Wwise Tone Generator",
+       "LibId": "6684674"
+      },
+      {
+       "Id": "157088801",
+       "Name": "Tone Generator",
+       "ObjectPath": "\\Actor-Mixer Hierarchy\\Default Work Unit\\SingleNotes\\Environment\\Env_Single_A3_A4\\D4\\Tone Generator",
+       "GUID": "{364EF3C2-21FD-42AD-8C8D-F80A920BEF9C}",
+       "LibName": "Wwise Tone Generator",
+       "LibId": "6684674"
+      },
+      {
+       "Id": "323836696",
+       "Name": "Tone Generator",
+       "ObjectPath": "\\Actor-Mixer Hierarchy\\Default Work Unit\\SingleNotes\\Environment\\Env_Single_A3_A4\\F4\\Tone Generator",
+       "GUID": "{D15EA74D-FECB-419E-847A-361DF5A20FD5}",
+       "LibName": "Wwise Tone Generator",
+       "LibId": "6684674"
+      },
+      {
+       "Id": "337281284",
+       "Name": "Tone Generator",
+       "ObjectPath": "\\Actor-Mixer Hierarchy\\Default Work Unit\\SingleNotes\\Environment\\Env_Single_A3_A4\\A4\\Tone Generator",
+       "GUID": "{D745A825-B638-46BE-A661-B3A472D2D38D}",
+       "LibName": "Wwise Tone Generator",
+       "LibId": "6684674"
+      },
+      {
+       "Id": "358959889",
+       "Name": "Tone Generator",
+       "ObjectPath": "\\Actor-Mixer Hierarchy\\Default Work Unit\\SingleNotes\\Environment\\Env_Single_A3_A4\\C4\\Tone Generator",
+       "GUID": "{05759AD8-C5C5-4AE6-AABF-4B5B967FF645}",
+       "LibName": "Wwise Tone Generator",
+       "LibId": "6684674"
+      },
+      {
+       "Id": "466112061",
+       "Name": "Tone Generator",
+       "ObjectPath": "\\Actor-Mixer Hierarchy\\Default Work Unit\\SingleNotes\\Environment\\Env_Single_A3_A4\\Db4\\Tone Generator",
+       "GUID": "{48B18FC5-2F1E-4039-9ECE-2A58C8588CDB}",
+       "LibName": "Wwise Tone Generator",
+       "LibId": "6684674"
+      },
+      {
+       "Id": "553638400",
+       "Name": "Tone Generator",
+       "ObjectPath": "\\Actor-Mixer Hierarchy\\Default Work Unit\\SingleNotes\\Environment\\Env_Single_A3_A4\\E4\\Tone Generator",
+       "GUID": "{02A42055-9FB0-43A7-BF67-1391A1730A11}",
+       "LibName": "Wwise Tone Generator",
+       "LibId": "6684674"
+      },
+      {
+       "Id": "621606042",
+       "Name": "Tone Generator",
+       "ObjectPath": "\\Actor-Mixer Hierarchy\\Default Work Unit\\SingleNotes\\Environment\\Env_Single_A3_A4\\G4\\Tone Generator",
+       "GUID": "{E5BA687C-6442-4D04-B732-B7EB927BB2BE}",
+       "LibName": "Wwise Tone Generator",
+       "LibId": "6684674"
+      },
+      {
+       "Id": "960378700",
+       "Name": "Tone Generator",
+       "ObjectPath": "\\Actor-Mixer Hierarchy\\Default Work Unit\\SingleNotes\\Environment\\Env_Single_A3_A4\\A3\\Tone Generator",
+       "GUID": "{90544CB8-A9EF-4878-AD9B-CB5D2080BE7C}",
+       "LibName": "Wwise Tone Generator",
+       "LibId": "6684674"
+      },
+      {
+       "Id": "1013157671",
+       "Name": "Tone Generator",
+       "ObjectPath": "\\Actor-Mixer Hierarchy\\Default Work Unit\\SingleNotes\\Environment\\Env_Single_A3_A4\\Eb4\\Tone Generator",
+       "GUID": "{268BA3E2-6CFF-423B-981E-4E9C55D5AB68}",
+       "LibName": "Wwise Tone Generator",
+       "LibId": "6684674"
+      }
+     ]
+    },
+    "Events": [
+     {
+      "Id": "1603227798",
+      "Name": "Env_SingleNote_Play",
+      "ObjectPath": "\\Events\\Default Work Unit\\SynthesisedNotes\\Env_SingleNote_Play",
+      "GUID": "{2570F050-A11C-4CC0-8942-18CBBA6ED637}",
+      "DurationType": "OneShot",
+      "DurationMin": "1",
+      "DurationMax": "1",
+      "SwitchContainers": [
+       {
+        "SwitchValue": {
+         "GroupType": "Switch",
+         "GroupId": "3036260320",
+         "Id": "1870081012",
+         "GUID": "{D80BA201-AECF-435C-BE24-74A6B890B3D8}"
+        },
+        "PluginRefs": {
+         "Custom": [
+          {
+           "Id": "66052342"
+          }
+         ]
+        }
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "Switch",
+         "GroupId": "3036260320",
+         "Id": "1886858601",
+         "GUID": "{E5162D20-CCA9-4A67-AA7A-C4C76141CEC5}",
+         "Default": "true"
+        },
+        "PluginRefs": {
+         "Custom": [
+          {
+           "Id": "960378700"
+          }
+         ]
+        }
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "Switch",
+         "GroupId": "3036260320",
+         "Id": "1802970447",
+         "GUID": "{84349E29-4141-4594-9416-C51C013A0EA9}"
+        },
+        "PluginRefs": {
+         "Custom": [
+          {
+           "Id": "323836696"
+          }
+         ]
+        }
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "Switch",
+         "GroupId": "3036260320",
+         "Id": "1836525717",
+         "GUID": "{9D1F4336-2CDC-4280-92C5-84A3C1223AAC}"
+        },
+        "PluginRefs": {
+         "Custom": [
+          {
+           "Id": "157088801"
+          }
+         ]
+        }
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "Switch",
+         "GroupId": "3036260320",
+         "Id": "1134309148",
+         "GUID": "{D66C4437-167D-403C-932E-34B58BBC2A6D}"
+        },
+        "PluginRefs": {
+         "Custom": [
+          {
+           "Id": "124832190"
+          }
+         ]
+        }
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "Switch",
+         "GroupId": "3036260320",
+         "Id": "731057968",
+         "GUID": "{6FD80878-008D-4963-949C-D25A3BB78537}"
+        },
+        "PluginRefs": {
+         "Custom": [
+          {
+           "Id": "1013157671"
+          }
+         ]
+        }
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "Switch",
+         "GroupId": "3036260320",
+         "Id": "1886858606",
+         "GUID": "{23959886-9502-4952-8BEA-FF8F7542B987}"
+        },
+        "PluginRefs": {
+         "Custom": [
+          {
+           "Id": "337281284"
+          }
+         ]
+        }
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "Switch",
+         "GroupId": "3036260320",
+         "Id": "496612492",
+         "GUID": "{49A6E78F-2B7E-4833-A79C-8D3D4434C7AC}"
+        },
+        "PluginRefs": {
+         "Custom": [
+          {
+           "Id": "1526066"
+          }
+         ]
+        }
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "Switch",
+         "GroupId": "3036260320",
+         "Id": "1819748154",
+         "GUID": "{521CCDA6-75B8-4E27-83D8-DB25BBB0BF83}"
+        },
+        "PluginRefs": {
+         "Custom": [
+          {
+           "Id": "553638400"
+          }
+         ]
+        }
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "Switch",
+         "GroupId": "3036260320",
+         "Id": "596439562",
+         "GUID": "{836A22B0-5C99-4F66-9BCF-E1961D748F5A}"
+        },
+        "PluginRefs": {
+         "Custom": [
+          {
+           "Id": "140610837"
+          }
+         ]
+        }
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "Switch",
+         "GroupId": "3036260320",
+         "Id": "1853303296",
+         "GUID": "{23AE46BB-A37D-42E1-A0DF-953F9346BE88}"
+        },
+        "PluginRefs": {
+         "Custom": [
+          {
+           "Id": "358959889"
+          }
+         ]
+        }
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "Switch",
+         "GroupId": "3036260320",
+         "Id": "362097357",
+         "GUID": "{828E66CC-0B81-4833-873E-938F87AA7A82}"
+        },
+        "PluginRefs": {
+         "Custom": [
+          {
+           "Id": "466112061"
+          }
+         ]
+        }
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "Switch",
+         "GroupId": "3036260320",
+         "Id": "1786192860",
+         "GUID": "{1B8349E4-E36C-4B42-8020-9A225DCFE83A}"
+        },
+        "PluginRefs": {
+         "Custom": [
+          {
+           "Id": "621606042"
+          }
+         ]
+        }
+       }
+      ]
+     }
+    ],
+    "SwitchGroups": [
+     {
+      "Id": "3036260320",
+      "Name": "Env_Single_A3_A4",
+      "ObjectPath": "\\Switches\\Default Work Unit\\Environment\\Env_Single_A3_A4",
+      "GUID": "{DB727D19-0599-4719-B2DD-F49AC0559EA3}",
+      "Switches": [
+       {
+        "Id": "362097357",
+        "Name": "Db4",
+        "ObjectPath": "\\Switches\\Default Work Unit\\Environment\\Env_Single_A3_A4\\Db4",
+        "GUID": "{828E66CC-0B81-4833-873E-938F87AA7A82}"
+       },
+       {
+        "Id": "496612492",
+        "Name": "Bb3",
+        "ObjectPath": "\\Switches\\Default Work Unit\\Environment\\Env_Single_A3_A4\\Bb3",
+        "GUID": "{49A6E78F-2B7E-4833-A79C-8D3D4434C7AC}"
+       },
+       {
+        "Id": "596439562",
+        "Name": "Gb4",
+        "ObjectPath": "\\Switches\\Default Work Unit\\Environment\\Env_Single_A3_A4\\Gb4",
+        "GUID": "{836A22B0-5C99-4F66-9BCF-E1961D748F5A}"
+       },
+       {
+        "Id": "731057968",
+        "Name": "Eb4",
+        "ObjectPath": "\\Switches\\Default Work Unit\\Environment\\Env_Single_A3_A4\\Eb4",
+        "GUID": "{6FD80878-008D-4963-949C-D25A3BB78537}"
+       },
+       {
+        "Id": "1134309148",
+        "Name": "Ab4",
+        "ObjectPath": "\\Switches\\Default Work Unit\\Environment\\Env_Single_A3_A4\\Ab4",
+        "GUID": "{D66C4437-167D-403C-932E-34B58BBC2A6D}"
+       },
+       {
+        "Id": "1786192860",
+        "Name": "G4",
+        "ObjectPath": "\\Switches\\Default Work Unit\\Environment\\Env_Single_A3_A4\\G4",
+        "GUID": "{1B8349E4-E36C-4B42-8020-9A225DCFE83A}"
+       },
+       {
+        "Id": "1802970447",
+        "Name": "F4",
+        "ObjectPath": "\\Switches\\Default Work Unit\\Environment\\Env_Single_A3_A4\\F4",
+        "GUID": "{84349E29-4141-4594-9416-C51C013A0EA9}"
+       },
+       {
+        "Id": "1819748154",
+        "Name": "E4",
+        "ObjectPath": "\\Switches\\Default Work Unit\\Environment\\Env_Single_A3_A4\\E4",
+        "GUID": "{521CCDA6-75B8-4E27-83D8-DB25BBB0BF83}"
+       },
+       {
+        "Id": "1836525717",
+        "Name": "D4",
+        "ObjectPath": "\\Switches\\Default Work Unit\\Environment\\Env_Single_A3_A4\\D4",
+        "GUID": "{9D1F4336-2CDC-4280-92C5-84A3C1223AAC}"
+       },
+       {
+        "Id": "1853303296",
+        "Name": "C4",
+        "ObjectPath": "\\Switches\\Default Work Unit\\Environment\\Env_Single_A3_A4\\C4",
+        "GUID": "{23AE46BB-A37D-42E1-A0DF-953F9346BE88}"
+       },
+       {
+        "Id": "1870081012",
+        "Name": "B3",
+        "ObjectPath": "\\Switches\\Default Work Unit\\Environment\\Env_Single_A3_A4\\B3",
+        "GUID": "{D80BA201-AECF-435C-BE24-74A6B890B3D8}"
+       },
+       {
+        "Id": "1886858601",
+        "Name": "A3",
+        "ObjectPath": "\\Switches\\Default Work Unit\\Environment\\Env_Single_A3_A4\\A3",
+        "GUID": "{E5162D20-CCA9-4A67-AA7A-C4C76141CEC5}"
+       },
+       {
+        "Id": "1886858606",
+        "Name": "A4",
+        "ObjectPath": "\\Switches\\Default Work Unit\\Environment\\Env_Single_A3_A4\\A4",
+        "GUID": "{23959886-9502-4952-8BEA-FF8F7542B987}"
+       }
+      ]
+     }
+    ]
+   }
+  ],
+  "FileHash": "{4844043A-2F45-D592-7783-3B68922A3B0D}"
+ }
+}

@@ -16,6 +16,10 @@ MonoBehaviour:
   triggerEvent: 8
   errorEvent: 0
   title: Door Opened
-  bodyText: You've redirected the beam and the door is open!
+  bodyText: 'You''ve redirected the beam and the door is open!
+
+
+    Follow the beam
+    to end the level!'
   displayDuration: 5
   pauseGame: 1

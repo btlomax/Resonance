@@ -1,0 +1,1180 @@
+{
+ "SoundBanksInfo": {
+  "Platform": "Windows",
+  "BasePlatform": "Windows",
+  "SchemaVersion": "16",
+  "SoundBankVersion": "154",
+  "SoundBanks": [
+   {
+    "Id": "3161908922",
+    "Type": "User",
+    "GUID": "{7804239E-9A87-402B-B094-C834012A5E5C}",
+    "Language": "SFX",
+    "Hash": "{9AAB3B41-1AF9-5568-D3BE-D458A7492B5D}",
+    "ObjectPath": "\\SoundBanks\\Default Work Unit\\Main",
+    "ShortName": "Main",
+    "Path": "Main.bnk",
+    "Media": [
+     {
+      "Id": "49968161",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "663311__hnieminen__water-drops.wav",
+      "CachePath": "DE/{DE360062-E553-D36D-BBA5-2EBABAA642F1}.wem"
+     },
+     {
+      "Id": "82829410",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "zapsplat_multimedia_game_sound_synth_organ_fanfare_success_002_54018.wav",
+      "CachePath": "A1/{A1EAB7D4-1924-FA01-BF24-CBA25B1182DD}.wem"
+     },
+     {
+      "Id": "113702393",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "458269__nicstage__spillway-water.wav",
+      "CachePath": "AA/{AAFD5583-FB91-3F7E-973A-8DF91A549AC9}.wem"
+     },
+     {
+      "Id": "116328347",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "671105__adhdreaming__classic-click.wav",
+      "CachePath": "04/{043D8DBF-0C81-FA95-A344-F3DB08F44992}.wem"
+     },
+     {
+      "Id": "245447153",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "PM_SDNG_Single_Step_Footstep_82_263.wav",
+      "CachePath": "BA/{BAB479CD-56B7-1A88-119B-8437C807965B}.wem"
+     },
+     {
+      "Id": "308937070",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "zapsplat_multimedia_game_sound_80s_game_coin_collect_softer_114900.wav",
+      "CachePath": "C2/{C2E1419D-6769-F7AC-88E8-0B2E2E493E87}.wem"
+     },
+     {
+      "Id": "419529499",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "411611__lamamakesmusic__ui_plop_simple.wav",
+      "CachePath": "A5/{A5CDE119-BA63-2213-7CBB-EFFFCAF12DDB}.wem"
+     },
+     {
+      "Id": "448850317",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "zapsplat_foley_berry_pick_from_bush_or_tree_002_83593.wav",
+      "CachePath": "B4/{B4B0C937-3E75-71CA-D675-B2FA94EE4752}.wem"
+     },
+     {
+      "Id": "631927599",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "760672__gutertonwav__guterton-heavy-stone-grind.wav",
+      "CachePath": "64/{64713532-955F-5449-3224-F858342A7840}.wem"
+     },
+     {
+      "Id": "637730733",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "zapsplat_foley_footstep_single_ground_farm_hay_dirt_005_18684.wav",
+      "CachePath": "01/{011C9650-666C-7E39-065F-74AF73CAA87E}.wem"
+     },
+     {
+      "Id": "728974102",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "zapsplat_foley_berry_pick_from_bush_or_tree_001_83592.wav",
+      "CachePath": "87/{87151BA5-6120-1C84-9507-15D12A5E9017}.wem"
+     },
+     {
+      "Id": "756307878",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "zapsplat_multimedia_ui_tone_short_thin_clicky_error_incorrect_002_92786.wav",
+      "CachePath": "B7/{B753427F-1CF2-3C11-DBEC-115A408AAD5A}.wem"
+     },
+     {
+      "Id": "862757975",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "735062__gammagool__fast-warp-in.wav",
+      "CachePath": "23/{23CA869C-EBFA-99E8-C1A2-304305F6B662}.wem"
+     },
+     {
+      "Id": "950429655",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "zapsplat_foley_footstep_single_boot_on_dirt_track_grit_stones_001_45850.wav",
+      "CachePath": "C7/{C721318F-B110-6DEC-7CAF-1969105948A5}.wem"
+     },
+     {
+      "Id": "978186808",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "zapsplat_musical_flute_recorder_big_reverb_blow_mysterious_tribal_003_49243.wav",
+      "CachePath": "05/{059D5862-7CFD-8388-7CB8-49EDC905401D}.wem"
+     },
+     {
+      "Id": "982422266",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "397674__sieuamthanh__sci_fi_machine-0.wav",
+      "CachePath": "99/{99CC5332-FB05-FCF5-B0BF-EB0012DE8D96}.wem"
+     },
+     {
+      "Id": "1016278260",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "zapsplat_multimedia_ui_window_minimize_short_swipe_whoosh_71502.wav",
+      "CachePath": "90/{90BF06E5-13C8-21C0-8C86-2F1DE9B051AA}.wem"
+     },
+     {
+      "Id": "1038107345",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "zapsplat_multimedia_ui_tone_short_thin_clicky_error_incorrect_001_92785.wav",
+      "CachePath": "3B/{3B6991EF-A68C-79CC-F212-D829220CEA66}.wem"
+     }
+    ],
+    "Plugins": {
+     "Custom": [
+      {
+       "Id": "1755002",
+       "Name": "Tone Generator",
+       "ObjectPath": "\\Actor-Mixer Hierarchy\\Default Work Unit\\SingleNotes\\Environment\\Env_Looping_A3_A4\\C4\\Tone Generator",
+       "GUID": "{88540D04-BF87-4F72-986C-7D78402E60FF}",
+       "LibName": "Wwise Tone Generator",
+       "LibId": "6684674"
+      },
+      {
+       "Id": "15597294",
+       "Name": "Tone Generator",
+       "ObjectPath": "\\Actor-Mixer Hierarchy\\Default Work Unit\\SingleNotes\\Player\\Ply_A3_A4\\Eb4\\Tone Generator",
+       "GUID": "{C8455905-48D2-4DA2-8D81-F6A8C2522887}",
+       "LibName": "Wwise Tone Generator",
+       "LibId": "6684674"
+      },
+      {
+       "Id": "101240729",
+       "Name": "Tone Generator",
+       "ObjectPath": "\\Actor-Mixer Hierarchy\\Default Work Unit\\SingleNotes\\Environment\\Env_Looping_A3_A4\\A4\\Tone Generator",
+       "GUID": "{B912D6EA-DD2C-41FF-A518-17F74B07A4E2}",
+       "LibName": "Wwise Tone Generator",
+       "LibId": "6684674"
+      },
+      {
+       "Id": "148868113",
+       "Name": "Tone Generator",
+       "ObjectPath": "\\Actor-Mixer Hierarchy\\Default Work Unit\\SingleNotes\\Player\\Ply_A3_A4\\Db4\\Tone Generator",
+       "GUID": "{30A76549-7376-4F1A-878D-D309AC81313E}",
+       "LibName": "Wwise Tone Generator",
+       "LibId": "6684674"
+      },
+      {
+       "Id": "212078619",
+       "Name": "Tone Generator",
+       "ObjectPath": "\\Actor-Mixer Hierarchy\\Default Work Unit\\SingleNotes\\Environment\\Env_Looping_A3_A4\\Gb4\\Tone Generator",
+       "GUID": "{11744EBF-23E2-43E2-AD5F-E905015A660F}",
+       "LibName": "Wwise Tone Generator",
+       "LibId": "6684674"
+      },
+      {
+       "Id": "215589727",
+       "Name": "Tone Generator",
+       "ObjectPath": "\\Actor-Mixer Hierarchy\\Default Work Unit\\SingleNotes\\Environment\\Env_Looping_A3_A4\\A3\\Tone Generator",
+       "GUID": "{E92485D4-3AE5-41BB-B745-2CAD5F52A0BB}",
+       "LibName": "Wwise Tone Generator",
+       "LibId": "6684674"
+      },
+      {
+       "Id": "257499401",
+       "Name": "Tone Generator",
+       "ObjectPath": "\\Actor-Mixer Hierarchy\\Default Work Unit\\SingleNotes\\Player\\Ply_A3_A4\\A3\\Tone Generator",
+       "GUID": "{B8BAD70E-D06E-47D4-AC69-6225BBAFF567}",
+       "LibName": "Wwise Tone Generator",
+       "LibId": "6684674"
+      },
+      {
+       "Id": "282942249",
+       "Name": "Tone Generator",
+       "ObjectPath": "\\Actor-Mixer Hierarchy\\Default Work Unit\\SingleNotes\\Player\\Ply_A3_A4\\C4\\Tone Generator",
+       "GUID": "{5B63059C-ACFC-46F0-ACA7-C02EB486B14F}",
+       "LibName": "Wwise Tone Generator",
+       "LibId": "6684674"
+      },
+      {
+       "Id": "319345377",
+       "Name": "Tone Generator",
+       "ObjectPath": "\\Actor-Mixer Hierarchy\\Default Work Unit\\SingleNotes\\Environment\\Env_Looping_A3_A4\\Bb3\\Tone Generator",
+       "GUID": "{89431E6F-EB5E-4FF3-BE5B-F0C792CD3229}",
+       "LibName": "Wwise Tone Generator",
+       "LibId": "6684674"
+      },
+      {
+       "Id": "358533383",
+       "Name": "Tone Generator",
+       "ObjectPath": "\\Actor-Mixer Hierarchy\\Default Work Unit\\SingleNotes\\Player\\Ply_A3_A4\\E4\\Tone Generator",
+       "GUID": "{FA853F6E-3375-40A4-994D-86ED52AAC617}",
+       "LibName": "Wwise Tone Generator",
+       "LibId": "6684674"
+      },
+      {
+       "Id": "401537659",
+       "Name": "Tone Generator",
+       "ObjectPath": "\\Actor-Mixer Hierarchy\\Default Work Unit\\SingleNotes\\Environment\\Env_Looping_A3_A4\\Db4\\Tone Generator",
+       "GUID": "{0F4915F6-F132-4237-AA7D-41FE5F27C6B5}",
+       "LibName": "Wwise Tone Generator",
+       "LibId": "6684674"
+      },
+      {
+       "Id": "499814124",
+       "Name": "Tone Generator",
+       "ObjectPath": "\\Actor-Mixer Hierarchy\\Default Work Unit\\SingleNotes\\Environment\\Env_Looping_A3_A4\\Ab4\\Tone Generator",
+       "GUID": "{964FFBAD-7A0B-419A-AEB7-18F1AAAA7C39}",
+       "LibName": "Wwise Tone Generator",
+       "LibId": "6684674"
+      },
+      {
+       "Id": "518724689",
+       "Name": "Tone Generator",
+       "ObjectPath": "\\Actor-Mixer Hierarchy\\Default Work Unit\\SingleNotes\\Environment\\Env_Looping_A3_A4\\B3\\Tone Generator",
+       "GUID": "{19CDE77F-9F42-47F3-BF71-76C851092BAF}",
+       "LibName": "Wwise Tone Generator",
+       "LibId": "6684674"
+      },
+      {
+       "Id": "531868844",
+       "Name": "Tone Generator",
+       "ObjectPath": "\\Actor-Mixer Hierarchy\\Default Work Unit\\SingleNotes\\Environment\\Env_Looping_A3_A4\\Eb4\\Tone Generator",
+       "GUID": "{1C636878-13DC-4361-8AD7-A5D3817768DF}",
+       "LibName": "Wwise Tone Generator",
+       "LibId": "6684674"
+      },
+      {
+       "Id": "532149392",
+       "Name": "Tone Generator",
+       "ObjectPath": "\\Actor-Mixer Hierarchy\\Default Work Unit\\SingleNotes\\Player\\Ply_A3_A4\\D4\\Tone Generator",
+       "GUID": "{E50CF674-F8C4-4F49-9997-645271934B3F}",
+       "LibName": "Wwise Tone Generator",
+       "LibId": "6684674"
+      },
+      {
+       "Id": "548947014",
+       "Name": "Tone Generator",
+       "ObjectPath": "\\Actor-Mixer Hierarchy\\Default Work Unit\\SingleNotes\\Player\\Ply_A3_A4\\Bb3\\Tone Generator",
+       "GUID": "{9505F285-57E0-4552-B3B4-FD78AC9BBD65}",
+       "LibName": "Wwise Tone Generator",
+       "LibId": "6684674"
+      },
+      {
+       "Id": "628809783",
+       "Name": "Tone Generator",
+       "ObjectPath": "\\Actor-Mixer Hierarchy\\Default Work Unit\\SingleNotes\\Player\\Ply_A3_A4\\Gb4\\Tone Generator",
+       "GUID": "{2173E5CD-3938-4720-A566-7773811BE660}",
+       "LibName": "Wwise Tone Generator",
+       "LibId": "6684674"
+      },
+      {
+       "Id": "629292891",
+       "Name": "Tone Generator",
+       "ObjectPath": "\\Actor-Mixer Hierarchy\\Default Work Unit\\SingleNotes\\Player\\Ply_A3_A4\\A4\\Tone Generator",
+       "GUID": "{97F3F863-6727-4FA8-AF69-B619260B5F61}",
+       "LibName": "Wwise Tone Generator",
+       "LibId": "6684674"
+      },
+      {
+       "Id": "822517995",
+       "Name": "Tone Generator",
+       "ObjectPath": "\\Actor-Mixer Hierarchy\\Default Work Unit\\SingleNotes\\Player\\Ply_A3_A4\\B4\\Tone Generator",
+       "GUID": "{7330CB29-F00D-4879-B8B7-2E25E573042F}",
+       "LibName": "Wwise Tone Generator",
+       "LibId": "6684674"
+      },
+      {
+       "Id": "834413701",
+       "Name": "Tone Generator",
+       "ObjectPath": "\\Actor-Mixer Hierarchy\\Default Work Unit\\SingleNotes\\Environment\\Env_Looping_A3_A4\\E4\\Tone Generator",
+       "GUID": "{9FE1A32E-A13D-40F0-A3C4-43F1DA223AE8}",
+       "LibName": "Wwise Tone Generator",
+       "LibId": "6684674"
+      },
+      {
+       "Id": "838137911",
+       "Name": "Tone Generator",
+       "ObjectPath": "\\Actor-Mixer Hierarchy\\Default Work Unit\\SingleNotes\\Environment\\Env_Looping_A3_A4\\D4\\Tone Generator",
+       "GUID": "{42669A38-183F-42CC-9B7E-44F8981D9913}",
+       "LibName": "Wwise Tone Generator",
+       "LibId": "6684674"
+      },
+      {
+       "Id": "874161922",
+       "Name": "Tone Generator",
+       "ObjectPath": "\\Actor-Mixer Hierarchy\\Default Work Unit\\SingleNotes\\Environment\\Env_Looping_A3_A4\\G4\\Tone Generator",
+       "GUID": "{AC0748FA-65DA-4DEA-94F7-A004DDFFE5CF}",
+       "LibName": "Wwise Tone Generator",
+       "LibId": "6684674"
+      },
+      {
+       "Id": "913346719",
+       "Name": "Tone Generator",
+       "ObjectPath": "\\Actor-Mixer Hierarchy\\Default Work Unit\\SingleNotes\\Player\\Ply_A3_A4\\F4\\Tone Generator",
+       "GUID": "{2E0C334A-E014-4771-A513-1223DBEB40A4}",
+       "LibName": "Wwise Tone Generator",
+       "LibId": "6684674"
+      },
+      {
+       "Id": "971075408",
+       "Name": "Tone Generator",
+       "ObjectPath": "\\Actor-Mixer Hierarchy\\Default Work Unit\\SingleNotes\\Environment\\Env_Looping_A3_A4\\F4\\Tone Generator",
+       "GUID": "{85C27564-9360-4BE6-962C-ED2C6109CC91}",
+       "LibName": "Wwise Tone Generator",
+       "LibId": "6684674"
+      },
+      {
+       "Id": "985916210",
+       "Name": "Tone Generator",
+       "ObjectPath": "\\Actor-Mixer Hierarchy\\Default Work Unit\\SingleNotes\\Player\\Ply_A3_A4\\Ab4\\Tone Generator",
+       "GUID": "{D6A014E1-C338-43F5-9C36-2004B4DF6E82}",
+       "LibName": "Wwise Tone Generator",
+       "LibId": "6684674"
+      },
+      {
+       "Id": "1039739895",
+       "Name": "Tone Generator",
+       "ObjectPath": "\\Actor-Mixer Hierarchy\\Default Work Unit\\SingleNotes\\Player\\Ply_A3_A4\\G4\\Tone Generator",
+       "GUID": "{EBF8DC30-8EDD-4FDE-9451-B6E6B7383674}",
+       "LibName": "Wwise Tone Generator",
+       "LibId": "6684674"
+      }
+     ],
+     "ShareSets": [
+      {
+       "Id": "1655770832",
+       "Name": "High_Freq_Cut_11",
+       "ObjectPath": "\\Effects\\Factory Effects\\Parametric EQ\\Shelving EQ\\High Shelf\\High_Freq_Cut_11",
+       "GUID": "{96D2A3E1-1EA0-4DBB-B303-3EA9035A484C}",
+       "LibName": "Wwise Parametric EQ",
+       "LibId": "6881283"
+      }
+     ]
+    },
+    "Events": [
+     {
+      "Id": "2559029907",
+      "Name": "Apple_Detach",
+      "ObjectPath": "\\Events\\Default Work Unit\\OneShots\\Apple_Detach",
+      "GUID": "{DF76A28D-DFA6-47E9-927D-1ECFB4155A22}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.32220834",
+      "DurationMax": "0.37739584",
+      "MediaRefs": [
+       {
+        "Id": "448850317"
+       },
+       {
+        "Id": "728974102"
+       }
+      ]
+     },
+     {
+      "Id": "4025991829",
+      "Name": "Barrier_Down",
+      "ObjectPath": "\\Events\\Default Work Unit\\OneShots\\Barrier_Down",
+      "GUID": "{B66B1899-D72A-4EB5-A9E4-4E26AAA996C1}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.59743917",
+      "DurationMax": "0.59743917",
+      "MediaRefs": [
+       {
+        "Id": "862757975"
+       }
+      ]
+     },
+     {
+      "Id": "3733535250",
+      "Name": "BeamEmitter",
+      "ObjectPath": "\\Events\\Default Work Unit\\OneShots\\BeamEmitter",
+      "GUID": "{7474F947-6B42-48BA-B76D-14EAF3443612}",
+      "DurationType": "Infinite",
+      "MediaRefs": [
+       {
+        "Id": "982422266"
+       }
+      ]
+     },
+     {
+      "Id": "1235022095",
+      "Name": "ClosePopup",
+      "ObjectPath": "\\Events\\Default Work Unit\\OneShots\\ClosePopup",
+      "GUID": "{DEEABE4B-1331-4B20-8DFE-B54445A9C6A6}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.2010625",
+      "DurationMax": "0.2010625",
+      "MediaRefs": [
+       {
+        "Id": "1016278260"
+       }
+      ]
+     },
+     {
+      "Id": "2756333705",
+      "Name": "Collect",
+      "ObjectPath": "\\Events\\Default Work Unit\\OneShots\\Collect",
+      "GUID": "{2DE3DE49-D592-4D50-A287-DE9D9D1BCD1F}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.41702083",
+      "DurationMax": "0.41702083",
+      "MediaRefs": [
+       {
+        "Id": "308937070"
+       }
+      ],
+      "PluginRefs": {
+       "ShareSets": [
+        {
+         "Id": "1655770832"
+        }
+       ]
+      }
+     },
+     {
+      "Id": "1961873250",
+      "Name": "Collect_Flute",
+      "ObjectPath": "\\Events\\Default Work Unit\\OneShots\\Collect_Flute",
+      "GUID": "{3BE1C460-9E6C-4A62-9750-B341D50FF04C}",
+      "DurationType": "OneShot",
+      "DurationMin": "4.207082",
+      "DurationMax": "4.207082",
+      "MediaRefs": [
+       {
+        "Id": "978186808"
+       }
+      ]
+     },
+     {
+      "Id": "4264815106",
+      "Name": "EndGame",
+      "ObjectPath": "\\Events\\Default Work Unit\\OneShots\\EndGame",
+      "GUID": "{00B85412-205E-46CF-ACCC-F5D278273DD7}",
+      "DurationType": "OneShot",
+      "DurationMin": "2.59275",
+      "DurationMax": "2.59275",
+      "MediaRefs": [
+       {
+        "Id": "82829410"
+       }
+      ]
+     },
+     {
+      "Id": "1725522842",
+      "Name": "Env_LoopingNote_Play",
+      "ObjectPath": "\\Events\\Default Work Unit\\SynthesisedNotes\\Env_LoopingNote_Play",
+      "GUID": "{B780D8AE-FEE1-4D72-BEAB-ECB1BB1D5DAB}",
+      "DurationType": "Infinite",
+      "SwitchContainers": [
+       {
+        "SwitchValue": {
+         "GroupType": "Switch",
+         "GroupId": "1322221620",
+         "Id": "1870081012",
+         "GUID": "{929BF808-C538-4493-BA45-7E2ED4E73DF9}"
+        },
+        "PluginRefs": {
+         "Custom": [
+          {
+           "Id": "518724689"
+          }
+         ]
+        }
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "Switch",
+         "GroupId": "1322221620",
+         "Id": "731057968",
+         "GUID": "{DF31FA23-487C-4C8F-8EAA-9206526254B9}"
+        },
+        "PluginRefs": {
+         "Custom": [
+          {
+           "Id": "531868844"
+          }
+         ]
+        }
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "Switch",
+         "GroupId": "1322221620",
+         "Id": "496612492",
+         "GUID": "{98B2BB30-1498-48BC-AB56-863B880175D2}"
+        },
+        "PluginRefs": {
+         "Custom": [
+          {
+           "Id": "319345377"
+          }
+         ]
+        }
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "Switch",
+         "GroupId": "1322221620",
+         "Id": "596439562",
+         "GUID": "{BDD3AA51-A411-4230-886D-450AE1B534C6}"
+        },
+        "PluginRefs": {
+         "Custom": [
+          {
+           "Id": "212078619"
+          }
+         ]
+        }
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "Switch",
+         "GroupId": "1322221620",
+         "Id": "1853303296",
+         "GUID": "{A8D747A0-9FC4-4C37-9214-85837A056069}",
+         "Default": "true"
+        },
+        "PluginRefs": {
+         "Custom": [
+          {
+           "Id": "1755002"
+          }
+         ]
+        }
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "Switch",
+         "GroupId": "1322221620",
+         "Id": "362097357",
+         "GUID": "{55ECB9A2-4E6C-4D91-A1A1-8175475068A8}"
+        },
+        "PluginRefs": {
+         "Custom": [
+          {
+           "Id": "401537659"
+          }
+         ]
+        }
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "Switch",
+         "GroupId": "1322221620",
+         "Id": "1836525717",
+         "GUID": "{CA42AEBB-889B-4A9B-BE60-71578ED65241}"
+        },
+        "PluginRefs": {
+         "Custom": [
+          {
+           "Id": "838137911"
+          }
+         ]
+        }
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "Switch",
+         "GroupId": "1322221620",
+         "Id": "1134309148",
+         "GUID": "{96E8BDBC-6723-4D90-802A-B53DCDB00995}"
+        },
+        "PluginRefs": {
+         "Custom": [
+          {
+           "Id": "499814124"
+          }
+         ]
+        }
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "Switch",
+         "GroupId": "1322221620",
+         "Id": "1819748154",
+         "GUID": "{E91287C1-6249-421C-906E-0D7D8F0C0D10}"
+        },
+        "PluginRefs": {
+         "Custom": [
+          {
+           "Id": "834413701"
+          }
+         ]
+        }
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "Switch",
+         "GroupId": "1322221620",
+         "Id": "1786192860",
+         "GUID": "{1383D1CE-2585-457B-8238-4A25761F3446}"
+        },
+        "PluginRefs": {
+         "Custom": [
+          {
+           "Id": "874161922"
+          }
+         ]
+        }
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "Switch",
+         "GroupId": "1322221620",
+         "Id": "1802970447",
+         "GUID": "{7D2143D5-1ED2-4349-B840-D77BFDC54853}"
+        },
+        "PluginRefs": {
+         "Custom": [
+          {
+           "Id": "971075408"
+          }
+         ]
+        }
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "Switch",
+         "GroupId": "1322221620",
+         "Id": "1886858606",
+         "GUID": "{788D13F5-1F05-4F4A-BE4F-8A1EF6805B79}"
+        },
+        "PluginRefs": {
+         "Custom": [
+          {
+           "Id": "101240729"
+          }
+         ]
+        }
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "Switch",
+         "GroupId": "1322221620",
+         "Id": "1886858601",
+         "GUID": "{ACBE45F6-5B70-4B2D-8E17-27F29BB1758A}"
+        },
+        "PluginRefs": {
+         "Custom": [
+          {
+           "Id": "215589727"
+          }
+         ]
+        }
+       }
+      ]
+     },
+     {
+      "Id": "1111520197",
+      "Name": "ErrorPopup",
+      "ObjectPath": "\\Events\\Default Work Unit\\OneShots\\ErrorPopup",
+      "GUID": "{7B56775F-34F5-4CED-9A59-BDA22F2AF1F6}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.69016665",
+      "DurationMax": "1.0995625",
+      "MediaRefs": [
+       {
+        "Id": "756307878"
+       },
+       {
+        "Id": "1038107345"
+       }
+      ]
+     },
+     {
+      "Id": "1866025847",
+      "Name": "Footstep",
+      "ObjectPath": "\\Events\\Default Work Unit\\OneShots\\Footstep",
+      "GUID": "{F3E23F03-8830-4BBA-A927-E2C1BA202483}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.4558125",
+      "DurationMax": "0.4558125",
+      "MediaRefs": [
+       {
+        "Id": "245447153"
+       },
+       {
+        "Id": "637730733"
+       },
+       {
+        "Id": "950429655"
+       }
+      ]
+     },
+     {
+      "Id": "1466384055",
+      "Name": "Interact",
+      "ObjectPath": "\\Events\\Default Work Unit\\OneShots\\Interact",
+      "GUID": "{28D4F223-C947-496D-9973-26C7625D8407}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.09222222",
+      "DurationMax": "0.09222222",
+      "MediaRefs": [
+       {
+        "Id": "116328347"
+       }
+      ]
+     },
+     {
+      "Id": "293658751",
+      "Name": "PlayerNote_Play",
+      "ObjectPath": "\\Events\\Default Work Unit\\SynthesisedNotes\\PlayerNote_Play",
+      "GUID": "{C01BC916-A8B5-4A24-82C5-AA348627A51B}",
+      "DurationType": "Infinite",
+      "SwitchContainers": [
+       {
+        "SwitchValue": {
+         "GroupType": "Switch",
+         "GroupId": "2888024727",
+         "Id": "1886858606",
+         "GUID": "{52FA840B-F0BE-4A10-93E7-42CD08E310FE}"
+        },
+        "PluginRefs": {
+         "Custom": [
+          {
+           "Id": "629292891"
+          }
+         ]
+        }
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "Switch",
+         "GroupId": "2888024727",
+         "Id": "731057968",
+         "GUID": "{8020C317-B74C-4FF1-834B-7DA41719AE45}"
+        },
+        "PluginRefs": {
+         "Custom": [
+          {
+           "Id": "15597294"
+          }
+         ]
+        }
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "Switch",
+         "GroupId": "2888024727",
+         "Id": "362097357",
+         "GUID": "{3BF68D54-17B6-4B69-B618-1054A7EB51B9}"
+        },
+        "PluginRefs": {
+         "Custom": [
+          {
+           "Id": "148868113"
+          }
+         ]
+        }
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "Switch",
+         "GroupId": "2888024727",
+         "Id": "596439562",
+         "GUID": "{A51D1E5A-1058-417B-8475-8577F826B138}"
+        },
+        "PluginRefs": {
+         "Custom": [
+          {
+           "Id": "628809783"
+          }
+         ]
+        }
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "Switch",
+         "GroupId": "2888024727",
+         "Id": "1870081012",
+         "GUID": "{5FCBA95C-AB35-4218-B37D-54641312732D}"
+        },
+        "PluginRefs": {
+         "Custom": [
+          {
+           "Id": "822517995"
+          }
+         ]
+        }
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "Switch",
+         "GroupId": "2888024727",
+         "Id": "1836525717",
+         "GUID": "{13072478-B106-4FEB-9013-6BB741F8D210}"
+        },
+        "PluginRefs": {
+         "Custom": [
+          {
+           "Id": "532149392"
+          }
+         ]
+        }
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "Switch",
+         "GroupId": "2888024727",
+         "Id": "1802970447",
+         "GUID": "{DF50AEA3-B90A-493F-ACAD-55D492BE94E0}"
+        },
+        "PluginRefs": {
+         "Custom": [
+          {
+           "Id": "913346719"
+          }
+         ]
+        }
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "Switch",
+         "GroupId": "2888024727",
+         "Id": "1853303296",
+         "GUID": "{1430E6BD-B1BC-4548-A7D6-2BB45AD5E32F}"
+        },
+        "PluginRefs": {
+         "Custom": [
+          {
+           "Id": "282942249"
+          }
+         ]
+        }
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "Switch",
+         "GroupId": "2888024727",
+         "Id": "1134309148",
+         "GUID": "{0AD5F6C6-9B34-4110-9142-D825387FD57A}"
+        },
+        "PluginRefs": {
+         "Custom": [
+          {
+           "Id": "985916210"
+          }
+         ]
+        }
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "Switch",
+         "GroupId": "2888024727",
+         "Id": "1886858601",
+         "GUID": "{6B1F12C9-0F24-4AA6-B42F-476B1E181981}",
+         "Default": "true"
+        },
+        "PluginRefs": {
+         "Custom": [
+          {
+           "Id": "257499401"
+          }
+         ]
+        }
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "Switch",
+         "GroupId": "2888024727",
+         "Id": "1819748154",
+         "GUID": "{43425FD4-DEE4-44C7-8F6F-5375679EFB7D}"
+        },
+        "PluginRefs": {
+         "Custom": [
+          {
+           "Id": "358533383"
+          }
+         ]
+        }
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "Switch",
+         "GroupId": "2888024727",
+         "Id": "1786192860",
+         "GUID": "{6D678AE1-8815-4786-93AE-DD552EEB7D90}"
+        },
+        "PluginRefs": {
+         "Custom": [
+          {
+           "Id": "1039739895"
+          }
+         ]
+        }
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "Switch",
+         "GroupId": "2888024727",
+         "Id": "496612492",
+         "GUID": "{CAA7C1FA-14B0-459B-A9F0-8F1550AD19CA}"
+        },
+        "PluginRefs": {
+         "Custom": [
+          {
+           "Id": "548947014"
+          }
+         ]
+        }
+       }
+      ]
+     },
+     {
+      "Id": "3309421160",
+      "Name": "PopupRetract",
+      "ObjectPath": "\\Events\\Default Work Unit\\OneShots\\PopupRetract",
+      "GUID": "{95D81565-1096-47AF-B62D-88AE59420FF8}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.2010625",
+      "DurationMax": "0.2010625",
+      "MediaRefs": [
+       {
+        "Id": "1016278260"
+       }
+      ]
+     },
+     {
+      "Id": "1851077388",
+      "Name": "Stone_Bridge",
+      "ObjectPath": "\\Events\\Default Work Unit\\OneShots\\Stone_Bridge",
+      "GUID": "{2E0A67A7-D424-435D-9713-0383026D5F3C}",
+      "DurationType": "OneShot",
+      "DurationMin": "6.341032",
+      "DurationMax": "6.341032",
+      "MediaRefs": [
+       {
+        "Id": "49968161"
+       },
+       {
+        "Id": "113702393"
+       },
+       {
+        "Id": "631927599"
+       }
+      ]
+     },
+     {
+      "Id": "1846943658",
+      "Name": "Toast_Pop",
+      "ObjectPath": "\\Events\\Default Work Unit\\OneShots\\Toast_Pop",
+      "GUID": "{8A1B70E5-A83F-4AEB-95E8-5398FD8287F3}",
+      "DurationType": "OneShot",
+      "DurationMin": "0.117212005",
+      "DurationMax": "0.117212005",
+      "MediaRefs": [
+       {
+        "Id": "419529499"
+       }
+      ]
+     }
+    ],
+    "SwitchGroups": [
+     {
+      "Id": "1322221620",
+      "Name": "Env_Looping_A3_A4",
+      "ObjectPath": "\\Switches\\Default Work Unit\\Environment\\Env_Looping_A3_A4",
+      "GUID": "{8B5E1D8B-C7A1-40AA-BC50-D079E01B90C8}",
+      "Switches": [
+       {
+        "Id": "362097357",
+        "Name": "Db4",
+        "ObjectPath": "\\Switches\\Default Work Unit\\Environment\\Env_Looping_A3_A4\\Db4",
+        "GUID": "{55ECB9A2-4E6C-4D91-A1A1-8175475068A8}"
+       },
+       {
+        "Id": "496612492",
+        "Name": "Bb3",
+        "ObjectPath": "\\Switches\\Default Work Unit\\Environment\\Env_Looping_A3_A4\\Bb3",
+        "GUID": "{98B2BB30-1498-48BC-AB56-863B880175D2}"
+       },
+       {
+        "Id": "596439562",
+        "Name": "Gb4",
+        "ObjectPath": "\\Switches\\Default Work Unit\\Environment\\Env_Looping_A3_A4\\Gb4",
+        "GUID": "{BDD3AA51-A411-4230-886D-450AE1B534C6}"
+       },
+       {
+        "Id": "731057968",
+        "Name": "Eb4",
+        "ObjectPath": "\\Switches\\Default Work Unit\\Environment\\Env_Looping_A3_A4\\Eb4",
+        "GUID": "{DF31FA23-487C-4C8F-8EAA-9206526254B9}"
+       },
+       {
+        "Id": "1134309148",
+        "Name": "Ab4",
+        "ObjectPath": "\\Switches\\Default Work Unit\\Environment\\Env_Looping_A3_A4\\Ab4",
+        "GUID": "{96E8BDBC-6723-4D90-802A-B53DCDB00995}"
+       },
+       {
+        "Id": "1786192860",
+        "Name": "G4",
+        "ObjectPath": "\\Switches\\Default Work Unit\\Environment\\Env_Looping_A3_A4\\G4",
+        "GUID": "{1383D1CE-2585-457B-8238-4A25761F3446}"
+       },
+       {
+        "Id": "1802970447",
+        "Name": "F4",
+        "ObjectPath": "\\Switches\\Default Work Unit\\Environment\\Env_Looping_A3_A4\\F4",
+        "GUID": "{7D2143D5-1ED2-4349-B840-D77BFDC54853}"
+       },
+       {
+        "Id": "1819748154",
+        "Name": "E4",
+        "ObjectPath": "\\Switches\\Default Work Unit\\Environment\\Env_Looping_A3_A4\\E4",
+        "GUID": "{E91287C1-6249-421C-906E-0D7D8F0C0D10}"
+       },
+       {
+        "Id": "1836525717",
+        "Name": "D4",
+        "ObjectPath": "\\Switches\\Default Work Unit\\Environment\\Env_Looping_A3_A4\\D4",
+        "GUID": "{CA42AEBB-889B-4A9B-BE60-71578ED65241}"
+       },
+       {
+        "Id": "1853303296",
+        "Name": "C4",
+        "ObjectPath": "\\Switches\\Default Work Unit\\Environment\\Env_Looping_A3_A4\\C4",
+        "GUID": "{A8D747A0-9FC4-4C37-9214-85837A056069}"
+       },
+       {
+        "Id": "1870081012",
+        "Name": "B3",
+        "ObjectPath": "\\Switches\\Default Work Unit\\Environment\\Env_Looping_A3_A4\\B3",
+        "GUID": "{929BF808-C538-4493-BA45-7E2ED4E73DF9}"
+       },
+       {
+        "Id": "1886858601",
+        "Name": "A3",
+        "ObjectPath": "\\Switches\\Default Work Unit\\Environment\\Env_Looping_A3_A4\\A3",
+        "GUID": "{ACBE45F6-5B70-4B2D-8E17-27F29BB1758A}"
+       },
+       {
+        "Id": "1886858606",
+        "Name": "A4",
+        "ObjectPath": "\\Switches\\Default Work Unit\\Environment\\Env_Looping_A3_A4\\A4",
+        "GUID": "{788D13F5-1F05-4F4A-BE4F-8A1EF6805B79}"
+       }
+      ]
+     },
+     {
+      "Id": "2888024727",
+      "Name": "Ply_A3_A4",
+      "ObjectPath": "\\Switches\\Default Work Unit\\Player\\Ply_A3_A4",
+      "GUID": "{77D8D52D-AB1E-4C00-8935-9D48132F9E70}",
+      "Switches": [
+       {
+        "Id": "362097357",
+        "Name": "Db4",
+        "ObjectPath": "\\Switches\\Default Work Unit\\Player\\Ply_A3_A4\\Db4",
+        "GUID": "{3BF68D54-17B6-4B69-B618-1054A7EB51B9}"
+       },
+       {
+        "Id": "496612492",
+        "Name": "Bb3",
+        "ObjectPath": "\\Switches\\Default Work Unit\\Player\\Ply_A3_A4\\Bb3",
+        "GUID": "{CAA7C1FA-14B0-459B-A9F0-8F1550AD19CA}"
+       },
+       {
+        "Id": "596439562",
+        "Name": "Gb4",
+        "ObjectPath": "\\Switches\\Default Work Unit\\Player\\Ply_A3_A4\\Gb4",
+        "GUID": "{A51D1E5A-1058-417B-8475-8577F826B138}"
+       },
+       {
+        "Id": "731057968",
+        "Name": "Eb4",
+        "ObjectPath": "\\Switches\\Default Work Unit\\Player\\Ply_A3_A4\\Eb4",
+        "GUID": "{8020C317-B74C-4FF1-834B-7DA41719AE45}"
+       },
+       {
+        "Id": "1134309148",
+        "Name": "Ab4",
+        "ObjectPath": "\\Switches\\Default Work Unit\\Player\\Ply_A3_A4\\Ab4",
+        "GUID": "{0AD5F6C6-9B34-4110-9142-D825387FD57A}"
+       },
+       {
+        "Id": "1786192860",
+        "Name": "G4",
+        "ObjectPath": "\\Switches\\Default Work Unit\\Player\\Ply_A3_A4\\G4",
+        "GUID": "{6D678AE1-8815-4786-93AE-DD552EEB7D90}"
+       },
+       {
+        "Id": "1802970447",
+        "Name": "F4",
+        "ObjectPath": "\\Switches\\Default Work Unit\\Player\\Ply_A3_A4\\F4",
+        "GUID": "{DF50AEA3-B90A-493F-ACAD-55D492BE94E0}"
+       },
+       {
+        "Id": "1819748154",
+        "Name": "E4",
+        "ObjectPath": "\\Switches\\Default Work Unit\\Player\\Ply_A3_A4\\E4",
+        "GUID": "{43425FD4-DEE4-44C7-8F6F-5375679EFB7D}"
+       },
+       {
+        "Id": "1836525717",
+        "Name": "D4",
+        "ObjectPath": "\\Switches\\Default Work Unit\\Player\\Ply_A3_A4\\D4",
+        "GUID": "{13072478-B106-4FEB-9013-6BB741F8D210}"
+       },
+       {
+        "Id": "1853303296",
+        "Name": "C4",
+        "ObjectPath": "\\Switches\\Default Work Unit\\Player\\Ply_A3_A4\\C4",
+        "GUID": "{1430E6BD-B1BC-4548-A7D6-2BB45AD5E32F}"
+       },
+       {
+        "Id": "1870081012",
+        "Name": "B3",
+        "ObjectPath": "\\Switches\\Default Work Unit\\Player\\Ply_A3_A4\\B3",
+        "GUID": "{5FCBA95C-AB35-4218-B37D-54641312732D}"
+       },
+       {
+        "Id": "1886858601",
+        "Name": "A3",
+        "ObjectPath": "\\Switches\\Default Work Unit\\Player\\Ply_A3_A4\\A3",
+        "GUID": "{6B1F12C9-0F24-4AA6-B42F-476B1E181981}"
+       },
+       {
+        "Id": "1886858606",
+        "Name": "A4",
+        "ObjectPath": "\\Switches\\Default Work Unit\\Player\\Ply_A3_A4\\A4",
+        "GUID": "{52FA840B-F0BE-4A10-93E7-42CD08E310FE}"
+       }
+      ]
+     }
+    ]
+   }
+  ],
+  "FileHash": "{1D0E1CC6-514C-79B5-12D7-8DEF063C6472}"
+ }
+}

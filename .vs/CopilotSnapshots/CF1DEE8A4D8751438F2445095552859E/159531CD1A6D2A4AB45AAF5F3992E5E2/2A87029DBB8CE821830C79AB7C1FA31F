@@ -1,9 +1,6 @@
-using UnityEngine;
+﻿using UnityEngine;
 using static UnityEngine.GridBrushBase;
 
-/// <summary>
-/// Rotates a mirror object in response to musical notes played by the player.
-/// </summary>
 public class MirrorStone : MonoBehaviour
 {
     [SerializeField] private GameObject _mirror;
@@ -23,9 +20,6 @@ public class MirrorStone : MonoBehaviour
    
     public bool CanRotate = true;
 
-    /// <summary>
-    /// Creates UI rotation indicators for both clockwise and counter-clockwise directions.
-    /// </summary>
     private void Start()
     {
         if(CanRotate)
@@ -54,9 +48,6 @@ public class MirrorStone : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// Rotates the mirror based on the current rotation direction each frame.
-    /// </summary>
     private void Update()
     {
         if (_rotationDirection == 0) return;
@@ -71,10 +62,6 @@ public class MirrorStone : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// Enables rotation controls and displays UI prompts when the player enters the trigger area.
-    /// </summary>
-    /// <param name="other">The collider that entered the trigger.</param>
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player") && CanRotate)
@@ -86,10 +73,6 @@ public class MirrorStone : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// Disables rotation controls and hides UI prompts when the player exits the trigger area.
-    /// </summary>
-    /// <param name="other">The collider that exited the trigger.</param>
     private void OnTriggerExit(Collider other)
     {
         NotePlayed.OnNotePlayed -= RotateMirror;
@@ -98,10 +81,6 @@ public class MirrorStone : MonoBehaviour
         _rotateCounterClockwiseUIPrompt.SetActive(false);
     }
 
-    /// <summary>
-    /// Sets the rotation direction based on the incoming note.
-    /// </summary>
-    /// <param name="incomingNote">The note title to check against rotation triggers.</param>
     private void RotateMirror(string incomingNote)
     {
         if (!CanRotate) return;
@@ -112,9 +91,6 @@ public class MirrorStone : MonoBehaviour
             _rotationDirection = 1;
     }
 
-    /// <summary>
-    /// Stops the mirror from rotating by resetting the rotation direction.
-    /// </summary>
     private void StopRotating()
     {
         _rotationDirection = 0;

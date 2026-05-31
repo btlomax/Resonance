@@ -129,6 +129,12 @@ public class ResonatorPuzzle : BasePuzzleManager
             StartCoroutine(StartLookup(notesRecorded[0]));
     }
 
+    /// <summary>
+    /// Stop recording, start note comparison lookup and handle the result after a brief delay to allow for any final events to finish.
+    /// If the correct note is played, mark the puzzle as solved. If not, provide feedback and allow the player to try again after a delay.
+    /// </summary>
+    /// <param name="noteRecorded">The note that was recorded and will be compared to the target note.</param>
+    /// <returns>An IEnumerator for coroutine handling.</returns>
     private IEnumerator StartLookup(string noteRecorded)
     {
         _recorder.ToggleContinousRecording(); // Stop recording to prevent interference during comparison
@@ -162,6 +168,13 @@ public class ResonatorPuzzle : BasePuzzleManager
         OnPuzzleActivated();
     }
 
+    /// <summary>
+    /// Calls NoteManager and compares the incoming note to the target note after a brief delay.
+    /// Could take delay out into a separate, more generic method, making the delay an Inspector variable so it can be easily adjusted in the scene.
+    /// </summary>
+    /// <param name="delay"></param>
+    /// <param name="note"></param>
+    /// <returns></returns>
     private IEnumerator DelayAndLookup(float delay, string note)
     {
         yield return new WaitForSeconds(delay);

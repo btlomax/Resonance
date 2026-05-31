@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using static UnityEngine.GridBrushBase;
 
 /// <summary>
@@ -112,9 +112,6 @@ public class MirrorStone : MonoBehaviour
             _rotationDirection = 1;
     }
 
-    /// <summary>
-    /// Stops the mirror from rotating by resetting the rotation direction.
-    /// </summary>
     private void StopRotating()
     {
         _rotationDirection = 0;

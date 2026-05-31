@@ -1,4 +1,4 @@
-using Assets.Data.GameManagement;
+﻿using Assets.Data.GameManagement;
 using NUnit.Framework;
 using System.Collections;
 using System.Collections.Generic;
@@ -120,11 +120,6 @@ public class GameUIManager : MonoBehaviour
         Debug.Log($"Showing popup: {data.title} - {data.bodyText}");
     }
 
-    /// <summary>
-    /// Displays a toast popup panel.
-    /// </summary>
-    /// <param name="data">The popup data containing title and text.</param>
-    /// <param name="error">Whether this is an error toast (disables sound effect).</param>
     private void ShowToastPanel(PopupData data, bool error = false)
     {
         toastPanel.GetComponentInChildren<TMP_Text>().SetText($"{data.title}\n\n{data.bodyText}");
@@ -137,11 +132,6 @@ public class GameUIManager : MonoBehaviour
         Debug.Log($"Showing toast: {data.title} - {data.bodyText}");
     }
 
-    /// <summary>
-    /// Animates a panel sliding in, waits for display duration, then slides out.
-    /// </summary>
-    /// <param name="data">The popup data containing display duration and pause settings.</param>
-    /// <param name="panel">The GameObject panel to animate.</param>
     private IEnumerator SlidePanelIn(PopupData data, GameObject panel)
     {
         RectTransform rect = panel.GetComponent<RectTransform>();
@@ -183,9 +173,6 @@ public class GameUIManager : MonoBehaviour
             Time.timeScale = 1f; // Resume the game regardless of popup type, as big popups will pause the game and we want to ensure it resumes after the toast is done
     }
 
-    /// <summary>
-    /// Fades the screen to black over 5 seconds, then loads scene 0.
-    /// </summary>
     private IEnumerator AlphaFadeToBlack()
     {
         Debug.Log("Starting fade effect");
@@ -206,9 +193,6 @@ public class GameUIManager : MonoBehaviour
         SceneManager.LoadScene(0);
     }
 
-    /// <summary>
-    /// Fades the screen from black over 5 seconds.
-    /// </summary>
     private IEnumerator AlphaFadeFromBlack()
     {
         Debug.Log("Starting fade effect");

@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using static UnityEngine.GridBrushBase;
 
 /// <summary>
@@ -98,10 +98,6 @@ public class MirrorStone : MonoBehaviour
         _rotateCounterClockwiseUIPrompt.SetActive(false);
     }
 
-    /// <summary>
-    /// Sets the rotation direction based on the incoming note.
-    /// </summary>
-    /// <param name="incomingNote">The note title to check against rotation triggers.</param>
     private void RotateMirror(string incomingNote)
     {
         if (!CanRotate) return;
@@ -112,9 +108,6 @@ public class MirrorStone : MonoBehaviour
             _rotationDirection = 1;
     }
 
-    /// <summary>
-    /// Stops the mirror from rotating by resetting the rotation direction.
-    /// </summary>
     private void StopRotating()
     {
         _rotationDirection = 0;

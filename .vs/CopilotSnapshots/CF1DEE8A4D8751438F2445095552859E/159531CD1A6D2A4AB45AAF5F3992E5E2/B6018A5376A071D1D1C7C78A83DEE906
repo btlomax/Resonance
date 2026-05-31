@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using static UnityEngine.GridBrushBase;
 
 /// <summary>
@@ -71,10 +71,6 @@ public class MirrorStone : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// Enables rotation controls and displays UI prompts when the player enters the trigger area.
-    /// </summary>
-    /// <param name="other">The collider that entered the trigger.</param>
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player") && CanRotate)
@@ -86,10 +82,6 @@ public class MirrorStone : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// Disables rotation controls and hides UI prompts when the player exits the trigger area.
-    /// </summary>
-    /// <param name="other">The collider that exited the trigger.</param>
     private void OnTriggerExit(Collider other)
     {
         NotePlayed.OnNotePlayed -= RotateMirror;
@@ -98,10 +90,6 @@ public class MirrorStone : MonoBehaviour
         _rotateCounterClockwiseUIPrompt.SetActive(false);
     }
 
-    /// <summary>
-    /// Sets the rotation direction based on the incoming note.
-    /// </summary>
-    /// <param name="incomingNote">The note title to check against rotation triggers.</param>
     private void RotateMirror(string incomingNote)
     {
         if (!CanRotate) return;
@@ -112,9 +100,6 @@ public class MirrorStone : MonoBehaviour
             _rotationDirection = 1;
     }
 
-    /// <summary>
-    /// Stops the mirror from rotating by resetting the rotation direction.
-    /// </summary>
     private void StopRotating()
     {
         _rotationDirection = 0;

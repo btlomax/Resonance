@@ -1,4 +1,4 @@
-using Assets.Data.GameManagement;
+﻿using Assets.Data.GameManagement;
 using NUnit.Framework;
 using System.Collections;
 using System.Collections.Generic;
@@ -206,9 +206,6 @@ public class GameUIManager : MonoBehaviour
         SceneManager.LoadScene(0);
     }
 
-    /// <summary>
-    /// Fades the screen from black over 5 seconds.
-    /// </summary>
     private IEnumerator AlphaFadeFromBlack()
     {
         Debug.Log("Starting fade effect");

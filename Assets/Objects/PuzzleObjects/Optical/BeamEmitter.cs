@@ -57,7 +57,7 @@ public class BeamEmitter : BaseMechanism
     /// returns without effect. The color of the emitted beam is determined by the note and current settings; if note
     /// color transmission is enabled, the beam color corresponds to the note's scale degree, otherwise it is
     /// white.</remarks>
-    /// <param name="incomingNote">The note to evaluate for beam emission. The beam is emitted only if this value matches the resonant note.</param>
+    /// <param name="incomingNote">The note to evaluate for beam emission. The beam is emitted only if this value matches the resonante note.</param>
     public void EmitFromNote(string incomingNote)
     {
         if(_beamOrigin == null)
@@ -117,8 +117,6 @@ public class BeamEmitter : BaseMechanism
             onNotePlayed.OnNotePlayed += EmitFromNote;
             _emitterGem.GetComponentInChildren<Renderer>().material.color = Color.white;
             _emitterLight.enabled = true;
-
-
         }
     }
 
@@ -128,6 +126,9 @@ public class BeamEmitter : BaseMechanism
         _emitterLight.enabled = false;
     }
 
+    /// <summary>
+    /// Turns off the trigger collider and emits a beam without requiring a note, typically used for direct player interaction or puzzle activation.
+    /// </summary>
     public override void ActivateMechanism()
     {
         var trigger = GetComponent<BoxCollider>();
